@@ -1,0 +1,123 @@
+{% extends './layout/layout.html' %}
+
+{% block content %}
+
+    <!-- contact banner area srart -->
+    <div class="contact-banner-area-start faq rts-section-gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- banner main inner contact areas start -->
+                    <div class="banner-inner-area-contact-inner">
+                        <h1 class="title skew-up-2">Take a tour of our <br><span>TERMS</span></h1>
+                        <p class="disc">Amet tempor ornare a nunc mauris. Arcu dui ut ultrices nunc mattis vitae.
+                            Aliquam pulvinar libero iaculis iaculis nullam urna.</p>
+                    </div>
+                    <!-- banner main inner contact areas end -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- contact banner area end -->
+
+    <!-- faq call to action area start -->
+    {% include  './partials/faq.html' %}
+    <!-- faq call to action area end -->
+
+    <!-- rts-testimonials-area start -->
+    {% include  './partials/testimonials.html' %}
+    <!-- rts-testimonials-area end -->
+
+    <!-- blog area start -->
+    {% include  './partials/blog2.html' %}
+    <!-- blog area start -->
+
+    <!-- subscription area start -->
+    {% include  './partials/subscription2.html' %}
+    <!-- subscription area end -->
+
+    <div class="rts-footer-area footer-four rts-section-gap">
+        <div class="container mb--65">
+            <div class="row g-48 g-lg-0">
+                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                    <!-- single footer four wized -->
+                    <div class="single-footer-four-wized">
+                        <h5 class="title">Company</h5>
+                        <ul>
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">We hire</a></li>
+                            <li><a href="#">Insights</a></li>
+                        </ul>
+                    </div>
+                    <!-- single footer four wized end -->
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                    <!-- single footer four wized -->
+                    <div class="single-footer-four-wized">
+                        <h5 class="title">Resources</h5>
+                        <ul>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Help center</a></li>
+                            <li><a href="#">Ask for support</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <!-- single footer four wized end -->
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                    <!-- single footer four wized -->
+                    <div class="single-footer-four-wized">
+                        <h5 class="title">Social</h5>
+                        <ul>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">Linkedin</a></li>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Instagram</a></li>
+                        </ul>
+                    </div>
+                    <!-- single footer four wized end -->
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                    <!-- single footer four wized -->
+                    <div class="single-footer-four-wized">
+                        <h5 class="title">Legal</h5>
+                        <ul>
+                            <li><a href="{% url 'terms' %}">Terms of service</a></li>
+                            <li><a href="{% url 'privacyPolicy' %}">Privacy policy</a></li>
+                            <li><a href="#">Cookies</a></li>
+                            <li><a href="#">Sitemap</a></li>
+                        </ul>
+                    </div>
+                    <!-- single footer four wized end -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                    <!-- single footer four wized -->
+                    <div class="single-footer-four-wized">
+                        <h5 class="title">Newsletter</h5>
+                        <div class="footer-input-btn-between">
+                            <form action="#">
+                                <input required="" type="email" placeholder="Your email..">
+                                <i class="fa-regular fa-envelope"></i>
+                                <button class="rts-btn btn-primary-4">Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="copyright-area-four pt--65 mt-65 border-top">
+                        <a href="#" class="logo">
+                            <img src="/static/images/logo/logo-one-dark.svg" alt="logo">
+                        </a>
+                        <p>© 2023 Fluxi, All right reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

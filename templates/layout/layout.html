@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include  '../partials/head.html' %}
+
+<body>
+
+<!-- header area start -->
+{% if header %}
+{% include  '../partials/header.html' %}
+{% endif %}
+<!-- header area end -->
+
+        {% block content %}
+
+        {% endblock %} 
+
+<!-- footer area start -->
+{% if footer %}
+{% include  '../partials/footer.html' %}
+{% endif %}
+<!-- footer area end -->
+
+<div id="anywhere-home" class=""></div>
+
+<!-- side bar area  -->
+{% include  '../partials/sideBar.html' %}
+<!-- side abr area end -->
+
+<!-- pre loader start -->
+{% include  '../partials/preLoader.html' %}
+<!-- pre loader end -->
+
+<!-- THEME MODE SWITCHER -->
+{% include  '../partials/themeMode.html' %}
+<!-- THEME MODE SWITCHER END -->
+
+<!-- progress area start -->
+{% include  '../partials/progress.html' %}
+<!-- progress area end -->
+
+{% include  '../partials/script.html' %}
+
+</body>
+
+</html>

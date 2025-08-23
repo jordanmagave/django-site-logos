@@ -1,0 +1,364 @@
+{% extends '../layout/layout.html' %}
+
+{% block content %}
+
+    <header class="header-style-one case-studies header--sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="header-style-one-wrapper">
+                        <div class="logo-area">
+                            <a href="{% url 'index' %}" class="logo">
+                                <img src="/static/images/logo/logo-8.svg" alt="logo">
+                            </a>
+                        </div>
+                        <nav class="main-nav-area">
+                            <ul class="list-unstyled fluxi-desktop-menu">
+                                <li class="menu-item fluxi-has-dropdown">
+                                    <a href="#" class="fluxi-dropdown-main-element">Home</a>
+                                    <!-- Start Dropdown Menu -->
+                                    <ul class="fluxi-submenu list-unstyled menu-home">
+                                        <li class="nav-item"><a class="nav-link page" href="{% url 'index' %}">SEO Marketing</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'indexTwo' %}">Digital Marketing</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'indexThree' %}">Digital Agency</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'indexFour' %}">Startup Agency</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'indexFive' %}">Advertising agency</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'indexSix' %}">Web Design Agency</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'indexSeven' %}">Social Media agency</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'indexEight' %}">SEO Agency</a></li>
+                                    </ul>
+                                    <!-- End Dropdown Menu -->
+                                </li>
+                                <li class="menu-item fluxi-has-dropdown">
+                                    <a href="#" class="fluxi-dropdown-main-element">Pages</a>
+                                    <!-- Start Dropdown Menu -->
+                                    <ul class="fluxi-submenu list-unstyled menu-home">
+                                        <li class="nav-item"><a class="nav-link page" href="{% url 'about' %}">About</a></li>
+                                        <li class="nav-item"><a class="nav-link page" href="{% url 'team' %}">Our Team</a></li>
+                                        <li class="nav-item"><a class="nav-link page" href="{% url 'faq' %}">FAQ's</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'bookDemo' %}">Book a Demo</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'free' %}">Free Audit</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'pricing' %}">Pricing Plans</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'pageError' %}">404 Page</a></li>
+                                    </ul>
+                                    <!-- End Dropdown Menu -->
+                                </li>
+                                <li class="menu-item fluxi-has-dropdown">
+                                    <a href="#" class="fluxi-dropdown-main-element">Services</a>
+                                    <!-- Start Dropdown Menu -->
+                                    <ul class="fluxi-submenu list-unstyled menu-home">
+                                        <li class="nav-item"><a class="nav-link page" href="{% url 'service' %}">Service</a></li>
+                                        <li class="nav-item sub-dropdown">
+                                            <a href="#" class="nav-link sub-menu-link">Service Details</a>
+                                            <ul class="fluxi-submenu third-lvl base">
+                                                <li><a class="mobile-menu-link" href="{% url 'serviceSingle' %}">Paid Search Marketing</a></li>
+                                                <li><a class="mobile-menu-link" href="{% url 'emailMarketing' %}">Email Marketing</a></li>
+                                                <li><a class="mobile-menu-link" href="{% url 'socialMediaMarketing' %}">Social Media Marketing</a></li>
+                                                <li><a class="mobile-menu-link" href="{% url 'influencerMarketing' %}">Influencer Marketing</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <!-- End Dropdown Menu -->
+                                </li>
+                                <li class="menu-item fluxi-has-dropdown">
+                                    <a href="#" class="fluxi-dropdown-main-element">Work</a>
+                                    <!-- Start Dropdown Menu -->
+                                    <ul class="fluxi-submenu list-unstyled menu-home">
+                                        <li class="nav-item"><a class="nav-link page" href="{% url 'caseStudies' %}">Case Studies</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'singleCaseStudies' %}">Case Studies Details</a></li>
+                                    </ul>
+                                    <!-- End Dropdown Menu -->
+                                </li>
+                                <li class="menu-item fluxi-has-dropdown">
+                                    <a href="#" class="fluxi-dropdown-main-element">Blog</a>
+                                    <!-- Start Dropdown Menu -->
+                                    <ul class="fluxi-submenu list-unstyled menu-home">
+                                        <li class="nav-item"><a class="nav-link page" href="{% url 'blog' %}">Blog</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'blogLeftSidebar' %}">Blog Left Sidebar</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'blogGrid' %}">Blog Grid</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'blogGrid2' %}">Blog Grid Right Sidebar</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'blogGrid3' %}">Blog Grid Left Sidebar</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'blogDetails' %}">Blog Details</a></li>
+                                    </ul>
+                                    <!-- End Dropdown Menu -->
+                                </li>
+
+                                <li class="menu-item"><a class="main-element fluxi-dropdown-main-element" href="{% url 'contact' %}">Contact</a></li>
+                            </ul>
+                        </nav>
+                        <div class="button-area-start">
+                            <a class="demo-req" href="#">Request a demo</a>
+                            <a href="#" class="rts-btn btn-primary-5">Get started</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- banner case studies area -->
+    <div class="banner-case-studies">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="banner-case-studies-wrapper">
+                        <h1 class="title split-collab">We bring your <br>
+                            boldest <span>ideas to life</span></h1>
+                        <p class="disc">
+                            Amet tempor ornare a nunc mauris. Arcu dui ut ultrices nunc mattis vitae.
+                            Aliquam pulvinar libero iaculis iaculis nullam urna.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner case studies area end -->
+
+    <div class="rts-product-area-case-studies rts-section-gapBottom">
+        <div class="container">
+            <div class="row g-48 justify-content-sm-center">
+                <div class="col-lg-6 col-md-6 col-sm-10 mb--60">
+                    <!-- portfolio single -->
+                    <div class="siongle-portfolio-box-style">
+                        <a href="{% url 'singleCaseStudies' %}" class="thumbnail">
+                            <img src="/static/images/product/04.png" alt="product">
+                        </a>
+                        <div class="inner-content">
+                            <div class="left-content">
+                                <span class="pre">Website, B2B, SaaS, 3D</span>
+                                <a href="{% url 'singleCaseStudies' %}">
+                                    <h3 class="title animated fadeIn">Cornerstone</h3>
+                                </a>
+                                <p>Web experience for an enterprise people development platform</p>
+                            </div>
+                            <div class="right">
+                                <a href="{% url 'singleCaseStudies' %}">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- portfolio single end -->
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-10 mb--60">
+                    <!-- portfolio single -->
+                    <div class="siongle-portfolio-box-style">
+                        <a href="{% url 'singleCaseStudies' %}" class="thumbnail">
+                            <img src="/static/images/product/05.png" alt="product">
+                        </a>
+                        <div class="inner-content">
+                            <div class="left-content">
+                                <span class="pre">Website, B2B, SaaS, 3D</span>
+                                <a href="{% url 'singleCaseStudies' %}">
+                                    <h3 class="title animated fadeIn">Discover</h3>
+                                </a>
+                                <p>Web experience for an enterprise people development platform</p>
+                            </div>
+                            <div class="right">
+                                <a href="{% url 'singleCaseStudies' %}">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- portfolio single end -->
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-10">
+                    <!-- portfolio single -->
+                    <div class="siongle-portfolio-box-style">
+                        <a href="{% url 'singleCaseStudies' %}" class="thumbnail">
+                            <img src="/static/images/product/06.png" alt="product">
+                        </a>
+                        <div class="inner-content">
+                            <div class="left-content">
+                                <span class="pre">Website, B2B, SaaS, 3D</span>
+                                <a href="{% url 'singleCaseStudies' %}">
+                                    <h3 class="title animated fadeIn">Simplifi</h3>
+                                </a>
+                                <p>Web experience for an enterprise people development platform</p>
+                            </div>
+                            <div class="right">
+                                <a href="{% url 'singleCaseStudies' %}">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- portfolio single end -->
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-10">
+                    <!-- portfolio single -->
+                    <div class="siongle-portfolio-box-style">
+                        <a href="{% url 'singleCaseStudies' %}" class="thumbnail">
+                            <img src="/static/images/product/07.png" alt="product">
+                        </a>
+                        <div class="inner-content">
+                            <div class="left-content">
+                                <span class="pre">Website, B2B, SaaS, 3D</span>
+                                <a href="{% url 'singleCaseStudies' %}">
+                                    <h3 class="title animated fadeIn">Stripe</h3>
+                                </a>
+                                <p>Web experience for an enterprise people development platform</p>
+                            </div>
+                            <div class="right">
+                                <a href="{% url 'singleCaseStudies' %}">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- portfolio single end -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- product area start -->
+    <div class="product-area-start-case-studies home-seven-case rts-section-gap">
+        <div class="container">
+            <div class="row">
+                <div class="title-style-one-center">
+                    <span class="pre skew-up">Our featured and recent works</span>
+                    <h2 class="title skew-up">Case Studies</h2>
+                </div>
+            </div>
+            <div class="row g-48 mt--0 justify-content-sm-center justify-content-md-start">
+                <div class="col-lg-4 col-md-6 col-sm-10">
+                    <div class="siongle-portfolio-box-style">
+                        <a href="{% url 'singleCaseStudies' %}" class="thumbnail">
+                            <img src="/static/images/product/16.jpg" alt="product">
+                        </a>
+                        <div class="inner-content">
+                            <div class="left-content">
+                                <span class="pre">Website, B2B, SaaS, 3D</span>
+                                <a href="{% url 'singleCaseStudies' %}">
+                                    <h3 class="title animated fadeIn">Cornerstone</h3>
+                                </a>
+                                <p>Web experience for an enterprise people development platform</p>
+                            </div>
+                            <div class="right">
+                                <a href="{% url 'singleCaseStudies' %}">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-10">
+                    <div class="siongle-portfolio-box-style">
+                        <a href="{% url 'singleCaseStudies' %}" class="thumbnail">
+                            <img src="/static/images/product/17.jpg" alt="product">
+                        </a>
+                        <div class="inner-content">
+                            <div class="left-content">
+                                <span class="pre">Website, B2B, SaaS, 3D</span>
+                                <a href="{% url 'singleCaseStudies' %}">
+                                    <h3 class="title animated fadeIn">Simplifi</h3>
+                                </a>
+                                <p>Web experience for an enterprise people development platform</p>
+                            </div>
+                            <div class="right">
+                                <a href="#">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-10">
+                    <div class="siongle-portfolio-box-style">
+                        <a href="{% url 'singleCaseStudies' %}" class="thumbnail">
+                            <img src="/static/images/product/18.jpg" alt="product">
+                        </a>
+                        <div class="inner-content">
+                            <div class="left-content">
+                                <span class="pre">Website, B2B, SaaS, 3D</span>
+                                <a href="{% url 'singleCaseStudies' %}">
+                                    <h3 class="title animated fadeIn">Stripe</h3>
+                                </a>
+                                <p>Web experience for an enterprise people development platform</p>
+                            </div>
+                            <div class="right">
+                                <a href="{% url 'singleCaseStudies' %}">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-10">
+                    <div class="siongle-portfolio-box-style">
+                        <a href="{% url 'singleCaseStudies' %}" class="thumbnail">
+                            <img src="/static/images/product/07.png" alt="product">
+                        </a>
+                        <div class="inner-content">
+                            <div class="left-content">
+                                <span class="pre">Website, B2B, SaaS, 3D</span>
+                                <a href="{% url 'singleCaseStudies' %}">
+                                    <h3 class="title animated fadeIn">Opel Cost</h3>
+                                </a>
+                                <p>Web experience for an enterprise people development platform</p>
+                            </div>
+                            <div class="right">
+                                <a href="{% url 'singleCaseStudies' %}">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-10">
+                    <div class="siongle-portfolio-box-style">
+                        <a href="{% url 'singleCaseStudies' %}" class="thumbnail">
+                            <img src="/static/images/product/14.png" alt="product">
+                        </a>
+                        <div class="inner-content">
+                            <div class="left-content">
+                                <span class="pre">Website, B2B, SaaS, 3D</span>
+                                <a href="{% url 'singleCaseStudies' %}">
+                                    <h3 class="title animated fadeIn">Norsera</h3>
+                                </a>
+                                <p>Web experience for an enterprise people development platform</p>
+                            </div>
+                            <div class="right">
+                                <a href="{% url 'singleCaseStudies' %}">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-10">
+                    <div class="siongle-portfolio-box-style">
+                        <a href="{% url 'singleCaseStudies' %}" class="thumbnail">
+                            <img src="/static/images/product/15.png" alt="product">
+                        </a>
+                        <div class="inner-content">
+                            <div class="left-content">
+                                <span class="pre">Website, B2B, SaaS, 3D</span>
+                                <a href="{% url 'singleCaseStudies' %}">
+                                    <h3 class="title animated fadeIn">Discover</h3>
+                                </a>
+                                <p>Web experience for an enterprise people development platform</p>
+                            </div>
+                            <div class="right">
+                                <a href="{% url 'singleCaseStudies' %}">
+                                    <i class="fa-regular fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- product area end -->
+    
+    {% include  '../partials/blog.html' %}
+
+    <!-- subscription area start -->
+    {% include  '../partials/subscription.html' %}
+    <!-- subscription area end -->
+
+{% endblock content %}

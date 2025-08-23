@@ -1,0 +1,103 @@
+<header class="header-style-one header--sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="header-style-one-wrapper">
+                    <div class="logo-area">
+                        <a href="{% url 'index' %}" class="logo">
+                            <img class="light" src="/static/images/logo/logo-1.svg" alt="logo">
+                            <img class="dark" src="/static/images/logo/logo-one-dark.svg" alt="logo">
+                        </a>
+                    </div>
+                    <nav class="main-nav-area">
+                        <ul class="list-unstyled fluxi-desktop-menu">
+                            <li class="menu-item fluxi-has-dropdown">
+                                <a href="#" class="fluxi-dropdown-main-element">Home</a>
+                                <!-- Start Dropdown Menu -->
+                                <ul class="fluxi-submenu list-unstyled menu-home">
+                                    <li class="nav-item"><a class="nav-link page" href="{% url 'index' %}">SEO Marketing</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'indexTwo' %}">Digital Marketing</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'indexThree' %}">Digital Agency</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'indexFour' %}">Startup Agency</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'indexFive' %}">Advertising agency</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'indexSix' %}">Web Design Agency</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'indexSeven' %}">Social Media agency</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'indexEight' %}">SEO Agency</a></li>
+                                </ul>
+                                <!-- End Dropdown Menu -->
+                            </li>
+                            <li class="menu-item fluxi-has-dropdown">
+                                <a href="#" class="fluxi-dropdown-main-element">Pages</a>
+                                <!-- Start Dropdown Menu -->
+                                <ul class="fluxi-submenu list-unstyled menu-home">
+                                    <li class="nav-item"><a class="nav-link page" href="{% url 'about' %}">About</a></li>
+                                    <li class="nav-item"><a class="nav-link page" href="{% url 'team' %}">Our Team</a></li>
+                                    <li class="nav-item"><a class="nav-link page" href="{% url 'faq' %}">FAQ's</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'bookDemo' %}">Book a Demo</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'free' %}">Free Audit</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'pricing' %}">Pricing Plans</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'pageError' %}">404 Page</a></li>
+                                </ul>
+                                <!-- End Dropdown Menu -->
+                            </li>
+                            <li class="menu-item fluxi-has-dropdown">
+                                <a href="#" class="fluxi-dropdown-main-element">Services</a>
+                                <!-- Start Dropdown Menu -->
+                                <ul class="fluxi-submenu list-unstyled menu-home">
+                                    <li class="nav-item"><a class="nav-link page" href="{% url 'service' %}">Service</a></li>
+                                    <li class="nav-item sub-dropdown">
+                                        <a href="#" class="nav-link sub-menu-link">Service Details</a>
+                                        <ul class="fluxi-submenu third-lvl base">
+                                            <li><a class="mobile-menu-link" href="{% url 'serviceSingle' %}">Paid Search Marketing</a></li>
+                                            <li><a class="mobile-menu-link" href="{% url 'emailMarketing' %}">Email Marketing</a></li>
+                                            <li><a class="mobile-menu-link" href="{% url 'socialMediaMarketing' %}">Social Media Marketing</a></li>
+                                            <li><a class="mobile-menu-link" href="{% url 'influencerMarketing' %}">Influencer Marketing</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <!-- End Dropdown Menu -->
+                            </li>
+                            <li class="menu-item fluxi-has-dropdown">
+                                <a href="#" class="fluxi-dropdown-main-element">Work</a>
+                                <!-- Start Dropdown Menu -->
+                                <ul class="fluxi-submenu list-unstyled menu-home">
+                                    <li class="nav-item"><a class="nav-link page" href="{% url 'caseStudies' %}">Case Studies</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'singleCaseStudies' %}">Case Studies Details</a></li>
+                                </ul>
+                                <!-- End Dropdown Menu -->
+                            </li>
+                            <li class="menu-item fluxi-has-dropdown">
+                                <a href="#" class="fluxi-dropdown-main-element">Blog</a>
+                                <!-- Start Dropdown Menu -->
+                                <ul class="fluxi-submenu list-unstyled menu-home">
+                                    <li class="nav-item"><a class="nav-link page" href="{% url 'blog' %}">Blog</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'blogLeftSidebar' %}">Blog Left Sidebar</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'blogGrid' %}">Blog Grid</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'blogGrid2' %}">Blog Grid Right Sidebar</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'blogGrid3' %}">Blog Grid Left Sidebar</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'blogDetails' %}">Blog Details</a></li>
+                                </ul>
+                                <!-- End Dropdown Menu -->
+                            </li>
+
+                            <li class="menu-item"><a class="main-element fluxi-dropdown-main-element" href="{% url 'contact' %}">Contact</a></li>
+                        </ul>
+                    </nav>
+                    <div class="button-area-start">
+                        <a class="call-us" href="tel:123-456-7890">Call Us : +134 (99) 865</a>
+                        <a href="{% url 'free' %}" class="rts-btn btn-primary">Free Audit</a>
+                        <div class="menu-btn" id="menu-btn">
+
+                            <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect y="14" width="20" height="2" fill="#1F1F25"></rect>
+                                <rect y="7" width="20" height="2" fill="#1F1F25"></rect>
+                                <rect width="20" height="2" fill="#1F1F25"></rect>
+                            </svg>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

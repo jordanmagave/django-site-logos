@@ -1,0 +1,1123 @@
+{% extends '../layout/layout.html' %} {% block content %}
+
+<!-- header area start -->
+<header class="header-style-one header--sticky">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="header-style-one-wrapper">
+          <div class="logo-area">
+            <a href="{% url 'index' %}" class="logo">
+              <img class="light" src="/static/images/logo/logo-1.svg" alt="logo" />
+              <img class="dark" src="/static/images/logo/logo-one-dark.svg" alt="logo" />
+            </a>
+          </div>
+          <nav class="main-nav-area">
+            <ul class="list-unstyled fluxi-desktop-menu">
+              <li class="menu-item fluxi-has-dropdown">
+                <a href="#" class="fluxi-dropdown-main-element">Home</a>
+                <!-- Start Dropdown Menu -->
+                <ul class="fluxi-submenu list-unstyled menu-home">
+                  <li class="nav-item">
+                    <a class="nav-link page" href="{% url 'index' %}">SEO Marketing</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'indexTwo' %}">Digital Marketing</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'indexThree' %}">Digital Agency</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'indexFour' %}">Startup Agency</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'indexFive' %}">Advertising agency</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'indexSix' %}">Web Design Agency</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'indexSeven' %}">Social Media agency</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'indexEight' %}">SEO Agency</a>
+                  </li>
+                </ul>
+                <!-- End Dropdown Menu -->
+              </li>
+              <li class="menu-item fluxi-has-dropdown">
+                <a href="#" class="fluxi-dropdown-main-element">Pages</a>
+                <!-- Start Dropdown Menu -->
+                <ul class="fluxi-submenu list-unstyled menu-home">
+                  <li class="nav-item">
+                    <a class="nav-link page" href="{% url 'about' %}">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link page" href="{% url 'team' %}">Our Team</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link page" href="{% url 'faq' %}">FAQ's</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'bookDemo' %}">Book a Demo</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'free' %}">Free Audit</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'pricing' %}">Pricing Plans</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'pageError' %}">404 Page</a>
+                  </li>
+                </ul>
+                <!-- End Dropdown Menu -->
+              </li>
+              <li class="menu-item fluxi-has-dropdown">
+                <a href="#" class="fluxi-dropdown-main-element">Services</a>
+                <!-- Start Dropdown Menu -->
+                <ul class="fluxi-submenu list-unstyled menu-home">
+                  <li class="nav-item">
+                    <a class="nav-link page" href="{% url 'service' %}">Service</a>
+                  </li>
+                  <li class="nav-item sub-dropdown">
+                    <a href="#" class="nav-link sub-menu-link">Service Details</a>
+                    <ul class="fluxi-submenu third-lvl base">
+                      <li>
+                        <a class="mobile-menu-link" href="{% url 'serviceSingle' %}">Paid Search Marketing</a>
+                      </li>
+                      <li>
+                        <a class="mobile-menu-link" href="{% url 'emailMarketing' %}">Email Marketing</a>
+                      </li>
+                      <li>
+                        <a class="mobile-menu-link" href="{% url 'socialMediaMarketing' %}">Social Media Marketing</a>
+                      </li>
+                      <li>
+                        <a class="mobile-menu-link" href="{% url 'influencerMarketing' %}">Influencer Marketing</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+                <!-- End Dropdown Menu -->
+              </li>
+              <li class="menu-item fluxi-has-dropdown">
+                <a href="#" class="fluxi-dropdown-main-element">Work</a>
+                <!-- Start Dropdown Menu -->
+                <ul class="fluxi-submenu list-unstyled menu-home">
+                  <li class="nav-item">
+                    <a class="nav-link page" href="{% url 'caseStudies' %}">Case Studies</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'singleCaseStudies' %}">Case Studies Details</a>
+                  </li>
+                </ul>
+                <!-- End Dropdown Menu -->
+              </li>
+              <li class="menu-item fluxi-has-dropdown">
+                <a href="#" class="fluxi-dropdown-main-element">Blog</a>
+                <!-- Start Dropdown Menu -->
+                <ul class="fluxi-submenu list-unstyled menu-home">
+                  <li class="nav-item">
+                    <a class="nav-link page" href="{% url 'blog' %}">Blog</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blogLeftSidebar' %}">Blog Left Sidebar</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blogGrid' %}">Blog Grid</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blogGrid2' %}">Blog Grid Right Sidebar</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blogGrid3' %}">Blog Grid Left Sidebar</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blogDetails' %}">Blog Details</a>
+                  </li>
+                </ul>
+                <!-- End Dropdown Menu -->
+              </li>
+
+              <li class="menu-item">
+                <a class="main-element fluxi-dropdown-main-element" href="{% url 'contact' %}">Contact</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="button-area-start">
+            <a href="{% url 'free' %}" class="text-btn">Get Free Audit</a>
+            <a href="#" class="rts-btn btn-primary-5">Request a demo</a>
+            <div class="menu-btn" id="menu-btn">
+              <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect y="14" width="20" height="2" fill="#1F1F25"></rect>
+                <rect y="7" width="20" height="2" fill="#1F1F25"></rect>
+                <rect width="20" height="2" fill="#1F1F25"></rect>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- header area end -->
+
+<!-- rts banner area start -->
+<div class="rts-banner-area-one banner-five rts-section-gap">
+  <div class="container pt--120 pb--120">
+    <div class="row align-items-center justify-content-md-center justify-content-lg-start">
+      <div class="col-lg-6 col-md-10 order-2 order-lg-0">
+        <div class="banner-one-content-left">
+          <h1 class="title split-collab">
+            Formação cristã <br />
+            para a vida
+          </h1>
+          <p class="disc">
+            Há 30 anos formando cidadãos éticos e competentes através da
+            educação cristã. #1 no ENEM Ananindeua, TOP 10 no ENEM Pará.
+            Descubra a diferença de uma educação integral que prepara seu filho
+            para a vida e para a eternidade.
+          </p>
+          <a href="#" class="rts-btn btn-primary-5 arrow-rotate">Agendar Visita Gratuita <i
+              class="fa-light fa-arrow-right"></i></a>
+          <div class="customer-review-area">
+            <div class="client-img">
+              <img class="one" src="/static/images/testimonials/avatars/01.png" alt="png-img" />
+              <img class="two" src="/static/images/testimonials/avatars/02.png" alt="png-img" />
+              <img class="three" src="/static/images/testimonials/avatars/03.png" alt="png-img" />
+              <img class="four" src="/static/images/testimonials/avatars/05.png" alt="png-img" />
+            </div>
+            <p class="desc">Baseado em 127 avaliações</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-10 d-flex justify-content-lg-end justify-content-center">
+        <div class="banner-one-right-content-with-img">
+          <img src="/static/images/banner/03.png" alt="banner_image" />
+
+          <div class="short-image-area">
+            <img src="/static/images/banner/short/08.png" alt="banner" class="img-1" width="476" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="radious-shape">
+    <img class="right-bottom" src="/static/images/service/shape/07.png" alt="banner_image" />
+    <img class="mid-top" src="/static/images/service/shape/08.png" alt="banner_image" />
+    <img class="left-top" src="/static/images/service/shape/07.png" alt="banner_image" />
+    <img class="center-bottom" src="/static/images/service/shape/08.png" alt="banner_image" />
+  </div>
+
+  <div class="container">
+    <div class="brand-area-inner">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="brand-title-area text-center">
+            <h2 class="title">Educação Cristã</h2>
+            <div class="brand-left-short-title-one">
+              <ul class="star-rating">
+                <li>
+                  <a href="#"><i class="fa-sharp fa-solid fa-star"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa-sharp fa-solid fa-star"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa-sharp fa-solid fa-star"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa-sharp fa-solid fa-star"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa-sharp fa-solid fa-star"></i></a>
+                </li>
+              </ul>
+              <p class="disc">
+                "A melhor escola cristã da região metropolitana de Belém" -
+                Maria Santos, mãe do João (3° ano)
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="brand-slider-area">
+        <div class="light swiper rts-brandSlider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="brand-inner">
+                <a href="#"><img src="/static/images/brand/16.png" alt="brand" /></a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="brand-inner">
+                <a href="#"><img src="/static/images/brand/17.png" alt="brand" /></a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="brand-inner">
+                <a href="#"><img src="/static/images/brand/18.png" alt="brand" /></a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="brand-inner">
+                <a href="#"><img src="/static/images/brand/19.png" alt="brand" /></a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="brand-inner">
+                <a href="#"><img src="/static/images/brand/20.png" alt="brand" /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dark swiper rts-brandSlider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="brand-inner">
+                <a href="#"><img src="/static/images/brand/25.png" alt="brand" /></a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="brand-inner">
+                <a href="#"><img src="/static/images/brand/26.png" alt="brand" /></a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="brand-inner">
+                <a href="#"><img src="/static/images/brand/27.png" alt="brand" /></a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="brand-inner">
+                <a href="#"><img src="/static/images/brand/28.png" alt="brand" /></a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="brand-inner">
+                <a href="#"><img src="/static/images/brand/29.png" alt="brand" /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- rts banner area end -->
+
+<!-- rts product area start -->
+<div class="rts-product-area bg-gray-2">
+  <div class="container-2">
+    <div
+      class="row justify-content-center align-items-center single-product-list single-product-list-2 pt--125 pb--125 pb_sm--0 pt_sm--60">
+      <div class="col-lg-5 col-md-6 col-sm-10">
+        <div class="left-image">
+          <div class="thumbnail">
+            <img src="/static/images/product/22.jpg" alt="product" />
+          </div>
+          <div class="short-image-area">
+            <img src="/static/images/banner/short/09.png" alt="banner" class="images-2 img-1" />
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-10 offset-lg-1">
+        <div class="portfolio-content-wrapper-list">
+          <h2 class="title">30 anos de tradição</h2>
+          <p class="disc">
+            <b>Tradição e Excelência.</b> Três décadas formando líderes cristãos em Ananindeua com milhares de vidas
+            transformadas e valores que
+            atravessam
+            gerações.
+          </p>
+          <div class="product-service-wrapper">
+            <!-- single service -->
+            <div class="single-service">
+              <i class="fa-light fa-check"></i>
+              <p>Professores qualificados</p>
+            </div>
+            <!-- single service end -->
+            <!-- single service -->
+            <div class="single-service">
+              <i class="fa-light fa-check"></i>
+              <p>Métodos inovadores</p>
+            </div>
+            <!-- single service end -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="row justify-content-center align-items-center section-separator-top-bg-white single-product-list single-product-list-2 pt--125 pb--125 pb_sm--0 pt_sm--60">
+      <div class="col-lg-6 col-md-6 col-sm-10 order-2 order-md-0">
+        <div class="portfolio-content-wrapper-list">
+          <h2 class="title">Educação Cristã Integral</h2>
+          <p class="disc">
+            <b>Valores que Transformam.</b> Metodologia cristã reformada desenvolve caráter, integridade e excelência
+            formando
+            cidadãos éticos que impactam
+            comunidades.
+          </p>
+          <div class="product-service-wrapper">
+            <!-- single service -->
+            <div class="single-service">
+              <i class="fa-light fa-check"></i>
+              <p>Capelania</p>
+            </div>
+            <!-- single service end -->
+            <!-- single service -->
+            <div class="single-service">
+              <i class="fa-light fa-check"></i>
+              <p>Cosmovisão Cristã</p>
+            </div>
+            <!-- single service end -->
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-10 offset-lg-1">
+        <div class="right-image">
+          <div class="thumbnail">
+            <img src="/static/images/product/23.jpg" alt="product" />
+          </div>
+          <div class="short-image-area">
+            <img src="/static/images/banner/short/10.png" alt="banner" class="img-1 images-2" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="row justify-content-center align-items-center section-separator-top-bg-white single-product-list single-product-list-2 pt--125 pb--125 pb_sm--0 pt_sm--60">
+      <div class="col-lg-5 col-md-6 col-sm-10">
+        <div class="left-image">
+          <div class="thumbnail">
+            <img src="/static/images/product/22.jpg" alt="product" />
+          </div>
+          <div class="short-image-area">
+            <img src="/static/images/banner/short/11.png" alt="banner" class="img-1 images-2" />
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-10 offset-lg-1">
+        <div class="portfolio-content-wrapper-list">
+          <h2 class="title"><span>03.</span> Execution</h2>
+          <p class="disc">
+            For over four decades, Tenet Partners has applied our proven
+            methodology to deliver compelling corporate brands for hundreds of
+            organizations.
+          </p>
+          <div class="product-service-wrapper">
+            <!-- single service -->
+            <div class="single-service">
+              <i class="fa-light fa-check"></i>
+              <p>Market research</p>
+            </div>
+            <!-- single service end -->
+            <!-- single service -->
+            <div class="single-service">
+              <i class="fa-light fa-check"></i>
+              <p>Brand strategy</p>
+            </div>
+            <!-- single service end -->
+            <!-- single service -->
+            <div class="single-service">
+              <i class="fa-light fa-check"></i>
+              <p>Name, tagline and messaging</p>
+            </div>
+            <!-- single service end -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- rts product area end -->
+
+<!-- rts counter up area start -->
+<div class="rts-counterup-area rts-section-gap">
+  <div class="container-2">
+    <div class="row pb--80">
+      <div class="col-lg-12">
+        <div class="counter-upmain-wrapper-style-one">
+          <!-- single counter up area start -->
+          <div class="single-counter-up-five">
+            <div class="icon">
+              <img src="/static/images/counter/07.svg" alt="" />
+            </div>
+            <h3 class="title"><span class="counter">4</span>M</h3>
+            <p>Fluxi Community</p>
+          </div>
+          <!-- single counter up area end -->
+          <!-- single counter up area start -->
+          <div class="single-counter-up-five">
+            <div class="icon">
+              <img src="/static/images/counter/08.svg" alt="" />
+            </div>
+            <h3 class="title"><span class="counter">100</span>M</h3>
+            <p>Competitors keywords</p>
+          </div>
+          <!-- single counter up area end -->
+          <!-- single counter up area start -->
+          <div class="single-counter-up-five">
+            <div class="icon">
+              <img src="/static/images/counter/09.svg" alt="" />
+            </div>
+            <h3 class="title"><span class="counter">48</span>k</h3>
+            <p>Supported locations</p>
+          </div>
+          <!-- single counter up area end -->
+          <!-- single counter up area start -->
+          <div class="single-counter-up-five">
+            <div class="icon">
+              <img src="/static/images/counter/10.svg" alt="" />
+            </div>
+            <h3 class="title"><span class="counter">2004</span></h3>
+            <p>Year founded</p>
+          </div>
+          <!-- single counter up area end -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- rts counter up area end -->
+
+<!-- rts call to action area start -->
+<div class="rts-call-to-action">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="call-to-action-area-5">
+          <h2 class="title skew-up">
+            Get in touch and start growing <br />
+            your startup today
+          </h2>
+          <p class="disc">Our cross-disciplinary team integrates branding.</p>
+          <div class="button-area">
+            <a href="{% url 'contact' %}" class="rts-btn btn-secondary-5"><i class="fa-light fa-paper-plane"></i>More
+              about us</a>
+            <a href="{% url 'bookDemo' %}" class="rts-btn btn-secondary-5-1"><i
+                class="fa-solid fa-circle-play"></i>Request a demo</a>
+          </div>
+          <div class="shape-image">
+            <img src="/static/images/cta/03.png" alt="" class="one" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- rts call to action area end -->
+
+<!-- rts-case studies-area start -->
+<div class="rts-case-studies-5 rts-section-gap2">
+  <div class="container-2">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="title-wrapper-between justify-content-center">
+          <div class="title-style-one-left text-center">
+            <span class="pre skew-up text-center">Case studies</span>
+            <h2 class="title skew-up text-center">
+              Browse our past successful <br />
+              case studies
+            </h2>
+          </div>
+          <!-- button-area next prev area -->
+          <div class="next-prev-btn-area"></div>
+          <!-- button-area next prev end -->
+        </div>
+      </div>
+    </div>
+    <div class="row mt--60">
+      <div class="col-lg-12">
+        <div class="single-portfolio-box-style style-five">
+          <a href="{% url 'singleCaseStudies' %}" class="thumbnail">
+            <img src="/static/images/product/04.png" alt="product" />
+          </a>
+          <div class="inner-content">
+            <div class="left-content">
+              <p class="pre">Website, B2B, SaaS, 3D</p>
+              <a href="{% url 'singleCaseStudies' %}">
+                <h3 class="title animated fadeIn">Cornerstone</h3>
+              </a>
+              <p class="desc">
+                Egestas ullamcorper donec porttitor massa nullam lobortis varius
+                It’s like having a superpower! I’ve tried almost every
+                alternative and competitor and haven’t found anything quite as
+                easy to use.
+              </p>
+
+              <a href="{% url 'singleCaseStudies' %}" class="rts-btn btn-primary-4 arrow-rotate">View case study <i
+                  class="fa-light fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="single-portfolio-box-style style-five">
+          <a href="{% url 'singleCaseStudies' %}" class="thumbnail">
+            <img src="/static/images/product/06.png" alt="product" />
+          </a>
+          <div class="inner-content">
+            <div class="left-content">
+              <p class="pre">Website, B2B, SaaS, 3D</p>
+              <a href="{% url 'singleCaseStudies' %}">
+                <h3 class="title animated fadeIn">Cornerstone</h3>
+              </a>
+              <p class="desc">
+                Egestas ullamcorper donec porttitor massa nullam lobortis varius
+                It’s like having a superpower! I’ve tried almost every
+                alternative and competitor and haven’t found anything quite as
+                easy to use.
+              </p>
+
+              <a href="{% url 'singleCaseStudies' %}" class="rts-btn btn-primary-4 arrow-rotate">View case study <i
+                  class="fa-light fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="single-portfolio-box-style style-five">
+          <a href="{% url 'singleCaseStudies' %}" class="thumbnail">
+            <img src="/static/images/product/07.png" alt="product" />
+          </a>
+          <div class="inner-content">
+            <div class="left-content">
+              <p class="pre">Website, B2B, SaaS, 3D</p>
+              <a href="{% url 'singleCaseStudies' %}">
+                <h3 class="title animated fadeIn">Cornerstone</h3>
+              </a>
+              <p class="desc">
+                Egestas ullamcorper donec porttitor massa nullam lobortis varius
+                It’s like having a superpower! I’ve tried almost every
+                alternative and competitor and haven’t found anything quite as
+                easy to use.
+              </p>
+
+              <a href="{% url 'singleCaseStudies' %}" class="rts-btn btn-primary-4 arrow-rotate">View case study <i
+                  class="fa-light fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="single-portfolio-box-style style-five">
+          <a href="{% url 'singleCaseStudies' %}" class="thumbnail">
+            <img src="/static/images/product/05.png" alt="product" />
+          </a>
+          <div class="inner-content">
+            <div class="left-content">
+              <p class="pre">Website, B2B, SaaS, 3D</p>
+              <a href="{% url 'singleCaseStudies' %}">
+                <h3 class="title animated fadeIn">Cornerstone</h3>
+              </a>
+              <p class="desc">
+                Egestas ullamcorper donec porttitor massa nullam lobortis varius
+                It’s like having a superpower! I’ve tried almost every
+                alternative and competitor and haven’t found anything quite as
+                easy to use.
+              </p>
+
+              <a href="{% url 'singleCaseStudies' %}" class="rts-btn btn-primary-4 arrow-rotate">View case study <i
+                  class="fa-light fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="bottom-btn text-center">
+          <a href="{% url 'service' %}" class="rts-btn btn-primary-4-border arrow-rotate">View all works <i
+              class="fa-light fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- rts-case studies-area end -->
+
+<!-- expart team area start -->
+<div class="expart-team-area-7 rts-section-gapTop rts-section-gap2Bottom team-five">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="title-style-one-center">
+          <span class="pre skew-up text-center">Our Team</span>
+          <h2 class="title skew-up text-center">
+            Meet the brilliant minds behind our <br />
+            successful campaigns
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="row g-48 mt--10">
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <!-- single teama area start -->
+        <div class="single-team-area-7">
+          <div class="thumbnail">
+            <img src="/static/images/team/01.png" alt="team" />
+          </div>
+          <h6 class="title">Kevin Smith</h6>
+          <span class="designation">Founder & CEO</span>
+        </div>
+        <!-- single teama area end -->
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <!-- single teama area start -->
+        <div class="single-team-area-7">
+          <a href="#" class="thumbnail">
+            <img src="/static/images/team/02.png" alt="team" />
+          </a>
+          <h6 class="title">David Daily</h6>
+          <span class="designation">Head of Production</span>
+        </div>
+        <!-- single teama area end -->
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <!-- single teama area start -->
+        <div class="single-team-area-7">
+          <div class="thumbnail">
+            <img src="/static/images/team/03.png" alt="team" />
+          </div>
+          <h6 class="title">Taylor Johnson</h6>
+          <span class="designation">Head of Marketing</span>
+        </div>
+        <!-- single teama area end -->
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <!-- single teama area start -->
+        <div class="single-team-area-7">
+          <div class="thumbnail">
+            <img src="/static/images/team/04.png" alt="team" />
+          </div>
+          <h6 class="title">Kevin Smith</h6>
+          <span class="designation">Founder & CEO</span>
+        </div>
+        <!-- single teama area end -->
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <!-- single teama area start -->
+        <div class="single-team-area-7">
+          <div class="thumbnail">
+            <img src="/static/images/team/05.png" alt="team" />
+          </div>
+          <h6 class="title">Sarah Smith</h6>
+          <span class="designation">Project Manager</span>
+        </div>
+        <!-- single teama area end -->
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <!-- single teama area start -->
+        <div class="single-team-area-7">
+          <div class="thumbnail">
+            <img src="/static/images/team/06.png" alt="team" />
+          </div>
+          <h6 class="title">Rick James</h6>
+          <span class="designation">Creative Director</span>
+        </div>
+        <!-- single teama area end -->
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <!-- single teama area start -->
+        <div class="single-team-area-7">
+          <div class="thumbnail">
+            <img src="/static/images/team/07.png" alt="team" />
+          </div>
+          <h6 class="title">Allen Chang</h6>
+          <span class="designation">Development Lead</span>
+        </div>
+        <!-- single teama area end -->
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <!-- single teama area start -->
+        <div class="single-team-area-7">
+          <div class="thumbnail">
+            <img src="/static/images/team/08.png" alt="team" />
+          </div>
+          <h6 class="title">David Larsson</h6>
+          <span class="designation">Fun Atmosphere</span>
+        </div>
+        <!-- single teama area end -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- expart team area end -->
+
+<!-- campaign area start -->
+<div class="rts-campaign-area rts-section-gap2">
+  <div class="container-2">
+    <div class="section-inner">
+      <div class="row align-items-center">
+        <div class="col-lg-6 col-md-7 order-2 order-md-0">
+          <div class="left-side-content">
+            <h3 class="title">Our campaigns deliver results</h3>
+            <p class="desc">
+              Nam sapien feugiat id ipsum quam massa. Convallis est morbi semper
+              posuere arcu diam facilisi aliquam sit. Sit tincidunt turpi.
+            </p>
+            <a href="{% url 'contact' %}" class="rts-btn btn-primary-5 arrow-rotate">Learn more <i
+                class="fa-light fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-5 offset-lg-1 col-md-5">
+          <div class="right-side-image">
+            <img src="/static/images/product/28.png" alt="" />
+            <div class="short-image">
+              <img src="/static/images/product/28_1.png" alt="" width="286" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- campaign area end -->
+
+<!-- client area start -->
+<div class="rts-section-gap2 rts-client-feedback-area-4 rts-client-feedback-area-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="title-style-one-center">
+          <span class="pre skew-up">Clients feedback</span>
+          <h2 class="title skew-up">
+            How our customers <br />
+            like how we work.
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="row g-48 mt--0 justify-content-sm-center">
+      <div class="col-lg-4 col-md-6 col-sm-10">
+        <!-- testimonials area start -->
+        <div class="single-testimonials-area">
+          <div class="logo">
+            <img src="/static/images/testimonials/logo/01.svg" alt="testimonials" />
+          </div>
+          <p class="disc">
+            “I don’t see anyone else in this space providing the level of
+            insight brings to the table. They understand data beyond the vanity
+            metrics often provided – true impactful results.”
+          </p>
+          <div class="author-area">
+            <a href="#" class="avatar">
+              <img src="/static/images/testimonials/avatars/01.png" alt="marketing" />
+            </a>
+            <div class="information">
+              <h6 class="title">Keaton Stancato</h6>
+              <span>Founder/CEO at Fluxi Digital</span>
+            </div>
+          </div>
+        </div>
+        <!-- testimonials area end -->
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-10">
+        <!-- testimonials area start -->
+        <div class="single-testimonials-area">
+          <div class="logo">
+            <img src="/static/images/testimonials/logo/02.svg" alt="testimonials" />
+          </div>
+          <p class="disc">
+            By using Fluxi, we've gotten so much of our time back that we're now
+            able to put towards things that are actually helping our company as
+            opposed to just throwing content out there.
+          </p>
+          <div class="author-area">
+            <a href="#" class="avatar">
+              <img src="/static/images/testimonials/avatars/02.png" alt="marketing" />
+            </a>
+            <div class="information">
+              <h6 class="title">Kevin Smith</h6>
+              <span>Creative and Identity Partner</span>
+            </div>
+          </div>
+        </div>
+        <!-- testimonials area end -->
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-10">
+        <!-- testimonials area start -->
+        <div class="single-testimonials-area">
+          <div class="logo">
+            <img src="/static/images/testimonials/logo/03.svg" alt="testimonials" />
+          </div>
+          <p class="disc">
+            “I don’t see anyone else in this space providing the level of
+            insight brings to the table. They understand data beyond the vanity
+            metrics often provided – true impactful results.”
+          </p>
+          <div class="author-area">
+            <a href="#" class="avatar">
+              <img src="/static/images/testimonials/avatars/03.png" alt="marketing" />
+            </a>
+            <div class="information">
+              <h6 class="title">Dane Whitney</h6>
+              <span>Merchandising Market Manager</span>
+            </div>
+          </div>
+        </div>
+        <!-- testimonials area end -->
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-10">
+        <!-- testimonials area start -->
+        <div class="single-testimonials-area">
+          <div class="logo">
+            <img src="/static/images/testimonials/logo/01.svg" alt="testimonials" />
+          </div>
+          <p class="disc">
+            “I don’t see anyone else in this space providing the level of
+            insight brings to the table. They understand data beyond the vanity
+            metrics often provided – true impactful results.”
+          </p>
+          <div class="author-area">
+            <a href="#" class="avatar">
+              <img src="/static/images/testimonials/avatars/01.png" alt="marketing" />
+            </a>
+            <div class="information">
+              <h6 class="title">Keaton Stancato</h6>
+              <span>Founder/CEO at Fluxi Digital</span>
+            </div>
+          </div>
+        </div>
+        <!-- testimonials area end -->
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-10">
+        <!-- testimonials area start -->
+        <div class="single-testimonials-area">
+          <div class="logo">
+            <img src="/static/images/testimonials/logo/02.svg" alt="testimonials" />
+          </div>
+          <p class="disc">
+            By using Fluxi, we've gotten so much of our time back that we're now
+            able to put towards things that are actually helping our company as
+            opposed to just throwing content out there.
+          </p>
+          <div class="author-area">
+            <a href="#" class="avatar">
+              <img src="/static/images/testimonials/avatars/02.png" alt="marketing" />
+            </a>
+            <div class="information">
+              <h6 class="title">Kevin Smith</h6>
+              <span>Creative and Identity Partner</span>
+            </div>
+          </div>
+        </div>
+        <!-- testimonials area end -->
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-10">
+        <!-- testimonials area start -->
+        <div class="single-testimonials-area">
+          <div class="logo">
+            <img src="/static/images/testimonials/logo/03.svg" alt="testimonials" />
+          </div>
+          <p class="disc">
+            “I don’t see anyone else in this space providing the level of
+            insight brings to the table. They understand data beyond the vanity
+            metrics often provided – true impactful results.”
+          </p>
+          <div class="author-area">
+            <a href="#" class="avatar">
+              <img src="/static/images/testimonials/avatars/03.png" alt="marketing" />
+            </a>
+            <div class="information">
+              <h6 class="title">Dane Whitney</h6>
+              <span>Merchandising Market Manager</span>
+            </div>
+          </div>
+        </div>
+        <!-- testimonials area end -->
+      </div>
+    </div>
+    <div class="row mt--80">
+      <div class="col-lg-12 d-flex justify-content-center">
+        <a href="#" class="rts-btn btn-primary-4-border arrow-rotate">View all services <i
+            class="fa-light fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- client area end -->
+
+<!-- blog area start -->
+<div class="rts-section-gap2 rts-blog-area-one home-five">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="title-style-one-center">
+          <span class="pre">Recent articles</span>
+          <h2 class="title">Latest from insights</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row g-48 mt--0 justify-content-sm-center justify-content-md-start">
+      <div class="col-lg-4 col-md-6 col-sm-10">
+        <!-- single blog area start -->
+        <div class="single-blog-area-style-one">
+          <a href="{% url 'blogDetails' %}" class="thumbnail">
+            <img src="/static/images/blog/01.png" alt="blog-image" />
+          </a>
+          <div class="inner-content-wrapper">
+            <a href="{% url 'blogDetails' %}">
+              <h6 class="title">
+                Which tool seems the best for content writing strategy?
+              </h6>
+            </a>
+            <div class="bottom-area">
+              <span class="admin">Amir Nisi</span>
+              <span class="date">• 25 October, 2023</span>
+            </div>
+          </div>
+        </div>
+        <!-- single blog area end -->
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-10">
+        <!-- single blog area start -->
+        <div class="single-blog-area-style-one">
+          <a href="{% url 'blogDetails' %}" class="thumbnail">
+            <img src="/static/images/blog/02.png" alt="blog-image" />
+          </a>
+          <div class="inner-content-wrapper">
+            <a href="{% url 'blogDetails' %}">
+              <h6 class="title">
+                Which tool seems the best for content writing strategy?
+              </h6>
+            </a>
+            <div class="bottom-area">
+              <span class="admin">Amir Nisi</span>
+              <span class="date">• 25 October, 2023</span>
+            </div>
+          </div>
+        </div>
+        <!-- single blog area end -->
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-10">
+        <!-- single blog area start -->
+        <div class="single-blog-area-style-one">
+          <a href="{% url 'blogDetails' %}" class="thumbnail">
+            <img src="/static/images/blog/03.png" alt="blog-image" />
+          </a>
+          <div class="inner-content-wrapper">
+            <a href="{% url 'blogDetails' %}">
+              <h6 class="title">
+                Which tool seems the best for content writing strategy?
+              </h6>
+            </a>
+            <div class="bottom-area">
+              <span class="admin">Amir Nisi</span>
+              <span class="date">• 25 October, 2023</span>
+            </div>
+          </div>
+        </div>
+        <!-- single blog area end -->
+      </div>
+
+      <div class="col-lg-12 text-center">
+        <a href="{% url 'blog' %}" class="rts-btn btn-primary-4-border arrow-rotate">View more on blog <i
+            class="fa-light fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- blog area end -->
+
+<!-- rts call to action area start -->
+<div class="rts-call-to-action area-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="call-to-action-area-5 area-5_2">
+          <h2 class="title skew-up">Start a project?</h2>
+          <p class="disc">Let’s build something wonderful together.</p>
+          <div class="button-area">
+            <a href="#" class="rts-btn btn-primary-5">Get Started</a>
+            <a href="{% url 'bookDemo' %}" class="rts-btn btn-primary-4-border"><i
+                class="fa-solid fa-circle-play"></i>Request a demo</a>
+          </div>
+          <div class="shape-image">
+            <img src="/static/images/cta/04.png" alt="" width="705" class="one" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- rts call to action area end -->
+
+<div class="rts-footer-area footer-five rts-section-gapTop pb--65">
+  <div class="container mb--65">
+    <div class="row g-48 g-lg-0">
+      <div class="col-lg-2 col-md-4 col-sm-6">
+        <!-- single footer four wized -->
+        <div class="single-footer-four-wized">
+          <h5 class="title">Company</h5>
+          <ul>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">We hire</a></li>
+            <li><a href="#">Insights</a></li>
+          </ul>
+        </div>
+        <!-- single footer four wized end -->
+      </div>
+      <div class="col-lg-2 col-md-4 col-sm-6">
+        <!-- single footer four wized -->
+        <div class="single-footer-four-wized">
+          <h5 class="title">Resources</h5>
+          <ul>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Help center</a></li>
+            <li><a href="#">Ask for support</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <!-- single footer four wized end -->
+      </div>
+      <div class="col-lg-2 col-md-4 col-sm-6">
+        <!-- single footer four wized -->
+        <div class="single-footer-four-wized">
+          <h5 class="title">Social</h5>
+          <ul>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Linkedin</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+          </ul>
+        </div>
+        <!-- single footer four wized end -->
+      </div>
+      <div class="col-lg-2 col-md-4 col-sm-6">
+        <!-- single footer four wized -->
+        <div class="single-footer-four-wized">
+          <h5 class="title">Legal</h5>
+          <ul>
+            <li><a href="{% url 'terms' %}">Terms of service</a></li>
+            <li><a href="{% url 'privacyPolicy' %}">Privacy policy</a></li>
+            <li><a href="#">Cookies</a></li>
+            <li><a href="#">Sitemap</a></li>
+          </ul>
+        </div>
+        <!-- single footer four wized end -->
+      </div>
+      <div class="col-lg-4 col-md-8 col-sm-12">
+        <!-- single footer four wized -->
+        <div class="single-footer-four-wized">
+          <h5 class="title">Newsletter</h5>
+          <div class="footer-input-btn-between">
+            <form action="#">
+              <input required type="email" placeholder="Your email.." />
+              <button class="rts-btn btn-primary-4">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="copyright-area-four pt--65 mt-65 border-top">
+          <a href="#" class="logo">
+            <img class="light" src="/static/images/logo/logo-1.svg" alt="logo" />
+            <img class="dark" src="/static/images/logo/logo-one-dark.svg" alt="logo" />
+          </a>
+          <p>© 2023 Fluxi, All right reserved.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
