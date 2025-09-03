@@ -1,79 +1,45 @@
 <div id="side-bar" class="side-bar header-two">
-    <button class="close-icon-menu"><i class="fa-sharp fa-thin fa-xmark"></i></button>
-    <!-- mobile menu area start -->
-    <div class="mobile-menu-main">
-        <nav class="nav-main mainmenu-nav mt--30">
-            <ul class="mainmenu metismenu" id="mobile-menu-active">
-                <li class="has-droupdown">
-                    <a href="#" class="main">Home</a>
-                    <ul class="submenu mm-collapse">
-                        <li><a class="mobile-menu-link" href="{% url 'index' %}">SEO Marketing</a></li>
-                        <li><a class="mobile-menu-link" href="{% url 'indexTwo' %}">Digital Marketing</a></li>
-                        <li><a class="mobile-menu-link" href="{% url 'indexThree' %}">Digital Agency</a></li>
-                        <li><a class="mobile-menu-link" href="{% url 'indexFour' %}">Startup Agency</a></li>
-                        <li><a class="mobile-menu-link" href="{% url 'indexFive' %}">Advertising Agency</a></li>
-                        <li><a class="mobile-menu-link" href="{% url 'indexSix' %}">Web Design Agency</a></li>
-                        <li><a class="mobile-menu-link" href="{% url 'indexSeven' %}">Social Media Agency</a></li>
-                        <li><a class="mobile-menu-link" href="{% url 'indexEight' %}">SEO Agency</a></li>
-                    </ul>
-                </li>
-                <li class="has-droupdown">
-                    <a href="#" class="main">Pages</a>
-                    <ul class="submenu mm-collapse">
-                        <li><a class="mobile-menu-link" href="{% url 'about' %}">About</a></li>
-                        <li><a class="mobile-menu-link" href="{% url 'team' %}">Our Team</a></li>
-                        <li><a class="mobile-menu-link" href="{% url 'faq' %}">FAQ's</a></li>
-                        <li><a class="mobile-menu-link" href="{% url 'bookDemo' %}">Book a Demo</a></li>
-                        <li><a class="mobile-menu-link" href="{% url 'free' %}">Free Audit</a></li>
-                        <li><a class="mobile-menu-link" href="{% url 'pricing' %}">Pricing Plans</a></li>
-                        <li><a class="mobile-menu-link" href="{% url 'pageError' %}">404 Page</a></li>
-                    </ul>
-                </li>
-                <li class="has-droupdown">
-                    <a href="#" class="main">Services</a>
-                    <ul class="submenu mm-collapse">
-                        <li><a class="mobile-menu-link" href="{% url 'service' %}">Services</a></li>
-                        <li class="has-droupdown third-lvl">
-                            <a class="main" href="#">Service Details</a>
-                            <ul class="submenu-third-lvl mm-collapse">
-                                <li><a href="{% url 'serviceSingle' %}"></a>Paid Search Marketing</li>
-                                <li><a href="{% url 'emailMarketing' %}"></a>Email Marketing</li>
-                                <li><a href="{% url 'socialMediaMarketing' %}"></a>Social Media Marketing</li>
-                                <li><a href="{% url 'influencerMarketing' %}"></a>Influencer Marketing</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li class="has-droupdown">
-                    <a href="#" class="main">Work</a>
-                    <ul class="submenu mm-collapse">
-                        <li><a class="mobile-menu-link" href="{% url 'caseStudies' %}">Case Studies</a></li>
-                        <li><a class="mobile-menu-link" href="{% url 'singleCaseStudies' %}">Case Studies Details</a></li>
-                    </ul>
-                </li>
-                <li class="has-droupdown">
-                    <a href="#" class="main">Blog</a>
-                    <ul class="submenu mm-collapse">
-                        <li><a class="mobile-menu-link" href="{% url 'blog' %}">Blog</a></li>
-                        <li><a class="mobile-menu-link" href="{% url 'blogLeftSidebar' %}">Blog Left Sidebar</a></li>
-                        <li><a class="mobile-menu-link" href="{% url 'blogGrid' %}">Blog Grid</a></li>
-                        <li><a class="mobile-menu-link" href="{% url 'blogGrid2' %}">Blog Grid Right Sidebar</a></li>
-                        <li><a class="mobile-menu-link" href="{% url 'blogGrid3' %}">Blog Grid Left Sidebar</a></li>
-                        <li><a class="mobile-menu-link" href="{% url 'blogDetails' %}">Blog Details</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="{% url 'contact' %}" class="main">Contact Us</a>
-                </li>
-            </ul>
-        </nav>
-
-        <ul class="social-area-one pl--20 mt--100">
-            <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-        </ul>
-    </div>
-    <!-- mobile menu area end -->
-</div>  
+  <button type="button" class="close-icon-menu">
+    <i class="fa-sharp fa-thin fa-xmark"></i>
+  </button>
+  <!-- mobile menu area start -->
+  <div class="mobile-menu-main">
+    <nav class="nav-main mainmenu-nav mt--30">
+      <ul class="mainmenu metismenu" id="mobile-menu-active">
+        <li>
+          <a href="#" class="main">Home</a>
+        </li>
+        <li>
+          <a href="#" class="main">Sobre nós</a>
+        </li>
+        <li class="has-droupdown">
+          <a href="#" class="main">Serviços</a>
+          <ul class="submenu mm-collapse">
+            <li>
+              <a class="mobile-menu-link" href="{% url "educacaoInfantil" %}">Educação infantil</a>
+            </li>
+            <li>
+              <a class="mobile-menu-link" href="{% url "ensinoFundamental" %}">Fundamental 1</a>
+            </li>
+            <li>
+              <a class="mobile-menu-link" href="{% url "ensinoFundamental2" %}">Fundamental 2</a>
+            </li>
+            <li>
+              <a class="mobile-menu-link" href="{% url "ensinoMedio" %}">Ensino médio</a>
+            </li>
+            <li>
+              <a class="mobile-menu-link" href="{% url "ensinoIntegral" %}">Integral</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="main">Infraestrutura</a>
+        </li>
+        <li>
+          <a href="#" class="main">Blog</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <!-- mobile menu area end -->
+</div>

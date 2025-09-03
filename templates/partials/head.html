@@ -1,18 +1,94 @@
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/x-icon" href="/static/images/fav.png">
-    <title>Fluxi - Django 5 SEO Marketing Website Template</title>
-    <!-- swiper css -->
-    <link rel="stylesheet preload" href="/static/css/plugins/swiper.min.css" as="style">
-    <!-- magnific popup css -->
-    <link rel="stylesheet preload" href="/static/css/plugins/magnific-popup.css" as="style">
-    <!-- metismenu css -->
-    <link rel="stylesheet preload" href="/static/css/plugins/metismenu.css" as="style">
-    <!-- bootstrap css -->
-    <link rel="stylesheet preload" href="/static/css/vendor/bootstrap.min.css" as="style">
-    <!-- fontawesome css -->
-    <link rel="stylesheet preload" href="/static/css/plugins/fontawesome.min.css" as="style">
-    <!-- Custom css -->
-    <link rel="stylesheet preload" href="/static/css/style.css" as="style">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Centro Educacional Logos: Educação Cristã Integral, líder em Ananindeua. Conheça nossos diferenciais e agende uma visita!"
+  />
+  <meta
+    name="keywords"
+    content="Centro Educacional Logos, Educação Cristã, Escola em Ananindeua, Ensino Fundamental, Ensino Médio"
+  />
+  <meta name="author" content="Centro Educacional Logos" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph para Redes Sociais -->
+  <meta
+    property="og:title"
+    content="Centro Educacional Logos - Educação Cristã Integral"
+  />
+  <meta
+    property="og:description"
+    content="Educação Cristã Integral, líder em Ananindeua. Conheça nossos diferenciais e agende uma visita!"
+  />
+  <meta property="og:image" content="/static/images/logo/logo-1.svg" />
+  <meta property="og:url" content="https://www.celogos.com.br" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="Centro Educacional Logos - Educação Cristã Integral"
+  />
+  <meta
+    name="twitter:description"
+    content="Educação Cristã Integral, líder em Ananindeua. Conheça nossos diferenciais e agende uma visita!"
+  />
+  <meta name="twitter:image" content="/static/images/logo/logo-1.svg" />
+
+  <!-- Favicon e Manifest -->
+  <link rel="shortcut icon" type="image/x-icon" href="/static/images/fav.png" />
+  <link rel="manifest" href="/static/manifest.webmanifest" />
+
+  <!-- Estrutura de Dados JSON-LD -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Centro Educacional Logos",
+      "url": "https://www.celogos.com.br",
+      "logo": "/static/images/logo/logo-1.svg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+55-91-1234-5678",
+        "contactType": "Customer Service"
+      }
+    }
+  </script>
+
+  <title>{% block title %}Centro Educacional Logos{% endblock %}</title>
+
+  <!-- swiper css -->
+  <link
+    rel="stylesheet preload"
+    href="/static/css/plugins/swiper.min.css"
+    as="style"
+  />
+  <!-- magnific popup css -->
+  <link
+    rel="stylesheet preload"
+    href="/static/css/plugins/magnific-popup.css"
+    as="style"
+  />
+  <!-- metismenu css -->
+  <link
+    rel="stylesheet preload"
+    href="/static/css/plugins/metismenu.css"
+    as="style"
+  />
+  <!-- bootstrap css -->
+  <link
+    rel="stylesheet preload"
+    href="/static/css/vendor/bootstrap.min.css"
+    as="style"
+  />
+  <!-- fontawesome css -->
+  <link
+    rel="stylesheet preload"
+    href="/static/css/plugins/fontawesome.min.css"
+    as="style"
+  />
+  <!-- Custom css -->
+  <link rel="stylesheet preload" href="/static/css/style.css" as="style" />
 </head>

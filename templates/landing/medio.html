@@ -20,64 +20,200 @@
           <nav class="main-nav-area">
             <ul class="list-unstyled fluxi-desktop-menu">
               <li class="menu-item fluxi-has-dropdown">
-                <a href="{% url 'index' %}" class="fluxi-dropdown-main-element"
-                  >Home</a
-                >
-              </li>
-              <li class="menu-item fluxi-has-dropdown">
-                <a href="{% url 'about' %}" class="fluxi-dropdown-main-element"
-                  >Sobre nós</a
-                >
-              </li>
-              <li class="menu-item fluxi-has-dropdown">
-                <a href="#" class="fluxi-dropdown-main-element">Serviços</a>
+                <a href="#" class="fluxi-dropdown-main-element">Home</a>
                 <!-- Start Dropdown Menu -->
                 <ul class="fluxi-submenu list-unstyled menu-home">
                   <li class="nav-item">
-                    <a class="nav-link page" href="{% url 'educacaoInfantil' %}"
-                      >Educação Infantil</a
+                    <a class="nav-link page" href="{% url 'index' %}"
+                      >SEO Marketing</a
                     >
                   </li>
                   <li class="nav-item">
-                    <a
-                      class="nav-link page"
-                      href="{% url 'ensinoFundamental' %}"
-                      >Fundamental I</a
+                    <a class="nav-link" href="{% url 'indexTwo' %}"
+                      >Digital Marketing</a
                     >
                   </li>
                   <li class="nav-item">
-                    <a
-                      class="nav-link page"
-                      href="{% url 'ensinoFundamental2' %}"
-                      >Fundamental II</a
+                    <a class="nav-link" href="{% url 'indexThree' %}"
+                      >Digital Agency</a
                     >
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{% url 'ensinoMedio' %}"
-                      >Ensino Médio</a
+                    <a class="nav-link" href="{% url 'indexFour' %}"
+                      >Startup Agency</a
                     >
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{% url 'ensinoIntegral' %}"
-                      >Ensino Integral</a
+                    <a class="nav-link" href="{% url 'indexFive' %}"
+                      >Advertising agency</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'indexSix' %}"
+                      >Web Design Agency</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'indexSeven' %}"
+                      >Social Media agency</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'indexEight' %}"
+                      >SEO Agency</a
                     >
                   </li>
                 </ul>
                 <!-- End Dropdown Menu -->
               </li>
               <li class="menu-item fluxi-has-dropdown">
-                <a href="#" class="fluxi-dropdown-main-element"
-                  >Infraestrutura</a
-                >
+                <a href="#" class="fluxi-dropdown-main-element">Pages</a>
+                <!-- Start Dropdown Menu -->
+                <ul class="fluxi-submenu list-unstyled menu-home">
+                  <li class="nav-item">
+                    <a class="nav-link page" href="{% url 'about' %}">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link page" href="{% url 'team' %}"
+                      >Our Team</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link page" href="{% url 'faq' %}">FAQ's</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'bookDemo' %}"
+                      >Book a Demo</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'free' %}">Free Audit</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'pricing' %}"
+                      >Pricing Plans</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'pageError' %}"
+                      >404 Page</a
+                    >
+                  </li>
+                </ul>
+                <!-- End Dropdown Menu -->
+              </li>
+              <li class="menu-item fluxi-has-dropdown">
+                <a href="#" class="fluxi-dropdown-main-element">Services</a>
+                <!-- Start Dropdown Menu -->
+                <ul class="fluxi-submenu list-unstyled menu-home">
+                  <li class="nav-item">
+                    <a class="nav-link page" href="{% url 'service' %}"
+                      >Service</a
+                    >
+                  </li>
+                  <li class="nav-item sub-dropdown">
+                    <a href="#" class="nav-link sub-menu-link"
+                      >Service Details</a
+                    >
+                    <ul class="fluxi-submenu third-lvl base">
+                      <li>
+                        <a
+                          class="mobile-menu-link"
+                          href="{% url 'serviceSingle' %}"
+                          >Paid Search Marketing</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          class="mobile-menu-link"
+                          href="{% url 'emailMarketing' %}"
+                          >Email Marketing</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          class="mobile-menu-link"
+                          href="{% url 'socialMediaMarketing' %}"
+                          >Social Media Marketing</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          class="mobile-menu-link"
+                          href="{% url 'influencerMarketing' %}"
+                          >Influencer Marketing</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+                <!-- End Dropdown Menu -->
+              </li>
+              <li class="menu-item fluxi-has-dropdown">
+                <a href="#" class="fluxi-dropdown-main-element">Work</a>
+                <!-- Start Dropdown Menu -->
+                <ul class="fluxi-submenu list-unstyled menu-home">
+                  <li class="nav-item">
+                    <a class="nav-link page" href="{% url 'caseStudies' %}"
+                      >Case Studies</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'singleCaseStudies' %}"
+                      >Case Studies Details</a
+                    >
+                  </li>
+                </ul>
+                <!-- End Dropdown Menu -->
               </li>
               <li class="menu-item fluxi-has-dropdown">
                 <a href="#" class="fluxi-dropdown-main-element">Blog</a>
+                <!-- Start Dropdown Menu -->
+                <ul class="fluxi-submenu list-unstyled menu-home">
+                  <li class="nav-item">
+                    <a class="nav-link page" href="{% url 'blog' %}">Blog</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blogLeftSidebar' %}"
+                      >Blog Left Sidebar</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blogGrid' %}"
+                      >Blog Grid</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blogGrid2' %}"
+                      >Blog Grid Right Sidebar</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blogGrid3' %}"
+                      >Blog Grid Left Sidebar</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blogDetails' %}"
+                      >Blog Details</a
+                    >
+                  </li>
+                </ul>
+                <!-- End Dropdown Menu -->
+              </li>
+
+              <li class="menu-item">
+                <a
+                  class="main-element fluxi-dropdown-main-element"
+                  href="{% url 'contact' %}"
+                  >Contact</a
+                >
               </li>
             </ul>
           </nav>
           <div class="header-end-area">
-            <a class="reqiest" href="#">Fale conosco</a>
-            <a href="#" class="rts-btn btn-primary-4">Agende a sua visita</a>
+            <a class="reqiest" href="#">Request a demo</a>
+            <a href="#" class="rts-btn btn-primary-4">Contact sales</a>
             <div class="menu-btn" id="menu-btn">
               <svg
                 width="20"
@@ -105,22 +241,22 @@
       <div class="col-lg-6">
         <div class="about-main-wrapper">
           <h1 class="title split-collab">
-            Uma Educação <br />
-            <span>que transforma.</span>
+            A full-service <br />
+            <span>creative digital</span> <br />
+            agency
           </h1>
         </div>
       </div>
       <div class="col-lg-5 offset-lg-1">
         <div class="banner-about-right">
           <p class="disc">
-            O Centro Educacional Logos é referência em ensino de qualidade há
-            quase 30 anos, formando cidadãos preparados para os desafios do
-            século XXI com excelência acadêmica e valores sólidos.
+            Fluxi focus on helping you to make useful content more accessible
+            with an ultimate goal for a good sharing profit as a content
+            creator.
           </p>
           <p class="disc">
-            Nossa missão é proporcionar uma educação integral que desenvolva o
-            potencial completo de cada aluno, combinando tradição pedagógica com
-            inovação educacional.
+            We see more and more ads in search results and not enough care for
+            the people who are actually creating content.
           </p>
         </div>
       </div>
@@ -159,7 +295,7 @@
 </div>
 <!-- about large image video area end -->
 
-<!-- parceiros area start -->
+<!-- brand area start -->
 <div class="brand-area-start title-three-brand-wrapper rts-section-gap">
   <div class="container">
     <div class="row">
@@ -169,32 +305,19 @@
           <div class="light swiper mySwiper-brand-about">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <a href="#"
-                  ><img
-                    src="/static/images/brand/01.svg"
-                    alt="Parceiro educacional"
-                /></a>
+                <a href="#"><img src="/static/images/brand/01.svg" alt="" /></a>
               </div>
               <div class="swiper-slide">
-                <a href="#"
-                  ><img
-                    src="/static/images/brand/02.svg"
-                    alt="Sistema de ensino"
-                /></a>
+                <a href="#"><img src="/static/images/brand/02.svg" alt="" /></a>
               </div>
               <div class="swiper-slide">
-                <a href="#"
-                  ><img
-                    src="/static/images/brand/03.svg"
-                    alt="Certificação internacional"
-                /></a>
+                <a href="#"><img src="/static/images/brand/03.svg" alt="" /></a>
               </div>
               <div class="swiper-slide">
-                <a href="#"
-                  ><img
-                    src="/static/images/brand/04.svg"
-                    alt="Tecnologia educacional"
-                /></a>
+                <a href="#"><img src="/static/images/brand/04.svg" alt="" /></a>
+              </div>
+              <div class="swiper-slide">
+                <a href="#"><img src="/static/images/brand/05.svg" alt="" /></a>
               </div>
             </div>
           </div>
@@ -202,32 +325,19 @@
           <div class="dark swiper mySwiper-brand-about">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <a href="#"
-                  ><img
-                    src="/static/images/brand/21.svg"
-                    alt="Parceiro educacional"
-                /></a>
+                <a href="#"><img src="/static/images/brand/21.svg" alt="" /></a>
               </div>
               <div class="swiper-slide">
-                <a href="#"
-                  ><img
-                    src="/static/images/brand/22.svg"
-                    alt="Sistema de ensino"
-                /></a>
+                <a href="#"><img src="/static/images/brand/22.svg" alt="" /></a>
               </div>
               <div class="swiper-slide">
-                <a href="#"
-                  ><img
-                    src="/static/images/brand/23.svg"
-                    alt="Certificação internacional"
-                /></a>
+                <a href="#"><img src="/static/images/brand/23.svg" alt="" /></a>
               </div>
               <div class="swiper-slide">
-                <a href="#"
-                  ><img
-                    src="/static/images/brand/24.svg"
-                    alt="Tecnologia educacional"
-                /></a>
+                <a href="#"><img src="/static/images/brand/24.svg" alt="" /></a>
+              </div>
+              <div class="swiper-slide">
+                <a href="#"><img src="/static/images/brand/21.svg" alt="" /></a>
               </div>
             </div>
           </div>
@@ -236,16 +346,16 @@
     </div>
   </div>
 </div>
-<!-- parceiros area end -->
+<!-- brand area end -->
 
-<!-- acordion area start-->
+<!-- rts  working process area start-->
 <div class="rts-working-process-area rts-section-gap about">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
         <div class="title-style-one-center">
-          <span class="pre skew-up">Nossa metodologia</span>
-          <h2 class="title skew-up">Por que escolher o Logos</h2>
+          <span class="pre skew-up">This is how we work</span>
+          <h2 class="title skew-up">Why you will choose us</h2>
         </div>
       </div>
     </div>
@@ -277,7 +387,7 @@
                       fill="#156BDB"
                     />
                   </svg>
-                  Projeto Pedagógico Inovador
+                  Creating a strategy
                 </button>
               </h2>
               <div
@@ -287,9 +397,9 @@
                 data-bs-parent="#accordionExample"
               >
                 <div class="accordion-body">
-                  Metodologia que integra o melhor do ensino tradicional com
-                  práticas pedagógicas modernas, preparando alunos para o ENEM,
-                  vestibulares e para a vida com pensamento crítico e autonomia.
+                  Includes using high-quality keywords to write strategic
+                  content that ranks, as well as descriptive metadata and
+                  meaningful image alt text.
                 </div>
               </div>
             </div>
@@ -324,7 +434,7 @@
                       </clipPath>
                     </defs>
                   </svg>
-                  Infraestrutura Completa
+                  Building your site
                 </button>
               </h2>
               <div
@@ -334,10 +444,9 @@
                 data-bs-parent="#accordionExample"
               >
                 <div class="accordion-body">
-                  Campus moderno com laboratórios equipados, biblioteca
-                  atualizada, quadras esportivas, espaços de convivência e
-                  tecnologia integrada às salas de aula para uma experiência
-                  educacional completa.
+                  Includes using high-quality keywords to write strategic
+                  content that ranks, as well as descriptive metadata and
+                  meaningful image alt text.
                 </div>
               </div>
             </div>
@@ -365,7 +474,7 @@
                       fill="#156BDB"
                     />
                   </svg>
-                  Educação Integral
+                  Website optimization
                 </button>
               </h2>
               <div
@@ -375,10 +484,9 @@
                 data-bs-parent="#accordionExample"
               >
                 <div class="accordion-body">
-                  Desenvolvimento acadêmico, socioemocional e espiritual através
-                  de programas extracurriculares, projetos sociais,
-                  acompanhamento individualizado e formação em valores éticos e
-                  cristãos.
+                  Includes using high-quality keywords to write strategic
+                  content that ranks, as well as descriptive metadata and
+                  meaningful image alt text.
                 </div>
               </div>
             </div>
@@ -406,7 +514,7 @@
                       fill="#156BDB"
                     />
                   </svg>
-                  Resultados Comprovados
+                  Promoting your site
                 </button>
               </h2>
               <div
@@ -416,9 +524,9 @@
                 data-bs-parent="#accordionExample"
               >
                 <div class="accordion-body">
-                  Taxa de aprovação superior a 85% nos principais vestibulares,
-                  ex-alunos em universidades de ponta e carreiras de sucesso,
-                  demonstrando a eficácia de nossa proposta educacional.
+                  Includes using high-quality keywords to write strategic
+                  content that ranks, as well as descriptive metadata and
+                  meaningful image alt text.
                 </div>
               </div>
             </div>
@@ -436,7 +544,7 @@
     </div>
   </div>
 </div>
-<!-- acordion area end-->
+<!-- rts  working process area end-->
 
 <!-- rts counter up section start3 -->
 <div class="rts-counter-up-avout-area rts-section-gap2Bottom">
@@ -449,8 +557,8 @@
             <div class="icon">
               <img src="/static/images/counter/11.svg" alt="counter" />
             </div>
-            <h2 class="title"><span class="counter">1995</span></h2>
-            <span class="brand-name">Ano de fundação</span>
+            <h2 class="title"><span class="counter">2017</span></h2>
+            <span class="brand-name">Year founded</span>
           </div>
           <!-- single counter up section end -->
           <!-- single counter up section -->
@@ -458,8 +566,8 @@
             <div class="icon">
               <img src="/static/images/counter/12.svg" alt="counter" />
             </div>
-            <h2 class="title"><span class="counter">500</span>+</h2>
-            <span class="brand-name">Alunos formados</span>
+            <h2 class="title"><span class="counter">500</span>K</h2>
+            <span class="brand-name">Competitors keywords</span>
           </div>
           <!-- single counter up section end -->
           <!-- single counter up section -->
@@ -467,8 +575,8 @@
             <div class="icon">
               <img src="/static/images/counter/13.svg" alt="counter" />
             </div>
-            <h2 class="title"><span class="counter">95</span>%</h2>
-            <span class="brand-name">Taxa de satisfação das famílias</span>
+            <h2 class="title"><span class="counter">98</span>M</h2>
+            <span class="brand-name">Supported locations</span>
           </div>
           <!-- single counter up section end -->
           <!-- single counter up section -->
@@ -476,8 +584,8 @@
             <div class="icon">
               <img src="/static/images/counter/14.svg" alt="counter" />
             </div>
-            <h2 class="title"><span class="counter">92</span>%</h2>
-            <span class="brand-name">Aprovação em universidades</span>
+            <h2 class="title"><span class="counter">98</span>M</h2>
+            <span class="brand-name">Loyal customers</span>
           </div>
           <!-- single counter up section end -->
         </div>
@@ -494,16 +602,16 @@
       <div class="col-lg-12">
         <div class="title-wrapper-between">
           <div class="title-style-one-left">
-            <span class="pre skew-up">NOSSOS SEGMENTOS</span>
+            <span class="pre skew-up">Our services</span>
             <h2 class="title skew-up">
-              Educação completa para <br />
-              todas as fases do aprendizado
+              A full-service creative <br />
+              digital agency
             </h2>
           </div>
           <p class="disc">
-            O Centro Educacional Logos oferece uma jornada educacional completa,
-            do Ensino Infantil ao Médio, com programas específicos para cada
-            fase do desenvolvimento do aluno.
+            Fluxi agency makes it easy to create content that engages your
+            audience by taking the guesswork out of research, strategy, and
+            writing.
           </p>
         </div>
       </div>
@@ -541,12 +649,10 @@
               </defs>
             </svg>
           </div>
-          <h6 class="title">Educação Infantil</h6>
+          <h6 class="title">Brand Strategy</h6>
           <p class="disc">
             Optimizing your website for each of the main components to put a
-            Desenvolvimento lúdico e acolhedor para crianças de 2 a 5 anos, com
-            foco na socialização, coordenação motora e primeiros aprendizados em
-            ambiente seguro e estimulante.
+            good and fit in house strategy in place.
           </p>
         </div>
         <!-- service area end -->
@@ -583,11 +689,10 @@
               </defs>
             </svg>
           </div>
-          <h6 class="title">Ensino Fundamental I</h6>
+          <h6 class="title">Content Marketing</h6>
           <p class="disc">
-            Base sólida de alfabetização e letramento matemático, desenvolvendo
-            habilidades fundamentais de leitura, escrita, raciocínio lógico e
-            convivência social.
+            Building the site map with places to house in mind means
+            implementing your SEO landing pages.
           </p>
         </div>
         <!-- service area end -->
@@ -624,11 +729,10 @@
               </defs>
             </svg>
           </div>
-          <h6 class="title">Ensino Fundamental II</h6>
+          <h6 class="title">Keyword Research</h6>
           <p class="disc">
-            Aprofundamento do conhecimento nas diversas áreas, preparação para
-            desafios acadêmicos maiores e desenvolvimento da autonomia e
-            responsabilidade estudantil..
+            Get organic traffic and high rankings with multi-team collaboration
+            that will help you optimize on-page and off-page SEO.
           </p>
         </div>
         <!-- service area end -->
@@ -663,11 +767,10 @@
               </defs>
             </svg>
           </div>
-          <h6 class="title">Ensino Médio</h6>
+          <h6 class="title">UI/UX Design</h6>
           <p class="disc">
-            Preparação intensiva para ENEM e vestibulares, orientação
-            vocacional, desenvolvimento de projetos de vida e formação integral
-            para os desafios universitários.
+            Get organic traffic and high rankings with multi-team collaboration
+            that will help you optimize on-page and off-page SEO.
           </p>
         </div>
         <!-- service area end -->
@@ -704,11 +807,10 @@
               </defs>
             </svg>
           </div>
-          <h6 class="title">Período Integral</h6>
+          <h6 class="title">Web, App Development</h6>
           <p class="disc">
-            Opção de permanência estendida com atividades complementares,
-            acompanhamento de tarefas, esportes, artes e projetos especiais em
-            ambiente supervisionado.
+            Optimizing your website for each of the main components to put a
+            good and fit in house strategy in place.
           </p>
         </div>
         <!-- service area end -->
@@ -743,14 +845,22 @@
               </defs>
             </svg>
           </div>
-          <h6 class="title">Atividades Extracurriculares</h6>
+          <h6 class="title">Data Science</h6>
           <p class="disc">
-            Ampla oferta de cursos e atividades: esportes, música, teatro,
-            robótica, idiomas e projetos sociais para desenvolvimento de
-            talentos e habilidades diversas.
+            Building the site map with places to house in mind means
+            implementing your SEO landing pages.
           </p>
         </div>
         <!-- service area end -->
+      </div>
+    </div>
+    <div class="row mt--90">
+      <div class="col-lg-12">
+        <a
+          href="{% url 'service' %}"
+          class="rts-btn btn-primary-5-border arrow-rotate about"
+          >View all services <i class="fa-light fa-arrow-right"></i
+        ></a>
       </div>
     </div>
   </div>
@@ -767,10 +877,10 @@
   <div class="container">
     <div class="row">
       <div class="title-style-one-center">
-        <span class="pre skew-up">Nosso time</span>
+        <span class="pre skew-up">Our team</span>
         <h2 class="title skew-up">
-          Conheça a nossa <br />
-          equipe pedagógica
+          An experienced and <br />
+          elite team
         </h2>
       </div>
     </div>
@@ -782,8 +892,8 @@
             <img src="/static/images/team/09.png" alt="team" />
           </a>
           <div class="inner-content">
-            <h6 class="title">Thiago Danin</h6>
-            <span class="desig">Vice diretor pedagógico</span>
+            <h6 class="title">Kevin Smith</h6>
+            <span class="desig">Founder, CEO of Fluxi</span>
           </div>
         </div>
         <!-- single team area ends -->
@@ -795,8 +905,8 @@
             <img src="/static/images/team/10.png" alt="team" />
           </a>
           <div class="inner-content">
-            <h6 class="title">Missieliene Santos</h6>
-            <span class="desig">Coordenadora Educação Infantil</span>
+            <h6 class="title">Ahmed Solary</h6>
+            <span class="desig">Head of Digital Marketing</span>
           </div>
         </div>
         <!-- single team area ends -->
@@ -808,8 +918,8 @@
             <img src="/static/images/team/11.png" alt="team" />
           </a>
           <div class="inner-content">
-            <h6 class="title">Synnara Suellen</h6>
-            <span class="desig">Coordenadora Fundamental I</span>
+            <h6 class="title">Antonio Martin</h6>
+            <span class="desig">UI/UX Designer</span>
           </div>
         </div>
         <!-- single team area ends -->
@@ -821,8 +931,8 @@
             <img src="/static/images/team/12.png" alt="team" />
           </a>
           <div class="inner-content">
-            <h6 class="title">Antolila Barata</h6>
-            <span class="desig">Coordenadora Fundamental II</span>
+            <h6 class="title">Stefan Brice</h6>
+            <span class="desig">Senior Developer</span>
           </div>
         </div>
         <!-- single team area ends -->
@@ -834,8 +944,8 @@
             <img src="/static/images/team/13.png" alt="team" />
           </a>
           <div class="inner-content">
-            <h6 class="title">Marcia Aguiar</h6>
-            <span class="desig">Coordenadora Médio</span>
+            <h6 class="title">Antonio Martin</h6>
+            <span class="desig">UI/UX Designer</span>
           </div>
         </div>
         <!-- single team area ends -->
@@ -847,8 +957,8 @@
             <img src="/static/images/team/14.png" alt="team" />
           </a>
           <div class="inner-content">
-            <h6 class="title">Raquel Quados</h6>
-            <span class="desig">Orientadora Educacional</span>
+            <h6 class="title">Stefan Brice</h6>
+            <span class="desig">Senior Developer</span>
           </div>
         </div>
         <!-- single team area ends -->
@@ -860,8 +970,8 @@
             <img src="/static/images/team/15.png" alt="team" />
           </a>
           <div class="inner-content">
-            <h6 class="title">Katia Pimentel</h6>
-            <span class="desig">Orientadora Educacional</span>
+            <h6 class="title">Kevin Smith</h6>
+            <span class="desig">Founder, CEO of Fluxi</span>
           </div>
         </div>
         <!-- single team area ends -->
@@ -873,8 +983,8 @@
             <img src="/static/images/team/16.png" alt="team" />
           </a>
           <div class="inner-content">
-            <h6 class="title">Odazilma Cardoso</h6>
-            <span class="desig">Coordenadora de AEE</span>
+            <h6 class="title">Ahmed Solary</h6>
+            <span class="desig">Head of Digital Marketing</span>
           </div>
         </div>
         <!-- single team area ends -->
@@ -889,5 +999,13 @@
   </div>
 </div>
 <!-- rts team area end -->
+
+<!-- articles-blog area start -->
+{% include '../partials/blog.html' %}
+<!-- articles-blog area end -->
+
+<!-- subscription area start -->
+{% include '../partials/subscription.html' %}
+<!-- subscription area end -->
 
 {% endblock content %}

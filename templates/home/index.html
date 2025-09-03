@@ -1,75 +1,70 @@
 {% extends '../layout/layout.html' %} {% block content %}
 
-<!-- rts banner area start -->
-<div class="rts-banner-area-one home-five rts-section-gap">
-  <div class="box-one-top"></div>
-  <div class="box-one-bottom"></div>
-  <div class="container pt--120 pt_sm--80">
-    <div class="row align-items-center">
-      <div
-        class="col-lg-5 order-xl-1 order-lg-1 order-md-6 order-sm-2 order-2 mt_md--100 mt_sm--100"
-      >
+<!-- banner area start -->
+<div class="rts-banner-area-one banner-five rts-section-gap">
+  <div class="container pt--120 pb--120">
+    <div
+      class="row align-items-center justify-content-md-center justify-content-lg-start"
+    >
+      <div class="col-lg-6 col-md-10 order-2 order-lg-0">
         <div class="banner-one-content-left">
           <h1 class="title split-collab">
-            Logos, <br />
-            <span>formação cristã para a vida</span><br />
+            <span class="sr-only">Centro Educacional Logos:</span>
+            Formação cristã <br />
+            para a vida
           </h1>
           <p class="disc">
-            Há <b>30 anos</b> formando cidadãos éticos e competentes através da
-            educação cristã. <b>#1 no ENEM Ananindeua, TOP 10 no ENEM Pará</b>.
-            Descubra a diferença de uma educação integral que prepara seu filho
-            para a vida e <b>para a eternidade.</b>
+            Há <strong>30 anos</strong> formando cidadãos éticos e competentes
+            através da <strong>educação cristã em Ananindeua</strong>.
+            <strong>TOP 10 no ENEM Pará</strong>. Descubra a diferença de uma
+            educação integral que prepara seu filho para a vida e
+            <strong>para a eternidade</strong>.
           </p>
-          <div class="button-banner-one-wrapper">
-            <a href="{% url 'bookDemo' %}" class="rts-btn btn-primary"
-              >Agende a sua visita</a
-            >
-            <div class="customer-review-area">
-              <div class="client-img">
-                <img
-                  class="one"
-                  src="/static/images/testimonials/avatars/01.png"
-                  alt="png-img"
-                />
-                <img
-                  class="two"
-                  src="/static/images/testimonials/avatars/02.png"
-                  alt="png-img"
-                />
-                <img
-                  class="three"
-                  src="/static/images/testimonials/avatars/03.png"
-                  alt="png-img"
-                />
-                <img
-                  class="four"
-                  src="/static/images/testimonials/avatars/07.png"
-                  alt="png-img"
-                />
-              </div>
-              <p class="desc">Baseado em 127 avaliações</p>
+          <a
+            href="#"
+            class="rts-btn btn-primary-5 arrow-rotate"
+            aria-label="Agendar visita na melhor escola cristã de Ananindeua"
+          >
+            Agendar Visita
+            <i class="fa-light fa-arrow-right"></i>
+          </a>
+          <!-- Social Proof Otimizado -->
+          <div class="customer-review-area">
+            <div class="client-img">
+              <img
+                class="one"
+                src="/static/images/testimonials/avatars/01.png"
+                alt="Depoimento pai satisfeito - Centro Educacional Logos"
+              />
+              <img
+                class="two"
+                src="/static/images/testimonials/avatars/05.png"
+                alt="Mãe recomenda escola cristã reformada"
+              />
             </div>
+            <p class="desc">
+              ⭐⭐⭐⭐⭐ <strong>4.8/5</strong> - Baseado em 127 avaliações
+            </p>
           </div>
         </div>
       </div>
+      <!-- Imagem Principal -->
       <div
-        class="col-lg-7 order-xl-2 order-lg-2 order-md-1 order-sm-1 order-1 d-flex justify-content-end justify-content-md-center justify-content-sm-center"
+        class="col-lg-6 col-md-10 d-flex justify-content-lg-end justify-content-center"
       >
         <div class="banner-one-right-content-with-img">
-          <img src="/static/images/banner/01.png" alt="banner_image" />
-
+          <img
+            src="/static/images/banner/alunos-logos.jpg"
+            alt="Alunos Centro Educacional Logos - melhor escola cristã Ananindeua"
+            loading="eager"
+          />
           <div class="short-image-area">
             <img
-              src="/static/images/banner/short/01.png"
-              alt="banner"
+              src="/static/images/banner/short/laboratorio-moderno.jpg"
+              alt="Laboratórios modernos - infraestrutura escola cristã"
               class="img-1"
-              width="200"
-            />
-            <img
-              src="/static/images/banner/short/02.png"
-              alt="banner"
-              class="img-2"
-              width="286"
+              width="476"
+              loading="lazy"
             />
           </div>
         </div>
@@ -79,94 +74,136 @@
 
   <div class="radious-shape">
     <img
-      class="right-top"
-      src="/static/images/banner/short/03.png"
+      class="right-bottom"
+      src="/static/images/service/shape/07.webp"
       alt="banner_image"
     />
     <img
       class="mid-top"
-      src="/static/images/banner/short/05.png"
+      src="/static/images/service/shape/08.webp"
       alt="banner_image"
     />
     <img
-      class="left-bottom"
-      src="/static/images/banner/short/04.png"
+      class="left-top"
+      src="/static/images/service/shape/06.webp"
       alt="banner_image"
     />
     <img
       class="center-bottom"
-      src="/static/images/banner/short/06.png"
+      src="/static/images/service/shape/10.webp"
       alt="banner_image"
     />
   </div>
 
-  <div class="container rts-section-gapTop">
-    <div class="row pt--120 pt_md--40 pt_sm--30">
-      <div class="col-lg-3 col-md-3 col-sm-12 col-12">
-        <div class="brand-left-short-title-one">
-          <p class="disc">
-            Trusted by <br />
-            Top Companies
-          </p>
+  <div class="container">
+    <div class="brand-area-inner">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="brand-title-area text-center">
+            <h2 class="title">Educação Cristã de Excelência</h2>
+            <div class="brand-left-short-title-one">
+              <ul class="star-rating">
+                <li>
+                  <a href="#"><i class="fa-sharp fa-solid fa-star"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa-sharp fa-solid fa-star"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa-sharp fa-solid fa-star"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa-sharp fa-solid fa-star"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa-sharp fa-solid fa-star"></i></a>
+                </li>
+              </ul>
+              <p class="disc">
+                "A
+                <strong
+                  >melhor escola cristã da região metropolitana de Belém</strong
+                >" - Maria Santos, mãe do João (3º ano)
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-lg-9 col-md-9 col-sm-12 col-12 mt_sm--30">
-        <div class="brand-area-wrapper-one">
-          <div class="light swiper mySwiper-brand-1">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
+      <div class="brand-slider-area">
+        <div class="light swiper rts-brandSlider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="brand-inner">
                 <a href="#"
-                  ><img src="/static/images/brand/01.svg" alt="brand"
+                  ><img src="/static/images/brand/16.png" alt="brand"
                 /></a>
               </div>
-              <div class="swiper-slide">
+            </div>
+            <div class="swiper-slide">
+              <div class="brand-inner">
                 <a href="#"
-                  ><img src="/static/images/brand/02.svg" alt="brand"
+                  ><img src="/static/images/brand/17.png" alt="brand"
                 /></a>
               </div>
-              <div class="swiper-slide">
+            </div>
+            <div class="swiper-slide">
+              <div class="brand-inner">
                 <a href="#"
-                  ><img src="/static/images/brand/03.svg" alt="brand"
+                  ><img src="/static/images/brand/18.png" alt="brand"
                 /></a>
               </div>
-              <div class="swiper-slide">
+            </div>
+            <div class="swiper-slide">
+              <div class="brand-inner">
                 <a href="#"
-                  ><img src="/static/images/brand/04.svg" alt="brand"
+                  ><img src="/static/images/brand/19.png" alt="brand"
                 /></a>
               </div>
-              <div class="swiper-slide">
+            </div>
+            <div class="swiper-slide">
+              <div class="brand-inner">
                 <a href="#"
-                  ><img src="/static/images/brand/05.svg" alt="brand"
+                  ><img src="/static/images/brand/20.png" alt="brand"
                 /></a>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="dark swiper mySwiper-brand-1">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
+        <div class="dark swiper rts-brandSlider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="brand-inner">
                 <a href="#"
-                  ><img src="/static/images/brand/21.svg" alt="brand"
+                  ><img src="/static/images/brand/25.png" alt="brand"
                 /></a>
               </div>
-              <div class="swiper-slide">
+            </div>
+            <div class="swiper-slide">
+              <div class="brand-inner">
                 <a href="#"
-                  ><img src="/static/images/brand/22.svg" alt="brand"
+                  ><img src="/static/images/brand/26.png" alt="brand"
                 /></a>
               </div>
-              <div class="swiper-slide">
+            </div>
+            <div class="swiper-slide">
+              <div class="brand-inner">
                 <a href="#"
-                  ><img src="/static/images/brand/23.svg" alt="brand"
+                  ><img src="/static/images/brand/27.png" alt="brand"
                 /></a>
               </div>
-              <div class="swiper-slide">
+            </div>
+            <div class="swiper-slide">
+              <div class="brand-inner">
                 <a href="#"
-                  ><img src="/static/images/brand/24.svg" alt="brand"
+                  ><img src="/static/images/brand/28.png" alt="brand"
                 /></a>
               </div>
-              <div class="swiper-slide">
+            </div>
+            <div class="swiper-slide">
+              <div class="brand-inner">
                 <a href="#"
-                  ><img src="/static/images/brand/21.svg" alt="brand"
+                  ><img src="/static/images/brand/29.png" alt="brand"
                 /></a>
               </div>
             </div>
@@ -176,109 +213,380 @@
     </div>
   </div>
 </div>
-<!-- rts banner area end -->
+<!-- banner area end -->
 
-<!-- providing service area start -->
-<div class="providing-service-area-start-one rts-section-gap">
+<!-- Points Logos area start -->
+<section class="rts-product-area bg-gray-2" id="diferenciais">
   <div class="container-2">
-    <div class="row g-5 align-items-center single-service-row-1">
-      <div class="col-lg-6">
-        <div class="image-area-service-1">
-          <div class="thumbnail-service-1">
-            <img src="/static/images/service/01.jpg" alt="service-area" />
+    <article
+      class="row justify-content-center align-items-center single-product-list single-product-list-2 pt--125 pb--125 pb_sm--0 pt_sm--60"
+    >
+      <div class="col-lg-5 col-md-6 col-sm-10">
+        <div class="left-image">
+          <div class="thumbnail">
+            <img
+              src="/static/images/product/22.jpg"
+              alt="30 anos de tradição - Centro Educacional Logos Ananindeua"
+            />
           </div>
-          <img
-            src="/static/images/service/03.png"
-            alt="service"
-            class="images-2 small"
-            width="286"
-          />
-        </div>
-      </div>
-      <div class="col-lg-6 pl--120 pl_md--15 pl_sm--15">
-        <!-- service contant wrapper main one -->
-        <div class="service-content-style-one">
-          <h3 class="title split-collab">Educação Cristã</h3>
-          <p class="disc">
-            Uma educação cristã que vai além. No Centro Educacional Logos,
-            integramos excelência acadêmica com valores bíblicos, formando
-            cidadãos íntegros e preparados para o mundo.
-          </p>
-          <a href="{% url 'serviceSingle' %}" class="under-line-btn"
-            >Conheça nossa metodologia</a
-          >
-        </div>
-        <!-- service contant wrapper main one end -->
-      </div>
-    </div>
-    <div class="row g-5 align-items-center mt--50">
-      <div class="col-lg-6">
-        <!-- service contant wrapper main one -->
-        <div class="service-content-style-one">
-          <h3 class="title split-collab">Formação integral</h3>
-          <p class="disc">
-            Nossa formação integral desenvolve as dimensões intelectual,
-            emocional, social e espiritual. Com 1º lugar no ENEM Ananindeua,
-            oferecemos educação de excelência que prepara para a vida e
-            universidade.
-          </p>
-          <a href="{% url 'serviceSingle' %}" class="under-line-btn"
-            >Conheça nossa infraestrutura</a
-          >
-        </div>
-        <!-- service contant wrapper main one end -->
-      </div>
-      <div class="col-lg-6">
-        <div class="image-area-service-1 bottom-1">
-          <div class="thumbnail-service-1">
-            <img src="/static/images/service/02.jpg" alt="service-area" />
+          <div class="short-image-area">
+            <img
+              src="/static/images/banner/short/09.png"
+              alt="Gerações formadas - tradição educação cristã"
+              class="images-2 img-1"
+              loading="lazy"
+            />
           </div>
-          <img
-            src="/static/images/service/07.png"
-            alt="service"
-            class="images-2 small"
-            width="200"
-          />
         </div>
       </div>
-    </div>
-  </div>
-  <div class="shape-area">
-    <img
-      class="one"
-      src="/static/images/service/shape/01.png"
-      alt="Service_Shave"
-    />
-    <img
-      class="two"
-      src="/static/images/service/shape/02.png"
-      alt="Service_Shave"
-    />
-    <img
-      class="three"
-      src="/static/images/service/shape/03.png"
-      alt="Service_Shave"
-    />
-    <img
-      class="four"
-      src="/static/images/service/shape/04.png"
-      alt="Service_Shave"
-    />
-    <img
-      class="five"
-      src="/static/images/service/shape/05.png"
-      alt="Service_Shave"
-    />
-    <img
-      class="six"
-      src="/static/images/service/shape/06.png"
-      alt="Service_Shave"
-    />
-  </div>
-</div>
-<!-- providing service area end -->
+      <div class="col-lg-6 col-md-6 col-sm-10 offset-lg-1">
+        <div class="portfolio-content-wrapper-list">
+          <h2 class="title">30 anos de tradição</h2>
+          <p class="disc">
+            <strong>Tradição e Excelência.</strong> Três décadas formando
+            líderes cristãos em <strong>Ananindeua</strong> com milhares de
+            vidas transformadas e valores que atravessam gerações.
+          </p>
+          <div class="product-service-wrapper">
+            <!-- single service -->
+            <div class="single-service">
+              <i class="fa-light fa-check"></i>
+              <p><strong>95% aprovação</strong> vestibulares</p>
+            </div>
+            <!-- single service end -->
+            <!-- single service -->
+            <div class="single-service">
+              <i class="fa-light fa-check"></i>
+              <p><strong>1200+ ex-alunos</strong> formados</p>
+            </div>
+            <!-- single service end -->
+          </div>
+        </div>
+      </div>
+    </article>
 
-<!-- rts portfolio area start -->
+    <!-- Educação Cristã Integral -->
+    <article
+      class="row justify-content-center align-items-center section-separator-top-bg-white single-product-list single-product-list-2 pt--125 pb--125 pb_sm--0 pt_sm--60"
+    >
+      <div class="col-lg-6 col-md-6 col-sm-10 order-2 order-md-0">
+        <div class="portfolio-content-wrapper-list">
+          <h2 class="title">Educação Cristã Integral</h2>
+          <p class="disc">
+            <strong>Valores que Transformam.</strong>
+            <strong>Metodologia cristã reformada</strong>
+            desenvolve caráter, integridade e excelência formando cidadãos
+            éticos que impactam comunidades.
+          </p>
+          <div class="product-service-wrapper">
+            <!-- single service -->
+            <div class="single-service">
+              <i class="fa-light fa-check"></i>
+              <p><strong>Capelania escolar</strong> ativa</p>
+            </div>
+            <!-- single service end -->
+            <!-- single service -->
+            <div class="single-service">
+              <i class="fa-light fa-check"></i>
+              <p><strong>Cosmovisão cristã</strong> integrada</p>
+            </div>
+            <!-- single service end -->
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-10 offset-lg-1">
+        <div class="right-image">
+          <div class="thumbnail">
+            <img
+              src="/static/images/product/23.jpg"
+              alt="Educação cristã integral - metodologia reformada"
+            />
+          </div>
+          <div class="short-image-area">
+            <img
+              src="/static/images/banner/short/10.png"
+              alt="Capelania escolar - valores cristãos"
+              class="img-1 images-2"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- #1 no ENEM -->
+    <article
+      class="row justify-content-center align-items-center section-separator-top-bg-white single-product-list single-product-list-2 pt--125 pb--125 pb_sm--0 pt_sm--60"
+    >
+      <div class="col-lg-5 col-md-6 col-sm-10">
+        <div class="left-image">
+          <div class="thumbnail">
+            <img
+              src="/static/images/product/22.jpg"
+              alt="#1 ENEM Ananindeua - melhor escola da cidade"
+            />
+          </div>
+          <div class="short-image-area">
+            <img
+              src="/static/images/banner/short/11.png"
+              alt="Aprovações nas melhores universidades do estado"
+              class="img-1 images-2"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-10 offset-lg-1">
+        <div class="portfolio-content-wrapper-list">
+          <h2 class="title">TOP 10 ENEM no Pará4</h2>
+          <p class="disc">
+            <strong>Excelência Comprovada.</strong> Somos a
+            <strong>escola #1 no ENEM em Ananindeua</strong>
+            e TOP 10 no Pará, com aprovações nas melhores universidades do
+            Brasil mantendo identidade cristã sólida.
+          </p>
+          <div class="product-service-wrapper">
+            <!-- single service -->
+            <div class="single-service">
+              <i class="fa-light fa-check"></i>
+              <p><strong>UFPA, UEPA, UFRA</strong> e mais</p>
+            </div>
+            <!-- single service end -->
+            <!-- single service -->
+            <div class="single-service">
+              <i class="fa-light fa-check"></i>
+              <p><strong>Preparação integral</strong> para vestibular</p>
+            </div>
+            <!-- single service end -->
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+<!-- Points Logos area end -->
+
+<!-- counterup-area start -->
+<section class="rts-counterup-area rts-section-gap" id="numeros">
+  <div class="container-2">
+    <div class="row pb--80">
+      <div class="col-lg-12">
+        <div class="counter-upmain-wrapper-style-one">
+          <!-- 30 Anos -->
+          <div class="single-counter-up-five">
+            <h3 class="title"><span class="counter">30</span></h3>
+            <p>Anos de Tradição</p>
+          </div>
+
+          <!-- 95% Aprovação -->
+          <div class="single-counter-up-five">
+            <h3 class="title"><span class="counter">95</span>%</h3>
+            <p>Taxa de Aprovação</p>
+          </div>
+
+          <!-- #1 ENEM -->
+          <div class="single-counter-up-five">
+            <h3 class="title">1º</h3>
+            <p>Lugar ENEM Ananindeua</p>
+          </div>
+
+          <!-- 1200+ Ex-alunos -->
+          <div class="single-counter-up-five">
+            <h3 class="title"><span class="counter">1200</span>+</h3>
+            <p>Vidas Transformadas</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- counterup-area end -->
+
+<!-- CTA Visita start-->
+<section class="rts-call-to-action" id="agende-visita">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="call-to-action-area-5">
+          <h2 class="title skew-up">
+            Conheça a melhor escola cristã <br />
+            de Ananindeua
+          </h2>
+          <p class="disc">
+            Agende uma visita e descubra por que somos a escolha de centenas de
+            famílias cristãs.
+          </p>
+          <div class="button-area">
+            <a href="#" class="rts-btn btn-secondary-5">
+              <i class="fa-light fa-calendar"></i>
+              Agendar Visita
+            </a>
+            <a
+              href="https://wa.me/559140420312"
+              class="rts-btn btn-secondary-5-1"
+              target="_blank"
+            >
+              <i class="fa-brands fa-whatsapp"></i>
+              WhatsApp
+            </a>
+          </div>
+          <div class="shape-image">
+            <img
+              src="/static/images/cta/escola-fachada.png"
+              alt="Centro Educacional Logos - Fachada"
+              class="one"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- CTA Visita end -->
+
+<!-- Serviços Educacionais start -->
+<section class="rts-case-studies-5 rts-section-gap2" id="galeria">
+  <div class="container-2">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="title-wrapper-between justify-content-center">
+          <div class="title-style-one-left text-center">
+            <span class="pre skew-up text-center">Serviços Educacionais</span>
+            <h2 class="title skew-up text-center">
+              Viva o dia a dia em uma das melhores <br />
+              escola cristã de Ananindeua
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt--60">
+      <div class="col-lg-12">
+        <div class="single-portfolio-box-style style-five">
+          <a href="#" class="thumbnail">
+            <img
+              src="/static/images/product/04.png"
+              alt="Educação Infantil - Maternal ao Jardim 2"
+              loading="lazy"
+            />
+          </a>
+          <div class="inner-content">
+            <div class="left-content">
+              <p class="pre">Maternal ao Jardim 2</p>
+              <h3 class="title animated fadeIn">Educação Infantil</h3>
+              <p class="desc">
+                Base sólida com amor cristão desde os primeiros anos.
+                Desenvolvimento integral através de atividades lúdicas,
+                capelania infantil e preparação para o ensino fundamental com
+                valores bíblicos.
+              </p>
+              <a
+                href="#educacao-infantil"
+                class="rts-btn btn-primary-4 arrow-rotate"
+              >
+                Saiba Mais <i class="fa-light fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="single-portfolio-box-style style-five">
+          <a href="#" class="thumbnail">
+            <img
+              src="/static/images/product/06.png"
+              alt="Ensino Fundamental - 1º ao 9º ano"
+              loading="lazy"
+            />
+          </a>
+          <div class="inner-content">
+            <div class="left-content">
+              <p class="pre">1º ao 9º ano</p>
+              <h3 class="title animated fadeIn">Ensino Fundamental</h3>
+              <p class="desc">
+                Formação sólida integrando conhecimento acadêmico e princípios
+                cristãos. Metodologia reformada que desenvolve pensamento
+                crítico baseado na Palavra de Deus.
+              </p>
+              <a
+                href="#ensino-fundamental"
+                class="rts-btn btn-primary-4 arrow-rotate"
+              >
+                Saiba Mais <i class="fa-light fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="single-portfolio-box-style style-five">
+          <a href="#" class="thumbnail">
+            <img
+              src="/static/images/product/07.png"
+              alt="Ensino Médio - Preparação universitária"
+              loading="lazy"
+            />
+          </a>
+          <div class="inner-content">
+            <div class="left-content">
+              <p class="pre">1ª à 3ª série</p>
+              <h3 class="title animated fadeIn">Ensino Médio</h3>
+              <p class="desc">
+                Excelência acadêmica que leva ao #1 no ENEM Ananindeua.
+                Preparação completa para vestibulares mantendo identidade cristã
+                e formação de caráter.
+              </p>
+              <a
+                href="#ensino-medio"
+                class="rts-btn btn-primary-4 arrow-rotate"
+              >
+                Saiba Mais <i class="fa-light fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="single-portfolio-box-style style-five">
+          <a href="#" class="thumbnail">
+            <img
+              src="/static/images/product/05.png"
+              alt="Infraestrutura completa - laboratórios e espaços"
+              loading="lazy"
+            />
+          </a>
+          <div class="inner-content">
+            <div class="left-content">
+              <p class="pre">Tempo Integral</p>
+              <h3 class="title animated fadeIn">
+                Conheça nossa proposta de escola de tempo integral
+              </h3>
+              <p class="desc">
+                O integral no Logos leva em consideração a realidade de cada
+                familia. Para isso, oferecemos um ambiente acolhedor e
+                estimulante, com atividades que promovem o desenvolvimento
+                integral dos alunos. Criamos pacotes que se encaixam no tempo de
+                cada familia
+              </p>
+              <a
+                href="#infraestrutura"
+                class="rts-btn btn-primary-4 arrow-rotate"
+              >
+                Conheça Nossas Instalações
+                <i class="fa-light fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bottom-btn text-center">
+          <a href="#" class="rts-btn btn-primary-4-border arrow-rotate">
+            Agendar Visita Presencial <i class="fa-light fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Serviços Educacionais end -->
+
+<!-- galeria de fotos start -->
 <div class="rts-product-area-six">
   <div class="section-inner">
     <div class="top-inner section-bg2">
@@ -351,407 +659,244 @@
     </div>
   </div>
 </div>
-<!-- rts portfolio area end -->
+<!-- galeria de fotos end -->
 
-<!-- rts about area  -->
-<div class="rts-about-area rts-section-gap">
+<!-- sportcenter start -->
+<div class="rts-campaign-area rts-section-gap2">
+  <div class="container-2">
+    <div class="section-inner">
+      <div class="row align-items-center">
+        <div class="col-lg-6 col-md-7 order-2 order-md-0">
+          <div class="left-side-content">
+            <h3 class="title">Logos Sport Center</h3>
+            <p class="desc">
+              <strong>Conectando a familia através do esporte</strong>. Nosso
+              complexo esportivo oferece atividades para todas as idades,
+              promovendo saúde, bem-estar e integração familiar em um ambiente
+              seguro e acolhedor.
+            </p>
+            <a href="#" class="rts-btn btn-primary-5 arrow-rotate"
+              >Saiba mais <i class="fa-light fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+        <div class="col-lg-5 offset-lg-1 col-md-5">
+          <div class="right-side-image">
+            <img src="/static/images/product/28.png" alt="" />
+            <div class="short-image">
+              <img src="/static/images/product/28_1.png" alt="" width="286" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- sportcenter end -->
+
+<!-- testemunho start -->
+<div
+  class="rts-section-gap2 rts-client-feedback-area-4 rts-client-feedback-area-5"
+>
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
         <div class="title-style-one-center">
-          <span class="pre">Junte-se a nossa comunidade</span>
+          <span class="pre skew-up">Testemunho dos nossos clientes</span>
           <h2 class="title skew-up">
-            <b>Centro Educacional Logos</b>, <br />
-            uma escola cristã para a vida
+            Como nossos clientes <br />
+            veem nosso trabalho.
           </h2>
         </div>
       </div>
     </div>
-    <div class="row mt--70">
-      <div class="col-lg-12">
-        <div class="about-large-image-bg"></div>
-      </div>
-    </div>
-    <div class="row g-5 plr--60 mt-dec-working-step plr_sm--0">
-      <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-        <!-- single working -process area start -->
-        <div class="single-working-process">
-          <h5 class="number">01</h5>
-          <h3 class="title">30 Anos de Tradição</h3>
+    <div class="row g-48 mt--0 justify-content-sm-center">
+      <div class="col-lg-4 col-md-6 col-sm-10">
+        <!-- testimonials 1 area start -->
+        <div class="single-testimonials-area">
           <p class="disc">
-            <b>Tradição e Excelência.</b> Três décadas formando líderes cristãos
-            em Ananindeua com milhares de vidas transformadas e valores que
-            atravessam gerações.
+            "Escolhi o Centro Educacional Logos pela tradição em educação cristã
+            e não me arrependo. Minha filha desenvolveu não apenas excelência
+            acadêmica, mas valores sólidos que a acompanharão por toda vida. A
+            aprovação na UFPA foi consequência natural de uma formação integral
+            de qualidade."
           </p>
-        </div>
-        <!-- single working -process area end -->
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-        <!-- single working -process area start -->
-        <div class="single-working-process">
-          <h5 class="number">02</h5>
-          <h3 class="title">#1 no ENEM</h3>
-          <p class="disc">
-            <b>Aprovação Comprovada.</b> 1º lugar ENEM Ananindeua, TOP 10 ENEM
-            Pará. Em média 95% de aprovação nos vestibulares. Com alunos nas
-            melhores universidades do país.
-          </p>
-        </div>
-        <!-- single working -process area end -->
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-        <!-- single working -process area start -->
-        <div class="single-working-process">
-          <h5 class="number">03</h5>
-          <h3 class="title">Educação Cristã Integral</h3>
-          <p class="disc">
-            <b>Valores que Transformam.</b> Metodologia cristã reformada
-            desenvolve caráter, integridade e excelência formando cidadãos
-            éticos que impactam comunidades.
-          </p>
-        </div>
-        <!-- single working -process area end -->
-      </div>
-    </div>
-    <div class="row plr--60 mt--80 plr_sm--15">
-      <div class="col-lg-12 plr--50 plr_sm--15">
-        <div class="step-down-text-process">
-          <p class="disc">
-            O Centro Educacional Logos é uma comunidade cristã comprometida com
-            formação integral. Há 30 anos em Ananindeua, desenvolvemos jovens
-            capazes de liderar com integridade, servir com amor e transformar
-            sociedade através de princípios bíblicos sólidos.
-          </p>
-          <div class="shape-area-img">
-            <img
-              class="one"
-              src="/static/images/about/shape/01.png"
-              alt="shape"
-            />
-            <img
-              class="two"
-              src="/static/images/about/shape/02.png"
-              alt="shape"
-            />
-            <img
-              class="three"
-              src="/static/images/about/shape/03.png"
-              alt="shape"
-            />
-            <img
-              class="four"
-              src="/static/images/about/shape/04.png"
-              alt="shape"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- rts about area end -->
-
-<!-- rts counter up area start -->
-<div class="rts-counterup-area rts-section-gap">
-  <div class="container">
-    <div class="row pb--80">
-      <div class="col-lg-12">
-        <div class="counter-upmain-wrapper-style-one">
-          <!-- single counter up area start -->
-          <div class="single-counter-up">
-            <h3 class="title"><span class="counter">30</span>anos</h3>
-            <p>Formando gerações em Ananindeua</p>
-          </div>
-          <!-- single counter up area end -->
-          <!-- single counter up area start -->
-          <div class="single-counter-up">
-            <h3 class="title">+<span class="counter">90</span>%</h3>
-            <p>de aprovação nas universidades</p>
-          </div>
-          <!-- single counter up area end -->
-          <!-- single counter up area start -->
-          <div class="single-counter-up">
-            <h3 class="title">TOP<span class="counter">10</span></h3>
-            <p>ENEM Pará</p>
-          </div>
-          <!-- single counter up area end -->
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- rts counter up area end -->
-
-<!-- rts testimonials area start -->
-<div class="rts-testimonials-area-one rts-section-gap section-bg">
-  <div class="container">
-    <div class="row">
-      <div class="col-gl-12">
-        <div class="title-style-one-left">
-          <span class="pre">Nossos clientes</span>
-          <h2 class="title split-collab">
-            O Logos é desenhado <br />
-            pensando no seu dia a dia.
-          </h2>
-        </div>
-      </div>
-    </div>
-    <div class="row mt--60">
-      <div class="col-lg-12">
-        <div class="overflow-right-div">
-          <!-- testimonails swiper main wrapper -->
-          <div class="testimonials-swiper-one-wrapper">
-            <div class="swiper mySwiper-testimonials-one">
-              <div class="swiper-wrapper">
-                <!-- single slider -->
-                <div class="swiper-slide">
-                  <div class="single-testimonials-area">
-                    <p class="disc">
-                      “Escolhi o Centro Educacional Logos pela tradição em
-                      educação cristã e não me arrependo. Minha filha
-                      desenvolveu não apenas excelência acadêmica, mas valores
-                      sólidos que a acompanharão por toda vida. A aprovação na
-                      UFPA foi consequência natural de uma formação de
-                      qualidade.”
-                    </p>
-                    <div class="author-area">
-                      <a href="#" class="avatar">
-                        <img
-                          src="/static/images/testimonials/avatars/01.png"
-                          alt="marketing"
-                        />
-                      </a>
-                      <div class="information">
-                        <h6 class="title">Ana Carolina Mendes</h6>
-                        <span>Mãe da Beatriz - 3º ano EM</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- single slider -->
-                <!-- single slider -->
-                <div class="swiper-slide">
-                  <div class="single-testimonials-area">
-                    <p class="disc">
-                      Como família cristã, buscávamos uma escola que
-                      compartilhasse nossos valores sem abrir mão da qualidade
-                      acadêmica. No Logos encontramos professores cristãos
-                      comprometidos, metodologia inovadora e ambiente seguro.
-                      Felipe cresceu em caráter e conhecimento.
-                    </p>
-                    <div class="author-area">
-                      <a href="#" class="avatar">
-                        <img
-                          src="/static/images/testimonials/avatars/02.png"
-                          alt="marketing"
-                        />
-                      </a>
-                      <div class="information">
-                        <h6 class="title">Roberto Santos</h6>
-                        <span>Pai do Felipe - 9º ano</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- single slider -->
-                <!-- single slider -->
-                <div class="swiper-slide">
-                  <div class="single-testimonials-area">
-                    <p class="disc">
-                      A educação cristã do Logos fez toda diferença na formação
-                      da minha filha. Ela desenvolveu pensamento crítico baseado
-                      em princípios bíblicos, autoestima saudável e paixão pelo
-                      aprendizado. Recomendo para todas as famílias cristãs que
-                      buscam uma escola na região de Belém que ensine valores
-                      sólidos.
-                    </p>
-                    <div class="author-area">
-                      <a href="#" class="avatar">
-                        <img
-                          src="/static/images/testimonials/avatars/03.png"
-                          alt="marketing"
-                        />
-                      </a>
-                      <div class="information">
-                        <h6 class="title">Mariana Costa</h6>
-                        <span>Mãe da Laura - 6º ano</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- single slider -->
-                <!-- single slider -->
-                <div class="swiper-slide">
-                  <div class="single-testimonials-area">
-                    <p class="disc">
-                      Nossos quatros filhos estudaram no Centro Educacional
-                      Logos. Todos foram aprovados nos cursos e universidades
-                      que quiseram e mantêm um testemunho e uma vida cristã
-                      ativa. A escola realmente cumpre sua missão de formar
-                      cidadãos éticos e competentes. Eu sempre estou indicando o
-                      Logos, onde quer que eu vá!
-                    </p>
-                    <div class="author-area">
-                      <a href="#" class="avatar">
-                        <img
-                          src="/static/images/testimonials/avatars/01.png"
-                          alt="marketing"
-                        />
-                      </a>
-                      <div class="information">
-                        <h6 class="title">Família Marcon</h6>
-                        <span>Pais de 4 alunos</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- single slider -->
-              </div>
-            </div>
-          </div>
-          <!-- testimonails swiper main wrapper end -->
-        </div>
-        <div class="button-pagination-area">
-          <div class="swiper-pagination"></div>
-          <div class="button-wrapper">
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- shape area start -->
-  <div class="shape-area">
-    <img
-      src="/static/images/testimonials/shape/01.png"
-      alt="shape"
-      class="one"
-    />
-    <img
-      src="/static/images/testimonials/shape/02.png"
-      alt="shape"
-      class="two"
-    />
-  </div>
-  <!-- shape area end -->
-</div>
-<!-- rts testimonials area end -->
-
-<!-- rts footer area start -->
-<div class="rts-footer-area-one pt--80 pb--80">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <!-- footer top area -->
-        <div class="footer-top-area">
-          <div class="logo-area">
-            <a href="#">
+          <div class="author-area">
+            <a href="#" class="avatar">
               <img
-                class="light"
-                src="/static/images/logo/logo-1.svg"
-                alt="logo"
-              />
-              <img
-                class="dark"
-                src="/static/images/logo/logo-one-dark.svg"
-                alt="logo"
+                src="/static/images/testimonials/avatars/01.png"
+                alt="marketing"
               />
             </a>
+            <div class="information">
+              <h6 class="title">Ana Carolina Mendes</h6>
+              <span>Mãe da Beatriz - 2º ano EM</span>
+            </div>
           </div>
-          <ul class="social-area-one">
-            <li>
-              <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa-brands fa-twitter"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa-brands fa-youtube"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            </li>
-          </ul>
         </div>
-        <!-- footer top area end -->
+        <!-- testimonials 1 area end -->
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-10">
+        <!-- testimonials 2 area start -->
+        <div class="single-testimonials-area">
+          <p class="disc">
+            "Como família cristã, buscávamos uma escola que compartilhasse
+            nossos valores sem abrir mão da qualidade acadêmica. No Logos
+            encontramos professores cristãos comprometidos, metodologia
+            inovadora e ambiente seguro. Felipe cresceu em caráter e
+            conhecimento."
+          </p>
+          <div class="author-area">
+            <a href="#" class="avatar">
+              <img
+                src="/static/images/testimonials/avatars/02.png"
+                alt="marketing"
+              />
+            </a>
+            <div class="information">
+              <h6 class="title">Roberto Santos</h6>
+              <span>Pai do Felipe - 9º ano</span>
+            </div>
+          </div>
+        </div>
+        <!-- testimonials 2 area end -->
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-10">
+        <!-- testimonials 3 area start -->
+        <div class="single-testimonials-area">
+          <p class="disc">
+            "Me formei no Logos há 8 anos e posso afirmar: a base cristã que
+            recebi foi fundamental para minha trajetória profissional. Hoje atuo
+            como engenheiro em empresa multinacional, mas nunca esqueci os
+            valores e princípios que aprendi. Gratidão eterna!"
+          </p>
+          <div class="author-area">
+            <a href="#" class="avatar">
+              <img
+                src="/static/images/testimonials/avatars/03.png"
+                alt="marketing"
+              />
+            </a>
+            <div class="information">
+              <h6 class="title">Paulo Oliveira</h6>
+              <span>Ex-aluno, hoje Engenheiro</span>
+            </div>
+          </div>
+        </div>
+        <!-- testimonials 3 area end -->
       </div>
     </div>
-    <div class="row g-48 g-lg-0 pt--40">
-      <div class="col-lg-2 col-md-4 col-sm-6 col-12">
-        <div class="single-footer-wized-one">
-          <h6 class="title">Solutions</h6>
+  </div>
+  <div class="row mt--80">
+    <div class="col-lg-12 d-flex justify-content-center">
+      <a href="#" class="rts-btn btn-primary-4-border arrow-rotate"
+        >Fale conosco <i class="fa-light fa-arrow-right"></i
+      ></a>
+    </div>
+  </div>
+</div>
+<!-- testemunho end -->
+
+<!-- Footer start -->
+<div class="rts-footer-area footer-five rts-section-gapTop pb--65">
+  <div class="container mb--65">
+    <div class="row g-48 g-lg-0">
+      <div class="col-lg-2 col-md-4 col-sm-6">
+        <!-- single footer four wized -->
+        <div class="single-footer-four-wized">
+          <h5 class="title">Institucional</h5>
           <ul>
-            <li><a href="#">Content Marketing</a></li>
-            <li><a href="#">Consumer Insights</a></li>
-            <li><a href="#">SEO Content Strategy</a></li>
-            <li><a href="#">Keyword Research</a></li>
+            <li><a href="#">Sobre nós</a></li>
+            <li><a href="#">Vagas</a></li>
+            <li><a href="#">Dados e informações</a></li>
           </ul>
         </div>
+        <!-- single footer four wized end -->
       </div>
-      <div class="col-lg-2 col-md-4 col-sm-6 col-12">
-        <div class="single-footer-wized-one">
-          <h6 class="title">Resources</h6>
+      <div class="col-lg-2 col-md-4 col-sm-6">
+        <!-- single footer four wized -->
+        <div class="single-footer-four-wized">
+          <h5 class="title">Recursos</h5>
           <ul>
-            <li><a href="#">Insights</a></li>
-            <li><a href="#">Keyword Generator</a></li>
-            <li><a href="#">Research Tool</a></li>
-            <li><a href="#">News & Events</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-4 col-sm-6 col-12">
-        <div class="single-footer-wized-one">
-          <h6 class="title">Company</h6>
-          <ul>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Careers</a></li>
             <li><a href="#">Blog</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#">Duvidas e Perguntas</a></li>
+            <li><a href="#">Suporte</a></li>
           </ul>
         </div>
+        <!-- single footer four wized end -->
       </div>
-      <div class="col-lg-2 col-md-4 col-sm-6 col-12">
-        <div class="single-footer-wized-one">
-          <h6 class="title">Other links</h6>
+      <div class="col-lg-2 col-md-4 col-sm-6">
+        <!-- single footer four wized -->
+        <div class="single-footer-four-wized">
+          <h5 class="title">Social</h5>
           <ul>
-            <li><a href="#">Content Marketing</a></li>
-            <li><a href="#">Consumer Insights</a></li>
-            <li><a href="#">SEO Content Strategy</a></li>
-            <li><a href="#">Keyword Research</a></li>
+            <li>
+              <a href="https://www.linkedin.com/company/logoscentroeducacional/"
+                >Linkedin</a
+              >
+            </li>
+            <li><a href="https://www.facebook.com/CELogos/">Facebook</a></li>
+            <li>
+              <a href="https://www.instagram.com/logoscentroeducacional/"
+                >Instagram</a
+              >
+            </li>
           </ul>
         </div>
+        <!-- single footer four wized end -->
       </div>
-      <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-        <!-- footer input wrapper inbner-main area -->
-        <div class="footer-input-main-wrapper-one">
-          <div class="single-footer-wized-one">
-            <h6 class="title">Newsletter</h6>
+      <div class="col-lg-2 col-md-4 col-sm-6">
+        <!-- single footer four wized -->
+        <div class="single-footer-four-wized">
+          <h5 class="title">Legal</h5>
+          <ul>
+            <li><a href="#">Termos de serviços</a></li>
+            <li>
+              <a href="#">Politica de privacidade</a>
+            </li>
+            <li><a href="#">Cookies</a></li>
+          </ul>
+        </div>
+        <!-- single footer four wized end -->
+      </div>
+      <div class="col-lg-4 col-md-8 col-sm-12">
+        <!-- single footer four wized -->
+        <div class="single-footer-four-wized">
+          <h5 class="title">Se inscreva para receber as noticias do Logos</h5>
+          <div class="footer-input-btn-between">
             <form action="#">
-              <input type="email" placeholder="Email address.." required />
-              <i class="fa-regular fa-envelope"></i>
-              <button class="rts-btn btn-primary">Subscribe now</button>
+              <input required type="email" placeholder="Seu email.." />
+              <button type="submit" class="rts-btn btn-primary-4">
+                Se inscreva
+              </button>
             </form>
           </div>
         </div>
-        <!-- footer input wrapper inbner-main area end -->
       </div>
     </div>
+  </div>
+  <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <!-- copyright area start -->
-        <div class="copyright-area-start">
-          <p>© 2023 Fluxi, All right reserved.</p>
-          <ul>
-            <li><a href="{% url 'privacyPolicy' %}">Privacy Policy</a></li>
-            <li><a href="{% url 'terms' %}">Terms of service</a></li>
-          </ul>
+        <div class="copyright-area-four pt--65 mt-65 border-top">
+          <a href="#" class="logo">
+            <img
+              class="light"
+              src="/static/images/logo/logo-1.svg"
+              alt="logo"
+            />
+            <img
+              class="dark"
+              src="/static/images/logo/logo-one-dark.svg"
+              alt="logo"
+            />
+          </a>
+          <p>© 2026 Logos, todos os direitos reservados.</p>
         </div>
-        <!-- copyright area end -->
       </div>
     </div>
   </div>
 </div>
-<!-- rts footer area end -->
+<!-- Footer start -->
 
 {% endblock content %}

@@ -1,79 +1,104 @@
 <div class="rts-footer-area footer-four rts-section-gap">
-    <div class="container mb--65">
-        <div class="row g-48">
-            <div class="row g-48">
-                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
-                    <div class="single-footer-wized-one">
-                        <h6 class="title">Solutions</h6>
-                        <ul>
-                            <li><a href="#">Content Marketing</a></li>
-                            <li><a href="#">Consumer Insights</a></li>
-                            <li><a href="#">SEO Content Strategy</a></li>
-                            <li><a href="#">Keyword Research</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
-                    <div class="single-footer-wized-one">
-                        <h6 class="title">Resources</h6>
-                        <ul>
-                            <li><a href="#">Insights</a></li>
-                            <li><a href="#">Keyword Generator</a></li>
-                            <li><a href="#">Research Tool</a></li>
-                            <li><a href="#">News & Events</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
-                    <div class="single-footer-wized-one">
-                        <h6 class="title">Company</h6>
-                        <ul>
-                            <li><a href="#">About us</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
-                    <div class="single-footer-wized-one">
-                        <h6 class="title">Other links</h6>
-                        <ul>
-                            <li><a href="#">Content Marketing</a></li>
-                            <li><a href="#">Consumer Insights</a></li>
-                            <li><a href="#">SEO Content Strategy</a></li>
-                            <li><a href="#">Keyword Research</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                    <!-- footer input wrapper inbner-main area -->
-                    <div class="footer-input-main-wrapper-one">
-                        <div class="single-footer-wized-one">
-                            <h6 class="title">Newsletter</h6>
-                            <form action="#">
-                                <input type="email" placeholder="Email address.." required>
-                                <i class="fa-regular fa-envelope"></i>
-                                <button class="rts-btn btn-primary">Subscribe now</button>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- footer input wrapper inbner-main area end -->
-                </div>
-            </div>
+  <div class="container mb--65">
+    <div class="row g-48">
+      <div class="row g-48">
+        <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+          <div class="single-footer-wized-one">
+            <h6 class="title">Institucional</h6>
+            <ul>
+              <li><a href="{% url "about" %}">Sobre nós</a></li>
+              <li><a href="https://celogos.vagas.solides.com.br/">Vagas</a></li>
+              <li><a href="#">Dados e informações</a></li>
+            </ul>
+          </div>
         </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="copyright-area-four pt--65 mt-65 border-top">
-                    <a href="#" class="logo">
-                        <img class="light" src="/static/images/logo/logo-1.svg" alt="logo">
-                        <img class="dark" src="/static/images/logo/logo-one-dark.svg" alt="logo">
-                    </a>
-                    <p>© 2023 Fluxi, All right reserved.</p>
-                </div>
-            </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+          <div class="single-footer-wized-one">
+            <h6 class="title">Recursos</h6>
+            <ul>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Duvidas e Perguntas</a></li>
+              <li><a href="#">Suporte</a></li>
+            </ul>
+          </div>
         </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+          <div class="single-footer-wized-one">
+            <h6 class="title">Social</h6>
+            <ul>
+              <li>
+                <a
+                  href="https://www.linkedin.com/company/logoscentroeducacional"
+                  >LinkedIn</a
+                >
+              </li>
+              <li>
+                <a href="https://www.facebook.com/CELogos/">Facebook</a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/logoscentroeducacional/"
+                  >Instagram</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+          <div class="single-footer-wized-one">
+            <h6 class="title">Legal</h6>
+            <ul>
+              <li><a href="#">Termos de serviços</a></li>
+              <li><a href="#">Política de privacidade</a></li>
+              <li><a href="#">Cookies</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+          <!-- footer input wrapper inbner-main area -->
+          <div class="footer-input-main-wrapper-one">
+            <div class="single-footer-wized-one">
+              <h6 class="title">
+                Se inscreva para receber as noticias do Logos
+              </h6>
+              <form action="#">
+                <input
+                  id="email"
+                  type="email"
+                  autocomplete="email"
+                  placeholder="Email address.."
+                  required
+                />
+                <i class="fa-regular fa-envelope"></i>
+                <button type="submit" class="rts-btn btn-primary">
+                  Seu email...
+                </button>
+              </form>
+            </div>
+          </div>
+          <!-- footer input wrapper inbner-main area end -->
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="copyright-area-four pt--65 mt-65 border-top">
+          <a href="#" class="logo">
+            <img
+              class="light"
+              src="/static/images/logo/logo-1.svg"
+              alt="logo"
+            />
+            <img
+              class="dark"
+              src="/static/images/logo/logo-one-dark.svg"
+              alt="logo"
+            />
+          </a>
+          <p>© 2026 Logos, todos os direitos reservados.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
