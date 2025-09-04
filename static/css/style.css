@@ -232,11 +232,11 @@
 }
 
 [data-theme="dark"] {
-  --color-primary: #156bdb;
-  --color-primary-btn: #156bdb;
-  --color-primary-2: #4c4ff8;
+  --color-primary: #0189ff;
+  --color-primary-btn: #0189ff;
+  --color-primary-2: #0189ff;
   --color-secondary: #1f1f25;
-  --color-secondary-2: #ff6354;
+  --color-secondary-2: #ff8ce8;
   --color-border: #bcbfdb54;
   --color-border-2: #d7d9e954;
   --banner-one-gradient-top: linear-gradient(
@@ -9552,6 +9552,7 @@ img {
   vertical-align: middle;
   max-width: 100%;
   height: auto;
+  border-radius: 12px;
 }
 
 svg:not(:root) {
@@ -15103,6 +15104,7 @@ body.sal-disabled [data-sal|="flip"] {
 .header-style-one-wrapper .logo-area .logo {
   padding: 25px 0;
   display: block;
+  max-width: 50%;
 }
 
 [data-theme="light"] .logo-area img.light {
@@ -16798,7 +16800,7 @@ header.heder-two .sub-dropdown .submenu.third-lvl.base {
 
 .rts-banner-area-one {
   position: relative;
-  z-index: 0;
+  z-index: -1;
   overflow: hidden;
 }
 .rts-banner-area-one .box-one-top {
@@ -16826,6 +16828,7 @@ header.heder-two .sub-dropdown .submenu.third-lvl.base {
 @media screen and (max-width: 768px) {
   .rts-banner-area-one .radious-shape {
     display: none;
+    z-index: -5;
   }
 }
 .rts-banner-area-one .radious-shape .right-top {
@@ -16835,7 +16838,6 @@ header.heder-two .sub-dropdown .submenu.third-lvl.base {
   right: -26px;
   top: 10%;
   animation: jump-2 15s linear infinite;
-  z-index: 0;
 }
 .rts-banner-area-one .radious-shape .right-bottom {
   position: absolute;
@@ -16844,7 +16846,6 @@ header.heder-two .sub-dropdown .submenu.third-lvl.base {
   left: -20px;
   top: 18%;
   animation: jump-2 15s linear infinite;
-  z-index: 0;
 }
 .rts-banner-area-one .radious-shape .mid-top {
   position: absolute;
@@ -16852,8 +16853,8 @@ header.heder-two .sub-dropdown .submenu.third-lvl.base {
   height: auto;
   top: 13%;
   left: 40%;
+  z-index: -1;
   animation: jump-1 18s linear infinite;
-  z-index: 1;
 }
 .rts-banner-area-one .radious-shape .left-bottom {
   position: absolute;
@@ -16862,7 +16863,6 @@ header.heder-two .sub-dropdown .submenu.third-lvl.base {
   left: -24px;
   top: 40%;
   animation: jump-2 15s linear infinite;
-  z-index: 0;
 }
 .rts-banner-area-one .radious-shape .left-top {
   position: absolute;
@@ -16872,7 +16872,6 @@ header.heder-two .sub-dropdown .submenu.third-lvl.base {
   bottom: 50%;
   transform: translateY(50%);
   animation: jump-2 15s linear infinite;
-  z-index: 0;
 }
 .rts-banner-area-one .radious-shape .center-bottom {
   position: absolute;
@@ -16880,8 +16879,8 @@ header.heder-two .sub-dropdown .submenu.third-lvl.base {
   height: auto;
   left: 46%;
   bottom: 40%;
+  z-index: -1;
   animation: jump-1 18s linear infinite;
-  z-index: 0;
 }
 .rts-banner-area-one.banner-five .banner-one-content-left .title {
   font-weight: 800;
@@ -16926,6 +16925,8 @@ header.heder-two .sub-dropdown .submenu.third-lvl.base {
   left: -6%;
   bottom: -6%;
   animation: none;
+  transform: rotate(-45deg);
+  z-index: -1;
 }
 @media screen and (max-width: 992px) {
   .rts-banner-area-one.banner-five
@@ -19662,6 +19663,8 @@ header.heder-two .sub-dropdown .submenu.third-lvl.base {
   position: absolute;
   top: 8%;
   right: 30%;
+  width: 10%;
+  height: auto;
 }
 @media screen and (max-width: 575px) {
   .service-relative .service--shape .one {
@@ -19672,6 +19675,8 @@ header.heder-two .sub-dropdown .submenu.third-lvl.base {
   position: absolute;
   top: 80%;
   left: 53%;
+  width: 10%;
+  height: auto;
 }
 @media screen and (max-width: 575px) {
   .service-relative .service--shape .two {
@@ -20842,7 +20847,7 @@ form i {
 }
 .call-to-action-area-5 .title {
   margin-bottom: 24px;
-  color: #fff;
+  color: #ffffff;
   font-size: 48px;
   font-style: normal;
   font-weight: 800;
@@ -20866,7 +20871,7 @@ form i {
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
-  color: #babbc0;
+  color: #dadada;
   margin-bottom: 30px;
 }
 .call-to-action-area-5 .button-area {
@@ -24697,7 +24702,7 @@ form i {
   position: absolute;
   right: -30px;
   bottom: 100px;
-  width: 50%;
+  width: 20%;
 }
 @media screen and (max-width: 992px) {
   .single-product-list-2 .left-image .short-image-area {
@@ -24714,7 +24719,7 @@ form i {
   position: absolute;
   left: -55px;
   bottom: 100px;
-  width: 50%;
+  width: 25%;
 }
 @media screen and (max-width: 992px) {
   .single-product-list-2 .right-image .short-image-area {
@@ -25590,34 +25595,48 @@ form i {
 .single-case-studies-bread-crumb-area .shape-area img.one {
   top: 25%;
   left: 30%;
+  width: 8%;
+  height: auto;
 }
 .single-case-studies-bread-crumb-area .shape-area img.two {
   top: 75%;
   right: 0%;
+  width: 10%;
+  height: auto;
 }
 .single-case-studies-bread-crumb-area .shape-area img.three {
   top: 50%;
   right: 30%;
+  width: 4%;
+  height: auto;
 }
 @media screen and (max-width: 768px) {
   .single-case-studies-bread-crumb-area .shape-area img.three {
     top: 35%;
     right: 20%;
+    width: 4%;
+    height: auto;
   }
 }
 @media screen and (max-width: 992px) {
   .single-case-studies-bread-crumb-area .shape-area img.three {
     top: 40%;
     right: 25%;
+    width: 4%;
+    height: auto;
   }
 }
 .single-case-studies-bread-crumb-area .shape-area img.four {
   top: 90%;
   left: 25%;
+  width: 20%;
+  height: auto;
 }
 @media screen and (max-width: 768px) {
   .single-case-studies-bread-crumb-area .shape-area img.four {
     display: none;
+    width: 20%;
+    height: auto;
   }
 }
 
