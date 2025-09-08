@@ -18212,7 +18212,7 @@ header.heder-two .sub-dropdown .submenu.third-lvl.base {
 }
 
 .about-area-banner-large-image-video {
-  background-image: url(../images/about/05.jpg);
+  background-image: url(../images/about/metodologia_feliz.jpg);
   height: 560px;
   border-radius: 32px;
   background-attachment: fixed;
@@ -19665,6 +19665,7 @@ header.heder-two .sub-dropdown .submenu.third-lvl.base {
   right: 30%;
   width: 10%;
   height: auto;
+  z-index: -5;
 }
 @media screen and (max-width: 575px) {
   .service-relative .service--shape .one {
@@ -19677,6 +19678,7 @@ header.heder-two .sub-dropdown .submenu.third-lvl.base {
   left: 53%;
   width: 10%;
   height: auto;
+  z-index: -5;
 }
 @media screen and (max-width: 575px) {
   .service-relative .service--shape .two {
@@ -19691,6 +19693,9 @@ header.heder-two .sub-dropdown .submenu.third-lvl.base {
   position: absolute;
   top: 86%;
   right: 55%;
+  width: 10%;
+  height: auto;
+  z-index: -5;
 }
 @media screen and (max-width: 575px) {
   .service-relative .service--shape .three {
@@ -19701,6 +19706,9 @@ header.heder-two .sub-dropdown .submenu.third-lvl.base {
   position: absolute;
   top: 70%;
   left: -10%;
+  width: 10%;
+  height: auto;
+  z-index: -5;
 }
 
 @media screen and (max-width: 992px) {
