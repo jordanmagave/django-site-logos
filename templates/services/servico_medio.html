@@ -7,8 +7,9 @@
       <div class="col-lg-12">
         <div class="breadcrumb-inner">
           <div class="pagimation">
-            <a href="#">Home</a><i class="fa-regular fa-chevron-right"></i>
-            <a href="#">Serviços</a><i class="fa-regular fa-chevron-right"></i>
+            <a href="{% url 'index' %}">Home</a
+            ><i class="fa-regular fa-chevron-right"></i> <a href="#">Serviços</a
+            ><i class="fa-regular fa-chevron-right"></i>
             <a href="#" class="current">Médio</a>
           </div>
           <h1 class="title split-collab">Ensino Médio</h1>
@@ -18,10 +19,10 @@
     </div>
   </div>
   <div class="shape-area">
-    <img src="/static/images/product/shape/01.png" alt="" class="one" />
-    <img src="/static/images/product/shape/02.png" alt="" class="two" />
-    <img src="/static/images/product/shape/03.png" alt="" class="three" />
-    <img src="/static/images/product/shape/04.png" alt="" class="four" />
+    <img src="/static/images/product/shape/06.webp" alt="" class="one" />
+    <img src="/static/images/product/shape/07.webp" alt="" class="two" />
+    <img src="/static/images/product/shape/08.webp" alt="" class="three" />
+    <img src="/static/images/product/shape/09.webp" alt="" class="four" />
   </div>
 </div>
 <!-- single case studies end -->
@@ -32,7 +33,7 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="large-thumbnail">
-          <img src="/static/images/banner/12.jpg" alt="banner" />
+          <img src="/static/images/service/med_cadernao.png" alt="banner" />
         </div>
       </div>
     </div>
@@ -89,7 +90,7 @@
       <div class="col-lg-6 col-md-6 col-sm-10">
         <div class="large-thumbnail">
           <a href="#" class="thumbnail">
-            <img src="/static/images/product/38.jpg" alt="product" />
+            <img src="/static/images/service/med_sas_enem.png" alt="product" />
           </a>
         </div>
       </div>
@@ -110,12 +111,12 @@
       </div>
       <div class="service--shape">
         <img
-          src="/static/images/service/shape/04.png"
+          src="/static/images/service/shape/05.webp"
           alt="service"
           class="one"
         />
         <img
-          src="/static/images/service/shape/06.png"
+          src="/static/images/service/shape/06.webp"
           alt="service"
           class="two"
         />
@@ -141,74 +142,80 @@
       <div class="col-lg-6 col-md-6 col-sm-10 offset-lg-1">
         <div class="large-thumbnail d-flex justify-content-md-end">
           <a href="#" class="thumbnail">
-            <img src="/static/images/product/39.jpg" alt="product" />
+            <img
+              src="/static/images/service/med_aluna_prova.png"
+              alt="product"
+            />
           </a>
         </div>
       </div>
       <div class="service--shape">
-        <img
-          src="/static/images/service/shape/04.png"
-          alt="service"
-          class="three"
-        />
-        <img
-          src="/static/images/service/shape/06.png"
-          alt="service"
-          class="four"
-        />
-      </div>
-    </div>
-  </div>
-</div>
-<!-- rts service area end -->
-
-<!-- short case studies area  -->
-<div class="short-case-studies-area pb--60">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="short-case-studies-inner">
-          <h3 class="title split-collab">Foco total na aprovação no ENEM</h3>
-          <p class="disc">
-            O nosso ensino médio é reconhecido pela excelência em aprovações.
-            Com mais de 93% de aprovação nos principais vestibulares, utilizamos
-            metodologias comprovadas, simulados regulares e acompanhamento para
-            garantir que cada aluno alcance seu máximo potencial. Aqui no Logos
-            seu filho terá as ferramentos para a sua aprovação.
-          </p>
+        <div class="service--shape">
+          <img
+            src="/static/images/service/shape/07.webp"
+            alt="service"
+            class="three"
+          />
+          <img
+            src="/static/images/service/shape/08.webp"
+            alt="service"
+            class="four"
+          />
         </div>
       </div>
     </div>
   </div>
-</div>
-<!-- short case studies area end -->
+  <!-- rts service area end -->
 
-<!-- rts image grid area start -->
-<div class="rts-image-grid-area rts-section-gap">
-  <div class="container">
-    <div class="row g-5 justify-content-center">
-      <div class="col-lg-6 col-md-6">
-        <div class="thumbnail-image-grid mb--30">
-          <a href="#" class="thumbnail">
-            <img src="/static/images/product/40.jpg" alt="" />
-          </a>
-        </div>
-        <div class="thumbnail-image-grid">
-          <a href="#" class="thumbnail">
-            <img src="/static/images/product/41.jpg" alt="" />
-          </a>
-        </div>
-      </div>
-      <div class="col-lg-6 col-md-6">
-        <div class="thumbnail-image-grid mb--25">
-          <a href="#" class="thumbnail">
-            <img src="/static/images/product/42.jpg" alt="" />
-          </a>
+  <!-- short case studies area  -->
+  <div class="short-case-studies-area pb--60">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="short-case-studies-inner">
+            <h3 class="title split-collab">Foco total na aprovação no ENEM</h3>
+            <p class="disc">
+              O nosso ensino médio é reconhecido pela excelência em aprovações.
+              Com mais de 93% de aprovação nos principais vestibulares,
+              utilizamos metodologias comprovadas, simulados regulares e
+              acompanhamento para garantir que cada aluno alcance seu máximo
+              potencial. Aqui no Logos seu filho terá as ferramentos para a sua
+              aprovação.
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<!-- rts image grid area end -->
+  <!-- short case studies area end -->
 
-{% endblock content %}
+  <!-- rts image grid area start -->
+  <div class="rts-image-grid-area rts-section-gap">
+    <div class="container">
+      <div class="row g-5 justify-content-center">
+        <div class="col-lg-6 col-md-6">
+          <div class="thumbnail-image-grid mb--30">
+            <a href="#" class="thumbnail">
+              <img src="/static/images/product/40.jpg" alt="" />
+            </a>
+          </div>
+          <div class="thumbnail-image-grid">
+            <a href="#" class="thumbnail">
+              <img src="/static/images/product/41.jpg" alt="" />
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <div class="thumbnail-image-grid mb--25">
+            <a href="#" class="thumbnail">
+              <img src="/static/images/product/42.jpg" alt="" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- rts image grid area end -->
+
+  {% endblock content %}
+</div>
