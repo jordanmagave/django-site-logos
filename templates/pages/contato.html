@@ -26,45 +26,13 @@
   <div class="container">
     <div class="row justify-content-md-center">
       <div class="col-lg-12 col-md-10">
-        <form
-          id="contact-form"
-          method="post"
-          novalidate
-          class="contact-form"
-          action="#"
-        >
+        <form id="contact-form" method="post" class="contact-form" action="#">
           {% csrf_token %}
-          <!-- single inpout-area -->
-          <div class="single-input-area">
-            <label for="name">Nome</label>
-            {{ form.nome }}
-            <input id="name" type="text" placeholder="Seu nome" required />
-            <i class="fa-light fa-user"></i>
-          </div>
-          <!-- single inpout-area end -->
-          <!-- single inpout-area -->
-          <div class="single-input-area">
-            <label for="email">Email</label>
-            {{ form.email }}
-            <input id="email" type="text" placeholder="Seu email" />
-            <i class="fa-light fa-envelope"></i>
-          </div>
-          <!-- single inpout-area -->
-          <div class="single-input-area">
-            <label for="celular">Celular</label>
-            {{ form.telefone }}
-            <input
-              id="celular"
-              type="text"
-              placeholder="(99) 99999-9999"
-              required
-            />
-            <i class="fa-light fa-phone"></i>
-          </div>
-          <!-- single inpout-area end -->
+          <!-- Renderiza os campos do formulário dinamicamente -->
+          {{ form.as_p }}
           <button class="rts-btn btn-primary">
-            Iniciar conversa no WhatsApp
-            <i class="fa-solid fa-whatsapp"></i>
+            Enviar
+            <i class="fa-solid fa-paper-plane"></i>
           </button>
         </form>
       </div>

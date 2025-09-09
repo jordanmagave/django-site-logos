@@ -1025,6 +1025,6 @@
     }
     });
 
-    
-  
+    $('.mask-phone').mask('(00) 0000-0000');
+
   })(jQuery, window)  
