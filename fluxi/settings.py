@@ -55,6 +55,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.locale.LocaleMiddleware",
+    "fluxi.middleware.tracking_middleware.TrackingParamsMiddleware",
 ]
 
 ROOT_URLCONF = "fluxi.urls"
@@ -142,3 +143,7 @@ DEFAULT_CHARSET = "utf-8"
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 X_FRAME_OPTIONS = "DENY"
+
+# Configurações do RudderStack
+RUDDERSTACK_PYTHON_WRITE_KEY = "32CYcLkPaddrtXWDCzN9n2SsogQ"
+RUDDERSTACK_DATA_PLANE_URL = "https://celogosjopvexz.dataplane.rudderstack.com"
