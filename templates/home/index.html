@@ -409,17 +409,9 @@
             famílias cristãs.
           </p>
           <div class="button-area">
-            <a href="#" class="rts-btn btn-secondary-5">
+            <a href="{% url 'contato' %}" class="rts-btn btn-secondary-5" onclick="rudderanalytics.track('Click Agendar Visita', {local: 'CTA Home', page: 'Home'})">
               <i class="fa-light fa-calendar"></i>
               Agendar Visita
-            </a>
-            <a
-              href="https://wa.me/559140420312"
-              class="rts-btn btn-secondary-5-1"
-              target="_blank"
-            >
-              <i class="fa-brands fa-whatsapp"></i>
-              WhatsApp
             </a>
           </div>
         </div>
@@ -448,7 +440,7 @@
     <div class="row mt--60">
       <div class="col-lg-12">
         <div class="single-portfolio-box-style style-five">
-          <a href="#" class="thumbnail">
+          <a href="{% url 'educacaoInfantil' %}" class="thumbnail">
             <img
               src="/static/images/product/infantil_pousada1.png"
               alt="Educação Infantil - Maternal ao Jardim 2"
@@ -466,8 +458,9 @@
                 valores bíblicos.
               </p>
               <a
-                href="#educacao-infantil"
+                href="{% url 'educacaoInfantil' %}"
                 class="rts-btn btn-primary-4 arrow-rotate"
+                onclick="rudderanalytics.track('Click Servicos', {service: 'Educação Infantil', local: 'Serviços Educacionais Home', page: 'Home'})"
               >
                 Saiba Mais <i class="fa-light fa-arrow-right"></i>
               </a>
@@ -476,7 +469,7 @@
         </div>
 
         <div class="single-portfolio-box-style style-five">
-          <a href="#" class="thumbnail">
+          <a href="{% url 'ensinoFundamental' %}" class="thumbnail">
             <img
               src="/static/images/product/fd1_pousada1.png"
               alt="Ensino Fundamental 1 - 1º ao 5º ano"
@@ -493,8 +486,9 @@
                 crítico baseado na Palavra de Deus.
               </p>
               <a
-                href="#ensino-fundamental"
+                href="{% url 'ensinoFundamental' %}"
                 class="rts-btn btn-primary-4 arrow-rotate"
+                onclick="rudderanalytics.track('Click Servicos', {service: 'Ensino Fundamental I', local: 'Serviços Educacionais Home', page: 'Home'})"
               >
                 Saiba Mais <i class="fa-light fa-arrow-right"></i>
               </a>
@@ -502,7 +496,7 @@
           </div>
         </div>
         <div class="single-portfolio-box-style style-five">
-          <a href="#" class="thumbnail">
+          <a href="{% url 'ensinoFundamental2' %}" class="thumbnail">
             <img
               src="/static/images/product/fd2_pousada1.png"
               alt="Ensino Fundamental 2 - 5º ao 9º ano"
@@ -519,8 +513,9 @@
                 crítico baseado na Palavra de Deus.
               </p>
               <a
-                href="#ensino-fundamental"
+                href="{% url 'ensinoFundamental2' %}"
                 class="rts-btn btn-primary-4 arrow-rotate"
+                onclick="rudderanalytics.track('Click Servicos', {service: 'Ensino Fundamental II', local: 'Serviços Educacionais Home', page: 'Home'})"
               >
                 Saiba Mais <i class="fa-light fa-arrow-right"></i>
               </a>
@@ -529,7 +524,7 @@
         </div>
 
         <div class="single-portfolio-box-style style-five">
-          <a href="#" class="thumbnail">
+          <a href="{% url 'ensinoMedio' %}" class="thumbnail">
             <img
               src="/static/images/product/med_posada1.png"
               alt="Ensino Médio - Preparação universitária"
@@ -546,8 +541,9 @@
                 e formação de caráter.
               </p>
               <a
-                href="#ensino-medio"
+                href="{% url 'ensinoMedio' %}"
                 class="rts-btn btn-primary-4 arrow-rotate"
+                onclick="rudderanalytics.track('Click Servicos', {service: 'Ensino Médio', local: 'Serviços Educacionais Home', page: 'Home'})"
               >
                 Saiba Mais <i class="fa-light fa-arrow-right"></i>
               </a>
@@ -556,7 +552,7 @@
         </div>
 
         <div class="single-portfolio-box-style style-five">
-          <a href="#" class="thumbnail">
+          <a href="{% url "ensinoIntegral" %}" class="thumbnail">
             <img
               src="/static/images/product/integral_posada1.png"
               alt="Infraestrutura completa - laboratórios e espaços"
@@ -577,20 +573,15 @@
                 cada familia
               </p>
               <a
-                href="#infraestrutura"
+                href="{% url "ensinoIntegral" %}"
                 class="rts-btn btn-primary-4 arrow-rotate"
+                onclick="rudderanalytics.track('Click Servicos', {service: 'Ensino Integral', local: 'Serviços Educacionais Home', page: 'Home'})"
               >
-                Conheça Nossas Instalações
+                Saiba Mais
                 <i class="fa-light fa-arrow-right"></i>
               </a>
             </div>
           </div>
-        </div>
-
-        <div class="bottom-btn text-center">
-          <a href="#" class="rts-btn btn-primary-4-border arrow-rotate">
-            Agendar Visita Presencial <i class="fa-light fa-arrow-right"></i>
-          </a>
         </div>
       </div>
     </div>
@@ -687,7 +678,7 @@
               promovendo saúde, bem-estar e integração familiar em um ambiente
               seguro e acolhedor.
             </p>
-            <a href="#" class="rts-btn btn-primary-5 arrow-rotate"
+            <a href="https://www.instagram.com/sportcenter_logos/" class="rts-btn btn-primary-5 arrow-rotate" target="_blank" onclick="rudderanalytics.track('Click Saiba Mais Sport Center', {local: 'Sport Center Home', page: 'Home'})"
               >Saiba mais <i class="fa-light fa-arrow-right"></i
             ></a>
           </div>
@@ -807,7 +798,7 @@
     <div class="col-lg-12 d-flex justify-content-center">
       <a
         href="{% url 'contato' %}"
-        class="rts-btn btn-primary-4-border arrow-rotate"
+        class="rts-btn btn-primary-4-border arrow-rotate" onclick="rudderanalytics.track('Click Fale Conosco Testemunhos', {local: 'Testemunhos Home', page: 'Home'})"
         >Fale conosco <i class="fa-light fa-arrow-right"></i
       ></a>
     </div>
@@ -849,15 +840,13 @@
           <h5 class="title">Social</h5>
           <ul>
             <li>
-              <a href="https://www.linkedin.com/company/logoscentroeducacional/"
+              <a href="https://www.linkedin.com/company/logoscentroeducacional/" onclick="rudderanalytics.track('Click Linkedin', {local: 'Footer', page: 'Home'})"
                 >Linkedin</a
               >
             </li>
-            <li><a href="https://www.facebook.com/CELogos/">Facebook</a></li>
+            <li><a href="https://www.facebook.com/CELogos/" onclick="rudderanalytics.track('Click Facebook', {local: 'Footer', page: 'Home'})">Facebook</a></li>
             <li>
-              <a href="https://www.instagram.com/logoscentroeducacional/"
-                >Instagram</a
-              >
+              <a href="https://www.instagram.com/logoscentroeducacional/" onclick="rudderanalytics.track('Click Instagram', {local: 'Footer', page: 'Home'})">Instagram</a>
             </li>
           </ul>
         </div>

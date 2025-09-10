@@ -41,7 +41,7 @@
 ==================================================*/
 
 (function ($) {
-  "use strict";
+  ("use strict");
   let device_width = window.innerWidth;
   $.exists = function (selector) {
     return $(selector).length > 0;
@@ -1028,6 +1028,14 @@
       };
     }
   });
-
+  // mask phone number - https://igorescobar.github.io/jQuery-Mask-Plugin/
   $(".mask-phone").mask("(00) 00000-0000");
+
+  // Contact form - RudderStack Analytics - Rastrear inicio de preenchimento do formulário
+  if ($("#contact-form").length) {
+    // O método .one() garante que este evento seja disparado APENAS UMA VEZ
+    $("#contact-form").one("input", function () {
+      rudderanalytics.track("Formulario de Contato Iniciado");
+    });
+  }
 })(jQuery, window);

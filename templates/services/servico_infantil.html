@@ -77,9 +77,9 @@
           <h4 href="#">Plataforma Digital</h4>
           <h4 href="#">Projetos de Leitura</h4>
           <h4 href="#">Psicomotricidade</h4>
-          <a href="#" class="btn-arrow arrow-rotate"
+          <!--<a href="#" class="btn-arrow arrow-rotate"
             >Proposta Pedagógica <i class="fa-light fa-arrow-right"></i
-          ></a>
+          ></a> -->
         </div>
       </div>
     </div>
@@ -240,17 +240,9 @@
             famílias cristãs.
           </p>
           <div class="button-area">
-            <a href="#" class="rts-btn btn-secondary-5">
+            <a href="{% url "contato" %}" class="rts-btn btn-secondary-5" onclick="rudderanalytics.track('Click Agendar Visita', {local: 'Menu', page: 'Serviço Educação Infantil'})">
               <i class="fa-light fa-calendar"></i>
               Agendar Visita
-            </a>
-            <a
-              href="https://wa.me/559140420312"
-              class="rts-btn btn-secondary-5-1"
-              target="_blank"
-            >
-              <i class="fa-brands fa-whatsapp"></i>
-              WhatsApp
             </a>
           </div>
         </div>

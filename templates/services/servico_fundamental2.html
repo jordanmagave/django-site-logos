@@ -73,9 +73,10 @@
           <h4 href="#">Projeto de Vida</h4>
           <h4 href="#">Simulados e Diagnósticos</h4>
           <h4 href="#">Monitoria</h4>
+          <!--
           <a href="#" class="btn-arrow arrow-rotate"
             >Proposta Pedagógica <i class="fa-light fa-arrow-right"></i
-          ></a>
+          ></a> -->
         </div>
       </div>
     </div>
@@ -215,5 +216,32 @@
   </div>
 </div>
 <!-- rts image grid area end -->
+
+<!-- CTA Visita start-->
+<section class="rts-call-to-action" id="agende-visita">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="call-to-action-area-5">
+          <h2 class="title skew-up">
+            Conheça a sua escola cristã <br />
+            de Ananindeua
+          </h2>
+          <p class="disc">
+            Agende uma visita e descubra por que somos a escolha de centenas de
+            famílias cristãs.
+          </p>
+          <div class="button-area">
+            <a href="{% url "contato" %}" class="rts-btn btn-secondary-5" onclick="rudderanalytics.track('Click Agendar Visita', {local: 'Menu', page: 'Serviço Fundamental II'})">
+              <i class="fa-light fa-calendar"></i>
+              Agendar Visita
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- CTA Visita end -->
 
 {% endblock content %}

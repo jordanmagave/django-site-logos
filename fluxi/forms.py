@@ -9,20 +9,20 @@ class ContatoForm(forms.ModelForm):
         widgets = {
             "nome": forms.TextInput(
                 attrs={
-                    "class": ["single-input-area", "form-control"],
+                    "class": "single-input-area form-control",
                     "placeholder": "Nome",
                 }
             ),
             "email": forms.EmailInput(
                 attrs={
-                    "class": ["single-input-area", "form-control", "mask-email"],
+                    "class": "single-input-area form-control mask-email",
                     "placeholder": "Email",
                 }
             ),
             "telefone": forms.TextInput(
                 attrs={
-                    "class": "form-control mask-phone single-input-area",
-                    "placeholder": "(99) 99999-9999",
+                    "class": "single-input-area form-control mask-phone ",
+                    "placeholder": "(91) 99999-9999",
                 }
             ),
         }

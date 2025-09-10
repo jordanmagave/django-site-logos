@@ -12,22 +12,44 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+import environ
+
+# Initialize environment variables
+env = environ.Env(DEBUG=(bool, False))
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Read .env file if it exists
+environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-!c!s4y!*$t-=fi3+3c%xz&p(5or46%5(+p53=33laiq_^k#q(c"
+SECRET_KEY = env(
+    "SECRET_KEY",
+    default="django-insecure-!c!s4y!*$t-=fi3+3c%xz&p(5or46%5(+p53=33laiq_^k#q(c",
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = ["celogos.com.br", "www.celogos.com.br", "127.0.0.1"]
+ALLOWED_HOSTS = []
+CSRF_TRUSTED_ORIGINS = []
 SITE_ID = 1
+
+# Adiciona o domínio do serviço GCP, se fornecido nas variáveis de ambiente
+GCP_SERVICE_URL = env("GCP_SERVICE_URL", default=None)
+if GCP_SERVICE_URL:
+    ALLOWED_HOSTS.append(GCP_SERVICE_URL)
+    CSRF_TRUSTED_ORIGINS.append(f"https://{GCP_SERVICE_URL}")
+
+# Adicione seu domínio customizado
+ALLOWED_HOSTS.extend(["celogos.com.br", "www.celogos.com.br"])
+CSRF_TRUSTED_ORIGINS.extend(["https://celogos.com.br", "https://www.celogos.com.br"])
 
 
 # Application definition
@@ -38,6 +60,7 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
+    "whitenoise.runserver_nostatic",  # Para servir arquivos estáticos em produção
     "django.contrib.staticfiles",
     "django.contrib.sitemaps",
     "django.contrib.sites",
@@ -46,14 +69,13 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # Para servir arquivos estáticos em produção
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "django.middleware.security.SecurityMiddleware",
-    "django.middleware.common.CommonMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "fluxi.middleware.tracking_middleware.TrackingParamsMiddleware",
 ]
@@ -82,12 +104,7 @@ WSGI_APPLICATION = "fluxi.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
-}
+DATABASES = {"default": env.db("DATABASE_URL", default="sqlite:///db.sqlite3")}
 
 
 # Password validation
@@ -123,8 +140,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = "static/"
-STATICFILES_DIRS = [BASE_DIR, "static"]
+STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"  # Para servir arquivos estáticos em produção
+
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
@@ -145,5 +164,5 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 X_FRAME_OPTIONS = "DENY"
 
 # Configurações do RudderStack
-RUDDERSTACK_PYTHON_WRITE_KEY = "32CYcLkPaddrtXWDCzN9n2SsogQ"
-RUDDERSTACK_DATA_PLANE_URL = "https://celogosjopvexz.dataplane.rudderstack.com"
+RUDDERSTACK_PYTHON_WRITE_KEY = env("RUDDERSTACK_PYTHON_WRITE_KEY")
+RUDDERSTACK_DATA_PLANE_URL = env("RUDDERSTACK_DATA_PLANE_URL")
