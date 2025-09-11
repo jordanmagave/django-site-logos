@@ -104,7 +104,24 @@ WSGI_APPLICATION = "fluxi.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {"default": env.db("DATABASE_URL", default="sqlite:///db.sqlite3")}
+# Adicione este bloco de código no lugar
+if "DATABASE_URL" in os.environ:
+    # Configuração para produção (Google Cloud Run)
+    DATABASES = {
+        "default": env.db(),
+    }
+    # Adiciona a configuração para o Cloud SQL Proxy
+    DATABASES["default"][
+        "HOST"
+    ] = f"/cloudsql/{os.environ.get('CLOUD_SQL_CONNECTION_NAME')}"
+else:
+    # Configuração para desenvolvimento local (SQLite)
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
 
 
 # Password validation
