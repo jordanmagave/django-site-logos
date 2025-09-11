@@ -10,6 +10,9 @@ ENV PYTHONUNBUFFERED 1
 # Define o diretório de trabalho
 WORKDIR /app
 
+# Instala as dependências do sistema necessárias para compilar o psycopg2
+RUN apt-get update && apt-get install -y build-essential libpq-dev
+
 # Copie o arquivo de dependências
 COPY requirements.txt .
 
