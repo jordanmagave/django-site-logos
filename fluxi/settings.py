@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from urllib.parse import urlparse
 import os
 import environ
 
@@ -106,13 +107,17 @@ WSGI_APPLICATION = "fluxi.wsgi.application"
 
 if "DATABASE_URL" in os.environ:
     # Configuração para produção (Google Cloud Run)
+    db_url = urlparse(os.environ["DATABASE_URL"])
     DATABASES = {
-        "default": env.db(),
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": db_url.path[1:],  # Remove a '/' inicial
+            "USER": db_url.username,
+            "PASSWORD": db_url.password,
+            "HOST": f"/cloudsql/{os.environ.get('CLOUD_SQL_CONNECTION_NAME')}",
+            "PORT": "",  # Deixe em branco para usar o socket do Cloud SQL
+        }
     }
-    # Adiciona a configuração para o Cloud SQL Proxy
-    DATABASES["default"][
-        "HOST"
-    ] = f"/cloudsql/{os.environ.get('CLOUD_SQL_CONNECTION_NAME')}"
 else:
     # Configuração para desenvolvimento local (SQLite)
     DATABASES = {
