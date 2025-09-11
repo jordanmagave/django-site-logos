@@ -62,7 +62,7 @@ def contato(request):
                     properties=properties,
                 )
 
-                # rudderanalytics.flush()
+                rudderanalytics.shutdown()
 
                 logger.info(
                     f"Evento RudderStack 'Formulario de Contato Enviado' enviado para {instancia_contato.email}"
