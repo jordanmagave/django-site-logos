@@ -104,7 +104,6 @@ WSGI_APPLICATION = "fluxi.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# Adicione este bloco de código no lugar
 if "DATABASE_URL" in os.environ:
     # Configuração para produção (Google Cloud Run)
     DATABASES = {
