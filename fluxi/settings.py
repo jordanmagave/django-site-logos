@@ -105,17 +105,16 @@ WSGI_APPLICATION = "fluxi.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-if "DATABASE_URL" in os.environ:
+if "DB_NAME" in os.environ:
     # Configuração para produção (Google Cloud Run)
-    db_url = urlparse(os.environ["DATABASE_URL"])
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
-            "NAME": db_url.path[1:],  # Remove a '/' inicial
-            "USER": db_url.username,
-            "PASSWORD": db_url.password,
+            "NAME": os.environ.get("DB_NAME"),
+            "USER": os.environ.get("DB_USER"),
+            "PASSWORD": os.environ.get("DB_PASS"),
             "HOST": f"/cloudsql/{os.environ.get('CLOUD_SQL_CONNECTION_NAME')}",
-            "PORT": "",  # Deixe em branco para usar o socket do Cloud SQL
+            "PORT": "",
         }
     }
 else:
