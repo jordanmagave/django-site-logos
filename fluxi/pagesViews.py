@@ -56,15 +56,14 @@ def contato(request):
                         instancia_contato, key
                     ):
                         properties[key] = getattr(instancia_contato, key)
-                """
                 rudderanalytics.track(
                     anonymous_id=request.session.session_key,
                     event="Formulario de Contato Enviado",
                     properties=properties,
                 )
-                
-                rudderanalytics.flush()
-                """
+
+                # rudderanalytics.flush()
+
                 logger.info(
                     f"Evento RudderStack 'Formulario de Contato Enviado' enviado para {instancia_contato.email}"
                 )
