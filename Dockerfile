@@ -22,9 +22,15 @@ COPY . .
 # Colete os arquivos estáticos
 RUN python manage.py collectstatic --noinput
 
+# Copia os novos scripts para o container
+COPY health_check.py startup.sh ./
+
+# Torna o script de inicialização executável
+RUN chmod +x startup.sh
+
 # Expõe a porta que o Gunicorn irá rodar
 EXPOSE 8080
 
 # Comando para iniciar a aplicação com Gunicorn
 # O Cloud Run define a variável de ambiente PORT, que usamos aqui.
-CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 fluxi.wsgi:application
+CMD ["./startup.sh"]

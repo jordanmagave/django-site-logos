@@ -190,3 +190,7 @@ RUDDERSTACK_PYTHON_WRITE_KEY = env(
 RUDDERSTACK_DATA_PLANE_URL = env(
     "RUDDERSTACK_DATA_PLANE_URL", default="https://dummy.url.com"
 )
+
+# Configurações do Celery
+CELERY_BROKER_URL = "redis://default:z4ERyNWztTsHHMDJ3tD0jObQ3K1K62zW@redis-11803.c345.samerica-east1-1.gce.redns.redis-cloud.com:11803"
+CELERY_RESULT_BACKEND = "redis://default:z4ERyNWztTsHHMDJ3tD0jObQ3K1K62zW@redis-11803.c345.samerica-east1-1.gce.redns.redis-cloud.com:11803"
