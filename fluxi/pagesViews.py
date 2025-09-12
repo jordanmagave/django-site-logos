@@ -14,6 +14,12 @@ def about(request):
     return render(request, "pages/about.html", data)
 
 
+def privacy(request):
+    """Renderiza a página de política de privacidade."""
+    data = {"header": "true", "footer": "true"}
+    return render(request, "pages/privacyPolicy.html", data)
+
+
 def contato(request):
     """Renderiza e processa o formulário de contato."""
     if request.method == "POST":

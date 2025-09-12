@@ -5,6 +5,7 @@
     name="description"
     content="Centro Educacional Logos: Educação Cristã Integral, líder em Ananindeua. Conheça nossos diferenciais e agende uma visita!"
   />
+
   <meta
     name="keywords"
     content="Centro Educacional Logos, Educação Cristã, Escola em Ananindeua, Ensino Fundamental, Ensino Médio"
@@ -41,6 +42,23 @@
   <link rel="shortcut icon" type="image/x-icon" href="/static/images/fav.png" />
   <link rel="manifest" href="/static/manifest.webmanifest" />
 
+  <!-- Ketch Smart Tag -->
+  <script>
+    !(function () {
+      (window.semaphore = window.semaphore || []),
+        (window.ketch = function () {
+          window.semaphore.push(arguments);
+        });
+      var e = new URLSearchParams(document.location.search),
+        n = document.createElement("script");
+      (n.type = "text/javascript"),
+        (n.src =
+          "https://global.ketchcdn.com/web/v3/config/centro_educacional_logos/website_smart_tag/boot.js"),
+        (n.defer = n.async = !0),
+        document.getElementsByTagName("head")[0].appendChild(n);
+    })();
+  </script>
+
   <!-- Estrutura de Dados JSON-LD -->
   <script type="application/ld+json">
     {
@@ -57,6 +75,7 @@
     }
   </script>
 
+  <!-- Título da Página -->
   <title>{% block title %}Centro Educacional Logos{% endblock %}</title>
 
   <!-- RudderStack Analytics -->
