@@ -41,6 +41,8 @@ def contato(request):
             instancia_contato.save()
             logger.info(f"Contato salvo no banco de dados: {instancia_contato.nome}")
 
+            request.session.save()  # Certifique-se de que a sessão está salva
+
             # --- Envio para o RudderStack ---
             try:
 
