@@ -192,5 +192,5 @@ RUDDERSTACK_DATA_PLANE_URL = env(
 )
 
 # Configurações do Celery
-CELERY_BROKER_URL = "redis://default:z4ERyNWztTsHHMDJ3tD0jObQ3K1K62zW@redis-11803.c345.samerica-east1-1.gce.redns.redis-cloud.com:11803"
-CELERY_RESULT_BACKEND = "redis://default:z4ERyNWztTsHHMDJ3tD0jObQ3K1K62zW@redis-11803.c345.samerica-east1-1.gce.redns.redis-cloud.com:11803"
+CELERY_BROKER_URL = env("CELERY_BROKER_URL", default="redis://localhost:6379/0")
+CELERY_RESULT_BACKEND = env("CELERY_BROKER_URL", default="redis://localhost:6379/0")
