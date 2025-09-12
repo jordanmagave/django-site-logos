@@ -54,6 +54,21 @@ def contato(request):
                     "pagina_origem": request.path,
                 }
 
+                tracking_params_keys = [
+                    "utm_source",
+                    "utm_medium",
+                    "utm_campaign",
+                    "utm_term",
+                    "utm_content",
+                    "gclid",
+                    "fbclid",
+                ]
+                for key in tracking_params_keys:
+                    # Pega o valor do objeto 'instancia_contato' que acabamos de salvar
+                    value = getattr(instancia_contato, key, None)
+                    if value:
+                        properties[key] = value
+
                 send_rudderstack_event.delay(properties, request.session.session_key)
                 logger.info(
                     f"Tarefa Celery: Evento RudderStack agendado para {instancia_contato.email}"
