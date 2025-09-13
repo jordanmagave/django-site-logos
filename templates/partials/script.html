@@ -16,3 +16,27 @@
 <script defer src="/static/js/plugins/magnific-popup.js"></script>
 <!-- contact form js -->
 <script defer src="/static/js/main.js"></script>
+
+<!-- Ketch Smart Tag - Load Asynchronously -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Encontra qualquer formulário de método POST na página
+    const form = document.querySelector('form[method="post"]');
+
+    if (form) {
+      form.addEventListener("submit", function () {
+        // Procura pelo campo oculto dentro do formulário que está sendo enviado
+        const consentField = form.querySelector("#ketch_consent_field");
+
+        if (consentField && window.ketch) {
+          // Consulta a API da Ketch para o propósito 'analytics'
+          // Lembre-se que 'analytics' pode mudar dependendo da sua configuração na Ketch
+          const consentStatus = window.ketch("getConsent", "analytics");
+
+          // Preenche o campo com 'true' ou 'false'
+          consentField.value = consentStatus;
+        }
+      });
+    }
+  });
+</script>

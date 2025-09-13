@@ -49,13 +49,12 @@
         (window.ketch = function () {
           window.semaphore.push(arguments);
         });
-      var e = new URLSearchParams(document.location.search),
-        n = document.createElement("script");
-      (n.type = "text/javascript"),
-        (n.src =
+      var e = document.createElement("script");
+      (e.type = "text/javascript"),
+        (e.src =
           "https://global.ketchcdn.com/web/v3/config/centro_educacional_logos/website_smart_tag/boot.js"),
-        (n.defer = n.async = !0),
-        document.getElementsByTagName("head")[0].appendChild(n);
+        (e.defer = e.async = !0),
+        document.getElementsByTagName("head")[0].appendChild(e);
     })();
   </script>
 
