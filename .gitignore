@@ -1,8 +1,3 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.pyc
-$py.class
-
 # Banco de dados local
 db.sqlite3
 
@@ -15,4 +10,3 @@ staticfiles/
 # Diretórios de IDE
 .idea/
 .vscode/
-.gallery.afdesign
