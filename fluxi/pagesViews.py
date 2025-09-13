@@ -27,6 +27,8 @@ def contato(request):
         if form.is_valid():
             instancia_contato = form.save(commit=False)
 
+            consent_given = form.cleaned_data.get("ketch_consent") == "true"
+            instancia_contato.consentimento_analytics = consent_given
             # --- Captura dos Parâmetros de Rastreamento ---
             tracking_params_keys = [
                 "utm_source",
@@ -45,42 +47,49 @@ def contato(request):
 
             # Agora, salva a instância completa no banco de dados
             instancia_contato.save()
-            logger.info(f"Contato salvo no banco de dados: {instancia_contato.nome}")
+            logger.info(
+                f"Contato salvo no banco de dados com consentimento: {consent_given}"
+            )
 
             request.session.save()  # Certifique-se de que a sessão está salva
 
             # --- Envio para o RudderStack ---
-            try:
+            if consent_given:
+                try:
 
-                # Prepara as propriedades para o evento
-                properties = {
-                    "nome": instancia_contato.nome,
-                    "email": instancia_contato.email,
-                    "telefone": instancia_contato.telefone,
-                    "pagina_origem": request.path,
-                }
+                    # Prepara as propriedades para o evento
+                    properties = {
+                        "nome": instancia_contato.nome,
+                        "email": instancia_contato.email,
+                        "telefone": instancia_contato.telefone,
+                        "pagina_origem": request.path,
+                    }
 
-                tracking_params_keys = [
-                    "utm_source",
-                    "utm_medium",
-                    "utm_campaign",
-                    "utm_term",
-                    "utm_content",
-                    "gclid",
-                    "fbclid",
-                ]
-                for key in tracking_params_keys:
-                    # Pega o valor do objeto 'instancia_contato' que acabamos de salvar
-                    value = getattr(instancia_contato, key, None)
-                    if value:
-                        properties[key] = value
+                    tracking_params_keys = [
+                        "utm_source",
+                        "utm_medium",
+                        "utm_campaign",
+                        "utm_term",
+                        "utm_content",
+                        "gclid",
+                        "fbclid",
+                    ]
+                    for key in tracking_params_keys:
+                        # Pega o valor do objeto 'instancia_contato' que acabamos de salvar
+                        value = getattr(instancia_contato, key, None)
+                        if value:
+                            properties[key] = value
 
-                send_rudderstack_event.delay(properties, request.session.session_key)
-                logger.info(
-                    f"Tarefa Celery: Evento RudderStack agendado para {instancia_contato.email}"
-                )
-            except Exception as e:
-                logger.error(f"Falha ao agendar tarefa Celery: {e}")
+                    send_rudderstack_event.delay(
+                        properties, request.session.session_key
+                    )
+                    logger.info(
+                        f"Tarefa Celery: Evento RudderStack agendado para {instancia_contato.email} com consentimento. Session ID: {request.session.session_key}"
+                    )
+                except Exception as e:
+                    logger.error(f"Falha ao agendar tarefa Celery: {e}")
+            else:
+                logger.info(f"Consentimento não dado. Evento RudderStack não enviado.")
 
             return redirect("contato")
     else:

@@ -3,6 +3,8 @@ from .models import Contato
 
 
 class ContatoForm(forms.ModelForm):
+    ketch_consent = forms.CharField(widget=forms.HiddenInput(), required=False)
+
     class Meta:
         model = Contato
         fields = ["nome", "email", "telefone"]
