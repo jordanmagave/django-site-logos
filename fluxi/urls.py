@@ -20,6 +20,8 @@ from django.urls import path
 from fluxi import homeViews
 from fluxi import pagesViews
 from fluxi import servicesViews
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -48,3 +50,8 @@ urlpatterns = [
     path("contato_logos/", homeViews.index, name="contato"),
     path("politica-de-privacidade/", pagesViews.privacy, name="privacy"),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(
+        settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0]
+    )

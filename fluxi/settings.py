@@ -38,8 +38,8 @@ SECRET_KEY = env(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = []
-CSRF_TRUSTED_ORIGINS = []
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+CSRF_TRUSTED_ORIGINS = ["https://127.0.0.1", "https://localhost"]
 SITE_ID = 1
 
 # Adiciona o domínio do serviço GCP, se fornecido nas variáveis de ambiente
@@ -190,7 +190,3 @@ RUDDERSTACK_PYTHON_WRITE_KEY = env(
 RUDDERSTACK_DATA_PLANE_URL = env(
     "RUDDERSTACK_DATA_PLANE_URL", default="https://dummy.url.com"
 )
-
-# Configurações do Celery
-CELERY_BROKER_URL = env("CELERY_BROKER_URL", default="redis://localhost:6379/0")
-CELERY_RESULT_BACKEND = env("CELERY_BROKER_URL", default="redis://localhost:6379/0")
