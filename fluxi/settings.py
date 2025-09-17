@@ -39,7 +39,7 @@ SECRET_KEY = env(
 DEBUG = env("DEBUG")
 
 ALLOWED_HOSTS = [
-    "django-site-logos-640725377905.southamerica-east1.run.app",  # Adicione o URL do Cloud Run
+    "django-site-logos-640725377905.southamerica-east1.run.app",
     "celogos.com.br",
     "www.celogos.com.br",
     "127.0.0.1",
