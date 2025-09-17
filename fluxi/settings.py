@@ -68,17 +68,18 @@ INSTALLED_APPS = [
     "fluxi",
 ]
 
+# settings.py
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",  # Para servir arquivos estáticos em produção
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "django.middleware.locale.LocaleMiddleware",
-    "fluxi.middleware.tracking_middleware.TrackingParamsMiddleware",
+    "fluxi.middleware.TrackingParamsMiddleware",
 ]
 
 ROOT_URLCONF = "fluxi.urls"
@@ -190,7 +191,3 @@ RUDDERSTACK_PYTHON_WRITE_KEY = env(
 RUDDERSTACK_DATA_PLANE_URL = env(
     "RUDDERSTACK_DATA_PLANE_URL", default="https://dummy.url.com"
 )
-
-# Configurações do Celery
-CELERY_BROKER_URL = env("CELERY_BROKER_URL", default="redis://localhost:6379/0")
-CELERY_RESULT_BACKEND = env("CELERY_BROKER_URL", default="redis://localhost:6379/0")

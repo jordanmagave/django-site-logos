@@ -1,4 +1,4 @@
-{% extends '../layout/layout.html' %} {% block content %}
+{% extends 'layout/layout.html' %} {% block content %}
 
 <!-- banner area start -->
 <div class="rts-banner-area-one banner-five rts-section-gap">
@@ -7,7 +7,7 @@
       class="row align-items-center justify-content-md-center justify-content-lg-start"
     >
       <div class="col-lg-6 col-md-10 order-2 order-lg-0">
-        <div class="banner-one-content-left">
+        <div class="banner-one-content-left" style="position: relative; z-index: 2;">
           <h1 class="title split-collab">
             <span class="sr-only">Centro Educacional Logos:</span>
             Formação cristã <br />
@@ -17,14 +17,13 @@
             Há <strong>30 anos</strong> formando cidadãos éticos e competentes
             através da <strong>educação cristã em Ananindeua</strong>.
             <strong>TOP 10 no ENEM Pará</strong>. Descubra a diferença de uma
-            educação integral que prepara seu filho para a vida e
-            <strong>para a eternidade</strong>.
+            educação integral que prepara seu filho para a vida.
           </p>
           <a
             href="#"
             class="rts-btn btn-primary-5 arrow-rotate"
             aria-label="Agendar visita na melhor escola cristã de Ananindeua"
-            style="position: relative; z-index: 2;" onclick="rudderanalytics.track('Click Agendar Visita', {local: 'Banner Home', page: 'Home'})"
+           onclick="rudderanalytics.track('Click Agendar Visita', {local: 'Banner Home', page: 'Home'})"
             
           >
             Agendar Visita
@@ -35,12 +34,12 @@
             <div class="client-img">
               <img
                 class="one"
-                src="/static/images/testimonials/avatars/avatar_giulia.png"
+                src="{% static 'images/testimonials/avatars/avatar_giulia.png' %}"
                 alt="Depoimento pai satisfeito - Centro Educacional Logos"
               />
               <img
                 class="two"
-                src="/static/images/testimonials/avatars/07.png"
+                src="{% static 'images/testimonials/avatars/07.png' %}"
                 alt="Mãe recomenda escola cristã reformada"
               />
             </div>
@@ -57,13 +56,13 @@
         <div class="banner-one-right-content-with-img">
           <img
             class="main-image-banner"
-            src="/static/images/banner/frente_escola.png"
+            src="{% static 'images/banner/frente_escola.png' %}"
             alt="Alunos Centro Educacional Logos - melhor escola cristã Ananindeua"
             loading="eager"
           />
           <div class="short-image-area">
             <img
-              src="/static/images/banner/shape/01.webp"
+              src="{% static 'images/banner/shape/01.webp' %}"
               alt="Laboratórios modernos - infraestrutura escola cristã"
               class="img-1"
               width="100"
@@ -102,7 +101,7 @@
     <div class="brand-area-inner">
       <div class="row">
         <div class="col-lg-12">
-          <div class="brand-title-area text-center">
+          <div class="brand-title-area text-center" style="color: black;">
             <h2 class="title">Educação Cristã de Excelência</h2>
             <div class="brand-left-short-title-one">
               <ul class="star-rating">
@@ -277,7 +276,7 @@
           <h2 class="title">Educação Cristã Integral</h2>
           <p class="disc">
             <strong>Valores que Transformam.</strong>
-            <strong>Metodologia cristã reformada</strong>
+            <strong>Metodologia cristã </strong>
             desenvolve caráter, integridade e excelência formando cidadãos
             éticos que impactam comunidades.
           </p>

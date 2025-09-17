@@ -1,4 +1,4 @@
-# fluxi/middleware/tracking_middleware.py
+# fluxi/middleware.py
 
 
 class TrackingParamsMiddleware:
@@ -16,12 +16,14 @@ class TrackingParamsMiddleware:
         ]
 
     def __call__(self, request):
-        # Verifica se há parâmetros de rastreamento na URL (request.GET)
+        # Itera sobre a lista de parâmetros de rastreamento
         for param in self.tracking_params:
+            # Verifica se o parâmetro existe na URL da requisição atual (request.GET)
             if param in request.GET:
-                # Se um parâmetro for encontrado, salva ele na sessão do usuário
+                # Se o parâmetro for encontrado, salva o valor dele na sessão do usuário.
+                # A sessão "lembra" desse valor para as próximas páginas que o usuário visitar.
                 request.session[param] = request.GET[param]
 
-        # Continua o processamento normal da requisição
+        # Continua o processamento normal da requisição, passando para a próxima camada
         response = self.get_response(request)
         return response
