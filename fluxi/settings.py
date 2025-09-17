@@ -38,16 +38,8 @@ SECRET_KEY = env(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = [
-    "127.0.0.1",
-    "localhost",
-    "django-site-logos-640725377905.southamerica-east1.run.app/",
-]
-CSRF_TRUSTED_ORIGINS = [
-    "https://127.0.0.1",
-    "https://localhost",
-    "https://django-site-logos-640725377905.southamerica-east1.run.app/",
-]
+ALLOWED_HOSTS = []
+CSRF_TRUSTED_ORIGINS = []
 SITE_ID = 1
 
 # Adiciona o domínio do serviço GCP, se fornecido nas variáveis de ambiente
