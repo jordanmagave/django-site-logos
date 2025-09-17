@@ -1,19 +1,4 @@
-"""
-URL configuration for fluxi project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
+# fluxi/urls.py
 
 from django.contrib import admin
 from django.urls import path
@@ -25,7 +10,8 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", homeViews.index, name="index"),
     path("about/", pagesViews.about, name="about"),
-    # Logos
+    path("contato/", pagesViews.contato, name="contato"),
+    # Serviços educacionais
     path(
         "servicos-educacionais/educacao-infantil",
         servicesViews.infantil,
@@ -45,6 +31,6 @@ urlpatterns = [
     path(
         "servicos-educacionais/integral", servicesViews.integral, name="ensinoIntegral"
     ),
-    path("contato/", pagesViews.contato, name="contato"),
+    # Políticas
     path("politica-de-privacidade/", pagesViews.privacy, name="privacy"),
 ]

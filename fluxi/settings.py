@@ -8,16 +8,17 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
+
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 """
 
 from pathlib import Path
 from urllib.parse import urlparse
 import os
 import environ
-from google.auth import service_account
 
 # Initialize environment variables
-
 env = environ.Env(DEBUG=(bool, False))
 
 
@@ -28,9 +29,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env(
     "SECRET_KEY",
@@ -40,18 +38,8 @@ SECRET_KEY = env(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = [
-    "django-site-logos-640725377905.southamerica-east1.run.app",
-    "celogos.com.br",
-    "www.celogos.com.br",
-    "localhost",
-    "127.0.0.1",
-]
-CSRF_TRUSTED_ORIGINS = [
-    "https://django-site-logos-640725377905.southamerica-east1.run.app",
-    "https://celogos.com.br",
-    "https://www.celogos.com.br",
-]
+ALLOWED_HOSTS = []
+CSRF_TRUSTED_ORIGINS = []
 SITE_ID = 1
 
 # Adiciona o domínio do serviço GCP, se fornecido nas variáveis de ambiente
@@ -60,29 +48,41 @@ if GCP_SERVICE_URL:
     ALLOWED_HOSTS.append(GCP_SERVICE_URL)
     CSRF_TRUSTED_ORIGINS.append(f"https://{GCP_SERVICE_URL}")
 
-# Adicione seu domínio customizado
-ALLOWED_HOSTS.extend(["celogos.com.br", "www.celogos.com.br"])
-CSRF_TRUSTED_ORIGINS.extend(["https://celogos.com.br", "https://www.celogos.com.br"])
+ALLOWED_HOSTS.extend(
+    [
+        "celogos.com.br",
+        "www.celogos.com.br",
+        "django-site-logos-640725377905.southamerica-east1.run.app",
+        "localhost",
+        "127.0.0.1",
+    ]
+)
+CSRF_TRUSTED_ORIGINS.extend(
+    [
+        "https://celogos.com.br",
+        "https://www.celogos.com.br",
+        "https://django-site-logos-640725377905.southamerica-east1.run.app",
+    ]
+)
 
 
 # Application definition
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
 
+# Application definition
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    "whitenoise.runserver_nostatic",  # Para servir arquivos estáticos em produção
+    "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
     "django.contrib.sitemaps",
     "django.contrib.sites",
     "fluxi",
 ]
-
-# settings.py
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -120,7 +120,9 @@ WSGI_APPLICATION = "fluxi.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# Database
 if "DB_NAME" in os.environ:
+    # Configuração para produção (Google Cloud Run)
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
@@ -129,9 +131,6 @@ if "DB_NAME" in os.environ:
             "PASSWORD": os.environ.get("DB_PASS"),
             "HOST": f"/cloudsql/{os.environ.get('CLOUD_SQL_CONNECTION_NAME')}",
             "PORT": "",
-            "OPTIONS": {
-                "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
-            },
         }
     }
 else:
@@ -142,9 +141,6 @@ else:
             "NAME": BASE_DIR / "db.sqlite3",
         }
     }
-
-USE_TZ = True
-TIME_ZONE = "America/Belem"
 
 
 # Password validation
@@ -165,10 +161,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
-# https://docs.djangoproject.com/en/5.1/topics/i18n/
-
 LANGUAGE_CODE = "pt-br"
 TIME_ZONE = "America/Belem"
 USE_I18N = True
@@ -182,7 +175,7 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"  # Para servir arquivos estáticos em produção
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
@@ -214,3 +207,24 @@ RUDDERSTACK_DATA_PLANE_URL = env(
 # Configurações do Celery
 CELERY_BROKER_URL = env("CELERY_BROKER_URL", default="redis://localhost:6379/0")
 CELERY_RESULT_BACKEND = env("CELERY_BROKER_URL", default="redis://localhost:6379/0")
+
+# Logging para Cloud Run
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": "INFO",
+        },
+        "fluxi": {
+            "handlers": ["console"],
+            "level": "DEBUG",
+        },
+    },
+}
