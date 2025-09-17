@@ -34,6 +34,14 @@ RUN chmod +x startup.sh
 # Expõe a porta que o Gunicorn irá rodar
 EXPOSE 8080
 
+# Verificar se a porta está sendo exposta corretamente
+ENV PORT=8080
+EXPOSE 8080
+
+# Adicionar healthcheck
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:8080/ || exit 1
+
 # Comando para iniciar a aplicação com Gunicorn
 # O Cloud Run define a variável de ambiente PORT, que usamos aqui.
 CMD ["./startup.sh"]

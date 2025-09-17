@@ -14,8 +14,10 @@ from pathlib import Path
 from urllib.parse import urlparse
 import os
 import environ
+from google.auth import service_account
 
 # Initialize environment variables
+
 env = environ.Env(DEBUG=(bool, False))
 
 
@@ -38,8 +40,18 @@ SECRET_KEY = env(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = []
-CSRF_TRUSTED_ORIGINS = []
+ALLOWED_HOSTS = [
+    "django-site-logos-640725377905.southamerica-east1.run.app",
+    "celogos.com.br",
+    "www.celogos.com.br",
+    "localhost",
+    "127.0.0.1",
+]
+CSRF_TRUSTED_ORIGINS = [
+    "https://django-site-logos-640725377905.southamerica-east1.run.app",
+    "https://celogos.com.br",
+    "https://www.celogos.com.br",
+]
 SITE_ID = 1
 
 # Adiciona o domínio do serviço GCP, se fornecido nas variáveis de ambiente
@@ -54,6 +66,8 @@ CSRF_TRUSTED_ORIGINS.extend(["https://celogos.com.br", "https://www.celogos.com.
 
 
 # Application definition
+if DEBUG:
+    ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -107,7 +121,6 @@ WSGI_APPLICATION = "fluxi.wsgi.application"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 if "DB_NAME" in os.environ:
-    # Configuração para produção (Google Cloud Run)
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
@@ -116,6 +129,9 @@ if "DB_NAME" in os.environ:
             "PASSWORD": os.environ.get("DB_PASS"),
             "HOST": f"/cloudsql/{os.environ.get('CLOUD_SQL_CONNECTION_NAME')}",
             "PORT": "",
+            "OPTIONS": {
+                "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
+            },
         }
     }
 else:
@@ -126,6 +142,9 @@ else:
             "NAME": BASE_DIR / "db.sqlite3",
         }
     }
+
+USE_TZ = True
+TIME_ZONE = "America/Belem"
 
 
 # Password validation
