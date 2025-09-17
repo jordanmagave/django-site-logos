@@ -38,12 +38,7 @@ SECRET_KEY = env(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = [
-    "django-site-logos-640725377905.southamerica-east1.run.app",
-    "celogos.com.br",
-    "www.celogos.com.br",
-    "127.0.0.1",
-]
+ALLOWED_HOSTS = []
 CSRF_TRUSTED_ORIGINS = []
 SITE_ID = 1
 

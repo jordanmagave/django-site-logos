@@ -50,8 +50,3 @@ urlpatterns = [
     path("contato_logos/", homeViews.index, name="contato"),
     path("politica-de-privacidade/", pagesViews.privacy, name="privacy"),
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(
-        settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0]
-    )
