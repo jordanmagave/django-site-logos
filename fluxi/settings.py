@@ -8,6 +8,9 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
+
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 """
 
 from pathlib import Path
@@ -25,9 +28,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Read .env file if it exists
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env(
@@ -48,20 +48,19 @@ if GCP_SERVICE_URL:
     ALLOWED_HOSTS.append(GCP_SERVICE_URL)
     CSRF_TRUSTED_ORIGINS.append(f"https://{GCP_SERVICE_URL}")
 
-# Adicione seu domínio customizado
-ALLOWED_HOSTS.extend(["celogos.com.br", "www.celogos.com.br"])
-CSRF_TRUSTED_ORIGINS.extend(["https://celogos.com.br", "https://www.celogos.com.br"])
-
 
 # Application definition
+if DEBUG:
+    ALLOWED_HOSTS = ["*"]
 
+# Application definition
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    "whitenoise.runserver_nostatic",  # Para servir arquivos estáticos em produção
+    "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
     "django.contrib.sitemaps",
     "django.contrib.sites",
@@ -70,15 +69,14 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",  # Para servir arquivos estáticos em produção
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "django.middleware.locale.LocaleMiddleware",
-    "fluxi.middleware.tracking_middleware.TrackingParamsMiddleware",
+    "fluxi.middleware.TrackingParamsMiddleware",
 ]
 
 ROOT_URLCONF = "fluxi.urls"
@@ -105,6 +103,7 @@ WSGI_APPLICATION = "fluxi.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# Database
 if "DB_NAME" in os.environ:
     # Configuração para produção (Google Cloud Run)
     DATABASES = {
@@ -145,10 +144,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
-# https://docs.djangoproject.com/en/5.1/topics/i18n/
-
 LANGUAGE_CODE = "pt-br"
 TIME_ZONE = "America/Belem"
 USE_I18N = True
@@ -162,7 +158,7 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"  # Para servir arquivos estáticos em produção
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
@@ -183,14 +179,23 @@ SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 X_FRAME_OPTIONS = "DENY"
 
-# Configurações do RudderStack
-RUDDERSTACK_PYTHON_WRITE_KEY = env(
-    "RUDDERSTACK_PYTHON_WRITE_KEY", default="dummy_key_for_build"
-)
-RUDDERSTACK_DATA_PLANE_URL = env(
-    "RUDDERSTACK_DATA_PLANE_URL", default="https://dummy.url.com"
-)
-
-# Configurações do Celery
-CELERY_BROKER_URL = env("CELERY_BROKER_URL", default="redis://localhost:6379/0")
-CELERY_RESULT_BACKEND = env("CELERY_BROKER_URL", default="redis://localhost:6379/0")
+# Logging para Cloud Run
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": "INFO",
+        },
+        "fluxi": {
+            "handlers": ["console"],
+            "level": "DEBUG",
+        },
+    },
+}

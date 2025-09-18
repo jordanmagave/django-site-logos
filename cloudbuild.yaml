@@ -1,0 +1,34 @@
+# cloudbuild.yaml - Versão Corrigida
+
+steps:
+  # Passo 1: Construir a imagem Docker
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'southamerica-east1-docker.pkg.dev/site-logos-471718/cloud-run-source-deploy/django-site-logos/django-site-logos:$COMMIT_SHA'
+      - '.'
+
+  # Passo 2: Enviar a imagem para o Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'southamerica-east1-docker.pkg.dev/site-logos-471718/cloud-run-source-deploy/django-site-logos/django-site-logos:$COMMIT_SHA'
+
+  # Passo 3: Fazer o deploy da nova imagem no serviço principal
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'django-site-logos'
+      - '--image=southamerica-east1-docker.pkg.dev/site-logos-471718/cloud-run-source-deploy/django-site-logos/django-site-logos:$COMMIT_SHA'
+      - '--region=southamerica-east1'
+      - '--platform=managed'
+      - '--allow-unauthenticated'
+      - '--set-cloudsql-instances=site-logos-471718:southamerica-east1:django-site-instance'
+      - '--set-env-vars=DEBUG=False,GCP_SERVICE_URL=django-site-logos-640725377905.southamerica-east1.run.app,CLOUD_SQL_CONNECTION_NAME=site-logos-471718:southamerica-east1:django-site-instance'
+      - '--set-secrets=SECRET_KEY=SECRET_KEY:latest,DB_NAME=DB_NAME:latest,DB_USER=DB_USER:latest,DB_PASS=DB_PASS:latest'
+
+options:
+  logging: CLOUD_LOGGING_ONLY

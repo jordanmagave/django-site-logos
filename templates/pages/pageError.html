@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+  {% include 'partials/head.html' %}
 
-{% include  '../partials/head.html' %}
-
-<body>
-
+  <body>
     <div class="rts-error-section">
-        <div class="section-inner">
-            <img src="/static/images/error.png" alt="">
-            <div class="wrapper-para mt--45">
-                <h3 class="title">Page Not Found</h3>
-                <p class="disc">
-                    We're sorry, the page you requested could not be found <br> please go back to the homepage
-                </p>
-                <a href="{% url 'index' %}" class="rts-btn btn-primary m-auto">Back to Home</a>
-            </div>
+      <div class="section-inner">
+        <img src="/static/images/error.png" alt="" />
+        <div class="wrapper-para mt--45">
+          <h3 class="title">Página não encontrada</h3>
+          <p class="disc">
+            Desculpe, a página que você solicitou não pôde ser encontrada <br />
+            por favor, volte para a página inicial
+          </p>
+          <a href="{% url 'index' %}" class="rts-btn btn-primary m-auto"
+            >Voltar para a Página Inicial</a
+          >
         </div>
+      </div>
     </div>
-
-</body>
-
+  </body>
 </html>

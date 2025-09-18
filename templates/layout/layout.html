@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-BR" prefix="og: http://ogp.me/ns#">
-  {% include '../partials/head.html' %}
+{% include '../partials/head.html' %}
 
-  <body>
-    <!-- header area start -->
+<body>
+  <!-- header area start -->
 
-    {% if header %} {% include '../partials/header.html' %} {% endif %}
-    <!-- header area end -->
+  {% if header %} {% include '../partials/header.html' %} {% endif %}
+  <!-- header area end -->
 
-    {% block content %} {% endblock %}
+  {% block content %} {% endblock %}
 
-    <!-- footer area start -->
-    {% if footer %} {% include '../partials/footer.html' %} {% endif %}
-    <!-- footer area end -->
+  <!-- footer area start -->
+  {% if footer %} {% include '../partials/footer.html' %} {% endif %}
+  <!-- footer area end -->
 
-    <div id="anywhere-home" class=""></div>
+  <div id="anywhere-home" class=""></div>
 
-    <!-- side bar area  -->
-    {% include '../partials/sideBar.html' %}
-    <!-- side abr area end -->
+  <!-- side bar area  -->
+  {% include '../partials/sideBar.html' %}
+  <!-- side abr area end -->
 
-    <!-- pre loader start -->
-    {% include '../partials/preLoader.html' %}
-    <!-- pre loader end -->
+  <!-- pre loader start -->
+  {% include '../partials/preLoader.html' %}
+  <!-- pre loader end -->
 
-    <!-- THEME MODE SWITCHER -->
-    {% include '../partials/themeMode.html' %}
-    <!-- THEME MODE SWITCHER END -->
+  <!-- THEME MODE SWITCHER -->
+  {% include '../partials/themeMode.html' %}
+  <!-- THEME MODE SWITCHER END -->
 
-    <!-- progress area start -->
-    {% include '../partials/progress.html' %}
-    <!-- progress area end -->
+  <!-- progress area start -->
+  {% include '../partials/progress.html' %}
+  <!-- progress area end -->
 
-    {% include '../partials/script.html' %}
-  </body>
+  {% include '../partials/script.html' %}
+</body>
+
 </html>
