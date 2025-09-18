@@ -1,5 +1,4 @@
 {% extends 'layout/layout.html' %} {% block content %}
-
 <!-- contact banner area srart -->
 <div class="contact-banner-area-start rts-section-gap">
   <div class="container">
@@ -27,13 +26,9 @@
     <div class="row justify-content-md-center">
       <div class="col-lg-12 col-md-10">
         <form id="contact-form" method="post" class="contact-form" action="#">
-          {% csrf_token %} {{ form.as_p }}
-          <input
-            type="hidden"
-            name="ketch_consent"
-            id="ketch_consent_field"
-            value="not_allowed"
-          />
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="hidden" name="ketch_consent" id="ketch_consent_field" value="not_allowed" />
           <button type="submit" class="rts-btn btn-primary">
             Enviar
             <i class="fa-brands fa-whatsapp"></i>
@@ -43,6 +38,5 @@
     </div>
   </div>
 </div>
-
-{% block footer %} {% include '../partials/footer.html' %} {% endblock footer %}
-{% endblock content %}
+{% endblock content %} {% block footer %} {% include '../partials/footer.html'
+%} {% endblock footer %}

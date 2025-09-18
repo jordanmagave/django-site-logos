@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import ContatoForm
-import rudderstack.analytics as rudderanalytics
 import logging
-from .tasks import send_rudderstack_event
 
 # Configura um logger para ajudar a depurar
 logger = logging.getLogger(__name__)
@@ -74,16 +72,13 @@ def contato(request):
                         if value:
                             properties[key] = value
 
-                    send_rudderstack_event.delay(
-                        properties, request.session.session_key
-                    )
                     logger.info(
-                        f"Tarefa Celery: Evento RudderStack agendado para {instancia_contato.email} com consentimento. Session ID: {request.session.session_key}"
+                        f"Evento agendado para {instancia_contato.email} com consentimento. Session ID: {request.session.session_key}"
                     )
                 except Exception as e:
-                    logger.error(f"Falha ao agendar tarefa Celery: {e}")
+                    logger.error(f"Falha ao agendar tarefa: {e}")
             else:
-                logger.info(f"Consentimento não dado. Evento RudderStack não enviado.")
+                logger.info("Consentimento não dado. Evento não enviado.")
 
             return redirect("contato")
     else:

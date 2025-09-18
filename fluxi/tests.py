@@ -3,10 +3,7 @@
 from django.test import TestCase
 from django.core.exceptions import ValidationError
 from django.urls import reverse
-from unittest.mock import patch
-from celery.exceptions import Retry
 from .models import Contato
-from .tasks import send_rudderstack_event
 
 
 class ContatoModelTest(TestCase):
@@ -41,9 +38,8 @@ class ContatoViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "pages/contato.html")
 
-    @patch("fluxi.pagesViews.send_rudderstack_event.delay")
-    def test_envio_de_formulario_com_sucesso_e_chama_celery(self, mock_send_event):
-        """Verifica se o envio do formulário (POST) cria um contato e chama a tarefa do Celery."""
+    def test_envio_de_formulario_com_sucesso(self):
+        """Verifica se o envio do formulário (POST) cria um contato."""
         form_data = {
             "nome": "Novo Contato",
             "email": "novo@exemplo.com",
@@ -54,11 +50,9 @@ class ContatoViewTest(TestCase):
 
         self.assertEqual(response.status_code, 302)
         self.assertTrue(Contato.objects.filter(email="novo@exemplo.com").exists())
-        mock_send_event.assert_called_once()
 
-    @patch("fluxi.pagesViews.send_rudderstack_event.delay")
-    def test_envio_de_formulario_invalido(self, mock_send_event):
-        """Verifica se o envio de um formulário inválido não cria um contato e não chama o Celery."""
+    def test_envio_de_formulario_invalido(self):
+        """Verifica se o envio de um formulário inválido não cria um contato."""
         form_data = {
             "nome": "Contato Invalido",
             "email": "email-invalido",  # E-mail sem @
@@ -73,11 +67,7 @@ class ContatoViewTest(TestCase):
         # 2. Verifica se NENHUM contato foi criado no banco
         self.assertFalse(Contato.objects.filter(nome="Contato Invalido").exists())
 
-        # 3. Verifica se a tarefa do Celery NÃO foi chamada
-        mock_send_event.assert_not_called()
-
-    @patch("fluxi.pagesViews.send_rudderstack_event.delay")
-    def test_parametros_de_rastreamento_sao_salvos_no_contato(self, mock_send_event):
+    def test_parametros_de_rastreamento_sao_salvos_no_contato(self):
         """
         Simula um usuário visitando com parâmetros UTM e depois enviando o formulário,
         verificando se os parâmetros são salvos no objeto Contato.
@@ -107,9 +97,6 @@ class ContatoViewTest(TestCase):
         self.assertEqual(contato_criado.utm_source, "facebook")
         self.assertEqual(contato_criado.gclid, "fb_test_987")
 
-        # Garante que a tarefa do Celery ainda foi chamada
-        mock_send_event.assert_called_once()
-
 
 class TrackingMiddlewareTest(TestCase):
     def test_parametros_sao_salvos_na_sessao(self):
@@ -123,46 +110,6 @@ class TrackingMiddlewareTest(TestCase):
         # Verifica se os valores foram salvos corretamente na sessão do cliente de teste
         self.assertEqual(self.client.session["utm_source"], "google")
         self.assertEqual(self.client.session["gclid"], "teste123")
-
-
-class CeleryTaskTest(TestCase):
-    @patch("fluxi.tasks.rudderanalytics.track")
-    def test_send_rudderstack_event_chama_sdk(self, mock_rudder_track):
-        """Verifica se a tarefa do Celery chama o método 'track' do RudderStack."""
-        properties = {"email": "task@test.com"}
-        anonymous_id = "anon123"
-
-        # Chama a função da tarefa diretamente, como uma função Python normal
-        send_rudderstack_event(properties, anonymous_id)
-
-        # Verifica se o método 'track' do SDK foi chamado com os argumentos corretos
-        mock_rudder_track.assert_called_once_with(
-            anonymous_id=anonymous_id,
-            event="Formulario de Contato Enviado",
-            properties=properties,
-        )
-
-
-class CeleryTaskFailureTest(TestCase):
-
-    @patch("fluxi.tasks.rudderanalytics.track")
-    def test_falha_no_envio_tenta_reenviar(self, mock_rudder_track):
-        """
-        Verifica se a tarefa do Celery tenta reenviar em caso de falha na API.
-        """
-        # Configura o mock para simular um erro quando for chamado
-        mock_rudder_track.side_effect = Exception("Falha na API do RudderStack")
-
-        properties = {"email": "falha@teste.com"}
-        anonymous_id = "anon_falha_123"
-
-        # Usamos um 'try/except' para capturar a exceção 'Retry' que o Celery levanta
-        # quando uma tarefa pede para ser reenviada.
-        with self.assertRaises(Exception):
-            send_rudderstack_event(properties, anonymous_id)
-
-        # Verifica se o método 'track' foi chamado uma vez (a tentativa que falhou)
-        mock_rudder_track.assert_called_once()
 
 
 class SecurityHeadersTest(TestCase):

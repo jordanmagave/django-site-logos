@@ -196,18 +196,6 @@ SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 X_FRAME_OPTIONS = "DENY"
 
-# Configurações do RudderStack
-RUDDERSTACK_PYTHON_WRITE_KEY = env(
-    "RUDDERSTACK_PYTHON_WRITE_KEY", default="dummy_key_for_build"
-)
-RUDDERSTACK_DATA_PLANE_URL = env(
-    "RUDDERSTACK_DATA_PLANE_URL", default="https://dummy.url.com"
-)
-
-# Configurações do Celery
-CELERY_BROKER_URL = env("CELERY_BROKER_URL", default="redis://localhost:6379/0")
-CELERY_RESULT_BACKEND = env("CELERY_BROKER_URL", default="redis://localhost:6379/0")
-
 # Logging para Cloud Run
 LOGGING = {
     "version": 1,
