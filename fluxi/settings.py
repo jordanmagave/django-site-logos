@@ -48,23 +48,6 @@ if GCP_SERVICE_URL:
     ALLOWED_HOSTS.append(GCP_SERVICE_URL)
     CSRF_TRUSTED_ORIGINS.append(f"https://{GCP_SERVICE_URL}")
 
-ALLOWED_HOSTS.extend(
-    [
-        "celogos.com.br",
-        "www.celogos.com.br",
-        "django-site-logos-640725377905.southamerica-east1.run.app",
-        "localhost",
-        "127.0.0.1",
-    ]
-)
-CSRF_TRUSTED_ORIGINS.extend(
-    [
-        "https://celogos.com.br",
-        "https://www.celogos.com.br",
-        "https://django-site-logos-640725377905.southamerica-east1.run.app",
-    ]
-)
-
 
 # Application definition
 if DEBUG:

@@ -45,41 +45,6 @@ def contato(request):
 
             request.session.save()  # Certifique-se de que a sessão está salva
 
-            # --- Envio para o RudderStack ---
-            if consent_given:
-                try:
-
-                    # Prepara as propriedades para o evento
-                    properties = {
-                        "nome": instancia_contato.nome,
-                        "email": instancia_contato.email,
-                        "telefone": instancia_contato.telefone,
-                        "pagina_origem": request.path,
-                    }
-
-                    tracking_params_keys = [
-                        "utm_source",
-                        "utm_medium",
-                        "utm_campaign",
-                        "utm_term",
-                        "utm_content",
-                        "gclid",
-                        "fbclid",
-                    ]
-                    for key in tracking_params_keys:
-                        # Pega o valor do objeto 'instancia_contato' que acabamos de salvar
-                        value = getattr(instancia_contato, key, None)
-                        if value:
-                            properties[key] = value
-
-                    logger.info(
-                        f"Evento agendado para {instancia_contato.email} com consentimento. Session ID: {request.session.session_key}"
-                    )
-                except Exception as e:
-                    logger.error(f"Falha ao agendar tarefa: {e}")
-            else:
-                logger.info("Consentimento não dado. Evento não enviado.")
-
             return redirect("contato")
     else:
         form = ContatoForm()
