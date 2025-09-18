@@ -48,14 +48,15 @@ SECRET_KEY="sua-secret-key-de-desenvolvimento"
 
 # Ative o modo DEBUG para desenvolvimento
 DEBUG=True
-
+```
+```python
 # URL do banco de dados local (exemplo para PostgreSQL)
 # Se estiver usando SQLite para desenvolvimento, a configuração no settings.py já funcionará.
 # DATABASE_URL="postgres://usuario:senha@localhost:5432/nome_do_banco"
 
 # Domínios permitidos em desenvolvimento
-ALLOWED_HOSTS=127.0.0.1,localhost
-```
+ALLOWED_HOSTS=[127.0.0.1, localhost]
+
 
 **3. Aplique as Migrações do Banco de Dados:**
 ```bash
