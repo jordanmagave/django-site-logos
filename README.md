@@ -34,7 +34,36 @@ O objetivo principal do site é servir como um portal informativo para pais e al
 
 Siga os passos abaixo para rodar o projeto em um ambiente de desenvolvimento local.
 
-**1. Clone o Repositório:**
+**1. Instale as dependencias:**
 ```bash
-git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
-cd seu-repositorio
+pip install -r requirements.txt
+```
+
+**2. Configure as Variáveis de Ambiente:**
+```bash
+# .env.example
+
+# Chave secreta do Django (gere uma nova para desenvolvimento)
+SECRET_KEY="sua-secret-key-de-desenvolvimento"
+
+# Ative o modo DEBUG para desenvolvimento
+DEBUG=True
+
+# URL do banco de dados local (exemplo para PostgreSQL)
+# Se estiver usando SQLite para desenvolvimento, a configuração no settings.py já funcionará.
+# DATABASE_URL="postgres://usuario:senha@localhost:5432/nome_do_banco"
+
+# Domínios permitidos em desenvolvimento
+ALLOWED_HOSTS=127.0.0.1,localhost
+```
+
+**3. Aplique as Migrações do Banco de Dados:**
+```bash
+python manage.py migrate
+```
+
+**4. Rode o Servidor de Desenvolvimento:**
+```bash
+python manage.py runserver
+```
+Acesse http://127.0.0.1:8000/ no seu navegador.
