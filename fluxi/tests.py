@@ -120,3 +120,19 @@ class SecurityHeadersTest(TestCase):
         # Verifica a presença e o valor dos cabeçalhos
         self.assertEqual(response.headers["X-Frame-Options"], "DENY")
         self.assertEqual(response.headers["X-Content-Type-Options"], "nosniff")
+
+
+class StaticFilesTest(TestCase):
+    def test_arquivos_estaticos_sao_carregados(self):
+        """Verifica se os arquivos estáticos são carregados corretamente."""
+        response = self.client.get(reverse("contato"))
+        self.assertContains(response, "style.css")
+        self.assertContains(response, "fa-solid-900.woff2")
+
+
+class MiddlewareBehaviorTest(TestCase):
+    def test_middleware_adiciona_cabecalho_personalizado(self):
+        """Verifica se o middleware adiciona um cabeçalho personalizado na resposta."""
+        response = self.client.get(reverse("contato"))
+        self.assertIn("X-Custom-Header", response.headers)
+        self.assertEqual(response.headers["X-Custom-Header"], "ValorPersonalizado")

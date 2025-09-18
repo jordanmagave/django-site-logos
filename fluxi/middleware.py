@@ -26,4 +26,6 @@ class TrackingParamsMiddleware:
 
         # Continua o processamento normal da requisição, passando para a próxima camada
         response = self.get_response(request)
+        # Adiciona o cabeçalho personalizado na resposta
+        response["X-Custom-Header"] = "ValorPersonalizado"
         return response

@@ -31,5 +31,5 @@ urlpatterns = [
     path(
         "servicos-educacionais/integral", servicesViews.integral, name="ensinoIntegral"
     ),
-    path("contato/", pagesViews.contato, name="contato"),
+    path("contato_logos/", pagesViews.contato, name="contato"),
 ]
