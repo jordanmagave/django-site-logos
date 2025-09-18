@@ -1,4 +1,4 @@
-# cloudbuild.yaml - Versão Simplificada e Corrigida
+# cloudbuild.yaml - Versão Corrigida
 
 steps:
   # Passo 1: Construir a imagem Docker
@@ -15,7 +15,7 @@ steps:
       - 'push'
       - 'southamerica-east1-docker.pkg.dev/site-logos-471718/cloud-run-source-deploy/django-site-logos/django-site-logos:$COMMIT_SHA'
 
-  # Passo 3: Fazer o deploy da nova imagem no serviço principal com todas as configurações
+  # Passo 3: Fazer o deploy da nova imagem no serviço principal
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args:
@@ -26,9 +26,9 @@ steps:
       - '--region=southamerica-east1'
       - '--platform=managed'
       - '--allow-unauthenticated'
-      # Adiciona a conexão com o banco de dados
       - '--set-cloudsql-instances=site-logos-471718:southamerica-east1:django-site-instance'
-      # Define as variáveis de ambiente necessárias
       - '--set-env-vars=DEBUG=False,GCP_SERVICE_URL=django-site-logos-640725377905.southamerica-east1.run.app,CLOUD_SQL_CONNECTION_NAME=site-logos-471718:southamerica-east1:django-site-instance'
-      # Mapeia os segredos para as variáveis de ambiente
-      - '--set-secrets=SECRET_KEY=SECRET_KEY:latest,DB_NAME=DB_NAME:latest'
+      - '--set-secrets=SECRET_KEY=SECRET_KEY:latest,DB_NAME=DB_NAME:latest,DB_USER=DB_USER:latest,DB_PASS=DB_PASS:latest'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
