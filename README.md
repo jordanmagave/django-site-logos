@@ -59,6 +59,7 @@ ALLOWED_HOSTS=[127.0.0.1, localhost]
 
 
 **3. Aplique as Migrações do Banco de Dados:**
+```
 ```bash
 python manage.py migrate
 ```
