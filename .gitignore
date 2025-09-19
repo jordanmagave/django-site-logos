@@ -10,14 +10,15 @@ __pycache__/
 db.sqlite3
 media/
 staticfiles/
+static/
 
 # Environment variables
 .env
+*.env
 
 # Virtual environments
 venv/
 .env/
-*.env
 
 # IDEs and editors
 .vscode/
@@ -32,6 +33,45 @@ Thumbs.db
 # Docker
 *.pid
 *.tar
+*.bak
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+
+# Pyre
+.pyre/
+
+# Celery
+celerybeat-schedule
+
+# Logs
+*.log
+*.out
+*.err
+
+# Local settings
+settings_local.py
+
+# Backup files
 *.bak
 *.swp
 *.swo
