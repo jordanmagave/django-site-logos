@@ -236,7 +236,7 @@
   --color-primary-btn: #0189ff;
   --color-primary-2: #0189ff;
   --color-secondary: #1f1f25;
-  --color-secondary-2: #ff8ce8;
+  --color-secondary-2: #0189ff;
   --color-border: #bcbfdb54;
   --color-border-2: #d7d9e954;
   --banner-one-gradient-top: linear-gradient(
@@ -25088,7 +25088,7 @@ form i {
   .inner-content
   .left-content
   .desc {
-  color: #bcbfdb;
+  color: #000000;
 }
 
 .single-portfolio-box-style.style-five {
