@@ -1,9 +1,12 @@
-# Python
-*.pyc
 *.pyo
 *.pyd
 __pycache__/
+fluxi/__pycache__/
+fluxi/migrations/
 *.sqlite3
+
+# requirements.txt para nao interefir no serivodr
+requirements.txt
 
 # Django
 *.log
