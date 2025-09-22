@@ -20858,6 +20858,7 @@ form i {
 .call-to-action-area-5 {
   border-radius: 32px;
   background: var(--counter-up-bg);
+  margin: 60px;
   padding: 80px;
   overflow: hidden;
   position: relative;
