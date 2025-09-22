@@ -112,8 +112,8 @@
           <p class="disc">
             Nossa Educação Infantil combina o que há de melhor em metodologias
             pedagógicas com uma sólida formação em valores. O Método Fônico,
-            reconhecido internacionalmente como um dos mais eficaz para
-            alfabetização, garante que nossas crianças desenvolvam habilidades
+            reconhecido internacionalmente como uma forma eficaz para a
+            alfabetização, contribui para que nossas crianças desenvolvam habilidades
             de leitura e escrita de forma natural e prazerosa.
           </p>
         </div>
@@ -141,11 +141,10 @@
             integral
           </h2>
           <p class="disc">
-            Com turmas reduzidas e professoras especializadas, oferecemos
+            Com turmas adequadas e professoras especializadas, oferecemos
             atenção individualizada a cada criança. Nossa infraestrutura inclui
             parque exclusivo, sala de psicomotricidade, biblioteca infantil e
-            espaços projetados para estimular a curiosidade e o desenvolvimento
-            integral.
+            espaços projetados para estimular a curiosidade e o desenvolvimento.
           </p>
         </div>
       </div>
@@ -184,11 +183,7 @@
         <div class="short-case-studies-inner">
           <h3 class="title split-collab">Uma solução educacional completa</h3>
           <p class="disc">
-            Nossa Educação Infantil combina o que há de melhor em metodologias
-            pedagógicas com uma sólida formação em valores. O Método Fônico,
-            reconhecido internacionalmente como o mais eficaz para
-            alfabetização, garante que nossas crianças desenvolvam habilidades
-            de leitura e escrita de forma natural e prazerosa.
+            TODO:XXXXXXXXXXXX.
           </p>
         </div>
       </div>
@@ -224,32 +219,6 @@
   </div>
 </div>
 <!-- rts image grid area end -->
-
-<!-- CTA Visita start-->
-<section class="rts-call-to-action" id="agende-visita">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="call-to-action-area-5">
-          <h2 class="title skew-up">
-            Conheça a sua escola cristã <br />
-            de Ananindeua
-          </h2>
-          <p class="disc">
-            Agende uma visita e descubra por que somos a escolha de centenas de
-            famílias cristãs.
-          </p>
-          <div class="button-area">
-            <a href="{% url "contato" %}" class="rts-btn btn-secondary-5" onclick="rudderanalytics.track('Click Agendar Visita', {local: 'Menu', page: 'Serviço Educação Infantil'})">
-              <i class="fa-light fa-calendar"></i>
-              Agendar Visita
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- CTA Visita end -->
+{% include "../partials/cta_visita.html"%}
 
 {% endblock content %}
