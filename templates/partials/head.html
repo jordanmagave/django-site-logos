@@ -1,3 +1,4 @@
+{% load static %}
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -67,7 +68,7 @@
       "logo": "/static/images/logo/logo-1.svg",
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+55-91-1234-5678",
+        "telephone": "+55-91-3013-0198",
         "contactType": "Customer Service"
       }
     }
@@ -237,4 +238,11 @@
   />
   <!-- Custom css -->
   <link rel="stylesheet preload" href="/static/css/style.css" as="style" />
+
+  <!-- Font Awesome Solid -->
+  <link
+    rel="stylesheet"
+    href="{% static 'fonts/fa-solid-900.woff2' %}"
+    type="font/woff2"
+  />
 </head>

@@ -1,4 +1,5 @@
-{% extends 'layout/layout.html' %} {% block content %}
+{% extends 'layout/layout.html' %} 
+{% block content %}
 
 <!-- banner area start -->
 <div class="rts-banner-area-one banner-five rts-section-gap">
@@ -7,22 +8,22 @@
       class="row align-items-center justify-content-md-center justify-content-lg-start"
     >
       <div class="col-lg-6 col-md-10 order-2 order-lg-0">
-        <div class="banner-one-content-left" style="position: relative; z-index: 2;">
+        <div class="banner-one-content-left">
           <h1 class="title split-collab">
             <span class="sr-only">Centro Educacional Logos:</span>
             Formação cristã <br />
             para a vida
           </h1>
           <p class="disc">
-            Há <strong>30 anos</strong> formando cidadãos éticos e competentes
-            através da <strong>educação cristã em Ananindeua</strong>.
+            Há <strong>30 anos</strong> formamos cidadãos éticos e competentes
+            por meio da <strong>educação cristã em Ananindeua</strong>.
             <strong>TOP 10 no ENEM Pará</strong>. Descubra a diferença de uma
             educação integral que prepara seu filho para a vida.
           </p>
           <a
             href="#"
             class="rts-btn btn-primary-5 arrow-rotate"
-            aria-label="Agendar visita na melhor escola cristã de Ananindeua"
+            aria-label="Agendar visita na sua escola cristã de Ananindeua"
            onclick="rudderanalytics.track('Click Agendar Visita', {local: 'Banner Home', page: 'Home'})"
             
           >
@@ -35,12 +36,12 @@
               <img
                 class="one"
                 src="/static/images/testimonials/avatars/avatar_giulia.png"
-                alt="Depoimento pai satisfeito - Centro Educacional Logos"
+                alt="Depoimento mãe satisfeita - Centro Educacional Logos"
               />
               <img
                 class="two"
                 src="/static/images/testimonials/avatars/07.png"
-                alt="Mãe recomenda escola cristã reformada"
+                alt="Mãe recomenda escola cristã em Ananindeua"
               />
             </div>
             <p class="desc">
@@ -57,7 +58,7 @@
           <img
             class="main-image-banner"
             src="/static/images/banner/frente_escola.png"
-            alt="Alunos Centro Educacional Logos - melhor escola cristã Ananindeua"
+            alt="Alunos Centro Educacional Logos - sua escola cristã Ananindeua"
             loading="eager"
           />
           <div class="short-image-area">
@@ -122,10 +123,8 @@
                 </li>
               </ul>
               <p class="disc">
-                "A
-                <strong
-                  >melhor escola cristã da região metropolitana de Belém</strong
-                >" - Maria Santos, mãe do João (3º ano)
+                <strong>"Excelente escola cristã. O meu filho ama!</strong>" 
+                - Carolina de Assunção, mãe do Carlos Somenatti (3º ano)
               </p>
             </div>
           </div>
@@ -259,7 +258,7 @@
             <!-- single service -->
             <div class="single-service">
               <i class="fa-light fa-check"></i>
-              <p><strong>1200+ ex-alunos</strong> formados</p>
+              <p><strong>1200+ alunos</strong> formados</p>
             </div>
             <!-- single service end -->
           </div>
@@ -276,8 +275,8 @@
           <h2 class="title">Educação Cristã Integral</h2>
           <p class="disc">
             <strong>Valores que Transformam.</strong>
-            <strong>Metodologia cristã </strong>
-            desenvolve caráter, integridade e excelência formando cidadãos
+            Metodologia cristã que contribui para o desenvolvimento
+            do caráter, integridade e excelência, formando cidadãos
             éticos que impactam comunidades.
           </p>
           <div class="product-service-wrapper">
@@ -301,7 +300,7 @@
           <div class="thumbnail">
             <img
               src="/static/images/product/IMG_6316 (1).jpg"
-              alt="Educação cristã integral - metodologia reformada"
+              alt="Educação cristã integral"
             />
           </div>
           <div class="short-image-area">
@@ -339,12 +338,12 @@
       </div>
       <div class="col-lg-6 col-md-6 col-sm-10 offset-lg-1">
         <div class="portfolio-content-wrapper-list">
-          <h2 class="title">TOP 10 ENEM no Pará4</h2>
+          <h2 class="title">TOP 10 ENEM no Pará</h2>
           <p class="disc">
             <strong>Excelência Comprovada.</strong> Somos a
-            <strong>escola #1 no ENEM em Ananindeua</strong>
-            e TOP 10 no Pará, com aprovações nas melhores universidades do
-            Brasil mantendo identidade cristã sólida.
+            <strong>escola 7 anos consecutivos CAMPEÃ no ENEM em Ananindeua
+            e TOP 10 no Pará</strong>, com aprovações nas melhores universidades do
+            Brasil.
           </p>
           <div class="product-service-wrapper">
             <!-- single service -->
@@ -403,32 +402,7 @@
 </section>
 <!-- counterup-area end -->
 
-<!-- CTA Visita start-->
-<section class="rts-call-to-action" id="agende-visita">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="call-to-action-area-5">
-          <h2 class="title skew-up">
-            Conheça a sua escola cristã <br />
-            de Ananindeua
-          </h2>
-          <p class="disc">
-            Agende uma visita e descubra por que somos a escolha de centenas de
-            famílias cristãs.
-          </p>
-          <div class="button-area">
-            <a href="{% url 'contato' %}" class="rts-btn btn-secondary-5" onclick="rudderanalytics.track('Click Agendar Visita', {local: 'CTA Home', page: 'Home'})">
-              <i class="fa-light fa-calendar"></i>
-              Agendar Visita
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- CTA Visita end -->
+{% include "../partials/cta_visita.html" %}
 
 <!-- Serviços Educacionais start -->
 <section class="rts-case-studies-5 rts-section-gap2" id="galeria">
@@ -439,8 +413,8 @@
           <div class="title-style-one-left text-center">
             <span class="pre skew-up text-center">Serviços Educacionais</span>
             <h2 class="title skew-up text-center">
-              Viva o dia a dia em uma das melhores <br />
-              escola cristã de Ananindeua
+              Venha conhecer nossas propostas para <br />
+              cada nível de ensino
             </h2>
           </div>
         </div>
@@ -461,10 +435,9 @@
               <p class="pre">Maternal ao Jardim 2</p>
               <h3 class="title animated fadeIn">Educação Infantil</h3>
               <p class="desc">
-                Base sólida com amor cristão desde os primeiros anos.
                 Desenvolvimento integral através de atividades lúdicas,
-                capelania infantil e preparação para o ensino fundamental com
-                valores bíblicos.
+                e preparação para o ensino fundamental com
+                valores bíblicos desde os anos iniciais.
               </p>
               <a
                 href="{% url 'educacaoInfantil' %}"
@@ -490,9 +463,10 @@
               <p class="pre">1º ao 5º ano</p>
               <h3 class="title animated fadeIn">Ensino Fundamental 1</h3>
               <p class="desc">
-                Formação sólida integrando conhecimento acadêmico e princípios
-                cristãos. Metodologia reformada que desenvolve pensamento
-                crítico baseado na Palavra de Deus.
+                Formação integrando conhecimento acadêmico e princípios
+                cristãos. Metodologia que desenvolve o pensamento
+                crítico, baseada na Palavra de Deus, utilizando o material didático
+                do Sistema de Ensino Mackenzie.
               </p>
               <a
                 href="{% url 'ensinoFundamental' %}"
@@ -517,9 +491,10 @@
               <p class="pre">5º ao 9º ano</p>
               <h3 class="title animated fadeIn">Ensino Fundamental 2</h3>
               <p class="desc">
-                Formação sólida integrando conhecimento acadêmico e princípios
-                cristãos. Metodologia reformada que desenvolve pensamento
-                crítico baseado na Palavra de Deus.
+                Sólida preparação acadêmica com atividades Maker, robótica,
+                laboratórios e esportes. Desenvolvimento de caráter e liderança.
+                Metodologia que integra fé e aprendizado preparando para os 
+                desafios do ensino médio e da vida.
               </p>
               <a
                 href="{% url 'ensinoFundamental2' %}"
@@ -545,9 +520,11 @@
               <p class="pre">1ª à 3ª série</p>
               <h3 class="title animated fadeIn">Ensino Médio</h3>
               <p class="desc">
-                Excelência acadêmica que leva ao #1 no ENEM Ananindeua.
-                Preparação completa para vestibulares mantendo identidade cristã
-                e formação de caráter.
+                O LOGOS é TOP10 no ENEM, sendo por 7 anos consecutivos a escola
+                número 1 em Ananindeua. Preparação acadêmica de excelência com
+                foco em aprovações nas melhores universidades. Simulados
+                frequentes, reforço em áreas críticas e desenvolvimento de 
+                habilidades socioemocionais com base em valores cristãos.
               </p>
               <a
                 href="{% url 'ensinoMedio' %}"
@@ -575,11 +552,13 @@
                 Conheça nossa proposta de escola de tempo integral
               </h3>
               <p class="desc">
-                O integral no Logos leva em consideração a realidade de cada
-                familia. Para isso, oferecemos um ambiente acolhedor e
-                estimulante, com atividades que promovem o desenvolvimento
-                integral dos alunos. Criamos pacotes que se encaixam no tempo de
-                cada familia
+                O integral no LOGOS é diferente. Nossas atividades vão além do
+                reforço escolar, promovendo o desenvolvimento físico, emocional
+                e espiritual. Buscamos atender a realidade de cada
+                família, oferecendo um ambiente seguro e acolhedor. Nossa proposta
+                inclui atividades esportivas, artísticas e momentos de reflexão
+                bíblica, tudo isso em uma infraestrutura completa com laboratórios,
+                biblioteca e espaços de convivência.
               </p>
               <a
                 href="{% url "ensinoIntegral" %}"
@@ -682,10 +661,11 @@
           <div class="left-side-content">
             <h3 class="title">Logos Sport Center</h3>
             <p class="desc">
-              <strong>Conectando a familia através do esporte</strong>. Nosso
-              complexo esportivo oferece atividades para todas as idades,
-              promovendo saúde, bem-estar e integração familiar em um ambiente
-              seguro e acolhedor.
+              <strong>Conectando a família através do esporte</strong>. Nosso
+              complexo esportivo oferece aulas de voleibol, judô, xadrez, karatê, jiu-jitsu,
+              ballet, futsal e muito mais. Venha conhecer nossa infraestrutura
+              completa e programas para todas as idades. Uma mente sadia em
+              um corpo são! Venha fazer parte do Logos Sport Center.
             </p>
             <a href="https://www.instagram.com/sportcenter_logos/" class="rts-btn btn-primary-5 arrow-rotate" target="_blank" onclick="rudderanalytics.track('Click Saiba Mais Sport Center', {local: 'Sport Center Home', page: 'Home'})"
               >Saiba mais <i class="fa-light fa-arrow-right"></i
@@ -721,7 +701,7 @@
           <span class="pre skew-up">Testemunho dos nossos clientes</span>
           <h2 class="title skew-up">
             Como nossos clientes <br />
-            veem nosso trabalho.
+            veem nosso trabalho
           </h2>
         </div>
       </div>
@@ -732,10 +712,9 @@
         <div class="single-testimonials-area">
           <p class="disc">
             "Escolhi o Centro Educacional Logos pela tradição em educação cristã
-            e não me arrependo. Minha filha desenvolveu não apenas excelência
-            acadêmica, mas valores sólidos que a acompanharão por toda vida. A
-            aprovação na UFPA foi consequência natural de uma formação integral
-            de qualidade."
+            e não me arrependo. Minha filha Beatriz está no 2º ano do ensino
+            médio e tem se desenvolvido academicamente e espiritualmente. 
+            Minha gratidão a todos do Logos."
           </p>
           <div class="author-area">
             <a href="#" class="avatar">
@@ -758,9 +737,8 @@
           <p class="disc">
             "Como família cristã, buscávamos uma escola que compartilhasse
             nossos valores sem abrir mão da qualidade acadêmica. No Logos
-            encontramos professores cristãos comprometidos, metodologia
-            inovadora e ambiente seguro. Felipe cresceu em caráter e
-            conhecimento."
+            encontramos professores comprometidos, metodologia
+            inovadora e ambiente seguro."
           </p>
           <div class="author-area">
             <a href="#" class="avatar">
@@ -770,7 +748,7 @@
               />
             </a>
             <div class="information">
-              <h6 class="title">Roberto Santos</h6>
+              <h6 class="title">Roberto Amoedo</h6>
               <span>Pai do Felipe - 9º ano</span>
             </div>
           </div>
@@ -781,10 +759,12 @@
         <!-- testimonials 3 area start -->
         <div class="single-testimonials-area">
           <p class="disc">
-            "Me formei no Logos há 8 anos e posso afirmar: a base cristã que
+            "Eu me formei no Logos há 8 anos e posso afirmar: a base cristã que
             recebi foi fundamental para minha trajetória profissional. Hoje atuo
-            como engenheiro em empresa multinacional, mas nunca esqueci os
-            valores e princípios que aprendi. Gratidão eterna!"
+            como engenheiro, mas nunca esqueci os
+            valores e princípios que aprendi."
+            <br/>
+            <br/>
           </p>
           <div class="author-area">
             <a href="#" class="avatar">
@@ -794,8 +774,8 @@
               />
             </a>
             <div class="information">
-              <h6 class="title">Paulo Oliveira</h6>
-              <span>Ex-aluno, hoje Engenheiro</span>
+              <h6 class="title">Paulo de Sá Oliveira</h6>
+              <span>Engenheiro</span>
             </div>
           </div>
         </div>
@@ -814,107 +794,5 @@
   </div>
 </div>
 <!-- testemunho end -->
-
-<!-- Footer start -->
-<div class="rts-footer-area footer-five rts-section-gapTop pb--65">
-  <div class="container mb--65">
-    <div class="row g-48 g-lg-0">
-      <div class="col-lg-2 col-md-4 col-sm-6">
-        <!-- single footer four wized -->
-        <div class="single-footer-four-wized">
-          <h5 class="title">Institucional</h5>
-          <ul>
-            <li><a href="{% url 'about' %}">Sobre nós</a></li>
-            <li><a href="https://celogos.vagas.solides.com.br/">Vagas</a></li>
-            <li><a href="#">Dados e informações</a></li>
-          </ul>
-        </div>
-        <!-- single footer four wized end -->
-      </div>
-      <div class="col-lg-2 col-md-4 col-sm-6">
-        <!-- single footer four wized -->
-        <div class="single-footer-four-wized">
-          <h5 class="title">Recursos</h5>
-          <ul>
-            <li><a href="#">Blog</a></li>
-            <li><a href="{% url 'contato' %}">Duvidas e Perguntas</a></li>
-            <li><a href="{% url 'contato' %}">Suporte</a></li>
-          </ul>
-        </div>
-        <!-- single footer four wized end -->
-      </div>
-      <div class="col-lg-2 col-md-4 col-sm-6">
-        <!-- single footer four wized -->
-        <div class="single-footer-four-wized">
-          <h5 class="title">Social</h5>
-          <ul>
-            <li>
-              <a href="https://www.linkedin.com/company/logoscentroeducacional/" onclick="rudderanalytics.track('Click Linkedin', {local: 'Footer', page: 'Home'})"
-                >Linkedin</a
-              >
-            </li>
-            <li><a href="https://www.facebook.com/CELogos/" onclick="rudderanalytics.track('Click Facebook', {local: 'Footer', page: 'Home'})">Facebook</a></li>
-            <li>
-              <a href="https://www.instagram.com/logoscentroeducacional/" onclick="rudderanalytics.track('Click Instagram', {local: 'Footer', page: 'Home'})">Instagram</a>
-            </li>
-          </ul>
-        </div>
-        <!-- single footer four wized end -->
-      </div>
-      <div class="col-lg-2 col-md-4 col-sm-6">
-        <!-- single footer four wized -->
-        <div class="single-footer-four-wized">
-          <h5 class="title">Legal</h5>
-          <ul>
-            <li><a href="#">Termos de serviços</a></li>
-            <li>
-              <a href="#">Politica de privacidade</a>
-            </li>
-            <li><a href="#">Cookies</a></li>
-          </ul>
-        </div>
-        <!-- single footer four wized end -->
-      </div>
-      <div class="col-lg-4 col-md-8 col-sm-12">
-        <!-- single footer four wized -->
-        <div class="single-footer-four-wized">
-          <h5 class="title">Se inscreva para receber as noticias do Logos</h5>
-          <div class="footer-input-btn-between">
-            <form action="#">
-              <input required type="email" placeholder="Seu email.." />
-              <button type="submit" class="rts-btn btn-primary-4">
-                Se inscreva
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="copyright-area-four pt--65 mt-65 border-top">
-          <a href="#" class="logo">
-            <img
-              class="light"
-              src="\static\images\logo\logo-horizontal-colorida-azul.svg"
-              alt="logo"
-              width="100%"
-            />
-            <img
-              class="dark"
-              src="\static\images\logo\logo-horizontal-colorida-branca.svg"
-              alt="logo"
-              width="100%"
-            />
-          </a>
-          <p>© 2026 Logos, todos os direitos reservados.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Footer start -->
 
 {% endblock content %}

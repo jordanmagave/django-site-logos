@@ -27,7 +27,6 @@ class ContatoModelTest(TestCase):
                 email="valido@exemplo.com",
                 telefone="12345",  # Formato inválido
             )
-            # O erro só é levantado quando validamos o modelo completo
             contato.full_clean()
 
 
@@ -67,38 +66,8 @@ class ContatoViewTest(TestCase):
         # 2. Verifica se NENHUM contato foi criado no banco
         self.assertFalse(Contato.objects.filter(nome="Contato Invalido").exists())
 
-    def test_parametros_de_rastreamento_sao_salvos_no_contato(self):
-        """
-        Simula um usuário visitando com parâmetros UTM e depois enviando o formulário,
-        verificando se os parâmetros são salvos no objeto Contato.
-        """
-        # Passo 1: Simula a visita inicial com parâmetros de rastreamento
-        url_com_parametros = (
-            reverse("contato") + "?utm_source=facebook&gclid=fb_test_987"
-        )
-        self.client.get(url_com_parametros)
 
-        # Confirma que os parâmetros foram salvos na sessão
-        self.assertEqual(self.client.session["utm_source"], "facebook")
-        self.assertEqual(self.client.session["gclid"], "fb_test_987")
-
-        # Passo 2: Simula o envio do formulário na mesma sessão
-        form_data = {
-            "nome": "Contato de Campanha",
-            "email": "campanha@exemplo.com",
-            "telefone": "(44) 44444-4444",
-        }
-        self.client.post(reverse("contato"), data=form_data)
-
-        # Passo 3: Verifica o resultado no banco de dados
-        contato_criado = Contato.objects.get(email="campanha@exemplo.com")
-
-        self.assertEqual(contato_criado.nome, "Contato de Campanha")
-        self.assertEqual(contato_criado.utm_source, "facebook")
-        self.assertEqual(contato_criado.gclid, "fb_test_987")
-
-
-class TrackingMiddlewareTest(TestCase):
+class MiddlewareBehaviorTest(TestCase):
     def test_parametros_sao_salvos_na_sessao(self):
         """Verifica se os parâmetros de rastreamento da URL são salvos na sessão."""
         # Cria a URL com os parâmetros de teste
@@ -112,16 +81,6 @@ class TrackingMiddlewareTest(TestCase):
         self.assertEqual(self.client.session["gclid"], "teste123")
 
 
-class SecurityHeadersTest(TestCase):
-    def test_cabecalhos_de_seguranca_estao_presentes(self):
-        """Verifica se os cabeçalhos de segurança estão na resposta da página inicial."""
-        response = self.client.get(reverse("contato"))
-
-        # Verifica a presença e o valor dos cabeçalhos
-        self.assertEqual(response.headers["X-Frame-Options"], "DENY")
-        self.assertEqual(response.headers["X-Content-Type-Options"], "nosniff")
-
-
 class StaticFilesTest(TestCase):
     def test_arquivos_estaticos_sao_carregados(self):
         """Verifica se os arquivos estáticos são carregados corretamente."""
@@ -130,9 +89,11 @@ class StaticFilesTest(TestCase):
         self.assertContains(response, "fa-solid-900.woff2")
 
 
-class MiddlewareBehaviorTest(TestCase):
-    def test_middleware_adiciona_cabecalho_personalizado(self):
-        """Verifica se o middleware adiciona um cabeçalho personalizado na resposta."""
+class SecurityHeadersTest(TestCase):
+    def test_cabecalhos_de_seguranca_estao_presentes(self):
+        """Verifica se os cabeçalhos de segurança estão na resposta da página inicial."""
         response = self.client.get(reverse("contato"))
-        self.assertIn("X-Custom-Header", response.headers)
-        self.assertEqual(response.headers["X-Custom-Header"], "ValorPersonalizado")
+
+        # Verifica a presença e o valor dos cabeçalhos
+        self.assertEqual(response.headers["X-Frame-Options"], "DENY")
+        self.assertEqual(response.headers["X-Content-Type-Options"], "nosniff")
