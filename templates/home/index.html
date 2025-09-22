@@ -1,4 +1,5 @@
-{% extends 'layout/layout.html' %} {% block content %}
+{% extends 'layout/layout.html' %} 
+{% block content %}
 
 <!-- banner area start -->
 <div class="rts-banner-area-one banner-five rts-section-gap">
@@ -122,7 +123,7 @@
                 </li>
               </ul>
               <p class="disc">
-                <strong>"Excelente escola cristã, meu filho ama!</strong>" 
+                <strong>"Excelente escola cristã. O meu filho ama!</strong>" 
                 - Carolina de Assunção, mãe do Carlos Somenatti (3º ano)
               </p>
             </div>
@@ -274,8 +275,8 @@
           <h2 class="title">Educação Cristã Integral</h2>
           <p class="disc">
             <strong>Valores que Transformam.</strong>
-            <strong>Metodologia cristã </strong>
-            desenvolve caráter, integridade e excelência formando cidadãos
+            Metodologia cristã que contribui para o desenvolvimento
+            do caráter, integridade e excelência, formando cidadãos
             éticos que impactam comunidades.
           </p>
           <div class="product-service-wrapper">
@@ -340,9 +341,9 @@
           <h2 class="title">TOP 10 ENEM no Pará</h2>
           <p class="disc">
             <strong>Excelência Comprovada.</strong> Somos a
-            <strong>escola 7 anos consecutivos CAMPEÃ no ENEM em Ananindeua</strong>
-            e TOP 10 no Pará, com aprovações nas melhores universidades do
-            Brasil mantendo identidade cristã sólida.
+            <strong>escola 7 anos consecutivos CAMPEÃ no ENEM em Ananindeua
+            e TOP 10 no Pará</strong>, com aprovações nas melhores universidades do
+            Brasil.
           </p>
           <div class="product-service-wrapper">
             <!-- single service -->
@@ -401,32 +402,7 @@
 </section>
 <!-- counterup-area end -->
 
-<!-- CTA Visita start-->
-<section class="rts-call-to-action" id="agende-visita">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="call-to-action-area-5">
-          <h2 class="title skew-up">
-            Conheça a sua escola cristã <br />
-            de Ananindeua
-          </h2>
-          <p class="disc">
-            Agende uma visita e descubra por que somos a escolha de centenas de
-            famílias cristãs.
-          </p>
-          <div class="button-area">
-            <a href="{% url 'contato' %}" class="rts-btn btn-secondary-5" onclick="rudderanalytics.track('Click Agendar Visita', {local: 'CTA Home', page: 'Home'})">
-              <i class="fa-light fa-calendar"></i>
-              Agendar Visita
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- CTA Visita end -->
+{% include "../partials/cta_visita.html" %}
 
 <!-- Serviços Educacionais start -->
 <section class="rts-case-studies-5 rts-section-gap2" id="galeria">
@@ -437,8 +413,8 @@
           <div class="title-style-one-left text-center">
             <span class="pre skew-up text-center">Serviços Educacionais</span>
             <h2 class="title skew-up text-center">
-              Viva o dia a dia em uma das melhores <br />
-              escolas cristãs de Ananindeua
+              Venha conhecer nossas propostas para <br />
+              cada nível de ensino
             </h2>
           </div>
         </div>
@@ -544,7 +520,7 @@
               <p class="pre">1ª à 3ª série</p>
               <h3 class="title animated fadeIn">Ensino Médio</h3>
               <p class="desc">
-                O LOGOS é TOP10 no ENEM, sendo por 7 anos consectivos a escola
+                O LOGOS é TOP10 no ENEM, sendo por 7 anos consecutivos a escola
                 número 1 em Ananindeua. Preparação acadêmica de excelência com
                 foco em aprovações nas melhores universidades. Simulados
                 frequentes, reforço em áreas críticas e desenvolvimento de 
@@ -685,7 +661,7 @@
           <div class="left-side-content">
             <h3 class="title">Logos Sport Center</h3>
             <p class="desc">
-              <strong>Conectando a familia através do esporte</strong>. Nosso
+              <strong>Conectando a família através do esporte</strong>. Nosso
               complexo esportivo oferece aulas de voleibol, judô, xadrez, karatê, jiu-jitsu,
               ballet, futsal e muito mais. Venha conhecer nossa infraestrutura
               completa e programas para todas as idades. Uma mente sadia em
@@ -818,9 +794,5 @@
   </div>
 </div>
 <!-- testemunho end -->
-
-<!-- Footer start -->
-{% include 'partials/footer.html' %}
-<!-- Footer end -->
 
 {% endblock content %}
