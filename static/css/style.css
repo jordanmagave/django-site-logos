@@ -16952,13 +16952,22 @@ header.heder-two .sub-dropdown .submenu.third-lvl.base {
 .rts-banner-area-one.banner-five .brand-title-area {
   margin-bottom: 40px;
 }
-.rts-banner-area-one.banner-five .brand-title-area .title {
+[data-theme="light"] .rts-banner-area-one.banner-five .brand-title-area .title {
   color: var(--color-title);
   font-size: 28px;
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 10px;
 }
+
+[data-theme="dark"] .rts-banner-area-one.banner-five .brand-title-area .title {
+  color: var(--color-secondary);
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
 .rts-banner-area-one.banner-five .brand-title-area .brand-left-short-title-one {
   display: flex;
   align-items: center;
@@ -16997,13 +17006,25 @@ header.heder-two .sub-dropdown .submenu.third-lvl.base {
   a {
   color: #ff6354;
 }
-.rts-banner-area-one.banner-five
+
+[data-theme="light"]
+  .rts-banner-area-one.banner-five
   .brand-title-area
   .brand-left-short-title-one
   p.disc {
   color: var(--color-body);
   font-weight: 400;
 }
+
+[data-theme="dark"]
+  .rts-banner-area-one.banner-five
+  .brand-title-area
+  .brand-left-short-title-one
+  p.disc {
+  color: var(--color-secondary);
+  font-weight: 400;
+}
+
 .rts-banner-area-one.banner-five .brand-slider-area {
   overflow: hidden;
 }
@@ -20837,6 +20858,7 @@ form i {
 .call-to-action-area-5 {
   border-radius: 32px;
   background: var(--counter-up-bg);
+  margin: 60px;
   padding: 80px;
   overflow: hidden;
   position: relative;

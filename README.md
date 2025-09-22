@@ -41,7 +41,7 @@ pip install -r requirements.txt
 
 **2. Configure as Variáveis de Ambiente:**
 ```bash
-# .env.example
+# .env  Example
 
 # Chave secreta do Django (gere uma nova para desenvolvimento)
 SECRET_KEY="sua-secret-key-de-desenvolvimento"
@@ -49,6 +49,7 @@ SECRET_KEY="sua-secret-key-de-desenvolvimento"
 # Ative o modo DEBUG para desenvolvimento
 DEBUG=True
 ```
+
 ```python
 # URL do banco de dados local (exemplo para PostgreSQL)
 # Se estiver usando SQLite para desenvolvimento, a configuração no settings.py já funcionará.
