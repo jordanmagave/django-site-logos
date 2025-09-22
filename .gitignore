@@ -23,6 +23,7 @@ static/
 # Virtual environments
 venv/
 .env/
+.venv/
 
 # IDEs and editors
 .vscode/
