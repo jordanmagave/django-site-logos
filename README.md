@@ -44,6 +44,9 @@ pip install -r requirements.txt
 # .env.example
 
 # Chave secreta do Django (gere uma nova para desenvolvimento)
+# Uma forma simples é usando um oneliner em python com modulo `secrets`
+# python3 -c 'import secrets; print(secrets.token_urlsafe(50))'
+
 SECRET_KEY="sua-secret-key-de-desenvolvimento"
 
 # Ative o modo DEBUG para desenvolvimento
