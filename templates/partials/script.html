@@ -1,5 +1,56 @@
 <!-- jquery js -->
 <script defer src="/static/js/plugins/jquery.min.js"></script>
+
+<!-- UTM Parameter Tracking Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search);
+    const utmParams = {};
+
+    // Lista de parâmetros para rastrear
+    const trackedParams = [
+      "utm_source",
+      "utm_medium",
+      "utm_campaign",
+      "utm_term",
+      "utm_content",
+      "gclid",
+      "fbclid",
+    ];
+
+    trackedParams.forEach((param) => {
+      if (params.has(param)) {
+        utmParams[param] = params.get(param);
+      }
+    });
+
+    // Salva os parâmetros na sessionStorage se eles existirem
+    if (Object.keys(utmParams).length > 0) {
+      sessionStorage.setItem("utm_params", JSON.stringify(utmParams));
+    }
+
+    // Pega os parâmetros salvos
+    const storedParams = JSON.parse(sessionStorage.getItem("utm_params"));
+
+    if (storedParams) {
+      const newParams = new URLSearchParams(storedParams).toString();
+
+      // Adiciona os parâmetros a todos os links internos
+      document.querySelectorAll("a").forEach((link) => {
+        const url = new URL(link.href, window.location.origin);
+
+        // Verifica se o link é para o mesmo domínio
+        if (url.hostname === window.location.hostname) {
+          Object.keys(storedParams).forEach((key) => {
+            url.searchParams.set(key, storedParams[key]);
+          });
+          link.href = url.toString();
+        }
+      });
+    }
+  });
+</script>
+
 <script defer src="/static/js/plugins/bootstrap.min.js"></script>
 <script defer src="/static/js/plugins/metismenu.js"></script>
 <script defer src="/static/js/vendor/jqueryui.js"></script>
