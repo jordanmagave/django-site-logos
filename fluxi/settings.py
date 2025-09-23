@@ -38,8 +38,8 @@ SECRET_KEY = env(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = []
-CSRF_TRUSTED_ORIGINS = []
+ALLOWED_HOSTS = ["celogos.com.br", "www.celogos.com.br"]
+CSRF_TRUSTED_ORIGINS = ["https://celogos.com.br", "https://www.celogos.com.br"]
 SITE_ID = 1
 
 # Adiciona o domínio do serviço GCP, se fornecido nas variáveis de ambiente
