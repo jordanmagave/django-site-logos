@@ -11,13 +11,16 @@ class Contato(models.Model):
     email = models.EmailField()
     telefone = models.CharField(
         max_length=20,
-        validators=[
-            RegexValidator(
-                regex=r"^\(\d{2}\) \d{5}-\d{4}$",
-                message="O número deve estar no formato (99) 99999-9999.",
-            )
-        ],
+        # validators=[
+        # RegexValidator(
+        # regex=r"^\(\d{2}\) \d{5}-\d{4}$",
+        # message="O número deve estar no formato (99) 99999-9999.",
+        # )
+        # ],
     )
+    captured_url = models.URLField(max_length=200, blank=True, null=True)
+    lead_source = models.CharField(max_length=100, blank=True, null=True)
+    ip_lead = models.GenericIPAddressField(blank=True, null=True)
     utm_source = models.CharField(max_length=100, blank=True, null=True)
     utm_medium = models.CharField(max_length=100, blank=True, null=True)
     utm_campaign = models.CharField(max_length=100, blank=True, null=True)

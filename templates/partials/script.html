@@ -1,46 +1,197 @@
 <!-- jquery js -->
 <script defer src="/static/js/plugins/jquery.min.js"></script>
-<script defer src="/static/js/plugins/bootstrap.min.js"></script>
-<script defer src="/static/js/plugins/metismenu.js"></script>
-<script defer src="/static/js/vendor/jqueryui.js"></script>
-<script defer src="/static/js/vendor/waypoint.js"></script>
-<script defer src="/static/js/plugins/swiper.js"></script>
-<script defer src="/static/js/plugins/theia-sticky-sidebar.min.js"></script>
-<script defer src="/static/js/plugins/gsap.min.js"></script>
-<script defer src="/static/js/plugins/scrolltigger.js"></script>
-<script defer src="/static/js/plugins/jquery.mask.min.js"></script>
-<script defer src="/static/js/vendor/split-text.js"></script>
-<script defer src="/static/js/vendor/split-type.js"></script>
-<script defer src="/static/js/vendor/waw.js"></script>
-<script defer src="/static/js/plugins/counter-up.js"></script>
-<script defer src="/static/js/plugins/magnific-popup.js"></script>
-<!-- contact form js -->
-<script defer src="/static/js/main.js"></script>
 
-<!-- Ketch Smart Tag - Load Asynchronously -->
+<!-- Segment Analytics -->
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Encontra qualquer formulário de método POST na página
-    const form = document.querySelector('form[method="post"]');
+  !(function () {
+    var i = "analytics",
+      analytics = (window[i] = window[i] || []);
+    if (!analytics.initialize)
+      if (analytics.invoked)
+        window.console &&
+          console.error &&
+          console.error("Segment snippet included twice.");
+      else {
+        analytics.invoked = !0;
+        analytics.methods = [
+          "trackSubmit",
+          "trackClick",
+          "trackLink",
+          "trackForm",
+          "pageview",
+          "identify",
+          "reset",
+          "group",
+          "track",
+          "ready",
+          "alias",
+          "debug",
+          "page",
+          "screen",
+          "once",
+          "off",
+          "on",
+          "addSourceMiddleware",
+          "addIntegrationMiddleware",
+          "setAnonymousId",
+          "addDestinationMiddleware",
+          "register",
+        ];
+        analytics.factory = function (e) {
+          return function () {
+            if (window[i].initialized)
+              return window[i][e].apply(window[i], arguments);
+            var n = Array.prototype.slice.call(arguments);
+            if (
+              ["track", "screen", "alias", "group", "page", "identify"].indexOf(
+                e
+              ) > -1
+            ) {
+              var c = document.querySelector("link[rel='canonical']");
+              n.push({
+                __t: "bpc",
+                c: (c && c.getAttribute("href")) || void 0,
+                p: location.pathname,
+                u: location.href,
+                s: location.search,
+                t: document.title,
+                r: document.referrer,
+              });
+            }
+            n.unshift(e);
+            analytics.push(n);
+            return analytics;
+          };
+        };
+        for (var n = 0; n < analytics.methods.length; n++) {
+          var key = analytics.methods[n];
+          analytics[key] = analytics.factory(key);
+        }
+        analytics.load = function (key, n) {
+          var t = document.createElement("script");
+          t.type = "text/javascript";
+          t.async = !0;
+          t.setAttribute("data-global-segment-analytics-key", i);
+          t.src =
+            "https://cdn.segment.com/analytics.js/v1/" +
+            key +
+            "/analytics.min.js";
+          var r = document.getElementsByTagName("script")[0];
+          r.parentNode.insertBefore(t, r);
+          analytics._loadOptions = n;
+        };
+        analytics._writeKey = "X6NmrdCUTzugIXB1kIENgXpx7iv3ofpT";
+        analytics.SNIPPET_VERSION = "5.2.0";
+        analytics.load("X6NmrdCUTzugIXB1kIENgXpx7iv3ofpT");
+        analytics.page();
+      }
+  })();
+</script>
 
-    if (form) {
-      form.addEventListener("submit", function () {
-        // Procura pelo campo oculto dentro do formulário que está sendo enviado
-        const consentField = form.querySelector("#ketch_consent_field");
+<!-- Capture UTMs add anonymousId to URLs -->
+<script>
+  console.log("Debug Script: Iniciado.");
 
-        if (consentField && window.ketch) {
-          // Consulta a API da Ketch para o propósito 'analytics'
-          // Lembre-se que 'analytics' pode mudar dependendo da sua configuração na Ketch
-          const consentStatus = window.ketch("getConsent", "analytics");
+  // Função para capturar e salvar os UTMs
+  function captureAndStoreUTMs() {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const utmParams = {};
+      const trackedParams = [
+        "utm_source",
+        "utm_medium",
+        "utm_campaign",
+        "utm_term",
+        "utm_content",
+        "gclid",
+        "fbclid",
+      ];
+      let newParamsFound = false;
 
-          // Preenche o campo com 'true' ou 'false'
-          consentField.value = consentStatus;
+      trackedParams.forEach((param) => {
+        if (params.has(param)) {
+          utmParams[param] = params.get(param);
+          newParamsFound = true;
         }
       });
+
+      if (newParamsFound) {
+        sessionStorage.setItem("utm_params", JSON.stringify(utmParams));
+        console.log(
+          "Debug Script: Novos UTMs encontrados e salvos na sessão:",
+          utmParams
+        );
+      } else {
+        console.log("Debug Script: Nenhum novo UTM encontrado na URL.");
+      }
+    } catch (e) {
+      console.error("Debug Script: Erro ao capturar UTMs.", e);
+    }
+  }
+
+  // Função para modificar os links da página
+  function enrichAllLinks() {
+    console.log("Debug Script: Tentando enriquecer os links...");
+    const storedUtmParams = JSON.parse(sessionStorage.getItem("utm_params"));
+    const anonymousId = analytics.user().anonymousId();
+
+    if (!anonymousId) {
+      console.error(
+        "Debug Script: FALHA! O anonymousId do Segment não foi encontrado. Os links não serão modificados."
+      );
+      return;
+    }
+
+    console.log("Debug Script: ID anônimo do Segment encontrado:", anonymousId);
+    if (storedUtmParams) {
+      console.log("Debug Script: UTMs recuperados da sessão:", storedUtmParams);
+    }
+
+    document.querySelectorAll("a").forEach((link) => {
+      try {
+        // Ignora links que não são http/https (ex: mailto:, tel:)
+        if (!link.href.startsWith("http")) return;
+
+        const url = new URL(link.href, window.location.origin);
+
+        if (url.hostname === window.location.hostname) {
+          if (storedUtmParams) {
+            Object.keys(storedUtmParams).forEach((key) => {
+              url.searchParams.set(key, storedUtmParams[key]);
+            });
+          }
+          url.searchParams.set("segment_anonymous_id", anonymousId);
+          link.href = url.toString();
+        }
+      } catch (e) {
+        console.error(
+          "Debug Script: Erro ao modificar um link específico:",
+          link.href,
+          e
+        );
+      }
+    });
+    console.log("Debug Script: Processo de enriquecimento de links concluído.");
+  }
+
+  // Execução Principal
+  document.addEventListener("DOMContentLoaded", function () {
+    console.log("Debug Script: A página carregou (DOMContentLoaded).");
+    captureAndStoreUTMs();
+
+    // A forma mais segura de rodar o código é usando analytics.ready()
+    if (typeof analytics !== "undefined" && analytics.ready) {
+      console.log("Debug Script: Esperando o Segment ficar pronto...");
+      analytics.ready(enrichAllLinks);
+    } else {
+      console.error(
+        "Debug Script: Objeto 'analytics' do Segment não encontrado. O script não pode continuar."
+      );
     }
   });
 </script>
-<!-- Leadster Tag -->
+
+<!-- Snipt Leadster-->
 <script>
   (function (a, b, c, d) {
     try {
@@ -60,143 +211,28 @@
   );
 </script>
 
-<!-- RudderStack JavaScript SDK -->
-<script type="text/javascript">
-  (function () {
-    "use strict";
-    window.RudderSnippetVersion = "3.2.0";
-    var identifier = "rudderanalytics";
-    if (!window[identifier]) {
-      window[identifier] = [];
+<script defer src="/static/js/plugins/bootstrap.min.js"></script>
+<script defer src="/static/js/plugins/metismenu.js"></script>
+<script defer src="/static/js/vendor/jqueryui.js"></script>
+<script defer src="/static/js/vendor/waypoint.js"></script>
+<script defer src="/static/js/plugins/swiper.js"></script>
+<script defer src="/static/js/plugins/theia-sticky-sidebar.min.js"></script>
+<script defer src="/static/js/plugins/gsap.min.js"></script>
+<script defer src="/static/js/plugins/scrolltigger.js"></script>
+<script defer src="/static/js/plugins/jquery.mask.min.js"></script>
+<script defer src="/static/js/vendor/split-text.js"></script>
+<script defer src="/static/js/vendor/split-type.js"></script>
+<script defer src="/static/js/vendor/waw.js"></script>
+<script defer src="/static/js/plugins/counter-up.js"></script>
+<script defer src="/static/js/plugins/magnific-popup.js"></script>
+<script defer src="/static/js/main.js"></script>
+
+<!-- Preloader Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const preloader = document.querySelector(".loader-wrapper");
+    if (preloader) {
+      preloader.style.display = "none";
     }
-    var rudderanalytics = window[identifier];
-    if (Array.isArray(rudderanalytics)) {
-      if (
-        rudderanalytics.snippetExecuted === true &&
-        window.console &&
-        console.error
-      ) {
-        console.error(
-          "RudderStack JavaScript SDK snippet included more than once."
-        );
-      } else {
-        rudderanalytics.snippetExecuted = true;
-        window.rudderAnalyticsBuildType = "legacy";
-        var sdkBaseUrl = "https://cdn.rudderlabs.com";
-        var sdkVersion = "v3";
-        var sdkFileName = "rsa.min.js";
-        var scriptLoadingMode = "async";
-        var methods = [
-          "setDefaultInstanceKey",
-          "load",
-          "ready",
-          "page",
-          "track",
-          "identify",
-          "alias",
-          "group",
-          "reset",
-          "setAnonymousId",
-          "startSession",
-          "endSession",
-          "consent",
-          "addCustomIntegration",
-        ];
-        for (var i = 0; i < methods.length; i++) {
-          var method = methods[i];
-          rudderanalytics[method] = (function (methodName) {
-            return function () {
-              if (Array.isArray(window[identifier])) {
-                rudderanalytics.push(
-                  [methodName].concat(Array.prototype.slice.call(arguments))
-                );
-              } else {
-                var _methodName;
-                (_methodName = window[identifier][methodName]) === null ||
-                  _methodName === undefined ||
-                  _methodName.apply(window[identifier], arguments);
-              }
-            };
-          })(method);
-        }
-        try {
-          new Function(
-            'class Test{field=()=>{};test({prop=[]}={}){return prop?(prop?.property??[...prop]):import("");}}'
-          );
-          window.rudderAnalyticsBuildType = "modern";
-        } catch (e) {}
-        var head = document.head || document.getElementsByTagName("head")[0];
-        var body = document.body || document.getElementsByTagName("body")[0];
-        window.rudderAnalyticsAddScript = function (
-          url,
-          extraAttributeKey,
-          extraAttributeVal
-        ) {
-          var scriptTag = document.createElement("script");
-          scriptTag.src = url;
-          scriptTag.setAttribute("data-loader", "RS_JS_SDK");
-          if (extraAttributeKey && extraAttributeVal) {
-            scriptTag.setAttribute(extraAttributeKey, extraAttributeVal);
-          }
-          if (scriptLoadingMode === "async") {
-            scriptTag.async = true;
-          } else if (scriptLoadingMode === "defer") {
-            scriptTag.defer = true;
-          }
-          if (head) {
-            head.insertBefore(scriptTag, head.firstChild);
-          } else {
-            body.insertBefore(scriptTag, body.firstChild);
-          }
-        };
-        window.rudderAnalyticsMount = function () {
-          (function () {
-            if (typeof globalThis === "undefined") {
-              var getGlobal = function getGlobal() {
-                if (typeof self !== "undefined") {
-                  return self;
-                }
-                if (typeof window !== "undefined") {
-                  return window;
-                }
-                return null;
-              };
-              var global = getGlobal();
-              if (global) {
-                Object.defineProperty(global, "globalThis", {
-                  value: global,
-                  configurable: true,
-                });
-              }
-            }
-          })();
-          window.rudderAnalyticsAddScript(
-            ""
-              .concat(sdkBaseUrl, "/")
-              .concat(sdkVersion, "/")
-              .concat(window.rudderAnalyticsBuildType, "/")
-              .concat(sdkFileName),
-            "data-rsa-write-key",
-            "32TbozUnb3eqYoOCIZy3PRi3F6R"
-          );
-        };
-        if (
-          typeof Promise === "undefined" ||
-          typeof globalThis === "undefined"
-        ) {
-          window.rudderAnalyticsAddScript(
-            "https://polyfill-fastly.io/v3/polyfill.min.js?version=3.111.0&features=Symbol%2CPromise&callback=rudderAnalyticsMount"
-          );
-        } else {
-          window.rudderAnalyticsMount();
-        }
-        var loadOptions = {};
-        rudderanalytics.load(
-          "32TbozUnb3eqYoOCIZy3PRi3F6R",
-          "https://celogosjopvexz.dataplane.rudderstack.com",
-          loadOptions
-        );
-      }
-    }
-  })();
+  });
 </script>

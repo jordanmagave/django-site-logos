@@ -32,4 +32,9 @@ urlpatterns = [
         "servicos-educacionais/integral", servicesViews.integral, name="ensinoIntegral"
     ),
     path("contato_logos/", pagesViews.contato, name="contato"),
+    path(
+        "webhook/leadster/f9c1b2a3-d4e5-f6a7-b8c9-d0e1f2a3b4c5/",
+        pagesViews.leadster_webhook,
+        name="leadster_webhook",
+    ),
 ]
