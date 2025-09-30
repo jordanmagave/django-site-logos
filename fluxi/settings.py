@@ -199,3 +199,6 @@ LOGGING = {
         },
     },
 }
+
+# Segment Analytics Settings
+SEGMENT_WRITE_KEY = env("SEGMENT_WRITE_KEY")
