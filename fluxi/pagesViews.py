@@ -2,6 +2,7 @@
 
 import traceback
 import json
+import re
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
@@ -12,6 +13,7 @@ from .forms import ContatoForm
 from .models import Contato
 from urllib.parse import urlparse, parse_qs
 import logging
+from datetime import datetime, timezone
 
 
 # Configura um logger para ajudar a depurar
@@ -93,17 +95,22 @@ def leadster_webhook(request):
         # Extrai os dados principais do lead
         nome = data.get("name") or data.get("nome")
         email = data.get("email")
-        telefone = data.get("phone") or data.get("telefone")
+        telefone_original = data.get("phone") or data.get("telefone")
         captured_url = data.get("url")
 
         # Validação básica para garantir que os campos obrigatórios estejam presentes no payload do webhook
-        if not all([nome, email, telefone, captured_url]):
-            error_message = f"Webhook rejeitado. Campos obrigatórios faltando: nome={nome}, email={email}, telefone={telefone}, captured_url={captured_url}"
+        if not all([nome, email, telefone_original, captured_url]):
+            error_message = f"Webhook rejeitado. Campos obrigatórios faltando: nome={nome}, email={email}, telefone={telefone_original}, captured_url={captured_url}"
             logger.error(error_message)
             return JsonResponse(
                 {"error": error_message},
                 status=400,
             )
+
+        telefone = None
+        if telefone_original:
+            # Remove todos os caracteres que não são dígitos
+            telefone = re.sub(r"\D", "", telefone_original)
 
         anonymous_id = None
         # 1. O Leadster envia a URL no campo "url", não "captured_url".
@@ -122,6 +129,8 @@ def leadster_webhook(request):
         utm_campaign = data.get("utm_campaing")
         ip_lead = data.get("ip_lead")
         fbclid = data.get("fbclid")
+        fbp = data.get("fbp")
+        fbc = data.get("fbc")
         gclid = data.get("gclid")
         lead_source = data.get("lead_source")
 
@@ -137,6 +146,8 @@ def leadster_webhook(request):
             captured_url=captured_url,
             ip_lead=ip_lead,
             fbclid=fbclid,
+            fbp=fbp,
+            fbc=fbc,
             gclid=gclid,
             lead_source=lead_source,
             consentimento_analytics=True,  # Assume consentimento via webhook
@@ -153,6 +164,7 @@ def leadster_webhook(request):
         analytics.track(
             user_id=email,
             event="Lead",
+            timestamp=datetime.now(timezone.utc),
             properties={
                 "name": nome,
                 "email": email,
@@ -165,6 +177,8 @@ def leadster_webhook(request):
                 "ip_lead": ip_lead,
                 "gclid": gclid,
                 "fbclid": fbclid,
+                "fbp": fbp,
+                "fbc": fbc,
                 "lead_source": lead_source,
             },
             context={"anonymousId": anonymous_id},
@@ -172,7 +186,7 @@ def leadster_webhook(request):
 
         return JsonResponse({"status": "success"}, status=200)
 
-    except Exception as e:
+    except Exception:
         error_details = traceback.format_exc()
         print(f"Erro no webhook do Leadster: {error_details}")
         return JsonResponse(

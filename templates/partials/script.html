@@ -88,105 +88,96 @@
   })();
 </script>
 
-<!-- Capture UTMs add anonymousId to URLs -->
 <script>
-  console.log("Debug Script: Iniciado.");
+  // Função auxiliar para ler um cookie específico pelo nome
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(";").shift();
+  }
 
-  // Função para capturar e salvar os UTMs
-  function captureAndStoreUTMs() {
-    try {
-      const params = new URLSearchParams(window.location.search);
-      const utmParams = {};
-      const trackedParams = [
-        "utm_source",
-        "utm_medium",
-        "utm_campaign",
-        "utm_term",
-        "utm_content",
-        "gclid",
-        "fbclid",
-      ];
-      let newParamsFound = false;
+  function enrichLinks() {
+    console.log("Debug: Iniciando enrichLinks...");
 
-      trackedParams.forEach((param) => {
-        if (params.has(param)) {
-          utmParams[param] = params.get(param);
-          newParamsFound = true;
+    // 1. Pega os parâmetros UTM salvos na sessão do navegador
+    const storedUtmParams = JSON.parse(sessionStorage.getItem("utm_params"));
+
+    // 2. Garante que o Segment já carregou e pega o anonymousId
+    if (typeof analytics !== "undefined" && analytics.user) {
+      const anonymousId = analytics.user().anonymousId();
+
+      // 3. Pega os cookies do Facebook
+      const fbp = getCookie("_fbp");
+      const fbc = getCookie("_fbc");
+
+      console.log(`Debug: anonymousId=${anonymousId}, fbp=${fbp}, fbc=${fbc}`);
+
+      // 4. Itera sobre todos os links da página
+      document.querySelectorAll("a").forEach((link) => {
+        try {
+          const url = new URL(link.href, window.location.origin);
+
+          if (url.hostname === window.location.hostname) {
+            // Adiciona os parâmetros UTM, se existirem
+            if (storedUtmParams) {
+              Object.keys(storedUtmParams).forEach((key) => {
+                url.searchParams.set(key, storedUtmParams[key]);
+              });
+            }
+
+            // Adiciona o ID do Segment
+            if (anonymousId) {
+              url.searchParams.set("segment_anonymous_id", anonymousId);
+            }
+
+            // Adiciona os cookies do Facebook, se existirem
+            if (fbp) {
+              url.searchParams.set("fbp", fbp);
+            }
+            if (fbc) {
+              url.searchParams.set("fbc", fbc);
+            }
+
+            link.href = url.toString();
+          }
+        } catch (e) {
+          console.error("Erro ao enriquecer o link:", e, link.href);
         }
       });
-
-      if (newParamsFound) {
-        sessionStorage.setItem("utm_params", JSON.stringify(utmParams));
-        console.log(
-          "Debug Script: Novos UTMs encontrados e salvos na sessão:",
-          utmParams
-        );
-      } else {
-        console.log("Debug Script: Nenhum novo UTM encontrado na URL.");
-      }
-    } catch (e) {
-      console.error("Debug Script: Erro ao capturar UTMs.", e);
+      console.log("Debug: Links enriquecidos.");
+    } else {
+      console.log(
+        "Debug: analytics.user não está pronto, tentando novamente em 500ms."
+      );
+      setTimeout(enrichLinks, 500); // Tenta novamente se o Segment não estiver pronto
     }
   }
 
-  // Função para modificar os links da página
-  function enrichAllLinks() {
-    console.log("Debug Script: Tentando enriquecer os links...");
-    const storedUtmParams = JSON.parse(sessionStorage.getItem("utm_params"));
-    const anonymousId = analytics.user().anonymousId();
+  // Roda a função principal quando o Segment estiver pronto
+  analytics.ready(enrichLinks);
 
-    if (!anonymousId) {
-      console.error(
-        "Debug Script: FALHA! O anonymousId do Segment não foi encontrado. Os links não serão modificados."
-      );
-      return;
-    }
-
-    console.log("Debug Script: ID anônimo do Segment encontrado:", anonymousId);
-    if (storedUtmParams) {
-      console.log("Debug Script: UTMs recuperados da sessão:", storedUtmParams);
-    }
-
-    document.querySelectorAll("a").forEach((link) => {
-      try {
-        // Ignora links que não são http/https (ex: mailto:, tel:)
-        if (!link.href.startsWith("http")) return;
-
-        const url = new URL(link.href, window.location.origin);
-
-        if (url.hostname === window.location.hostname) {
-          if (storedUtmParams) {
-            Object.keys(storedUtmParams).forEach((key) => {
-              url.searchParams.set(key, storedUtmParams[key]);
-            });
-          }
-          url.searchParams.set("segment_anonymous_id", anonymousId);
-          link.href = url.toString();
-        }
-      } catch (e) {
-        console.error(
-          "Debug Script: Erro ao modificar um link específico:",
-          link.href,
-          e
-        );
+  // Garante que a captura de UTMs da primeira visita ainda aconteça
+  document.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search);
+    const utmParams = {};
+    const trackedParams = [
+      "utm_source",
+      "utm_medium",
+      "utm_campaign",
+      "utm_term",
+      "utm_content",
+      "gclid",
+      "fbclid",
+    ];
+    let newParamsFound = false;
+    trackedParams.forEach((param) => {
+      if (params.has(param)) {
+        utmParams[param] = params.get(param);
+        newParamsFound = true;
       }
     });
-    console.log("Debug Script: Processo de enriquecimento de links concluído.");
-  }
-
-  // Execução Principal
-  document.addEventListener("DOMContentLoaded", function () {
-    console.log("Debug Script: A página carregou (DOMContentLoaded).");
-    captureAndStoreUTMs();
-
-    // A forma mais segura de rodar o código é usando analytics.ready()
-    if (typeof analytics !== "undefined" && analytics.ready) {
-      console.log("Debug Script: Esperando o Segment ficar pronto...");
-      analytics.ready(enrichAllLinks);
-    } else {
-      console.error(
-        "Debug Script: Objeto 'analytics' do Segment não encontrado. O script não pode continuar."
-      );
+    if (newParamsFound) {
+      sessionStorage.setItem("utm_params", JSON.stringify(utmParams));
     }
   });
 </script>
