@@ -28,6 +28,8 @@ class Contato(models.Model):
     utm_content = models.CharField(max_length=100, blank=True, null=True)
     gclid = models.CharField(max_length=100, blank=True, null=True)
     fbclid = models.CharField(max_length=100, blank=True, null=True)
+    fbp = models.CharField(max_length=100, blank=True, null=True)
+    fbc = models.CharField(max_length=100, blank=True, null=True)
     consentimento_analytics = models.BooleanField(default=False)
 
     def __str__(self):
