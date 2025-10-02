@@ -29,7 +29,7 @@ jobs:
           python manage.py makemigrations
       - name: Apply Migrations
         run: |
-          python manage.py migrate --run-syncdb
+          python manage.py migrate fluxi --fake
       - name: Run Tests
         run: |
           python manage.py test
