@@ -30,6 +30,9 @@ jobs:
       - name: Apply Migrations
         run: |
           python manage.py migrate --run-syncdb
+      - name: Fake Migrations
+        run: |
+          python manage.py migrate --fake fluxi 0006
       - name: Run Tests
         run: |
           python manage.py test
