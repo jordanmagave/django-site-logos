@@ -8,6 +8,8 @@ from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from django.conf import settings
+import geoip2.database
+from geoip2.errors import AddressNotFoundError
 import segment.analytics as analytics
 from .forms import ContatoForm
 from .models import Contato
@@ -127,6 +129,8 @@ def leadster_webhook(request):
         fbclid = query_params.get("fbclid", [None])[0]  # Exemplo: "IwAR1..."
         gclid = query_params.get("gclid", [None])[0]  # Exemplo: "EAIaIQobChMI..."
         # Define o anonymous_id a partir do Segment, se disponível
+        gbraid = query_params.get("gbraid", [None])[0]
+        wbraid = query_params.get("wbraid", [None])[0]
         anonymous_id = query_params.get("segment_anonymous_id", [None])[0]
 
         if not fbc and fbclid:
@@ -135,6 +139,25 @@ def leadster_webhook(request):
             creation_time = int(time.time() * 1000)  # Tempo atual em milissegundos
 
             fbc = f"fb.{subdomain_index}.{creation_time}.{fbclid}"  # Exemplo: "fb.1.1234567890.IwAR1..."
+
+        location_data = {}
+        if ip_lead:
+            try:
+                geoip2_db_path = settings.BASE_DIR / "geoip" / "GeoLite2-City.mmdb"
+                with geoip2.database.Reader(geoip2_db_path) as reader:
+                    response = reader.city(ip_lead)
+                    location_data = {
+                        "city": response.city.name,
+                        "country": response.country.iso_code,
+                        "region": response.subdivisions.most_specific.name,
+                        "latitude": response.location.latitude,
+                        "longitude": response.location.longitude,
+                    }
+            except (AddressNotFoundError, FileNotFoundError):
+                logger.warning(
+                    f"Não foi possível encontrar a localização para o IP: {ip_lead}"
+                )
+                pass
 
         # 2. Extrai os dados do lead e os UTMs diretamente dos campos do JSON.
         utm_source = data.get("utm_source")
@@ -193,7 +216,10 @@ def leadster_webhook(request):
                 "fbclid": fbclid,
                 "fbp": fbp,
                 "fbc": fbc,
+                "gbraid": gbraid,
+                "wbraid": wbraid,
                 "lead_source": lead_source,
+                "location": location_data,
             },
             context={"anonymousId": anonymous_id},
         )
