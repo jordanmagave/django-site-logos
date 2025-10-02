@@ -14,6 +14,7 @@ from .models import Contato
 from urllib.parse import urlparse, parse_qs
 import logging
 from datetime import datetime, timezone
+import time
 
 
 # Configura um logger para ajudar a depurar
@@ -113,14 +114,25 @@ def leadster_webhook(request):
             telefone = re.sub(r"\D", "", telefone_original)
 
         anonymous_id = None
-        # 1. O Leadster envia a URL no campo "url", não "captured_url".
+        parsed_url = urlparse(captured_url)
+        query_params = parse_qs(parsed_url.query)
 
-        if captured_url:
-            parsed_url = urlparse(captured_url)
-            query_params = parse_qs(parsed_url.query)
-            segment_id_list = query_params.get("segment_anonymous_id")
-            if segment_id_list:
-                anonymous_id = segment_id_list[0]
+        # 1. Extrai os dados do lead dos parâmetros de URL, se disponíveis.
+        fbp = query_params.get("fbp", [None])[
+            0
+        ]  # Exemplo: "fb.1.1234567890.1234567890"
+        fbc = query_params.get("fbc", [None])[0]
+        fbclid = query_params.get("fbclid", [None])[0]  # Exemplo: "IwAR1..."
+        gclid = query_params.get("gclid", [None])[0]  # Exemplo: "EAIaIQobChMI..."
+        # Define o anonymous_id a partir do Segment, se disponível
+        anonymous_id = query_params.get("segment_anonymous_id", [None])[0]
+
+        if not fbc and fbclid:
+            # "subdomain" é 1 para 'site.com' e 2 para 'www.site.com'
+            subdomain_index = 2 if parsed_url.netloc.startswith("www.") else 1
+            creation_time = int(time.time() * 1000)  # Tempo atual em milissegundos
+
+            fbc = f"fb.{subdomain_index}.{creation_time}.{fbclid}"  # Exemplo: "fb.1.1234567890.IwAR1..."
 
         # 2. Extrai os dados do lead e os UTMs diretamente dos campos do JSON.
         utm_source = data.get("utm_source")
@@ -128,10 +140,6 @@ def leadster_webhook(request):
         utm_content = data.get("utm_content")
         utm_campaign = data.get("utm_campaing")
         ip_lead = data.get("ip_lead")
-        fbclid = data.get("fbclid")
-        fbp = data.get("fbp")
-        fbc = data.get("fbc")
-        gclid = data.get("gclid")
         lead_source = data.get("lead_source")
 
         # Crie e salve a instância do Contato no banco de dados
@@ -156,7 +164,7 @@ def leadster_webhook(request):
         # Chamada Identify: Cria ou atualiza o perfil do usuário no Segment
         analytics.identify(
             user_id=email,
-            traits={"name": nome, "email": email, "phone": telefone},
+            traits={"name": nome, "email": email, "phone": telefone, "ip": ip_lead},
             context={"anonymousId": anonymous_id, "ip": ip_lead},
         )
 
