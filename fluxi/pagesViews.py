@@ -157,7 +157,7 @@ def leadster_webhook(request):
         analytics.identify(
             user_id=email,
             traits={"name": nome, "email": email, "phone": telefone},
-            context={"anonymousId": anonymous_id},
+            context={"anonymousId": anonymous_id, "ip": ip_lead},
         )
 
         # Chamada Track: Dispara o evento "Lead" com todas as propriedades
