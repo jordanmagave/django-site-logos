@@ -18,7 +18,7 @@ class Contato(models.Model):
             )
         ],
     )
-    captured_url = models.URLField(max_length=200, blank=True, null=True)
+    captured_url = models.URLField(max_length=500, blank=True, null=True)
     lead_source = models.CharField(max_length=100, blank=True, null=True)
     ip_lead = models.GenericIPAddressField(blank=True, null=True)
     utm_source = models.CharField(max_length=100, blank=True, null=True)
