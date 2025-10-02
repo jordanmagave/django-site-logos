@@ -87,6 +87,8 @@ def leadster_webhook(request):
         data = json.loads(request.body)
         logger.info(f"Payload final recebido e processado: {data}")
 
+        user_agent = request.META.get("HTTP_USER_AGENT", None)
+
         # Verifica se o corpo do webhook está vazio ou não contém os dados esperados e retorna um erro apropriado se necessário.
         if not data:
             return JsonResponse(
@@ -165,7 +167,11 @@ def leadster_webhook(request):
         analytics.identify(
             user_id=email,
             traits={"name": nome, "email": email, "phone": telefone, "ip": ip_lead},
-            context={"anonymousId": anonymous_id, "ip": ip_lead},
+            context={
+                "anonymousId": anonymous_id,
+                "ip": ip_lead,
+                "userAgent": user_agent,
+            },
         )
 
         # Chamada Track: Dispara o evento "Lead" com todas as propriedades
