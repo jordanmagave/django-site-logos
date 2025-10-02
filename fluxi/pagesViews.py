@@ -141,6 +141,9 @@ def leadster_webhook(request):
             fbc = f"fb.{subdomain_index}.{creation_time}.{fbclid}"  # Exemplo: "fb.1.1234567890.IwAR1..."
 
         location_data = {}
+
+        ip_lead = data.get("ip_lead")
+
         if ip_lead:
             try:
                 geoip2_db_path = settings.BASE_DIR / "geoip" / "GeoLite2-City.mmdb"
@@ -164,7 +167,6 @@ def leadster_webhook(request):
         utm_medium = data.get("utm_medium")
         utm_content = data.get("utm_content")
         utm_campaign = data.get("utm_campaing")
-        ip_lead = data.get("ip_lead")
         lead_source = data.get("lead_source")
 
         # Crie e salve a instância do Contato no banco de dados
