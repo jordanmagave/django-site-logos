@@ -4,6 +4,7 @@ from django.test import TestCase
 from django.core.exceptions import ValidationError
 from django.urls import reverse
 from .models import Contato
+from unittest.mock import patch
 
 
 class ContatoModelTest(TestCase):

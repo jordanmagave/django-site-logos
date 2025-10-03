@@ -14,10 +14,13 @@ class Contato(models.Model):
         validators=[
             RegexValidator(
                 regex=r"^\(\d{2}\) \d{5}-\d{4}$",
-                message="O número deve estar no formato (99) 99999-9999.",
+                # message="O número deve estar no formato (99) 99999-9999.",
             )
         ],
     )
+    captured_url = models.URLField(max_length=500, blank=True, null=True)
+    lead_source = models.CharField(max_length=100, blank=True, null=True)
+    ip_lead = models.GenericIPAddressField(blank=True, null=True)
     utm_source = models.CharField(max_length=100, blank=True, null=True)
     utm_medium = models.CharField(max_length=100, blank=True, null=True)
     utm_campaign = models.CharField(max_length=100, blank=True, null=True)
@@ -25,6 +28,8 @@ class Contato(models.Model):
     utm_content = models.CharField(max_length=100, blank=True, null=True)
     gclid = models.CharField(max_length=100, blank=True, null=True)
     fbclid = models.CharField(max_length=100, blank=True, null=True)
+    fbp = models.CharField(max_length=100, blank=True, null=True)
+    fbc = models.CharField(max_length=100, blank=True, null=True)
     consentimento_analytics = models.BooleanField(default=False)
 
     def __str__(self):
