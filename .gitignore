@@ -19,6 +19,7 @@ static/
 # Environment variables
 .env
 *.env
+.tool-versions
 
 # Virtual environments
 venv/
