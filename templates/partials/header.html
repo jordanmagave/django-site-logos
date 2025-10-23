@@ -27,6 +27,23 @@
                 >
               </li>
               <li class="menu-item fluxi-has-dropdown">
+                <a href="{% url 'index' %}" class="fluxi-dropdown-main-element"
+                  >Concurso de Bolsas</a
+                >
+                <ul class="fluxi-submenu list-unstyled">
+                  <li class="nav-item">
+                    <a class="nav-link page" href="/static/resultado_interno_6ano2024.pdf" target="_blank" onclick="rudderanalytics.track('Click Concurso de Bolsas 2024', {local: 'Menu', page: 'Home'})"
+                      >Resultado 6º ano - Interno</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link page" href="/static/resultado_externo_6ano2026.pdf" targetonclick="rudderanalytics.track('Click Concurso de Bolsas 2023', {local: 'Menu', page: 'Home'})"
+                      >Resultado 6º ano - Externo</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="menu-item fluxi-has-dropdown">
                 <a href="{% url 'about' %}" class="fluxi-dropdown-main-element" onclick="rudderanalytics.track('Click Sobre Nos', {local: 'Menu', page: 'Home'})"
                   >Sobre nós</a
                 >
