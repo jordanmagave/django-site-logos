@@ -1,3 +1,4 @@
+{% load static %}
 <header class="header-style-one header--sticky">
   <div class="container">
     <div class="row">
@@ -7,13 +8,13 @@
             <a href="{% url 'index' %}" class="logo">
             <img
               class="light"
-              src="\static\images\logo\logo-horizontal-colorida-azul.svg"
+              src="{% static 'images/logo/logo-horizontal-colorida-azul.svg' %}"
               alt="logo"
               width="100%"
             />
             <img
               class="dark"
-              src="\static\images\logo\logo-horizontal-colorida-branca.svg"
+              src="{% static 'images/logo/logo-horizontal-colorida-branca.svg' %}"
               alt="logo"
               width="100%"
             />
@@ -32,12 +33,12 @@
                 >
                 <ul class="fluxi-submenu list-unstyled">
                   <li class="nav-item">
-                    <a class="nav-link page" href="/static/doc/resultado_interno_6ano2024.pdf" target="_blank" onclick="rudderanalytics.track('Click Concurso de Bolsas 2024', {local: 'Menu', page: 'Home'})"
+                    <a class="nav-link page" href="{% static 'doc/resultado_interno_6ano2024.pdf' %}" target="_blank" onclick="rudderanalytics.track('Click Concurso de Bolsas 2024', {local: 'Menu', page: 'Home'})"
                       >Resultado 6º ano - Interno</a
                     >
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link page" href="/static/doc/resultado_externo_6ano2026.pdf" target="_blank" onclick="rudderanalytics.track('Click Concurso de Bolsas 2023', {local: 'Menu', page: 'Home'})"
+                    <a class="nav-link page" href="{% static 'doc/resultado_externo_6ano2026.pdf' %}" target="_blank" onclick="rudderanalytics.track('Click Concurso de Bolsas 2023', {local: 'Menu', page: 'Home'})"
                       >Resultado 6º ano - Externo</a
                     >
                   </li>

@@ -1,4 +1,4 @@
-{% extends 'layout/layout.html' %} {% block content %}
+{% extends 'layout/layout.html' %} {% load static %} {% block content %}
 
 <!-- single case studies -->
 <div class="single-case-studies-bread-crumb-area pt--120 pb--80">
@@ -21,10 +21,18 @@
     </div>
   </div>
   <div class="shape-area">
-    <img src="/static/images/product/shape/06.webp" alt="" class="one" />
-    <img src="/static/images/product/shape/07.webp" alt="" class="two" />
-    <img src="/static/images/product/shape/08.webp" alt="" class="three" />
-    <img src="/static/images/product/shape/09.webp" alt="" class="four" />
+    <img src="{% static 'images/product/shape/06.webp' %}" alt="" class="one" />
+    <img src="{% static 'images/product/shape/07.webp' %}" alt="" class="two" />
+    <img
+      src="{% static 'images/product/shape/08.webp' %}"
+      alt=""
+      class="three"
+    />
+    <img
+      src="{% static 'images/product/shape/09.webp' %}"
+      alt=""
+      class="four"
+    />
   </div>
 </div>
 <!-- single case studies end -->
@@ -36,7 +44,7 @@
       <div class="col-lg-12">
         <div class="large-thumbnail">
           <img
-            src="/static/images/service/criancas_brincando.png"
+            src="{% static 'images/service/criancas_brincando.png' %}"
             alt="banner"
           />
         </div>
@@ -97,7 +105,7 @@
         <div class="large-thumbnail">
           <a href="#" class="thumbnail">
             <img
-              src="/static/images/service/pascoa_infantil.jpg"
+              src="{% static 'images/service/pascoa_infantil.jpg' %}"
               alt="product"
             />
           </a>
@@ -120,12 +128,12 @@
       </div>
       <div class="service--shape">
         <img
-          src="/static/images/service/shape/05.webp"
+          src="{% static 'images/service/shape/05.webp' %}"
           alt="service"
           class="one"
         />
         <img
-          src="/static/images/service/shape/06.webp"
+          src="{% static 'images/service/shape/06.webp' %}"
           alt="service"
           class="two"
         />
@@ -152,7 +160,7 @@
         <div class="large-thumbnail d-flex justify-content-md-end">
           <a href="#" class="thumbnail">
             <img
-              src="/static/images/service/infantil_estudando.jpg"
+              src="{% static 'images/service/infantil_estudando.jpg' %}"
               alt="product"
             />
           </a>
@@ -160,12 +168,12 @@
       </div>
       <div class="service--shape">
         <img
-          src="/static/images/service/shape/07.webp"
+          src="{% static 'images/service/shape/07.webp' %}"
           alt="service"
           class="three"
         />
         <img
-          src="/static/images/service/shape/08.webp"
+          src="{% static 'images/service/shape/08.webp' %}"
           alt="service"
           class="four"
         />
@@ -205,19 +213,25 @@
       <div class="col-lg-6 col-md-6">
         <div class="thumbnail-image-grid mb--30">
           <a href="#" class="thumbnail">
-            <img src="/static/images/service/infantil_exercicio.png" alt="" />
+            <img
+              src="{% static 'images/service/infantil_exercicio.png' %}"
+              alt=""
+            />
           </a>
         </div>
         <div class="thumbnail-image-grid">
           <a href="#" class="thumbnail">
-            <img src="/static/images/service/caca_tesouro.png" alt="" />
+            <img src="{% static 'images/service/caca_tesouro.png' %}" alt="" />
           </a>
         </div>
       </div>
       <div class="col-lg-6 col-md-6">
         <div class="thumbnail-image-grid mb--25">
           <a href="#" class="thumbnail">
-            <img src="/static/images/service/brinquedoteca_comida.png" alt="" />
+            <img
+              src="{% static 'images/service/brinquedoteca_comida.png' %}"
+              alt=""
+            />
           </a>
         </div>
       </div>

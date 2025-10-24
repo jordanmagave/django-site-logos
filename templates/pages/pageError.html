@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  {% include 'partials/head.html' %}
+  {% load static %} {% include 'partials/head.html' %}
 
   <body>
     <div class="rts-error-section">
       <div class="section-inner">
-        <img src="/static/images/error.png" alt="" />
+        <img src="{% static 'images/error.png' %}" alt="" />
         <div class="wrapper-para mt--45">
           <h3 class="title">Página não encontrada</h3>
           <p class="disc">

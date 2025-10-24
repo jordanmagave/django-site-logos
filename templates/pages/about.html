@@ -1,4 +1,6 @@
-{% extends 'layout/layout.html' %} {% block content %}
+{% extends 'layout/layout.html' %}
+{% load static %}
+{% block content %}
 
 <header class="header-two border-bottom header--sticky">
   <div class="container">
@@ -8,13 +10,13 @@
           <a href="{% url 'index' %}" class="logo-area">
             <img
               class="light"
-              src="\static\images\logo\logo-horizontal-colorida-azul.svg"
+              src="{% static 'images/logo/logo-horizontal-colorida-azul.svg' %}"
               alt="logo"
               width="80%"
             />
             <img
               class="dark"
-              src="\static\images\logo\logo-horizontal-colorida-branca.svg"
+              src="{% static 'images/logo/logo-horizontal-colorida-branca.svg' %}"
               alt="logo"
               width="80%"
             />
@@ -173,28 +175,28 @@
               <div class="swiper-slide">
                 <a href="#"
                   ><img
-                    src="/static/images/brand/1.png"
+                    src="{% static 'images/brand/1.png' %}"
                     alt="Parceiro educacional"
                 /></a>
               </div>
               <div class="swiper-slide">
                 <a href="#"
                   ><img
-                    src="/static/images/brand/2.png"
+                    src="{% static 'images/brand/2.png' %}"
                     alt="Sistema de ensino"
                 /></a>
               </div>
               <div class="swiper-slide">
                 <a href="#"
                   ><img
-                    src="/static/images/brand/3.png"
+                    src="{% static 'images/brand/3.png' %}"
                     alt="Certificação internacional"
                 /></a>
               </div>
               <div class="swiper-slide">
                 <a href="#"
                   ><img
-                    src="/static/images/brand/4.png"
+                    src="{% static 'images/brand/4.png' %}"
                     alt="Tecnologia educacional"
                 /></a>
               </div>
@@ -206,28 +208,28 @@
               <div class="swiper-slide">
                 <a href="#"
                   ><img
-                    src="/static/images/brand/1.png"
+                    src="{% static 'images/brand/1.png' %}"
                     alt="Parceiro educacional"
                 /></a>
               </div>
               <div class="swiper-slide">
                 <a href="#"
                   ><img
-                    src="/static/images/brand/2.png"
+                    src="{% static 'images/brand/2.png' %}"
                     alt="Sistema de ensino"
                 /></a>
               </div>
               <div class="swiper-slide">
                 <a href="#"
                   ><img
-                    src="/static/images/brand/3.png"
+                    src="{% static 'images/brand/3.png' %}"
                     alt="Certificação internacional"
                 /></a>
               </div>
               <div class="swiper-slide">
                 <a href="#"
                   ><img
-                    src="/static/images/brand/4.png"
+                    src="{% static 'images/brand/4.png' %}"
                     alt="Tecnologia educacional"
                 /></a>
               </div>
@@ -428,9 +430,9 @@
         </div>
       </div>
       <div class="col-lg-6">
-        <div class="thumbnail-left">
+          <div class="thumbnail-left">
           <img
-            src="/static/images/about/aluno_formando.jpg"
+            src="{% static 'images/about/aluno_formando.jpg' %}"
             alt="working-process"
           />
         </div>
@@ -449,7 +451,7 @@
           <!-- single counter up section -->
           <div class="single-counter-up">
             <div class="icon">
-              <img src="/static/images/counter/11.svg" alt="counter" />
+              <img src="{% static 'images/counter/11.svg' %}" alt="counter" />
             </div>
             <h2 class="title"><span class="counter">1995</span></h2>
             <span class="brand-name">Ano de fundação</span>
@@ -458,7 +460,7 @@
           <!-- single counter up section -->
           <div class="single-counter-up">
             <div class="icon">
-              <img src="/static/images/counter/12.svg" alt="counter" />
+              <img src="{% static 'images/counter/12.svg' %}" alt="counter" />
             </div>
             <h2 class="title"><span class="counter">1200</span>+</h2>
             <span class="brand-name">Alunos formados</span>
@@ -467,7 +469,7 @@
           <!-- single counter up section -->
           <div class="single-counter-up">
             <div class="icon">
-              <img src="/static/images/counter/13.svg" alt="counter" />
+              <img src="{% static 'images/counter/13.svg' %}" alt="counter" />
             </div>
             <h2 class="title"><span class="counter">95</span>%</h2>
             <span class="brand-name">Taxa de satisfação das famílias</span>
@@ -476,7 +478,7 @@
           <!-- single counter up section -->
           <div class="single-counter-up">
             <div class="icon">
-              <img src="/static/images/counter/14.svg" alt="counter" />
+              <img src="{% static 'images/counter/14.svg' %}" alt="counter" />
             </div>
             <h2 class="title"><span class="counter">92</span>%</h2>
             <span class="brand-name">Aprovação em universidades</span>
@@ -755,10 +757,10 @@
       </div>
     </div>
   </div>
-  <div class="shape-area">
-    <img src="/static/images/service/shape/10.png" alt="" class="one" />
-    <img src="/static/images/service/shape/04.png" alt="" class="two" />
-    <img src="/static/images/service/shape/02.png" alt="" class="three" />
+    <div class="shape-area">
+    <img src="{% static 'images/service/shape/10.png' %}" alt="" class="one" />
+    <img src="{% static 'images/service/shape/04.png' %}" alt="" class="two" />
+    <img src="{% static 'images/service/shape/02.png' %}" alt="" class="three" />
   </div>
 </div>
 <!-- our service area end -->
@@ -780,7 +782,7 @@
         <!-- single team area start -->
         <div class="single-team-area-start">
           <a href="#" class="thumbnail">
-            <img src="/static/images/team/marcia.png" alt="team" />
+            <img src="{% static 'images/team/marcia.png' %}" alt="team" />
           </a>
           <div class="inner-content">
             <h6 class="title">Marcia Aguiar</h6>
@@ -793,7 +795,7 @@
         <!-- single team area start -->
         <div class="single-team-area-start">
           <a href="#" class="thumbnail">
-            <img src="/static/images/team/missi.png" alt="team" />
+            <img src="{% static 'images/team/missi.png' %}" alt="team" />
           </a>
           <div class="inner-content">
             <h6 class="title">Missieliene Santos</h6>
@@ -806,7 +808,7 @@
         <!-- single team area start -->
         <div class="single-team-area-start">
           <a href="#" class="thumbnail">
-            <img src="/static/images/team/synnara.png" alt="team" />
+            <img src="{% static 'images/team/synnara.png' %}" alt="team" />
           </a>
           <div class="inner-content">
             <h6 class="title">Synnara Suellen</h6>
@@ -819,7 +821,7 @@
         <!-- single team area start -->
         <div class="single-team-area-start">
           <a href="#" class="thumbnail">
-            <img src="/static/images/team/antolila.png" alt="team" />
+            <img src="{% static 'images/team/antolila.png' %}" alt="team" />
           </a>
           <div class="inner-content">
             <h6 class="title">Antolila Barata</h6>
@@ -832,7 +834,7 @@
         <!-- single team area start -->
         <div class="single-team-area-start">
           <a href="#" class="thumbnail">
-            <img src="/static/images/team/thiago.png" alt="team" />
+            <img src="{% static 'images/team/thiago.png' %}" alt="team" />
           </a>
           <div class="inner-content">
             <h6 class="title">Thiago Danin</h6>
@@ -845,7 +847,7 @@
         <!-- single team area start -->
         <div class="single-team-area-start">
           <a href="#" class="thumbnail">
-            <img src="/static/images/team/raquel.png" alt="team" />
+            <img src="{% static 'images/team/raquel.png' %}" alt="team" />
           </a>
           <div class="inner-content">
             <h6 class="title">Raquel Quados</h6>
@@ -858,7 +860,7 @@
         <!-- single team area start -->
         <div class="single-team-area-start">
           <a href="#" class="thumbnail">
-            <img src="/static/images/team/katia.png" alt="team" />
+            <img src="{% static 'images/team/katia.png' %}" alt="team" />
           </a>
           <div class="inner-content">
             <h6 class="title">Katia Pimentel</h6>
@@ -871,7 +873,7 @@
         <!-- single team area start -->
         <div class="single-team-area-start">
           <a href="#" class="thumbnail">
-            <img src="/static/images/team/odazilma.png" alt="team" />
+            <img src="{% static 'images/team/odazilma.png' %}" alt="team" />
           </a>
           <div class="inner-content">
             <h6 class="title">Odazilma Cardoso</h6>
@@ -883,10 +885,10 @@
     </div>
   </div>
   <div class="shape-area">
-    <img src="/static/images/service/shape/04.png" alt="" class="one" />
-    <img src="/static/images/service/shape/13.png" alt="" class="two" />
-    <img src="/static/images/service/shape/06.png" alt="" class="three" />
-    <img src="/static/images/service/shape/14.png" alt="" class="four" />
+    <img src="{% static 'images/service/shape/04.png' %}" alt="" class="one" />
+    <img src="{% static 'images/service/shape/13.png' %}" alt="" class="two" />
+    <img src="{% static 'images/service/shape/06.png' %}" alt="" class="three" />
+    <img src="{% static 'images/service/shape/14.png' %}" alt="" class="four" />
   </div>
 </div>
 <!-- rts team area end -->
