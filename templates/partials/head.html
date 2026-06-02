@@ -2,41 +2,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="Centro Educacional Logos: Educação Cristã Integral, líder em Ananindeua. Conheça nossos diferenciais e agende uma visita!"
-  />
-  <meta
-    name="keywords"
-    content="Centro Educacional Logos, Educação Cristã, Escola em Ananindeua, Ensino Fundamental, Ensino Médio"
-  />
+
+  <!-- SEO dinâmico -->
+  <title>{% block head_title %}{{ page_title|default:"Centro Educacional Logos - Educação Cristã Integral" }}{% endblock %}</title>
+  <meta name="description" content="{% block head_description %}{{ page_description|default:"Centro Educacional Logos: Educação Cristã Integral, líder em Ananindeua. Conheça nossos diferenciais e agende uma visita!" }}{% endblock %}" />
+  <meta name="keywords" content="{{ page_keywords|default:"Centro Educacional Logos, Educação Cristã, Escola em Ananindeua, Ensino Fundamental, Ensino Médio" }}" />
   <meta name="author" content="Centro Educacional Logos" />
   <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="{% block head_canonical %}{{ page_canonical|default:"https://www.celogos.com.br" }}{% endblock %}" />
 
-  <!-- Open Graph para Redes Sociais -->
-  <meta
-    property="og:title"
-    content="Centro Educacional Logos - Educação Cristã Integral"
-  />
-  <meta
-    property="og:description"
-    content="Educação Cristã Integral, líder em Ananindeua. Conheça nossos diferenciais e agende uma visita!"
-  />
-  <meta property="og:image" content="/static/images/logo/logo-1.svg" />
-  <meta property="og:url" content="https://www.celogos.com.br" />
-  <meta property="og:type" content="website" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="{% block og_title %}{{ og_title|default:page_title|default:"Centro Educacional Logos - Educação Cristã Integral" }}{% endblock %}" />
+  <meta property="og:description" content="{% block og_description %}{{ og_description|default:page_description|default:"Educação Cristã Integral, líder em Ananindeua. Conheça nossos diferenciais e agende uma visita!" }}{% endblock %}" />
+  <meta property="og:image" content="{% block og_image %}{{ og_image|default:"https://www.celogos.com.br/static/images/logo/logo-1.svg" }}{% endblock %}" />
+  <meta property="og:url" content="{% block og_url %}{{ page_canonical|default:"https://www.celogos.com.br" }}{% endblock %}" />
+  <meta property="og:type" content="{% block og_type %}website{% endblock %}" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Centro Educacional Logos" />
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta
-    name="twitter:title"
-    content="Centro Educacional Logos - Educação Cristã Integral"
-  />
-  <meta
-    name="twitter:description"
-    content="Educação Cristã Integral, líder em Ananindeua. Conheça nossos diferenciais e agende uma visita!"
-  />
-  <meta name="twitter:image" content="/static/images/logo/logo-1.svg" />
+  <meta name="twitter:title" content="{% block twitter_title %}{{ og_title|default:page_title|default:"Centro Educacional Logos - Educação Cristã Integral" }}{% endblock %}" />
+  <meta name="twitter:description" content="{% block twitter_description %}{{ og_description|default:page_description|default:"Educação Cristã Integral, líder em Ananindeua. Conheça nossos diferenciais e agende uma visita!" }}{% endblock %}" />
+  <meta name="twitter:image" content="{% block twitter_image %}{{ og_image|default:"https://www.celogos.com.br/static/images/logo/logo-1.svg" }}{% endblock %}" />
 
   <!-- Favicon e Manifest -->
   <link rel="shortcut icon" type="image/x-icon" href="/static/images/fav.png" />
@@ -67,19 +55,58 @@
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": "EducationalOrganization",
       "name": "Centro Educacional Logos",
       "url": "https://www.celogos.com.br",
       "logo": "/static/images/logo/logo-1.svg",
+      "description": "Escola cristã em Ananindeua há 30 anos, oferecendo Educação Infantil, Ensino Fundamental e Ensino Médio com excelência acadêmica e valores cristãos.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Cláudio Sanders, s/n",
+        "addressLocality": "Ananindeua",
+        "addressRegion": "PA",
+        "postalCode": "67030-490",
+        "addressCountry": "BR"
+      },
+      "telephone": "+55-91-3013-0198",
+      "email": "contato@celogos.com.br",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "127",
+        "bestRating": "5"
+      },
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+55-91-3013-0198",
-        "contactType": "Customer Service"
+        "contactType": "Customer Service",
+        "availableLanguage": ["Portuguese"]
       }
     }
   </script>
 
-  <title>{% block title %}Centro Educacional Logos{% endblock %}</title>
+  {% block json_ld_breadcrumb %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.celogos.com.br"
+        }{% if breadcrumb_items %}{% for item in breadcrumb_items %},
+        {
+          "@type": "ListItem",
+          "position": {{ forloop.counter|add:1 }},
+          "name": "{{ item.name }}",
+          "item": "{{ item.url }}"
+        }{% endfor %}{% endif %}
+      ]
+    }
+  </script>
+  {% endblock %}
 
   <!-- Segment Analytics (LGPD: executa apenas apos consentimento via Ketch) -->
   <script

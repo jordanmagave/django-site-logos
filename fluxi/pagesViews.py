@@ -25,7 +25,19 @@ logger = logging.getLogger(__name__)
 
 def about(request):
     """Renderiza a página sobre nós."""
-    data = {"footer": "true"}
+    data = {
+        "footer": "true",
+        "page_title": "Sobre Nós - Centro Educacional Logos",
+        "page_description": (
+            "Conheça a história do Centro Educacional Logos, há 30 anos"
+            " formando cidadãos éticos e competentes em Ananindeua"
+            " com excelência acadêmica e valores cristãos."
+        ),
+        "page_canonical": "https://www.celogos.com.br/about/",
+        "breadcrumb_items": [
+            {"name": "Sobre Nós", "url": "https://www.celogos.com.br/about/"},
+        ],
+    }
     return render(request, "pages/about.html", data)
 
 
@@ -68,6 +80,15 @@ def contato(request):
         "footer": "true",
         "header": "true",
         "form": form,
+        "page_title": "Contato - Centro Educacional Logos",
+        "page_description": (
+            "Entre em contato com o Centro Educacional Logos em Ananindeua."
+            " Agende uma visita e conheça nossa estrutura completa."
+        ),
+        "page_canonical": "https://www.celogos.com.br/contato/",
+        "breadcrumb_items": [
+            {"name": "Contato", "url": "https://www.celogos.com.br/contato/"},
+        ],
     }
     return render(request, "pages/contato.html", context)
 

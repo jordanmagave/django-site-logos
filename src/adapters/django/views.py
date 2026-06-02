@@ -130,6 +130,15 @@ def contato(request: HttpRequest) -> HttpResponse:
         "footer": "true",
         "header": "true",
         "form": form,
+        "page_title": "Contato - Centro Educacional Logos",
+        "page_description": (
+            "Entre em contato com o Centro Educacional Logos em Ananindeua."
+            " Agende uma visita e conheça nossa estrutura completa."
+        ),
+        "page_canonical": "https://www.celogos.com.br/contato/",
+        "breadcrumb_items": [
+            {"name": "Contato", "url": "https://www.celogos.com.br/contato/"},
+        ],
     }
     return render(request, "pages/contato.html", context)
 
