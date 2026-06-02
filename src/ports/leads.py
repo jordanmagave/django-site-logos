@@ -9,7 +9,6 @@ from __future__ import annotations
 from typing import Protocol, runtime_checkable
 
 from src.domain.leads.entities import GeoLocation, Lead
-from src.domain.leads.value_objects import MessageId
 
 
 @runtime_checkable

@@ -74,9 +74,7 @@ def fmt_score(s: int | None) -> str:
 def render(rows: list[dict[str, Any]], label: str) -> str:
     out: list[str] = []
     out.append(f"# Lighthouse — {label}\n")
-    out.append(
-        "Convenção de cores: 🟢 ≥ 90 (bom) · 🟡 50–89 (precisa melhorar) · 🔴 < 50 (ruim)\n"
-    )
+    out.append("Convenção de cores: 🟢 ≥ 90 (bom) · 🟡 50–89 (precisa melhorar) · 🔴 < 50 (ruim)\n")
     out.append("## Scores\n")
     out.append("| Rota | Form | Perf | A11y | BP | SEO |")
     out.append("|------|------|------|------|----|-----|")
@@ -163,9 +161,7 @@ def render_comparison(
             delta_ms = (
                 f"{int(f_lcp - b_lcp):+}" if (b_lcp is not None and f_lcp is not None) else "—"
             )
-            out.append(
-                f"| {route} | {form} | {b['lcp'][0]} | {f['lcp'][0]} | **{delta_ms}** |"
-            )
+            out.append(f"| {route} | {form} | {b['lcp'][0]} | {f['lcp'][0]} | **{delta_ms}** |")
 
     return "\n".join(out) + "\n"
 

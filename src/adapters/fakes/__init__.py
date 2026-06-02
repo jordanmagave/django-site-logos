@@ -115,12 +115,10 @@ class FakeWebhookVerifier:
 class FakeGeoIP:
     """Retorna localização mockada ou None."""
 
-    def __init__(
-        self, location: GeoLocation = GeoLocation(city="Belem", region="PA", country="BR")
-    ) -> None:
-        self._location = location
+    def __init__(self, location: GeoLocation | None = None) -> None:
+        self._location = location or GeoLocation(city="Belem", region="PA", country="BR")
 
     def lookup(self, ip: str) -> GeoLocation | None:
-        if ip in ("", "127.0.0.1", "0.0.0.0"):
+        if ip in ("", "127.0.0.1"):
             return None
         return self._location

@@ -18,6 +18,11 @@ class GeoLocation:
     longitude: float | None = None
 
 
+# Módulo-level singletons para defaults imutáveis (evita RUF009)
+_DFLT_TRACKING = TrackingParams()
+_DFLT_GEO = GeoLocation()
+
+
 @dataclass(frozen=True, slots=True)
 class Lead:
     """Entidade que representa um lead capturado."""
@@ -25,8 +30,8 @@ class Lead:
     nome: str
     email: Email
     telefone: Phone | None = None
-    tracking: TrackingParams = TrackingParams()
+    tracking: TrackingParams = _DFLT_TRACKING
     captured_url: str | None = None
     ip_lead: str | None = None
     consentimento_analytics: bool = True
-    location: GeoLocation = GeoLocation()
+    location: GeoLocation = _DFLT_GEO

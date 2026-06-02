@@ -2,14 +2,16 @@
 
 from __future__ import annotations
 
-from dataclasses import replace
-from datetime import datetime, timezone
-
 import pytest
 
-from src.adapters.fakes import FakeCDP, FakeClock, FakeGeoIP, FakeIdGenerator, FakeLeadRepository, FakeWebhookVerifier
-from src.domain.leads.entities import GeoLocation, Lead
-from src.domain.leads.value_objects import Email, Phone, TrackingParams
+from src.adapters.fakes import (
+    FakeCDP,
+    FakeClock,
+    FakeGeoIP,
+    FakeIdGenerator,
+    FakeLeadRepository,
+    FakeWebhookVerifier,
+)
 from src.use_cases.ingest_leadster_webhook import IngestLeadsterWebhook
 
 

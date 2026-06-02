@@ -46,6 +46,7 @@ ignore = [
 "fluxi/tests.py" = ["S101", "S105", "S106"]
 "fluxi/settings.py" = ["S105", "E501"]
 "src/adapters/django/**/*.py" = ["N802"]  # nomes de views Django legados (camelCase)
+"scripts/*.py" = ["RUF001", "C901", "E501"]  # scripts utilitários, regras relaxadas
 # Codigo legado: aplica apenas regras de seguranca, ignora estilo/import-order/naming
 "fluxi/**/*.py" = [
     "I001",   # import order
@@ -138,6 +139,7 @@ omit = [
     "*/tests/*",
     "*/test_*.py",
     "src/adapters/django/apps.py",
+    "src/ports/*.py",  # protocols são interfaces, sem código executável
 ]
 
 [tool.coverage.report]
