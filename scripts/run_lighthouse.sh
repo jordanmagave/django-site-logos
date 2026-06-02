@@ -24,12 +24,6 @@ ROUTES=(
     "medio:/servicos-educacionais/ensino-medio"
 )
 
-# Configurações: mobile (default LH) e desktop
-declare -A FORM_FACTORS=(
-    [mobile]="--form-factor=mobile --screenEmulation.mobile --throttling.cpuSlowdownMultiplier=4"
-    [desktop]="--preset=desktop"
-)
-
 echo "Lighthouse run: label=$LABEL base=$BASE_URL"
 echo "Saída em: $OUT_DIR"
 echo ""
@@ -42,15 +36,26 @@ for entry in "${ROUTES[@]}"; do
     for ff in mobile desktop; do
         OUT="${OUT_DIR}/${NAME}-${ff}"
         echo "→ $NAME ($ff): $URL"
-        # shellcheck disable=SC2086
-        lighthouse "$URL" \
-            ${FORM_FACTORS[$ff]} \
-            --output=html,json \
-            --output-path="$OUT" \
-            --quiet \
-            --chrome-flags="--headless=new --no-sandbox" \
-            --only-categories=performance,accessibility,best-practices,seo \
-            || echo "  (falhou, continuando)"
+
+        FLAGS=(
+            "--output=html,json"
+            "--output-path=$OUT"
+            "--quiet"
+            "--chrome-flags=--headless=new --no-sandbox"
+            "--only-categories=performance,accessibility,best-practices,seo"
+        )
+
+        if [ "$ff" = "desktop" ]; then
+            FLAGS+=("--preset=desktop")
+        else
+            FLAGS+=(
+                "--form-factor=mobile"
+                "--screenEmulation.mobile"
+                "--throttling.cpuSlowdownMultiplier=4"
+            )
+        fi
+
+        lighthouse "$URL" "${FLAGS[@]}" || echo "  (falhou, continuando)"
     done
 done
 
