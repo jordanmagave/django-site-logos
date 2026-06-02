@@ -1,0 +1,153 @@
+[project]
+name = "site-logos"
+version = "0.2.0"
+description = "Site institucional do Centro Educacional Logos (Django + arquitetura hexagonal)"
+requires-python = ">=3.12"
+
+# --------------------------------------------------------------------------
+# Ruff: lint + format
+# --------------------------------------------------------------------------
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = [
+    "fluxi/migrations",
+    "staticfiles",
+    "static",
+    "reports",
+    "node_modules",
+    ".venv",
+    "venv",
+    "geoip",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "UP",  # pyupgrade
+    "S",   # flake8-bandit
+    "RUF", # ruff-specific
+    "C90", # mccabe complexity
+    "N",   # pep8-naming
+    "SIM", # flake8-simplify
+]
+ignore = [
+    "S101",  # uso de assert (necessário em pytest)
+    "S105",  # possible hardcoded password (falsos positivos em constantes)
+    "S106",  # idem
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S101", "S105", "S106", "S311", "N802", "N803"]
+"fluxi/tests.py" = ["S101", "S105", "S106"]
+"fluxi/settings.py" = ["S105", "E501"]
+"src/adapters/django/**/*.py" = ["N802"]  # nomes de views Django legados (camelCase)
+# Codigo legado: aplica apenas regras de seguranca, ignora estilo/import-order/naming
+"fluxi/**/*.py" = [
+    "I001",   # import order
+    "N999",   # invalid module name (homeViews/pagesViews/servicesViews sao legados)
+    "N801",
+    "N802",
+    "N803",
+    "N806",
+    "RUF012", # ClassVar
+    "UP",     # pyupgrade
+    "SIM",
+    "E501",   # line length
+    "B904",   # raise from
+    "F401",   # unused imports (limpar depois)
+]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+
+# --------------------------------------------------------------------------
+# MyPy: strict no código novo (src/), relaxado no legado
+# --------------------------------------------------------------------------
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+show_error_codes = true
+pretty = true
+files = ["src"]
+exclude = [
+    "fluxi/migrations",
+    "staticfiles",
+    "reports",
+    "scripts",
+]
+
+# Legado Django: não strict (ainda)
+[[tool.mypy.overrides]]
+module = ["fluxi.*"]
+ignore_errors = true
+
+# Bibliotecas externas sem stubs
+[[tool.mypy.overrides]]
+module = [
+    "segment.*",
+    "geoip2.*",
+    "environ.*",
+    "whitenoise.*",
+]
+ignore_missing_imports = true
+
+# --------------------------------------------------------------------------
+# Pytest
+# --------------------------------------------------------------------------
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "fluxi.settings"
+python_files = ["test_*.py", "*_test.py", "tests.py"]
+testpaths = ["tests", "fluxi"]
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "-ra",
+]
+# Nota: --cov sera ativado quando houver codigo em src/ (Fase 2).
+# scripts/check.sh adiciona --cov no momento certo.
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+markers = [
+    "unit: testes unitários puros (domínio)",
+    "integration: testes de integração (adapters)",
+    "e2e: testes end-to-end",
+    "slow: testes lentos",
+]
+
+# --------------------------------------------------------------------------
+# Coverage
+# --------------------------------------------------------------------------
+[tool.coverage.run]
+branch = true
+source = ["src"]
+omit = [
+    "*/migrations/*",
+    "*/tests/*",
+    "*/test_*.py",
+    "src/adapters/django/apps.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "raise NotImplementedError",
+    "if TYPE_CHECKING:",
+    "@abstractmethod",
+    "@overload",
+]
+show_missing = true
+skip_covered = false
+precision = 2

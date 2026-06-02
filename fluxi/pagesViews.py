@@ -56,9 +56,7 @@ def contato(request):
 
             # Agora, salva a instância completa no banco de dados
             instancia_contato.save()
-            logger.info(
-                f"Contato salvo no banco de dados com consentimento: {consent_given}"
-            )
+            logger.info(f"Contato salvo no banco de dados com consentimento: {consent_given}")
 
             request.session.save()  # Certifique-se de que a sessão está salva
 
@@ -93,9 +91,7 @@ def leadster_webhook(request):
 
         # Verifica se o corpo do webhook está vazio ou não contém os dados esperados e retorna um erro apropriado se necessário.
         if not data:
-            return JsonResponse(
-                {"error": "Chave 'body' não encontrada no payload."}, status=400
-            )
+            return JsonResponse({"error": "Chave 'body' não encontrada no payload."}, status=400)
 
         # Extrai os dados principais do lead
         nome = data.get("name") or data.get("nome")
@@ -122,9 +118,7 @@ def leadster_webhook(request):
         query_params = parse_qs(parsed_url.query)
 
         # 1. Extrai os dados do lead dos parâmetros de URL, se disponíveis.
-        fbp = query_params.get("fbp", [None])[
-            0
-        ]  # Exemplo: "fb.1.1234567890.1234567890"
+        fbp = query_params.get("fbp", [None])[0]  # Exemplo: "fb.1.1234567890.1234567890"
         fbc = query_params.get("fbc", [None])[0]
         fbclid = query_params.get("fbclid", [None])[0]  # Exemplo: "IwAR1..."
         gclid = query_params.get("gclid", [None])[0]  # Exemplo: "EAIaIQobChMI..."
@@ -157,9 +151,7 @@ def leadster_webhook(request):
                         "longitude": response.location.longitude,
                     }
             except (AddressNotFoundError, FileNotFoundError):
-                logger.warning(
-                    f"Não foi possível encontrar a localização para o IP: {ip_lead}"
-                )
+                logger.warning(f"Não foi possível encontrar a localização para o IP: {ip_lead}")
                 pass
 
         # 2. Extrai os dados do lead e os UTMs diretamente dos campos do JSON.

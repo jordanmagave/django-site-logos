@@ -28,9 +28,7 @@ urlpatterns = [
         name="ensinoFundamental2",
     ),
     path("servicos-educacionais/ensino-medio", servicesViews.medio, name="ensinoMedio"),
-    path(
-        "servicos-educacionais/integral", servicesViews.integral, name="ensinoIntegral"
-    ),
+    path("servicos-educacionais/integral", servicesViews.integral, name="ensinoIntegral"),
     path("contato_logos/", pagesViews.contato, name="contato"),
     path(
         "webhook/leadster/f9c1b2a3-d4e5-f6a7-b8c9-d0e1f2a3b4c5/",

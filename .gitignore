@@ -6,8 +6,7 @@ fluxi/__pycache__/
 fluxi/migrations/
 *.sqlite3
 
-# requirements.txt para nao interefir no serivodr
-requirements.txt
+# requirements.txt e dev sao versionados (usados no Docker build)
 
 # Django
 *.log
@@ -80,3 +79,12 @@ settings_local.py
 *.bak
 *.swp
 *.swo
+
+# QA / build artifacts
+.ruff_cache/
+reports/coverage/
+node_modules/
+
+# Lighthouse: queremos comitar HTML/JSON dos relatorios oficiais, ignorar runs avulsos
+reports/lighthouse/_tmp/
+
