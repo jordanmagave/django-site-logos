@@ -1,0 +1,52 @@
+# Oportunidades por rota (ordenadas por impacto)
+
+| Rota | Audit | Savings ms | Savings KiB |
+|------|-------|-----------:|------------:|
+| about-mobile | `unused-css-rules` | 6750 | 1175 |
+| contato-mobile | `unused-css-rules` | 6300 | 1188 |
+| fundamental1-mobile | `unused-css-rules` | 6150 | 1183 |
+| infantil-mobile | `unused-css-rules` | 6150 | 1183 |
+| medio-mobile | `unused-css-rules` | 6150 | 1183 |
+| home-mobile | `unused-css-rules` | 6450 | 1147 |
+| medio-mobile | `unused-javascript` | 3300 | 1141 |
+| fundamental1-mobile | `unused-javascript` | 3300 | 1139 |
+| infantil-mobile | `unused-javascript` | 3150 | 1141 |
+| contato-mobile | `unused-javascript` | 3000 | 1137 |
+| about-mobile | `unused-javascript` | 3300 | 1104 |
+| fundamental1-desktop | `unused-css-rules` | 1280 | 1182 |
+| contato-desktop | `unused-css-rules` | 1160 | 1187 |
+| medio-desktop | `unused-css-rules` | 1160 | 1182 |
+| about-desktop | `unused-css-rules` | 1200 | 1154 |
+| home-desktop | `unused-css-rules` | 1120 | 1149 |
+| infantil-desktop | `unused-css-rules` | 790 | 1182 |
+| infantil-desktop | `unused-javascript` | 560 | 1126 |
+| fundamental1-desktop | `unused-javascript` | 520 | 1127 |
+| medio-desktop | `unused-javascript` | 510 | 1127 |
+| contato-desktop | `unused-javascript` | 370 | 1125 |
+| home-mobile | `unused-javascript` | 2400 | 764 |
+| about-desktop | `unused-javascript` | 440 | 758 |
+| home-desktop | `unused-javascript` | 280 | 755 |
+| about-mobile | `unminified-css` | 750 | 142 |
+| fundamental1-mobile | `unminified-css` | 750 | 142 |
+| medio-mobile | `unminified-css` | 750 | 142 |
+| contato-mobile | `unminified-css` | 600 | 142 |
+| home-mobile | `unminified-css` | 600 | 142 |
+| infantil-mobile | `unminified-css` | 600 | 142 |
+| infantil-desktop | `unminified-css` | 200 | 142 |
+| home-desktop | `unminified-css` | 160 | 142 |
+| about-desktop | `unminified-css` | 120 | 142 |
+| contato-desktop | `unminified-css` | 120 | 142 |
+| fundamental1-desktop | `unminified-css` | 120 | 142 |
+| medio-desktop | `unminified-css` | 120 | 142 |
+| about-mobile | `unminified-javascript` | 300 | 18 |
+| medio-mobile | `unminified-javascript` | 300 | 18 |
+| fundamental1-mobile | `unminified-javascript` | 150 | 18 |
+| about-desktop | `unminified-javascript` | 40 | 18 |
+| contato-desktop | `unminified-javascript` | 0 | 18 |
+| contato-mobile | `unminified-javascript` | 0 | 18 |
+| fundamental1-desktop | `unminified-javascript` | 0 | 18 |
+| home-desktop | `unminified-javascript` | 0 | 18 |
+| home-mobile | `unminified-javascript` | 0 | 18 |
+| infantil-desktop | `unminified-javascript` | 0 | 18 |
+| infantil-mobile | `unminified-javascript` | 0 | 18 |
+| medio-desktop | `unminified-javascript` | 0 | 18 |
