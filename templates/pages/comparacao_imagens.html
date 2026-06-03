@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comparação de Imagens - Original vs Otimizado</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; padding: 20px; }
+h1 { text-align: center; margin-bottom: 30px; color: #333; }
+h2 { text-align: center; margin: 20px 0; color: #666; font-weight: normal; }
+.comparison-item { background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 20px; overflow: hidden; }
+.image-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.image-box { padding: 15px; text-align: center; }
+.image-box.original { background: #fff5f5; }
+.image-box.optimized { background: #f0fff4; }
+.image-box h3 { margin-bottom: 10px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+.image-box img { max-width: 100%; height: auto; border-radius: 4px; }
+.size { display: block; margin-top: 8px; font-size: 13px; color: #666; }
+.optimized .size { color: #2f855a; font-weight: bold; }
+.summary { text-align: center; margin: 30px 0; padding: 20px; background: #ebf8ff; border-radius: 8px; }
+.summary h2 { color: #2b6cb0; }
+@media (max-width: 768px) { .image-pair { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<h1>Comparação Visual — Imagens Otimizadas</h1>
+<p style="text-align:center;color:#666;margin-bottom:30px;">WebP qualidade 85 com srcset (640/960/1280/1920px)</p>
+<div class="comparison-container">
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/banner/frente_escola.png" alt="Original" loading="lazy" />
+          <span class="size">994KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/banner/frente_escola.webp" alt="Otimizado" loading="lazy" />
+          <span class="size">114KB (89% menor)</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/product/alunos_formatura.JPG" alt="Original" loading="lazy" />
+          <span class="size">1275KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/product/alunos_formatura.webp" alt="Otimizado" loading="lazy" />
+          <span class="size">262KB (79% menor)</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/product/IMG_6316 (1).jpg" alt="Original" loading="lazy" />
+          <span class="size">4360KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/product/IMG_6316 (1).webp" alt="Otimizado" loading="lazy" />
+          <span class="size">778KB (82% menor)</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/product/medio_resultado.JPG" alt="Original" loading="lazy" />
+          <span class="size">334KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/product/medio_resultado.webp" alt="Otimizado" loading="lazy" />
+          <span class="size">171KB (49% menor)</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/product/infantil_pousada1.png" alt="Original" loading="lazy" />
+          <span class="size">4579KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/product/infantil_pousada1.webp" alt="Otimizado" loading="lazy" />
+          <span class="size">168KB (96% menor)</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/product/fd1_pousada1.png" alt="Original" loading="lazy" />
+          <span class="size">3968KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/product/fd1_pousada1.webp" alt="Otimizado" loading="lazy" />
+          <span class="size">174KB (96% menor)</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/product/fd2_pousada1.png" alt="Original" loading="lazy" />
+          <span class="size">7286KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/product/fd2_pousada1.webp" alt="Otimizado" loading="lazy" />
+          <span class="size">316KB (96% menor)</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/product/med_posada1.png" alt="Original" loading="lazy" />
+          <span class="size">496KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/product/med_posada1.webp" alt="Otimizado" loading="lazy" />
+          <span class="size">37KB (92% menor)</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/product/integral_posada1.png" alt="Original" loading="lazy" />
+          <span class="size">6213KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/product/integral_posada1.webp" alt="Otimizado" loading="lazy" />
+          <span class="size">244KB (96% menor)</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/product/integral_karate.png" alt="Original" loading="lazy" />
+          <span class="size">2518KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/product/integral_karate.webp" alt="Otimizado" loading="lazy" />
+          <span class="size">112KB (96% menor)</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/product/familia_alunos.png" alt="Original" loading="lazy" />
+          <span class="size">1266KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/product/familia_alunos.webp" alt="Otimizado" loading="lazy" />
+          <span class="size">87KB (93% menor)</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/about/aluno_formando.jpg" alt="Original" loading="lazy" />
+          <span class="size">2006KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/about/aluno_formando.webp" alt="Otimizado" loading="lazy" />
+          <span class="size">251KB (87% menor)</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/service/med_sas_enem.png" alt="Original" loading="lazy" />
+          <span class="size">9852KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/service/med_sas_enem.webp" alt="Otimizado" loading="lazy" />
+          <span class="size">570KB (94% menor)</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/service/fd1_experimento.png" alt="Original" loading="lazy" />
+          <span class="size">8418KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/service/fd1_experimento.webp" alt="Otimizado" loading="lazy" />
+          <span class="size">379KB (95% menor)</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/service/integral_banner.png" alt="Original" loading="lazy" />
+          <span class="size">4315KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/service/integral_banner.webp" alt="Otimizado" loading="lazy" />
+          <span class="size">296KB (93% menor)</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/service/integral_orando.png" alt="Original" loading="lazy" />
+          <span class="size">6161KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/service/integral_orando.webp" alt="Otimizado" loading="lazy" />
+          <span class="size">203KB (97% menor)</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/service/integral_menino.png" alt="Original" loading="lazy" />
+          <span class="size">6130KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/service/integral_menino.webp" alt="Otimizado" loading="lazy" />
+          <span class="size">207KB (97% menor)</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/gallery/01.png" alt="Original" loading="lazy" />
+          <span class="size">9932KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/gallery/01.webp" alt="Otimizado" loading="lazy" />
+          <span class="size">558KB (94% menor)</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/gallery/02.png" alt="Original" loading="lazy" />
+          <span class="size">9141KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/gallery/02.webp" alt="Otimizado" loading="lazy" />
+          <span class="size">502KB (95% menor)</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/gallery/04.png" alt="Original" loading="lazy" />
+          <span class="size">23847KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/gallery/04.webp" alt="Otimizado" loading="lazy" />
+          <span class="size">3262KB (86% menor)</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/gallery/05.png" alt="Original" loading="lazy" />
+          <span class="size">28498KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/gallery/05.webp" alt="Otimizado" loading="lazy" />
+          <span class="size">5400KB (81% menor)</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/gallery/06.png" alt="Original" loading="lazy" />
+          <span class="size">17407KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/gallery/06.webp" alt="Otimizado" loading="lazy" />
+          <span class="size">1925KB (89% menor)</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/gallery/07.png" alt="Original" loading="lazy" />
+          <span class="size">23402KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/gallery/07.webp" alt="Otimizado" loading="lazy" />
+          <span class="size">3085KB (87% menor)</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/gallery/10.png" alt="Original" loading="lazy" />
+          <span class="size">25945KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/gallery/10.webp" alt="Otimizado" loading="lazy" />
+          <span class="size">3292KB (87% menor)</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/gallery/12.png" alt="Original" loading="lazy" />
+          <span class="size">23798KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/gallery/12.webp" alt="Otimizado" loading="lazy" />
+          <span class="size">1939KB (92% menor)</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/gallery/16.png" alt="Original" loading="lazy" />
+          <span class="size">14497KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/gallery/16.webp" alt="Otimizado" loading="lazy" />
+          <span class="size">2189KB (85% menor)</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/gallery/18.png" alt="Original" loading="lazy" />
+          <span class="size">19257KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/gallery/18.webp" alt="Otimizado" loading="lazy" />
+          <span class="size">1197KB (94% menor)</span>
+        </div>
+      </div>
+    </div>
+    <div class="comparison-item">
+      <div class="image-pair">
+        <div class="image-box original">
+          <h3>Original</h3>
+          <img src="/static/images/gallery/19.png" alt="Original" loading="lazy" />
+          <span class="size">19169KB</span>
+        </div>
+        <div class="image-box optimized">
+          <h3>Otimizado</h3>
+          <img src="/static/images-optimized/gallery/19.webp" alt="Otimizado" loading="lazy" />
+          <span class="size">2453KB (87% menor)</span>
+        </div>
+      </div>
+    </div>
+</div>
+<script>
+// Toggle para comparar lado a lado
+document.querySelectorAll('.image-pair').forEach(pair => {
+  pair.addEventListener('click', () => {
+    pair.classList.toggle('overlay');
+  });
+});
+</script>
+</body>
+</html>
