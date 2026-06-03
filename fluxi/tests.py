@@ -87,7 +87,7 @@ class StaticFilesTest(TestCase):
         """Verifica se os arquivos estáticos são carregados corretamente."""
         response = self.client.get(reverse("contato"))
         self.assertContains(response, "style.css")
-        self.assertContains(response, "fontawesome-subset.css")
+        self.assertContains(response, "css-purged")
 
 
 class SecurityHeadersTest(TestCase):
