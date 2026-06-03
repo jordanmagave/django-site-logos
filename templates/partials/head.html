@@ -1,5 +1,19 @@
 {% load static %}
 <head>
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != "dataLayer" ? "&l=" + l : "";
+      j.async = true;
+      j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, "script", "dataLayer", "GTM-MF7HWL4Q");
+  </script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -24,24 +38,38 @@
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="{% block head_canonical %}{{ page_canonical|default:"https://www.celogos.com.br" }}{% endblock %}" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="{% block og_title %}{{ og_title|default:page_title|default:"Centro Educacional Logos - Educação Cristã Integral" }}{% endblock %}" />
-  <meta property="og:description" content="{% block og_description %}{{ og_description|default:page_description|default:"Educação Cristã Integral, líder em Ananindeua. Conheça nossos diferenciais e agende uma visita!" }}{% endblock %}" />
-  <meta property="og:image" content="{% block og_image %}{{ og_image|default:"https://www.celogos.com.br/static/images/logo/logo-1.svg" }}{% endblock %}" />
-  <meta property="og:url" content="{% block og_url %}{{ page_canonical|default:"https://www.celogos.com.br" }}{% endblock %}" />
-  <meta property="og:type" content="{% block og_type %}website{% endblock %}" />
-  <meta property="og:locale" content="pt_BR" />
-  <meta property="og:site_name" content="Centro Educacional Logos" />
+  <!-- Open Graph para Redes Sociais -->
+  <meta
+    property="og:title"
+    content="Centro Educacional Logos - Educação Cristã Integral"
+  />
+  <meta
+    property="og:description"
+    content="Educação Cristã Integral, líder em Ananindeua. Conheça nossos diferenciais e agende uma visita!"
+  />
+  <meta property="og:image" content="{% static 'images/logo/logo-1.svg' %}" />
+  <meta property="og:url" content="https://www.celogos.com.br" />
+  <meta property="og:type" content="website" />
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="{% block twitter_title %}{{ og_title|default:page_title|default:"Centro Educacional Logos - Educação Cristã Integral" }}{% endblock %}" />
-  <meta name="twitter:description" content="{% block twitter_description %}{{ og_description|default:page_description|default:"Educação Cristã Integral, líder em Ananindeua. Conheça nossos diferenciais e agende uma visita!" }}{% endblock %}" />
-  <meta name="twitter:image" content="{% block twitter_image %}{{ og_image|default:"https://www.celogos.com.br/static/images/logo/logo-1.svg" }}{% endblock %}" />
+  <meta
+    name="twitter:title"
+    content="Centro Educacional Logos - Educação Cristã Integral"
+  />
+  <meta
+    name="twitter:description"
+    content="Educação Cristã Integral, líder em Ananindeua. Conheça nossos diferenciais e agende uma visita!"
+  />
+  <meta name="twitter:image" content="{% static 'images/logo/logo-1.svg' %}" />
 
   <!-- Favicon e Manifest -->
-  <link rel="shortcut icon" type="image/x-icon" href="/static/images/fav.png" />
-  <link rel="manifest" href="/static/manifest.webmanifest" />
+  <link
+    rel="shortcut icon"
+    type="image/x-icon"
+    href="{% static 'images/fav.png' %}"
+  />
+  <link rel="manifest" href="{% static 'manifest.webmanifest' %}" />
 
   <!-- Preconnect para serviços de terceiros -->
   <link rel="preconnect" href="https://global.ketchcdn.com" />
@@ -71,24 +99,7 @@
       "@type": "EducationalOrganization",
       "name": "Centro Educacional Logos",
       "url": "https://www.celogos.com.br",
-      "logo": "/static/images/logo/logo-1.svg",
-      "description": "Escola cristã em Ananindeua há 30 anos, oferecendo Educação Infantil, Ensino Fundamental e Ensino Médio com excelência acadêmica e valores cristãos.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Rua Cláudio Sanders, s/n",
-        "addressLocality": "Ananindeua",
-        "addressRegion": "PA",
-        "postalCode": "67030-490",
-        "addressCountry": "BR"
-      },
-      "telephone": "+55-91-3013-0198",
-      "email": "contato@celogos.com.br",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "ratingCount": "127",
-        "bestRating": "5"
-      },
+      "logo": "{% static 'images/logo/logo-1.svg' %}",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+55-91-3013-0198",
@@ -226,7 +237,47 @@
   <link rel="stylesheet" href="/static/css-purged/style.css" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="/static/css-purged/style.css" /></noscript>
 
-  <!-- Font Awesome Subset + font-display: swap -->
-  <link rel="stylesheet" href="{% static 'fonts-subset/fontawesome-subset.css' %}" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="{% static 'fonts-subset/fontawesome-subset.css' %}" /></noscript>
+  <!-- swiper css -->
+  <link
+    rel="stylesheet preload"
+    href="{% static 'css/plugins/swiper.min.css' %}"
+    as="style"
+  />
+  <!-- magnific popup css -->
+  <link
+    rel="stylesheet preload"
+    href="{% static 'css/plugins/magnific-popup.css' %}"
+    as="style"
+  />
+  <!-- metismenu css -->
+  <link
+    rel="stylesheet preload"
+    href="{% static 'css/plugins/metismenu.css' %}"
+    as="style"
+  />
+  <!-- bootstrap css -->
+  <link
+    rel="stylesheet preload"
+    href="{% static 'css/vendor/bootstrap.min.css' %}"
+    as="style"
+  />
+  <!-- fontawesome css -->
+  <link
+    rel="stylesheet preload"
+    href="{% static 'css/plugins/fontawesome.min.css' %}"
+    as="style"
+  />
+  <!-- Custom css -->
+  <link
+    rel="stylesheet preload"
+    href="{% static 'css/style.css' %}"
+    as="style"
+  />
+
+  <!-- Font Awesome Solid -->
+  <link
+    rel="stylesheet"
+    href="{% static 'fonts/fa-solid-900.woff2' %}"
+    type="font/woff2"
+  />
 </head>

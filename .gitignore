@@ -12,12 +12,12 @@ fluxi/migrations/
 *.log
 db.sqlite3
 media/
-staticfiles/
-static/
+staticfiles
 
 # Environment variables
 .env
 *.env
+.tool-versions
 
 # Virtual environments
 venv/

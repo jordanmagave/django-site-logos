@@ -1,4 +1,4 @@
-{% extends 'layout/layout.html' %} {% block content %}
+{% extends 'layout/layout.html' %} {% load static %} {% block content %}
 
 <header class="header-two border-bottom header--sticky">
   <div class="container">
@@ -8,12 +8,12 @@
           <a href="{% url 'index' %}" class="logo-area">
             <img
               class="light"
-              src="/static/images/logo/logo-1.svg"
+              src="{% static 'images/logo/logo-1.svg' %}"
               alt="logo"
             />
             <img
               class="dark"
-              src="/static/images/logo/logo-one-dark.svg"
+              src="{% static 'images/logo/logo-one-dark.svg' %}"
               alt="logo"
             />
           </a>
@@ -305,19 +305,29 @@
           <div class="light swiper mySwiper-brand-about">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <a href="#"><img src="/static/images/brand/01.svg" alt="" /></a>
+                <a href="#"
+                  ><img src="{% static 'images/brand/01.svg' %}" alt=""
+                /></a>
               </div>
               <div class="swiper-slide">
-                <a href="#"><img src="/static/images/brand/02.svg" alt="" /></a>
+                <a href="#"
+                  ><img src="{% static 'images/brand/02.svg' %}" alt=""
+                /></a>
               </div>
               <div class="swiper-slide">
-                <a href="#"><img src="/static/images/brand/03.svg" alt="" /></a>
+                <a href="#"
+                  ><img src="{% static 'images/brand/03.svg' %}" alt=""
+                /></a>
               </div>
               <div class="swiper-slide">
-                <a href="#"><img src="/static/images/brand/04.svg" alt="" /></a>
+                <a href="#"
+                  ><img src="{% static 'images/brand/04.svg' %}" alt=""
+                /></a>
               </div>
               <div class="swiper-slide">
-                <a href="#"><img src="/static/images/brand/05.svg" alt="" /></a>
+                <a href="#"
+                  ><img src="{% static 'images/brand/05.svg' %}" alt=""
+                /></a>
               </div>
             </div>
           </div>
@@ -325,19 +335,29 @@
           <div class="dark swiper mySwiper-brand-about">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <a href="#"><img src="/static/images/brand/21.svg" alt="" /></a>
+                <a href="#"
+                  ><img src="{% static 'images/brand/21.svg' %}" alt=""
+                /></a>
               </div>
               <div class="swiper-slide">
-                <a href="#"><img src="/static/images/brand/22.svg" alt="" /></a>
+                <a href="#"
+                  ><img src="{% static 'images/brand/22.svg' %}" alt=""
+                /></a>
               </div>
               <div class="swiper-slide">
-                <a href="#"><img src="/static/images/brand/23.svg" alt="" /></a>
+                <a href="#"
+                  ><img src="{% static 'images/brand/23.svg' %}" alt=""
+                /></a>
               </div>
               <div class="swiper-slide">
-                <a href="#"><img src="/static/images/brand/24.svg" alt="" /></a>
+                <a href="#"
+                  ><img src="{% static 'images/brand/24.svg' %}" alt=""
+                /></a>
               </div>
               <div class="swiper-slide">
-                <a href="#"><img src="/static/images/brand/21.svg" alt="" /></a>
+                <a href="#"
+                  ><img src="{% static 'images/brand/21.svg' %}" alt=""
+                /></a>
               </div>
             </div>
           </div>
@@ -536,7 +556,7 @@
       <div class="col-lg-6">
         <div class="thumbnail-left">
           <img
-            src="/static/images/working-process/04.png"
+            src="{% static 'images/working-process/04.png' %}"
             alt="working-process"
           />
         </div>
@@ -555,7 +575,7 @@
           <!-- single counter up section -->
           <div class="single-counter-up">
             <div class="icon">
-              <img src="/static/images/counter/11.svg" alt="counter" />
+              <img src="{% static 'images/counter/11.svg' %}" alt="counter" />
             </div>
             <h2 class="title"><span class="counter">2017</span></h2>
             <span class="brand-name">Year founded</span>
@@ -564,7 +584,7 @@
           <!-- single counter up section -->
           <div class="single-counter-up">
             <div class="icon">
-              <img src="/static/images/counter/12.svg" alt="counter" />
+              <img src="{% static 'images/counter/12.svg' %}" alt="counter" />
             </div>
             <h2 class="title"><span class="counter">500</span>K</h2>
             <span class="brand-name">Competitors keywords</span>
@@ -573,7 +593,7 @@
           <!-- single counter up section -->
           <div class="single-counter-up">
             <div class="icon">
-              <img src="/static/images/counter/13.svg" alt="counter" />
+              <img src="{% static 'images/counter/13.svg' %}" alt="counter" />
             </div>
             <h2 class="title"><span class="counter">98</span>M</h2>
             <span class="brand-name">Supported locations</span>
@@ -582,7 +602,7 @@
           <!-- single counter up section -->
           <div class="single-counter-up">
             <div class="icon">
-              <img src="/static/images/counter/14.svg" alt="counter" />
+              <img src="{% static 'images/counter/14.svg' %}" alt="counter" />
             </div>
             <h2 class="title"><span class="counter">98</span>M</h2>
             <span class="brand-name">Loyal customers</span>
@@ -863,9 +883,13 @@
     </div>
   </div>
   <div class="shape-area">
-    <img src="/static/images/service/shape/10.png" alt="" class="one" />
-    <img src="/static/images/service/shape/04.png" alt="" class="two" />
-    <img src="/static/images/service/shape/02.png" alt="" class="three" />
+    <img src="{% static 'images/service/shape/10.png' %}" alt="" class="one" />
+    <img src="{% static 'images/service/shape/04.png' %}" alt="" class="two" />
+    <img
+      src="{% static 'images/service/shape/02.png' %}"
+      alt=""
+      class="three"
+    />
   </div>
 </div>
 <!-- our service area end -->
@@ -887,7 +911,7 @@
         <!-- single team area start -->
         <div class="single-team-area-start">
           <a href="#" class="thumbnail">
-            <img src="/static/images/team/09.png" alt="team" />
+            <img src="{% static 'images/team/09.png' %}" alt="team" />
           </a>
           <div class="inner-content">
             <h6 class="title">Kevin Smith</h6>
@@ -900,7 +924,7 @@
         <!-- single team area start -->
         <div class="single-team-area-start">
           <a href="#" class="thumbnail">
-            <img src="/static/images/team/10.png" alt="team" />
+            <img src="{% static 'images/team/10.png' %}" alt="team" />
           </a>
           <div class="inner-content">
             <h6 class="title">Ahmed Solary</h6>
@@ -913,7 +937,7 @@
         <!-- single team area start -->
         <div class="single-team-area-start">
           <a href="#" class="thumbnail">
-            <img src="/static/images/team/11.png" alt="team" />
+            <img src="{% static 'images/team/11.png' %}" alt="team" />
           </a>
           <div class="inner-content">
             <h6 class="title">Antonio Martin</h6>
@@ -926,7 +950,7 @@
         <!-- single team area start -->
         <div class="single-team-area-start">
           <a href="#" class="thumbnail">
-            <img src="/static/images/team/12.png" alt="team" />
+            <img src="{% static 'images/team/12.png' %}" alt="team" />
           </a>
           <div class="inner-content">
             <h6 class="title">Stefan Brice</h6>
@@ -939,7 +963,7 @@
         <!-- single team area start -->
         <div class="single-team-area-start">
           <a href="#" class="thumbnail">
-            <img src="/static/images/team/13.png" alt="team" />
+            <img src="{% static 'images/team/13.png' %}" alt="team" />
           </a>
           <div class="inner-content">
             <h6 class="title">Antonio Martin</h6>
@@ -952,7 +976,7 @@
         <!-- single team area start -->
         <div class="single-team-area-start">
           <a href="#" class="thumbnail">
-            <img src="/static/images/team/14.png" alt="team" />
+            <img src="{% static 'images/team/14.png' %}" alt="team" />
           </a>
           <div class="inner-content">
             <h6 class="title">Stefan Brice</h6>
@@ -965,7 +989,7 @@
         <!-- single team area start -->
         <div class="single-team-area-start">
           <a href="#" class="thumbnail">
-            <img src="/static/images/team/15.png" alt="team" />
+            <img src="{% static 'images/team/15.png' %}" alt="team" />
           </a>
           <div class="inner-content">
             <h6 class="title">Kevin Smith</h6>
@@ -978,7 +1002,7 @@
         <!-- single team area start -->
         <div class="single-team-area-start">
           <a href="#" class="thumbnail">
-            <img src="/static/images/team/16.png" alt="team" />
+            <img src="{% static 'images/team/16.png' %}" alt="team" />
           </a>
           <div class="inner-content">
             <h6 class="title">Ahmed Solary</h6>
@@ -990,10 +1014,14 @@
     </div>
   </div>
   <div class="shape-area">
-    <img src="/static/images/service/shape/04.png" alt="" class="one" />
-    <img src="/static/images/service/shape/13.png" alt="" class="two" />
-    <img src="/static/images/service/shape/06.png" alt="" class="three" />
-    <img src="/static/images/service/shape/14.png" alt="" class="four" />
+    <img src="{% static 'images/service/shape/04.png' %}" alt="" class="one" />
+    <img src="{% static 'images/service/shape/13.png' %}" alt="" class="two" />
+    <img
+      src="{% static 'images/service/shape/06.png' %}"
+      alt=""
+      class="three"
+    />
+    <img src="{% static 'images/service/shape/14.png' %}" alt="" class="four" />
   </div>
 </div>
 <!-- rts team area end -->

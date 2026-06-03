@@ -1,4 +1,4 @@
-{% extends 'layout/layout.html' %} {% block content %}
+{% extends 'layout/layout.html' %} {% load static %} {% block content %}
 
 <!-- contact banner area srart -->
 <div class="contact-banner-area-start faq rts-section-gap">
@@ -137,10 +137,10 @@
   </div>
   <!-- rts faq section area end -->
   <div class="shape-area">
-    <img src="/static/images/faq/shape/01.png" alt="" class="one" />
-    <img src="/static/images/faq/shape/02.png" alt="" class="two" />
-    <img src="/static/images/faq/shape/03.png" alt="" class="three" />
-    <img src="/static/images/faq/shape/04.png" alt="" class="four" />
+    <img src="{% static 'images/faq/shape/01.png' %}" alt="" class="one" />
+    <img src="{% static 'images/faq/shape/02.png' %}" alt="" class="two" />
+    <img src="{% static 'images/faq/shape/03.png' %}" alt="" class="three" />
+    <img src="{% static 'images/faq/shape/04.png' %}" alt="" class="four" />
   </div>
 </div>
 <!-- faq call to action area end -->
@@ -232,7 +232,7 @@
       <div class="col-lg-12">
         <div class="copyright-area-four pt--65 mt-65 border-top">
           <a href="#" class="logo">
-            <img src="static/images/logo/logo-1.svg" alt="logo" />
+            <img src="{% static 'images/logo/logo-1.svg' %}" alt="logo" />
           </a>
           <p>© 2023 Fluxi, All right reserved.</p>
         </div>
