@@ -3,6 +3,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Critical CSS inline (CLS prevention) -->
+  <style>
+    .rts-banner-area-one.banner-five { min-height: 85vh; }
+    .banner-one-right-content-with-img img.main-image-banner { width: 100%; height: auto; aspect-ratio: 1000/666; }
+    body.loaded .loader-wrapper { display: none !important; }
+  </style>
+
   <!-- SEO dinâmico -->
   <title>{% block head_title %}{{ page_title|default:"Centro Educacional Logos - Educação Cristã Integral" }}{% endblock %}</title>
   <meta name="description" content="{% block head_description %}{{ page_description|default:"Centro Educacional Logos: Educação Cristã Integral, líder em Ananindeua. Conheça nossos diferenciais e agende uma visita!" }}{% endblock %}" />
@@ -201,16 +208,17 @@
   <!-- Fim Segment Analytics -->
 
   <!-- CSS não-bloqueante via loadCSS -->
-  <link rel="stylesheet" href="/static/css/plugins/swiper.min.css" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="/static/css/plugins/swiper.min.css" /></noscript>
-  <link rel="stylesheet" href="/static/css/plugins/magnific-popup.css" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="/static/css/plugins/magnific-popup.css" /></noscript>
-  <link rel="stylesheet" href="/static/css/plugins/metismenu.css" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="/static/css/plugins/metismenu.css" /></noscript>
-  <link rel="stylesheet" href="/static/css/vendor/bootstrap.min.css" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="/static/css/vendor/bootstrap.min.css" /></noscript>
-  <link rel="stylesheet" href="/static/css/style.css" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="/static/css/style.css" /></noscript>
+  <!-- CSS tree-shaked (PurgeCSS) -->
+  <link rel="stylesheet" href="/static/css-purged/swiper.min.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="/static/css-purged/swiper.min.css" /></noscript>
+  <link rel="stylesheet" href="/static/css-purged/magnific-popup.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="/static/css-purged/magnific-popup.css" /></noscript>
+  <link rel="stylesheet" href="/static/css-purged/metismenu.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="/static/css-purged/metismenu.css" /></noscript>
+  <link rel="stylesheet" href="/static/css-purged/bootstrap.min.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="/static/css-purged/bootstrap.min.css" /></noscript>
+  <link rel="stylesheet" href="/static/css-purged/style.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="/static/css-purged/style.css" /></noscript>
 
   <!-- Font Awesome Subset + font-display: swap -->
   <link rel="stylesheet" href="{% static 'fonts-subset/fontawesome-subset.css' %}" media="print" onload="this.media='all'" />

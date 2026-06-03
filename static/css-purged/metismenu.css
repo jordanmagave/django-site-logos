@@ -1,0 +1,47 @@
+.metismenu .arrow {
+    float: right;
+    line-height: 1.42857;
+  }
+  *[dir="rtl"] .metismenu .arrow {
+    float: left;
+  }
+  
+  /*
+   * Require Bootstrap 3.x
+   * https://github.com/twbs/bootstrap
+  */
+  
+  /*
+   * Require Font-Awesome
+   * http://fortawesome.github.io/Font-Awesome/
+  */
+  
+  .metismenu .fa.arrow:before {
+    content: "\f104";
+  }
+  .metismenu .mm-active > a > .fa.arrow:before {
+    content: "\f107";
+  }
+  
+  /*
+   * Require Ionicons
+   * http://ionicons.com/
+  */
+  .metismenu .mm-collapse:not(.mm-show) {
+    display: none;
+  }
+  
+  .metismenu .mm-collapsing {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    -webkit-transition-timing-function: ease;
+         -o-transition-timing-function: ease;
+            transition-timing-function: ease;
+    -webkit-transition-duration: .35s;
+         -o-transition-duration: .35s;
+            transition-duration: .35s;
+    -webkit-transition-property: height, visibility;
+    -o-transition-property: height, visibility;
+    transition-property: height, visibility;
+  }
