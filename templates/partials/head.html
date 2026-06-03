@@ -224,8 +224,9 @@
   </script>
   <!-- Fim Segment Analytics -->
 
-  <!-- CSS não-bloqueante via loadCSS -->
-  <!-- CSS tree-shaked (PurgeCSS) -->
+  <!-- CSS tree-shaked (PurgeCSS) — não-bloqueante via loadCSS -->
+  <link rel="stylesheet" href="/static/fonts-subset/fontawesome-subset.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="/static/fonts-subset/fontawesome-subset.css" /></noscript>
   <link rel="stylesheet" href="/static/css-purged/swiper.min.css" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="/static/css-purged/swiper.min.css" /></noscript>
   <link rel="stylesheet" href="/static/css-purged/magnific-popup.css" media="print" onload="this.media='all'" />
@@ -236,48 +237,4 @@
   <noscript><link rel="stylesheet" href="/static/css-purged/bootstrap.min.css" /></noscript>
   <link rel="stylesheet" href="/static/css-purged/style.css" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="/static/css-purged/style.css" /></noscript>
-
-  <!-- swiper css -->
-  <link
-    rel="stylesheet preload"
-    href="{% static 'css/plugins/swiper.min.css' %}"
-    as="style"
-  />
-  <!-- magnific popup css -->
-  <link
-    rel="stylesheet preload"
-    href="{% static 'css/plugins/magnific-popup.css' %}"
-    as="style"
-  />
-  <!-- metismenu css -->
-  <link
-    rel="stylesheet preload"
-    href="{% static 'css/plugins/metismenu.css' %}"
-    as="style"
-  />
-  <!-- bootstrap css -->
-  <link
-    rel="stylesheet preload"
-    href="{% static 'css/vendor/bootstrap.min.css' %}"
-    as="style"
-  />
-  <!-- fontawesome css -->
-  <link
-    rel="stylesheet preload"
-    href="{% static 'css/plugins/fontawesome.min.css' %}"
-    as="style"
-  />
-  <!-- Custom css -->
-  <link
-    rel="stylesheet preload"
-    href="{% static 'css/style.css' %}"
-    as="style"
-  />
-
-  <!-- Font Awesome Solid -->
-  <link
-    rel="stylesheet"
-    href="{% static 'fonts/fa-solid-900.woff2' %}"
-    type="font/woff2"
-  />
 </head>
