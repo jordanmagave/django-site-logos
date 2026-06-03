@@ -16,16 +16,27 @@
   <!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="Centro Educacional Logos: Educação Cristã Integral, líder em Ananindeua. Conheça nossos diferenciais e agende uma visita!"
-  />
-  <meta
-    name="keywords"
-    content="Centro Educacional Logos, Educação Cristã, Escola em Ananindeua, Ensino Fundamental, Ensino Médio"
-  />
+
+  <!-- Critical CSS inline (CLS prevention) -->
+  <style>
+    .rts-banner-area-one.banner-five { min-height: 85vh; }
+    .banner-one-right-content-with-img img.main-image-banner { width: 100%; height: auto; aspect-ratio: 1000/666; }
+    .logo-area a.logo img { width: 100%; height: auto; aspect-ratio: 4500/1250; max-width: 100%; }
+    .thumbnail img { width: 100%; height: auto; aspect-ratio: 1/1; }
+    .marquee img { width: auto; height: 60px; aspect-ratio: 7/3; }
+    .brand-inner a img { width: auto; height: 60px; aspect-ratio: 7/3; }
+    .avatar img { width: 60px; height: 60px; aspect-ratio: 1/1; }
+    .right-side-image > img { width: 100%; height: auto; aspect-ratio: 1/1; }
+    body.loaded .loader-wrapper { display: none !important; }
+  </style>
+
+  <!-- SEO dinâmico -->
+  <title>{% block head_title %}{{ page_title|default:"Centro Educacional Logos - Educação Cristã Integral" }}{% endblock %}</title>
+  <meta name="description" content="{% block head_description %}{{ page_description|default:"Centro Educacional Logos: Educação Cristã Integral, líder em Ananindeua. Conheça nossos diferenciais e agende uma visita!" }}{% endblock %}" />
+  <meta name="keywords" content="{{ page_keywords|default:"Centro Educacional Logos, Educação Cristã, Escola em Ananindeua, Ensino Fundamental, Ensino Médio" }}" />
   <meta name="author" content="Centro Educacional Logos" />
   <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="{% block head_canonical %}{{ page_canonical|default:"https://www.celogos.com.br" }}{% endblock %}" />
 
   <!-- Open Graph para Redes Sociais -->
   <meta
@@ -60,6 +71,11 @@
   />
   <link rel="manifest" href="{% static 'manifest.webmanifest' %}" />
 
+  <!-- Preconnect para serviços de terceiros -->
+  <link rel="preconnect" href="https://global.ketchcdn.com" />
+  <link rel="preconnect" href="https://cdn.segment.com" />
+  <link rel="preconnect" href="https://cdn.leadster.com.br" />
+
   <!-- Ketch Smart Tag -->
   <script>
     !(function () {
@@ -80,149 +96,146 @@
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": "EducationalOrganization",
       "name": "Centro Educacional Logos",
       "url": "https://www.celogos.com.br",
       "logo": "{% static 'images/logo/logo-1.svg' %}",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+55-91-3013-0198",
-        "contactType": "Customer Service"
+        "contactType": "Customer Service",
+        "availableLanguage": ["Portuguese"]
       }
     }
   </script>
 
-  <title>{% block title %}Centro Educacional Logos{% endblock %}</title>
+  {% block json_ld_breadcrumb %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.celogos.com.br"
+        }{% if breadcrumb_items %}{% for item in breadcrumb_items %},
+        {
+          "@type": "ListItem",
+          "position": {{ forloop.counter|add:1 }},
+          "name": "{{ item.name }}",
+          "item": "{{ item.url }}"
+        }{% endfor %}{% endif %}
+      ]
+    }
+  </script>
+  {% endblock %}
 
-  <!-- RudderStack Analytics -->
+  <!-- Segment Analytics (LGPD: executa apenas apos consentimento via Ketch) -->
   <script
     type="text/plain"
     data-ketch-consent="analytics"
     data-ketch-purpose="analytics"
   >
     !(function () {
-      "use strict";
-      window.RudderSnippetVersion = "3.2.0";
-      var e = "rudderanalytics";
-      window[e] || (window[e] = []);
-      var rudderanalytics = window[e];
-      if (Array.isArray(rudderanalytics)) {
-        if (
-          true === rudderanalytics.snippetExecuted &&
+      var i = "analytics",
+        analytics = (window[i] = window[i] || []);
+      if (!analytics.initialize)
+        if (analytics.invoked)
           window.console &&
-          console.error
-        ) {
-          console.error(
-            "RudderStack JavaScript SDK snippet included more than once."
-          );
-        } else {
-          (rudderanalytics.snippetExecuted = true),
-            (window.rudderAnalyticsBuildType = "legacy");
-          var sdkBaseUrl = "https://cdn.rudderlabs.com";
-          var sdkVersion = "v3";
-          var sdkFileName = "rsa.min.js";
-          var scriptLoadingMode = "async";
-          var r = [
-            "setDefaultInstanceKey",
-            "load",
-            "ready",
-            "page",
-            "track",
+            console.error &&
+            console.error("Segment snippet included twice.");
+        else {
+          analytics.invoked = !0;
+          analytics.methods = [
+            "trackSubmit",
+            "trackClick",
+            "trackLink",
+            "trackForm",
+            "pageview",
             "identify",
-            "alias",
-            "group",
             "reset",
+            "group",
+            "track",
+            "ready",
+            "alias",
+            "debug",
+            "page",
+            "screen",
+            "once",
+            "off",
+            "on",
+            "addSourceMiddleware",
+            "addIntegrationMiddleware",
             "setAnonymousId",
-            "startSession",
-            "endSession",
-            "consent",
-            "addCustomIntegration",
+            "addDestinationMiddleware",
+            "register",
           ];
-          for (var n = 0; n < r.length; n++) {
-            var t = r[n];
-            rudderanalytics[t] = (function (r) {
-              return function () {
-                var n;
-                Array.isArray(window[e])
-                  ? rudderanalytics.push(
-                      [r].concat(Array.prototype.slice.call(arguments))
-                    )
-                  : null === (n = window[e][r]) ||
-                    void 0 === n ||
-                    n.apply(window[e], arguments);
-              };
-            })(t);
+          analytics.factory = function (e) {
+            return function () {
+              if (window[i].initialized)
+                return window[i][e].apply(window[i], arguments);
+              var n = Array.prototype.slice.call(arguments);
+              if (
+                ["track", "screen", "alias", "group", "page", "identify"].indexOf(
+                  e
+                ) > -1
+              ) {
+                var c = document.querySelector("link[rel='canonical']");
+                n.push({
+                  __t: "bpc",
+                  c: (c && c.getAttribute("href")) || void 0,
+                  p: location.pathname,
+                  u: location.href,
+                  s: location.search,
+                  t: document.title,
+                  r: document.referrer,
+                });
+              }
+              n.unshift(e);
+              analytics.push(n);
+              return analytics;
+            };
+          };
+          for (var n = 0; n < analytics.methods.length; n++) {
+            var key = analytics.methods[n];
+            analytics[key] = analytics.factory(key);
           }
-          try {
-            new Function(
-              'class Test{field=()=>{};test({prop=[]}={}){return prop?(prop?.property??[...prop]):import("");}}'
-            ),
-              (window.rudderAnalyticsBuildType = "modern");
-          } catch (i) {}
-          var d = document.head || document.getElementsByTagName("head")[0];
-          var o = document.body || document.getElementsByTagName("body")[0];
-          (window.rudderAnalyticsAddScript = function (e, r, n) {
+          analytics.load = function (key, n) {
             var t = document.createElement("script");
-            (t.src = e),
-              t.setAttribute("data-loader", "RS_JS_SDK"),
-              r && n && t.setAttribute(r, n),
-              "async" === scriptLoadingMode
-                ? (t.async = true)
-                : "defer" === scriptLoadingMode && (t.defer = true),
-              d
-                ? d.insertBefore(t, d.firstChild)
-                : o.insertBefore(t, o.firstChild);
-          }),
-            (window.rudderAnalyticsMount = function () {
-              !(function () {
-                if ("undefined" == typeof globalThis) {
-                  var e;
-                  var r = (function getGlobal() {
-                    return "undefined" != typeof self
-                      ? self
-                      : "undefined" != typeof window
-                      ? window
-                      : null;
-                  })();
-                  r &&
-                    Object.defineProperty(r, "globalThis", {
-                      value: r,
-                      configurable: true,
-                    });
-                }
-              })(),
-                window.rudderAnalyticsAddScript(
-                  ""
-                    .concat(sdkBaseUrl, "/")
-                    .concat(sdkVersion, "/")
-                    .concat(window.rudderAnalyticsBuildType, "/")
-                    .concat(sdkFileName),
-                  "data-rsa-write-key",
-                  "32TbozUnb3eqYoOCIZy3PRi3F6R"
-                );
-            }),
-            "undefined" == typeof Promise || "undefined" == typeof globalThis
-              ? window.rudderAnalyticsAddScript(
-                  "https://polyfill-fastly.io/v3/polyfill.min.js?version=3.111.0&features=Symbol%2CPromise&callback=rudderAnalyticsMount"
-                )
-              : window.rudderAnalyticsMount();
-          var loadOptions = {};
-          rudderanalytics.load(
-            "32TbozUnb3eqYoOCIZy3PRi3F6R",
-            "https://celogosjopvexz.dataplane.rudderstack.com",
-            loadOptions
-          );
+            t.type = "text/javascript";
+            t.async = !0;
+            t.setAttribute("data-global-segment-analytics-key", i);
+            t.src =
+              "https://cdn.segment.com/analytics.js/v1/" +
+              key +
+              "/analytics.min.js";
+            var r = document.getElementsByTagName("script")[0];
+            r.parentNode.insertBefore(t, r);
+            analytics._loadOptions = n;
+          };
+          analytics._writeKey = "X6NmrdCUTzugIXB1kIENgXpx7iv3ofpT";
+          analytics.SNIPPET_VERSION = "5.2.0";
+          analytics.load("X6NmrdCUTzugIXB1kIENgXpx7iv3ofpT");
+          analytics.page();
         }
-      }
     })();
   </script>
-  <!-- Fim do RudderStack Analytics -->
+  <!-- Fim Segment Analytics -->
 
-  <!-- Dispara o evento de visualização de página após a carga do RudderStack -->
-  <script>
-    // Dispara o evento de visualização de página
-    rudderanalytics.page();
-  </script>
+  <!-- CSS não-bloqueante via loadCSS -->
+  <!-- CSS tree-shaked (PurgeCSS) -->
+  <link rel="stylesheet" href="/static/css-purged/swiper.min.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="/static/css-purged/swiper.min.css" /></noscript>
+  <link rel="stylesheet" href="/static/css-purged/magnific-popup.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="/static/css-purged/magnific-popup.css" /></noscript>
+  <link rel="stylesheet" href="/static/css-purged/metismenu.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="/static/css-purged/metismenu.css" /></noscript>
+  <link rel="stylesheet" href="/static/css-purged/bootstrap.min.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="/static/css-purged/bootstrap.min.css" /></noscript>
+  <link rel="stylesheet" href="/static/css-purged/style.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="/static/css-purged/style.css" /></noscript>
 
   <!-- swiper css -->
   <link

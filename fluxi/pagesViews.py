@@ -25,7 +25,19 @@ logger = logging.getLogger(__name__)
 
 def about(request):
     """Renderiza a página sobre nós."""
-    data = {"footer": "true"}
+    data = {
+        "footer": "true",
+        "page_title": "Sobre Nós - Centro Educacional Logos",
+        "page_description": (
+            "Conheça a história do Centro Educacional Logos, há 30 anos"
+            " formando cidadãos éticos e competentes em Ananindeua"
+            " com excelência acadêmica e valores cristãos."
+        ),
+        "page_canonical": "https://www.celogos.com.br/about/",
+        "breadcrumb_items": [
+            {"name": "Sobre Nós", "url": "https://www.celogos.com.br/about/"},
+        ],
+    }
     return render(request, "pages/about.html", data)
 
 
@@ -56,9 +68,7 @@ def contato(request):
 
             # Agora, salva a instância completa no banco de dados
             instancia_contato.save()
-            logger.info(
-                f"Contato salvo no banco de dados com consentimento: {consent_given}"
-            )
+            logger.info(f"Contato salvo no banco de dados com consentimento: {consent_given}")
 
             request.session.save()  # Certifique-se de que a sessão está salva
 
@@ -70,6 +80,15 @@ def contato(request):
         "footer": "true",
         "header": "true",
         "form": form,
+        "page_title": "Contato - Centro Educacional Logos",
+        "page_description": (
+            "Entre em contato com o Centro Educacional Logos em Ananindeua."
+            " Agende uma visita e conheça nossa estrutura completa."
+        ),
+        "page_canonical": "https://www.celogos.com.br/contato/",
+        "breadcrumb_items": [
+            {"name": "Contato", "url": "https://www.celogos.com.br/contato/"},
+        ],
     }
     return render(request, "pages/contato.html", context)
 
@@ -93,9 +112,7 @@ def leadster_webhook(request):
 
         # Verifica se o corpo do webhook está vazio ou não contém os dados esperados e retorna um erro apropriado se necessário.
         if not data:
-            return JsonResponse(
-                {"error": "Chave 'body' não encontrada no payload."}, status=400
-            )
+            return JsonResponse({"error": "Chave 'body' não encontrada no payload."}, status=400)
 
         # Extrai os dados principais do lead
         nome = data.get("name") or data.get("nome")
@@ -122,9 +139,7 @@ def leadster_webhook(request):
         query_params = parse_qs(parsed_url.query)
 
         # 1. Extrai os dados do lead dos parâmetros de URL, se disponíveis.
-        fbp = query_params.get("fbp", [None])[
-            0
-        ]  # Exemplo: "fb.1.1234567890.1234567890"
+        fbp = query_params.get("fbp", [None])[0]  # Exemplo: "fb.1.1234567890.1234567890"
         fbc = query_params.get("fbc", [None])[0]
         fbclid = query_params.get("fbclid", [None])[0]  # Exemplo: "IwAR1..."
         gclid = query_params.get("gclid", [None])[0]  # Exemplo: "EAIaIQobChMI..."
@@ -157,9 +172,7 @@ def leadster_webhook(request):
                         "longitude": response.location.longitude,
                     }
             except (AddressNotFoundError, FileNotFoundError):
-                logger.warning(
-                    f"Não foi possível encontrar a localização para o IP: {ip_lead}"
-                )
+                logger.warning(f"Não foi possível encontrar a localização para o IP: {ip_lead}")
                 pass
 
         # 2. Extrai os dados do lead e os UTMs diretamente dos campos do JSON.
