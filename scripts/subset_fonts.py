@@ -17,6 +17,7 @@ UNICODES = [
     0xF00D,
     0xF054,
     0xF061,
+    0xF062,  # fa-arrow-up (back-to-top)
     0xF086,
     0xF08C,
     0xF099,
