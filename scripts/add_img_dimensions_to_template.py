@@ -99,17 +99,11 @@ def add_dims_to_template(template_path, skip_attrs=True):
     with open(template_path) as f:
         content = f.read()
 
-    img_re = re.compile(r"<img\s", re.IGNORECASE)
+    # Match the FULL <img ... > tag (multi-line supported via [^>]*)
+    img_re = re.compile(r"<img\s[^>]*>", re.IGNORECASE)
 
     def _replace_img(match):
-        match.start()
-        # Find the end of this img tag
-        rest = match.string[match.start() :]
-        # Find closing >
-        end = rest.find(">")
-        if end == -1:
-            return match.group(0)
-        tag = rest[: end + 1]
+        tag = match.group(0)
 
         # Skip if already has width AND height
         if skip_attrs and "width=" in tag and "height=" in tag:

@@ -1,4 +1,4 @@
-{% extends 'layout/layout.html' %} {% load static %} {% block content %}
+{% extends 'layout/layout.html' %} {% block content %}
 
 <!-- single case studies -->
 <div class="single-case-studies-bread-crumb-area pt--120 pb--80">
@@ -19,18 +19,10 @@
     </div>
   </div>
   <div class="shape-area">
-    <img src="{% static 'images/product/shape/06.webp' %}" alt="" class="one" />
-    <img src="{% static 'images/product/shape/07.webp' %}" alt="" class="two" />
-    <img
-      src="{% static 'images/product/shape/08.webp' %}"
-      alt=""
-      class="three"
-    />
-    <img
-      src="{% static 'images/product/shape/09.webp' %}"
-      alt=""
-      class="four"
-    />
+    <img src="/static/images/product/shape/06.webp" alt="" class="one" />
+    <img src="/static/images/product/shape/07.webp" alt="" class="two" />
+    <img src="/static/images/product/shape/08.webp" alt="" class="three" />
+    <img src="/static/images/product/shape/09.webp" alt="" class="four" />
   </div>
 </div>
 <!-- single case studies end -->
@@ -41,10 +33,7 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="large-thumbnail">
-          <img
-            src="{% static 'images/service/med_cadernao.png' %}"
-            alt="banner"
-          />
+          <img src="/static/images-optimized/service/med_cadernao.webp" alt="banner"  width="2048" height="1247" />
         </div>
       </div>
     </div>
@@ -103,10 +92,7 @@
       <div class="col-lg-6 col-md-6 col-sm-10">
         <div class="large-thumbnail">
           <a href="#" class="thumbnail">
-            <img
-              src="{% static 'images/service/med_sas_enem.png' %}"
-              alt="product"
-            />
+            <img src="/static/images-optimized/service/med_sas_enem.webp" alt="product"  width="2768" height="2769" />
           </a>
         </div>
       </div>
@@ -127,27 +113,15 @@
       </div>
       <div class="service--shape">
         <img
-          src="{% static 'images/service/shape/05.webp' %}"
-          alt="service"
-          class="one"
-        />          src="/static/images/service/shape/05.webp"
-          alt="service"
-          class="one"
-        />          src="/static/images/service/shape/05.webp"
+          src="/static/images/service/shape/05.webp"
           alt="service"
           class="one"
         />
         <img
-          src="{% static 'images/service/shape/06.webp' %}"
+          src="/static/images/service/shape/06.webp"
           alt="service"
           class="two"
-         width="288" height="238" />          src="/static/images/service/shape/06.webp"
-          alt="service"
-          class="two"
-         width="288" height="238" />          src="/static/images/service/shape/06.webp"
-          alt="service"
-          class="two"
-        />
+         width="288" height="238" />
       </div>
     </div>
     <div
@@ -171,36 +145,24 @@
         <div class="large-thumbnail d-flex justify-content-md-end">
           <a href="#" class="thumbnail">
             <img
-              src="{% static 'images/service/med_aluna_prova.png' %}"
+              src="/static/images-optimized/service/med_aluna_prova.webp"
               alt="product"
-            />
+             width="1931" height="1931" />
           </a>
         </div>
       </div>
       <div class="service--shape">
         <div class="service--shape">
           <img
-            src="{% static 'images/service/shape/07.webp' %}"
+            src="/static/images/service/shape/07.webp"
             alt="service"
             class="three"
-           width="248" height="291" />            src="/static/images/service/shape/07.webp"
-            alt="service"
-            class="three"
-           width="248" height="291" />            src="/static/images/service/shape/07.webp"
-            alt="service"
-            class="three"
-          />
+           width="248" height="291" />
           <img
-            src="{% static 'images/service/shape/08.webp' %}"
+            src="/static/images/service/shape/08.webp"
             alt="service"
             class="four"
-           width="298" height="298" />            src="/static/images/service/shape/08.webp"
-            alt="service"
-            class="four"
-           width="298" height="298" />            src="/static/images/service/shape/08.webp"
-            alt="service"
-            class="four"
-          />
+           width="298" height="298" />
         </div>
       </div>
     </div>
@@ -236,19 +198,19 @@
         <div class="col-lg-6 col-md-6">
           <div class="thumbnail-image-grid mb--30">
             <a href="#" class="thumbnail">
-              <img src="{% static 'images/product/40.jpg' %}" alt="" />
+              <img src="/static/images/product/40.jpg" alt="" />
             </a>
           </div>
           <div class="thumbnail-image-grid">
             <a href="#" class="thumbnail">
-              <img src="{% static 'images/product/41.jpg' %}" alt="" />
+              <img src="/static/images/product/41.jpg" alt="" />
             </a>
           </div>
         </div>
         <div class="col-lg-6 col-md-6">
           <div class="thumbnail-image-grid mb--25">
             <a href="#" class="thumbnail">
-              <img src="{% static 'images/product/42.jpg' %}" alt="" />
+              <img src="/static/images/product/42.jpg" alt="" />
             </a>
           </div>
         </div>
@@ -256,6 +218,9 @@
     </div>
   </div>
   <!-- rts image grid area end -->
+
 </div>
 
-{% include "partials/cta_visita.html" %} {% endblock content %}
+{% include "partials/cta_visita.html" %}
+
+{% endblock content %}
