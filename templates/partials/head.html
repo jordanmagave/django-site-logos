@@ -224,8 +224,9 @@
   </script>
   <!-- Fim Segment Analytics -->
 
-  <!-- CSS não-bloqueante via loadCSS -->
-  <!-- CSS tree-shaked (PurgeCSS) -->
+  <!-- CSS tree-shaked (PurgeCSS) — não-bloqueante via loadCSS -->
+  <link rel="stylesheet" href="/static/fonts-subset/fontawesome-subset.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="/static/fonts-subset/fontawesome-subset.css" /></noscript>
   <link rel="stylesheet" href="/static/css-purged/swiper.min.css" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="/static/css-purged/swiper.min.css" /></noscript>
   <link rel="stylesheet" href="/static/css-purged/magnific-popup.css" media="print" onload="this.media='all'" />
@@ -237,7 +238,7 @@
   <link rel="stylesheet" href="/static/css-purged/style.css" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="/static/css-purged/style.css" /></noscript>
 
-  <!-- swiper css -->
+  <!-- CSS original (fallback para estilos que o PurgeCSS possa ter removido) -->
   <link
     rel="stylesheet preload"
     href="{% static 'css/plugins/swiper.min.css' %}"
