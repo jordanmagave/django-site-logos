@@ -1,4 +1,4 @@
-{% extends 'layout/layout.html' %} {% block content %}
+{% extends 'layout/layout.html' %} {% load static %} {% block content %}
 
 <!-- single case studies -->
 <div class="single-case-studies-bread-crumb-area pt--120 pb--80">
@@ -7,8 +7,9 @@
       <div class="col-lg-12">
         <div class="breadcrumb-inner">
           <div class="pagimation">
-            <a href="{% url 'index' %}">Home</a><i class="fa-regular fa-chevron-right"></i> <a href="#">Serviços</a><i
-              class="fa-regular fa-chevron-right"></i>
+            <a href="{% url 'index' %}">Home</a
+            ><i class="fa-regular fa-chevron-right"></i> <a href="#">Serviços</a
+            ><i class="fa-regular fa-chevron-right"></i>
             <a href="#" class="current">Ensino Fundamental 1</a>
           </div>
           <h1 class="title split-collab">Ensino Fundamental 1</h1>
@@ -20,10 +21,18 @@
     </div>
   </div>
   <div class="shape-area">
-    <img src="/static/images/product/shape/06.webp" alt="" class="one"  width="288" height="238" />
-    <img src="/static/images/product/shape/07.webp" alt="" class="two"  width="248" height="291" />
-    <img src="/static/images/product/shape/08.webp" alt="" class="three"  width="298" height="298" />
-    <img src="/static/images/product/shape/09.webp" alt="" class="four"  width="296" height="293" />
+    <img src="{% static 'images/product/shape/06.webp' %}" alt="" class="one" />
+    <img src="{% static 'images/product/shape/07.webp' %}" alt="" class="two" />
+    <img
+      src="{% static 'images/product/shape/08.webp' %}"
+      alt=""
+      class="three"
+    />
+    <img
+      src="{% static 'images/product/shape/09.webp' %}"
+      alt=""
+      class="four"
+    />
   </div>
 </div>
 <!-- single case studies end -->
@@ -34,7 +43,10 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="large-thumbnail">
-          <img src="/static/images-optimized/service/fd1_criancas_juntas.webp" alt="banner"  width="1665" height="1248" />
+          <img
+            src="{% static 'images/service/fd1_criancas_juntas.png' %}"
+            alt="banner"
+          />
         </div>
       </div>
     </div>
@@ -49,10 +61,10 @@
       <div class="col-lg-8">
         <div class="strategy-left-content">
           <p class="disc">
-            O Ensino Fundamental 1 é o momento de consolidar a
-            alfabetização e desenvolver o gosto pelo conhecimento. Com o Sistema
-            de Ensino Mackenzie, oferecemos uma educação que integra excelência
-            acadêmica e cosmovisão cristã.
+            O Ensino Fundamental 1 é o momento de consolidar a alfabetização e
+            desenvolver o gosto pelo conhecimento. Com o Sistema de Ensino
+            Mackenzie, oferecemos uma educação que integra excelência acadêmica
+            e cosmovisão cristã.
           </p>
           <p class="disc">
             Nossa metodologia valoriza a iniciativa do aluno, desenvolvendo
@@ -88,11 +100,15 @@
 <div class="rts-product-area">
   <div class="container-2">
     <div
-      class="row service-relative align-items-center justify-content-sm-center section-separator-top-bg-white single-product-list pt--125 pb--125 pb_md--80 pb_sm--30 pt_md--80 pt_sm--50">
+      class="row service-relative align-items-center justify-content-sm-center section-separator-top-bg-white single-product-list pt--125 pb--125 pb_md--80 pb_sm--30 pt_md--80 pt_sm--50"
+    >
       <div class="col-lg-6 col-md-6 col-sm-10">
         <div class="large-thumbnail">
           <a href="#" class="thumbnail">
-            <img src="/static/images-optimized/service/fd1_criancas.webp" alt="product"  width="832" height="832" />
+            <img
+              src="{% static 'images/service/fd1_criancas.png' %}"
+              alt="product"
+            />
           </a>
         </div>
       </div>
@@ -111,12 +127,21 @@
         </div>
       </div>
       <div class="service--shape">
-        <img src="/static/images/service/shape/05.webp" alt="service" class="one"  width="281" height="287" />
-        <img src="/static/images/service/shape/06.webp" alt="service" class="two"  width="288" height="238" />
+        <img
+          src="{% static 'images/service/shape/05.webp' %}"
+          alt="service"
+          class="one"
+        />
+        <img
+          src="{% static 'images/service/shape/06.webp' %}"
+          alt="service"
+          class="two"
+        />
       </div>
     </div>
     <div
-      class="row service-relative align-items-center justify-content-sm-center section-separator-top-bg-white single-product-list pt--125 pb--125 pb_md--80 pb_sm--30 pt_md--80 pt_sm--50">
+      class="row service-relative align-items-center justify-content-sm-center section-separator-top-bg-white single-product-list pt--125 pb--125 pb_md--80 pb_sm--30 pt_md--80 pt_sm--50"
+    >
       <div class="col-lg-5 col-md-6 col-sm-10">
         <div class="portfolio-content-wrapper-list">
           <h2 class="title split-collab">
@@ -134,13 +159,24 @@
       <div class="col-lg-6 col-md-6 col-sm-10 offset-lg-1">
         <div class="large-thumbnail d-flex justify-content-md-end">
           <a href="#" class="thumbnail">
-            <img src="/static/images-optimized/service/fd1_visita_utinga.webp" alt="product"  width="472" height="472" />
+            <img
+              src="{% static 'images/service/fd1_visita_utinga.png' %}"
+              alt="product"
+            />
           </a>
         </div>
       </div>
       <div class="service--shape">
-        <img src="/static/images/service/shape/07.webp" alt="service" class="three"  width="248" height="291" />
-        <img src="/static/images/service/shape/08.webp" alt="service" class="four"  width="298" height="298" />
+        <img
+          src="{% static 'images/service/shape/07.webp' %}"
+          alt="service"
+          class="three"
+        />
+        <img
+          src="{% static 'images/service/shape/08.webp' %}"
+          alt="service"
+          class="four"
+        />
       </div>
     </div>
   </div>
@@ -174,19 +210,25 @@
       <div class="col-lg-6 col-md-6">
         <div class="thumbnail-image-grid mb--30">
           <a href="#" class="thumbnail">
-            <img src="/static/images-optimized/service/fd1_matematica.webp" alt=""  width="774" height="774" />
+            <img
+              src="{% static 'images/service/fd1_matematica.png' %}"
+              alt=""
+            />
           </a>
         </div>
         <div class="thumbnail-image-grid">
           <a href="#" class="thumbnail">
-            <img src="/static/images-optimized/service/fd1_maker.webp" alt=""  width="880" height="880" />
+            <img src="{% static 'images/service/fd1_maker.png' %}" alt="" />
           </a>
         </div>
       </div>
       <div class="col-lg-6 col-md-6">
         <div class="thumbnail-image-grid mb--25">
           <a href="#" class="thumbnail">
-            <img src="/static/images-optimized/service/fd1_experimento.webp" alt=""  width="1784" height="3416" />
+            <img
+              src="{% static 'images/service/fd1_experimento.png' %}"
+              alt=""
+            />
           </a>
         </div>
       </div>
@@ -195,6 +237,4 @@
 </div>
 <!-- rts image grid area end -->
 
-{% include 'partials/cta_visita.html' %}
-
-{% endblock content %}
+{% include 'partials/cta_visita.html' %} {% endblock content %}

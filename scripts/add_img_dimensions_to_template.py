@@ -6,81 +6,28 @@ import re
 import sys
 
 # Map of image src (relative to static/) to (width, height)
+# Pre-populated from known image dimensions
 KNOWN_DIMS = {
-    # Banner
-    "images/banner/frente_escola.png": (1000, 666),
     "images/banner/shape/01.webp": (311, 1296),
     "images/banner/shape/06.webp": (288, 238),
     "images/banner/shape/07.webp": (248, 291),
     "images/banner/shape/08.webp": (298, 298),
     "images/banner/shape/10.webp": (268, 287),
-    # Brand (PNG reais, templates usam .svg)
     "images/brand/1.png": (140, 60),
     "images/brand/2.png": (140, 60),
     "images/brand/3.png": (140, 60),
     "images/brand/4.png": (140, 60),
     "images/brand/5.png": (140, 60),
-    "images/brand/01.svg": (140, 60),
-    "images/brand/02.svg": (140, 60),
-    "images/brand/03.svg": (140, 60),
-    "images/brand/04.svg": (140, 60),
-    "images/brand/05.svg": (140, 60),
-    "images/brand/21.svg": (140, 60),
-    "images/brand/22.svg": (140, 60),
-    "images/brand/23.svg": (140, 60),
-    "images/brand/24.svg": (140, 60),
-    # Testimonials avatars
     "images/testimonials/avatars/familia_3_circulo.png": (60, 60),
     "images/testimonials/avatars/07.png": (60, 60),
     "images/testimonials/avatars/jamily_testem.png": (60, 60),
     "images/testimonials/avatars/paulo_igor_testem.png": (58, 58),
     "images/testimonials/avatars/familia_3.png": (60, 60),
-    # Product shapes
-    "images/product/shape/01.webp": (311, 1296),
-    "images/product/shape/02.webp": (90, 252),
-    "images/product/shape/03.webp": (72, 280),
-    "images/product/shape/04.webp": (123, 271),
-    "images/product/shape/05.webp": (281, 287),
-    "images/product/shape/06.webp": (288, 238),
-    "images/product/shape/07.webp": (248, 291),
-    "images/product/shape/08.webp": (298, 298),
-    "images/product/shape/09.webp": (296, 293),
-    "images/product/shape/10.webp": (268, 287),
     "images/product/shape/11.webp": (279, 253),
-    "images/product/shape/12.webp": (388, 867),
-    "images/product/shape/13.webp": (302, 1294),
-    "images/product/shape/14.webp": (263, 280),
-    "images/product/IMG_6316 (1).jpg": (5829, 3886),
-    "images/product/alunos_formatura.JPG": (2400, 1600),
-    "images/product/familia_alunos.png": (1248, 832),
-    "images/product/fd1_pousada1.png": (1829, 1829),
-    "images/product/fd2_pousada1.png": (2713, 2713),
-    "images/product/infantil_pousada1.png": (2687, 2687),
-    "images/product/integral_karate.png": (1889, 1889),
-    "images/product/integral_posada1.png": (3057, 3057),
-    "images/product/med_posada1.png": (537, 537),
-    "images/product/medio_resultado.JPG": (3328, 2496),
-    # Service shapes
-    "images/service/shape/01.webp": (311, 1296),
-    "images/service/shape/02.webp": (90, 252),
-    "images/service/shape/03.webp": (72, 280),
-    "images/service/shape/04.webp": (123, 271),
-    "images/service/shape/05.webp": (281, 287),
     "images/service/shape/06.webp": (288, 238),
     "images/service/shape/07.webp": (248, 291),
     "images/service/shape/08.webp": (298, 298),
-    "images/service/shape/09.webp": (296, 293),
     "images/service/shape/10.webp": (268, 287),
-    "images/service/shape/11.webp": (279, 253),
-    "images/service/shape/12.webp": (388, 867),
-    "images/service/shape/13.webp": (302, 1294),
-    "images/service/shape/14.webp": (263, 280),
-    "images/service/fd1_experimento.png": (1784, 3416),
-    "images/service/integral_banner.png": (2048, 1536),
-    "images/service/integral_menino.png": (2214, 2214),
-    "images/service/integral_orando.png": (2214, 2214),
-    "images/service/med_sas_enem.png": (2768, 2769),
-    # Optimized banners
     "images-optimized/banner/frente_escola.webp": (1000, 666),
     "images-optimized/product/alunos_formatura.webp": (2400, 1600),
     "images-optimized/product/fd1_pousada1.webp": (1829, 1829),
@@ -91,102 +38,53 @@ KNOWN_DIMS = {
     "images-optimized/product/med_posada1.webp": (537, 537),
     "images-optimized/product/medio_resultado.webp": (3328, 2496),
     "images-optimized/product/IMG_6316 (1).webp": (5829, 3886),
-    "images-optimized/product/familia_alunos.webp": (1248, 832),
-    "images-optimized/about/aluno_formando.webp": (1473, 2210),
-    # Optimized services
-    "images-optimized/service/criancas_brincando.webp": (1741, 1175),
-    "images-optimized/service/pascoa_infantil.webp": (2952, 2214),
-    "images-optimized/service/infantil_estudando.webp": (4160, 3121),
-    "images-optimized/service/infantil_exercicio.webp": (830, 830),
-    "images-optimized/service/caca_tesouro.webp": (830, 830),
-    "images-optimized/service/brinquedoteca_comida.webp": (800, 1664),
-    "images-optimized/service/fd1_criancas_juntas.webp": (1665, 1248),
-    "images-optimized/service/fd1_criancas.webp": (832, 832),
-    "images-optimized/service/fd1_visita_utinga.webp": (472, 472),
-    "images-optimized/service/fd1_matematica.webp": (774, 774),
-    "images-optimized/service/fd1_maker.webp": (880, 880),
-    "images-optimized/service/fd1_experimento.webp": (1784, 3416),
-    "images-optimized/service/fd2_alunos.webp": (2048, 1357),
-    "images-optimized/service/fd2_aluna.webp": (2048, 2048),
-    "images-optimized/service/orando_fd2.webp": (1576, 1576),
-    "images-optimized/service/fd2_aluno_cartaz.webp": (2047, 2048),
-    "images-optimized/service/fd2_professora.webp": (2047, 2048),
-    "images-optimized/service/fd2_aluno_maker.webp": (1091, 2048),
-    "images-optimized/service/med_cadernao.webp": (2048, 1247),
-    "images-optimized/service/med_sas_enem.webp": (2768, 2769),
-    "images-optimized/service/med_aluna_prova.webp": (1931, 1931),
-    "images-optimized/service/integral_banner.webp": (2048, 1536),
-    "images-optimized/service/integral_menino.webp": (2214, 2214),
-    "images-optimized/service/integral_orando.webp": (2214, 2214),
-    # Gallery thumbnails (600x600)
-    **{f"images/gallery/{i:02d}.webp": (600, 600) for i in range(1, 21)},
-    # Gallery originals (full size, used in comparacao_imagens)
-    **{f"images/gallery/{i:02d}.png": (4160, 4160) for i in [1,2,4,5,6,7,10,12,16,18,19]},
-    # Gallery optimized (full size WebP)
-    **{f"images-optimized/gallery/{i:02d}.webp": (4160, 4160) for i in [1,2,4,5,6,7,10,12,16,18,19]},
-    "images-optimized/gallery/03.webp": (3859, 3859),
-    "images-optimized/gallery/08.webp": (4160, 4160),
-    "images-optimized/gallery/09.webp": (4160, 4160),
-    "images-optimized/gallery/11.webp": (2768, 2768),
-    "images-optimized/gallery/13.webp": (3931, 3931),
-    "images-optimized/gallery/14.webp": (2768, 2768),
-    "images-optimized/gallery/15.webp": (1363, 1363),
-    "images-optimized/gallery/17.webp": (2184, 2184),
-    "images-optimized/gallery/20.webp": (2768, 2768),
-    "images/gallery/foto_aluno_orando.png": (812, 812),
-    # Logos (SVG)
-    "images/logo/logo-horizontal-colorida-azul.svg": (4500, 1250),
-    "images/logo/logo-horizontal-colorida-branca.svg": (4500, 1250),
-    "images/logo/logo-1.svg": (4500, 1250),
-    "images/logo/logo-one-dark.svg": (4500, 1250),
-    # Contact SVGs (viewBox 80x80)
-    "images/contact/01.svg": (80, 80),
-    "images/contact/02.svg": (80, 80),
-    "images/contact/03.svg": (80, 80),
-    # Counter SVGs (viewBox 80x80)
-    "images/counter/01.svg": (80, 80),
-    "images/counter/11.svg": (80, 80),
-    "images/counter/12.svg": (80, 80),
-    "images/counter/13.svg": (80, 80),
-    "images/counter/14.svg": (80, 80),
-    # About / FAQ shapes
-    "images/about/aluno_formando.jpg": (1473, 2210),
-    "images/faq/shape/01.png": (35, 35),
-    "images/faq/shape/02.png": (26, 26),
-    "images/faq/shape/03.png": (87, 87),
-    "images/faq/shape/04.png": (35, 35),
-    # Error page
-    "images/error.png": (630, 369),
-    # Favicon
-    "images/fav.png": (25, 25),
-    # Product shape PNGs (referenced in templates, WebP equivalents exist)
-    "images/product/shape/01.png": (311, 1296),
-    "images/product/shape/02.png": (90, 252),
-    "images/product/shape/03.png": (72, 280),
-    "images/product/shape/04.png": (123, 271),
-    # Service shape PNGs (WebP equivalents exist)
-    "images/service/shape/02.png": (90, 252),
-    "images/service/shape/04.png": (123, 271),
-    "images/service/shape/06.png": (288, 238),
-    "images/service/shape/10.png": (268, 287),
-    "images/service/shape/13.png": (302, 1294),
-    "images/service/shape/14.png": (263, 280),
-    # Working-process (doesn't exist on disk, estimate 80x80)
-    "images/working-process/04.png": (80, 80),
 }
 
+# Gallery images (600x600)
+for i in range(1, 21):
+    KNOWN_DIMS[f"images/gallery/{i:02d}.webp"] = (600, 600)
+KNOWN_DIMS["images/gallery/foto_aluno_orando.png"] = (600, 600)
+
+# Service images
+KNOWN_DIMS["images-optimized/service/criancas_brincando.webp"] = (1741, 1175)
+KNOWN_DIMS["images-optimized/service/pascoa_infantil.webp"] = (2952, 2214)
+KNOWN_DIMS["images-optimized/service/infantil_estudando.webp"] = (4160, 3121)
+KNOWN_DIMS["images-optimized/service/infantil_exercicio.webp"] = (830, 830)
+KNOWN_DIMS["images-optimized/service/caca_tesouro.webp"] = (830, 830)
+KNOWN_DIMS["images-optimized/service/brinquedoteca_comida.webp"] = (800, 1664)
+KNOWN_DIMS["images-optimized/service/fd1_criancas_juntas.webp"] = (1665, 1248)
+KNOWN_DIMS["images-optimized/service/fd1_criancas.webp"] = (832, 832)
+KNOWN_DIMS["images-optimized/service/fd1_visita_utinga.webp"] = (472, 472)
+KNOWN_DIMS["images-optimized/service/fd1_matematica.webp"] = (774, 774)
+KNOWN_DIMS["images-optimized/service/fd1_maker.webp"] = (880, 880)
+KNOWN_DIMS["images-optimized/service/fd1_experimento.webp"] = (1784, 3416)
+KNOWN_DIMS["images-optimized/service/fd2_alunos.webp"] = (2048, 1357)
+KNOWN_DIMS["images-optimized/service/fd2_aluna.webp"] = (2048, 2048)
+KNOWN_DIMS["images-optimized/service/orando_fd2.webp"] = (1576, 1576)
+KNOWN_DIMS["images-optimized/service/fd2_aluno_cartaz.webp"] = (2047, 2048)
+KNOWN_DIMS["images-optimized/service/fd2_professora.webp"] = (2047, 2048)
+KNOWN_DIMS["images-optimized/service/fd2_aluno_maker.webp"] = (1091, 2048)
+KNOWN_DIMS["images-optimized/service/med_cadernao.webp"] = (2048, 1247)
+KNOWN_DIMS["images-optimized/service/med_sas_enem.webp"] = (2768, 2769)
+KNOWN_DIMS["images-optimized/service/med_aluna_prova.webp"] = (1931, 1931)
+KNOWN_DIMS["images-optimized/service/integral_banner.webp"] = (2048, 1536)
+KNOWN_DIMS["images-optimized/service/integral_menino.webp"] = (2214, 2214)
+KNOWN_DIMS["images/about/aluno_formando.jpg"] = (1473, 2210)
+
+# Also try SVG logos
+KNOWN_DIMS["images/logo/logo-horizontal-colorida-azul.svg"] = (4500, 1250)
+KNOWN_DIMS["images/logo/logo-horizontal-colorida-branca.svg"] = (4500, 1250)
+KNOWN_DIMS["images/logo/logo-1.svg"] = (4500, 1250)
+KNOWN_DIMS["images/logo/logo-one-dark.svg"] = (4500, 1250)
+
 # Team photos
-for t in ["marcia", "missi", "synnara", "antolila", "thiago", "raquel", "katia", "odazilma", "09", "10", "11", "12", "13", "14", "15", "16"]:
+for t in ["marcia", "missi", "synnara", "antolila", "thiago", "raquel", "katia", "odazilma"]:
     KNOWN_DIMS[f"images/team/{t}.png"] = (263, 364)
 
 
 def _static_to_path(src):
     """Convert src attribute to filesystem path relative to static/."""
     src = src.strip("'\"")
-    # Handle {% static 'path' %} template tags
-    m = re.match(r"\{%\s*static\s+['\"](.+)['\"]\s*%\}", src)
-    if m:
-        return m.group(1)
     if src.startswith("/static/"):
         return src[len("/static/") :]
     if src.startswith("static/"):
@@ -201,11 +99,17 @@ def add_dims_to_template(template_path, skip_attrs=True):
     with open(template_path) as f:
         content = f.read()
 
-    # Match the FULL <img ... > tag (multi-line supported via [^>]*)
-    img_re = re.compile(r"<img\s[^>]*>", re.IGNORECASE)
+    img_re = re.compile(r"<img\s", re.IGNORECASE)
 
     def _replace_img(match):
-        tag = match.group(0)
+        match.start()
+        # Find the end of this img tag
+        rest = match.string[match.start() :]
+        # Find closing >
+        end = rest.find(">")
+        if end == -1:
+            return match.group(0)
+        tag = rest[: end + 1]
 
         # Skip if already has width AND height
         if skip_attrs and "width=" in tag and "height=" in tag:

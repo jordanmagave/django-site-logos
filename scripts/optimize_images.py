@@ -22,7 +22,6 @@ from PIL import Image
 IMG_DIR = Path("static/images")
 OUT_DIR = Path("static/images-optimized")
 QUALITY = 85
-# Images >200KB will be re-optimized at quality 75 in batch below
 BREAKPOINTS = [640, 960, 1280, 1920]
 SKIP_EXTS = {".svg", ".gif"}
 MIN_SIZE_KB = 50  # ignora imagens menores (icons, shapes)
