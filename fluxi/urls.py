@@ -44,4 +44,6 @@ urlpatterns = [
         adapter_views.leadster_webhook,
         name="leadster_webhook",
     ),
+    # Formulário público da Ouvidoria — landing aberta pelo HSM CTA do WhatsApp.
+    path("ouvidoria/formulario", adapter_views.ouvidoria_formulario, name="ouvidoria_formulario"),
 ]
