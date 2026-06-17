@@ -176,6 +176,28 @@ def ouvidoria_formulario(request: HttpRequest) -> HttpResponse:
     return render(request, "ouvidoria/formulario.html", context)
 
 
+def ouvidoria_obrigado(request: HttpRequest) -> HttpResponse:
+    """Página de confirmação pós-submissão — mostra o protocolo.
+
+    O protocolo vem na querystring ``?protocolo=OUV-...`` (o backend devolve
+    em 202; o JS do formulário redireciona pra cá imediatamente).
+    """
+
+    context = {
+        "footer": "true",
+        "header": "true",
+        "page_title": "Demanda registrada — Ouvidoria",
+        "page_description": "Sua demanda foi registrada na Ouvidoria do Centro Educacional Logos.",
+        "page_canonical": "https://www.celogos.com.br/ouvidoria/obrigado",
+        "breadcrumb_items": [
+            {"name": "Ouvidoria", "url": "https://www.celogos.com.br/ouvidoria/formulario"},
+            {"name": "Demanda registrada", "url": "https://www.celogos.com.br/ouvidoria/obrigado"},
+        ],
+        "protocolo": request.GET.get("protocolo", ""),
+    }
+    return render(request, "ouvidoria/obrigado.html", context)
+
+
 # =========================================================================
 # Helpers
 # =========================================================================

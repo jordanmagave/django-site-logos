@@ -46,4 +46,5 @@ urlpatterns = [
     ),
     # Formulário público da Ouvidoria — landing aberta pelo HSM CTA do WhatsApp.
     path("ouvidoria/formulario", adapter_views.ouvidoria_formulario, name="ouvidoria_formulario"),
+    path("ouvidoria/obrigado", adapter_views.ouvidoria_obrigado, name="ouvidoria_obrigado"),
 ]

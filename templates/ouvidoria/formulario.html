@@ -202,7 +202,6 @@
     botao.disabled = true;
     const textoOriginal = botao.innerHTML;
     botao.innerHTML = "Enviando…";
-    setMensagem("aviso", "Estamos analisando sua demanda — pode levar até 10 segundos.");
 
     const payload = {
       nome: el("nome").value.trim(),
@@ -222,14 +221,11 @@
         return r.json().then(function (body) { return { status: r.status, body: body }; });
       })
       .then(function (res) {
-        if (res.status === 201) {
-          form.style.display = "none";
-          setMensagem(
-            "sucesso",
-            "<strong>Demanda registrada!</strong><br>" +
-            "Protocolo: <code>" + (res.body.protocolo || "—") + "</code><br>" +
-            "Em breve um consultor retorna pelo telefone ou e-mail cadastrado na escola."
-          );
+        if (res.status === 202 || res.status === 201) {
+          // 202 = backend aceitou (classifier rodou, processamento em background).
+          // Redireciona pra página obrigado com o protocolo.
+          const protocolo = encodeURIComponent(res.body.protocolo || "");
+          window.location.replace("/ouvidoria/obrigado?protocolo=" + protocolo);
         } else if (res.status === 410) {
           setMensagem(
             "aviso",
