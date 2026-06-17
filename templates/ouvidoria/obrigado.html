@@ -26,33 +26,31 @@
       <div class="col-lg-8 col-md-10 col-12">
 
         {% if protocolo %}
-        <div class="ouvidoria-card-protocolo">
-          <p class="ouvidoria-card-label">Protocolo do atendimento</p>
-          <p class="ouvidoria-card-protocolo-valor">{{ protocolo }}</p>
-        </div>
+        <p style="margin:0 0 8px 0; font-size:14px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:#1d6f42;">
+          Protocolo do atendimento
+        </p>
+        <h2 style="margin:0 0 40px 0; padding:20px 24px; background:#e7f7ee; border:2px solid #1d6f42; border-radius:10px; color:#1d6f42 !important; font-size:18px; line-height:1.5; overflow-wrap:anywhere; font-family:monospace;">
+          {{ protocolo }}
+        </h2>
 
-        <div class="ouvidoria-proximos-passos">
-          <h3>Próximos passos</h3>
-          <ul>
-            <li>Nossa equipe está analisando sua demanda.</li>
-            <li>Você recebe uma confirmação pelo WhatsApp em alguns instantes.</li>
-            <li>O retorno final chega no telefone ou e-mail que você cadastrou na escola.</li>
-          </ul>
-          <p class="ouvidoria-guardar">
-            Guarde o número do protocolo acima para acompanhar o atendimento.
-          </p>
-        </div>
+        <h3 style="margin:0 0 16px 0; color:inherit;">Próximos passos</h3>
+        <ul style="padding-left:24px; line-height:1.8; margin-bottom:24px;">
+          <li>Nossa equipe está analisando sua demanda.</li>
+          <li>Você recebe uma confirmação pelo WhatsApp em alguns instantes.</li>
+          <li>O retorno final chega no telefone ou e-mail que você cadastrou na escola.</li>
+        </ul>
+        <p style="margin:0 0 40px 0; padding:14px 18px; background:#f5f7fa; border-left:4px solid #6c757d; border-radius:4px; color:#495057;">
+          Guarde o número do protocolo acima para acompanhar o atendimento.
+        </p>
         {% else %}
-        <div class="ouvidoria-card-aviso">
-          <p>
-            <strong>Nenhum protocolo informado.</strong>
-            Se você acabou de enviar uma demanda, ela ainda está sendo processada.
-            Caso não receba retorno, mande uma nova mensagem no WhatsApp da escola.
-          </p>
-        </div>
+        <p style="margin:0 0 40px 0; padding:24px 28px; background:#fff4e6; border:1px solid #f3c780; color:#9a6300; border-radius:10px;">
+          <strong>Nenhum protocolo informado.</strong>
+          Se você acabou de enviar uma demanda, ela ainda está sendo processada.
+          Caso não receba retorno, mande uma nova mensagem no WhatsApp da escola.
+        </p>
         {% endif %}
 
-        <div class="ouvidoria-voltar">
+        <div style="text-align:center; margin-top:24px;">
           <a href="/" class="rts-btn btn-primary">Voltar à página inicial</a>
         </div>
 
@@ -60,77 +58,5 @@
     </div>
   </div>
 </div>
-
-<style>
-  .ouvidoria-card-protocolo {
-    background: #e7f7ee;
-    border: 1px solid #9bd5b5;
-    color: #1d6f42;
-    padding: 28px 32px;
-    border-radius: 12px;
-    margin-bottom: 40px;
-  }
-  .ouvidoria-card-label {
-    margin: 0 0 12px 0;
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #1d6f42;
-    opacity: 0.85;
-  }
-  .ouvidoria-card-protocolo-valor {
-    margin: 0;
-    font-size: clamp(16px, 2.2vw, 20px);
-    font-weight: 600;
-    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
-    line-height: 1.5;
-    word-break: normal;
-    overflow-wrap: anywhere;
-  }
-  .ouvidoria-proximos-passos {
-    line-height: 1.75;
-    margin-bottom: 40px;
-  }
-  .ouvidoria-proximos-passos h3 {
-    margin-bottom: 16px;
-    font-size: 22px;
-  }
-  .ouvidoria-proximos-passos ul {
-    padding-left: 24px;
-    margin-bottom: 24px;
-  }
-  .ouvidoria-proximos-passos li {
-    margin-bottom: 8px;
-  }
-  .ouvidoria-guardar {
-    margin: 0;
-    padding: 16px 20px;
-    background: #f5f7fa;
-    border-left: 4px solid #6c757d;
-    border-radius: 4px;
-    color: #495057;
-  }
-  .ouvidoria-card-aviso {
-    background: #fff4e6;
-    border: 1px solid #f3c780;
-    color: #9a6300;
-    padding: 24px 28px;
-    border-radius: 12px;
-    margin-bottom: 40px;
-  }
-  .ouvidoria-card-aviso p {
-    margin: 0;
-  }
-  .ouvidoria-voltar {
-    text-align: center;
-    margin-top: 16px;
-  }
-  @media (max-width: 576px) {
-    .ouvidoria-card-protocolo {
-      padding: 20px 22px;
-    }
-  }
-</style>
 
 {% endblock content %}
