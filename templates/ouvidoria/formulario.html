@@ -1,0 +1,266 @@
+{% extends 'layout/layout.html' %} {% load static %} {% block content %}
+
+<style>
+  /* Override do tema: banner com height fixo + form-area com margin-top
+     fazem o conteúdo abaixo sobrepor o banner. Em telas estreitas piora. */
+  .contact-banner-area-start.rts-section-gap { height: auto !important; }
+  .rts-contact-form-area.contact-form-page { margin-top: auto !important; }
+  @media screen and (max-width: 576px) {
+    .contact-banner-area-start.rts-section-gap { height: auto !important; }
+    .rts-contact-form-area.contact-form-page { margin-top: auto !important; }
+  }
+</style>
+
+<!-- banner -->
+<div class="contact-banner-area-start rts-section-gap">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="banner-inner-area-contact-inner">
+          <h1 class="title skew-up-2">
+            Ouvidoria <br /><span>do Logos</span>
+          </h1>
+          <p class="disc">
+            Conte pra gente o que aconteceu. Em até 48h um consultor retorna
+            pelo telefone ou e-mail que você cadastrou na escola.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- form -->
+<div class="rts-contact-form-area contact-form-page rts-section-gapBottom">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-lg-8 col-md-10">
+
+        <div id="ouvidoria-mensagem" class="alert" style="display:none; padding:14px 18px; border-radius:8px; margin-bottom:24px;"></div>
+
+        <form id="ouvidoria-form" class="contact-form" novalidate>
+          <p>
+            <label for="nome">Nome do responsável <span aria-hidden="true">*</span></label>
+            <input id="nome" name="nome" type="text" required minlength="2" maxlength="120" autocomplete="name" />
+          </p>
+          <p>
+            <label for="telefone">Telefone (com DDD) <span aria-hidden="true">*</span></label>
+            <input id="telefone" name="telefone" type="tel" required maxlength="20" placeholder="(91) 99999-9999" autocomplete="tel" />
+          </p>
+          <p>
+            <label for="email">E-mail <span aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" required maxlength="254" autocomplete="email" />
+          </p>
+          <p>
+            <label for="nome_aluno">Nome do aluno <span aria-hidden="true">*</span></label>
+            <input id="nome_aluno" name="nome_aluno" type="text" required minlength="2" maxlength="120" />
+          </p>
+          <p>
+            <label for="cpf">CPF do responsável <span aria-hidden="true">*</span></label>
+            <input id="cpf" name="cpf" type="text" required inputmode="numeric" placeholder="000.000.000-00" maxlength="14" />
+            <small id="cpf-erro" style="color:#c0392b; display:none;">CPF inválido.</small>
+          </p>
+          <p>
+            <label for="demanda">Descrição da demanda <span aria-hidden="true">*</span></label>
+            <textarea id="demanda" name="demanda" required minlength="10" maxlength="4000" rows="6" placeholder="Conte o que aconteceu com suas palavras."></textarea>
+            <small id="demanda-contador" style="color:#888;">0 / 4000</small>
+          </p>
+
+          <button id="ouvidoria-enviar" type="submit" class="rts-btn btn-primary">
+            Registrar demanda
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  const BACKEND = "{{ ouvidoria_backend_url|escapejs }}";
+
+  // ---- helpers ----------------------------------------------------------
+  function getParam(nome) {
+    const m = new URLSearchParams(window.location.search);
+    return m.get(nome);
+  }
+
+  function el(id) { return document.getElementById(id); }
+
+  function setMensagem(tipo, texto) {
+    const msg = el("ouvidoria-mensagem");
+    const cores = {
+      sucesso: { bg: "#e7f7ee", fg: "#1d6f42", border: "#9bd5b5" },
+      erro:    { bg: "#fdecea", fg: "#b03a2e", border: "#f1b0a8" },
+      aviso:   { bg: "#fff4e6", fg: "#9a6300", border: "#f3c780" },
+    }[tipo] || { bg: "#eef", fg: "#222", border: "#ccd" };
+    msg.style.background = cores.bg;
+    msg.style.color = cores.fg;
+    msg.style.border = "1px solid " + cores.border;
+    msg.style.display = "block";
+    msg.innerHTML = texto;
+    msg.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
+  // ---- validação CPF (algoritmo Receita; UX — backend re-valida) --------
+  function somenteDigitos(s) { return (s || "").replace(/\D/g, ""); }
+
+  function dv(digitos, pesoInicial) {
+    let soma = 0;
+    for (let i = 0; i < digitos.length; i++) {
+      soma += parseInt(digitos[i], 10) * (pesoInicial - i);
+    }
+    const resto = soma % 11;
+    return resto < 2 ? 0 : 11 - resto;
+  }
+
+  function cpfValido(cpf) {
+    const d = somenteDigitos(cpf);
+    if (d.length !== 11) return false;
+    if (/^(\d)\1{10}$/.test(d)) return false;
+    if (dv(d.slice(0, 9), 10) !== parseInt(d[9], 10)) return false;
+    return dv(d.slice(0, 10), 11) === parseInt(d[10], 10);
+  }
+
+  function mascararCpf(valor) {
+    const d = somenteDigitos(valor).slice(0, 11);
+    if (d.length <= 3) return d;
+    if (d.length <= 6) return d.slice(0, 3) + "." + d.slice(3);
+    if (d.length <= 9) return d.slice(0, 3) + "." + d.slice(3, 6) + "." + d.slice(6);
+    return d.slice(0, 3) + "." + d.slice(3, 6) + "." + d.slice(6, 9) + "-" + d.slice(9);
+  }
+
+  function mascararTelefone(valor) {
+    const d = somenteDigitos(valor).slice(0, 11);
+    if (d.length <= 2) return "(" + d;
+    if (d.length <= 7) return "(" + d.slice(0, 2) + ") " + d.slice(2);
+    return "(" + d.slice(0, 2) + ") " + d.slice(2, 7) + "-" + d.slice(7);
+  }
+
+  function telefoneE164(valor) {
+    const d = somenteDigitos(valor);
+    // assume Brasil (+55) quando vem só com DDD + número
+    if (d.length === 11 || d.length === 10) return "+55" + d;
+    if (valor.startsWith("+")) return valor.replace(/[^\d+]/g, "");
+    return d;
+  }
+
+  // ---- token + prefill --------------------------------------------------
+  const token = getParam("t");
+  const form = el("ouvidoria-form");
+  const botao = el("ouvidoria-enviar");
+
+  if (!token) {
+    setMensagem(
+      "aviso",
+      "<strong>Link sem identificação.</strong> Mande uma nova mensagem no WhatsApp da escola pra receber um link válido."
+    );
+    botao.disabled = true;
+    form.style.opacity = "0.6";
+    return;
+  }
+
+  fetch(BACKEND + "/api/v1/formulario/token/" + encodeURIComponent(token), {
+    method: "GET",
+    headers: { "Accept": "application/json" },
+  })
+    .then(function (r) {
+      if (r.status === 404) {
+        setMensagem(
+          "aviso",
+          "<strong>Link expirado ou já usado.</strong> Mande uma nova mensagem no WhatsApp da escola pra receber um link novo."
+        );
+        botao.disabled = true;
+        form.style.opacity = "0.6";
+        return null;
+      }
+      return r.ok ? r.json() : null;
+    })
+    .then(function (dados) {
+      if (dados && dados.telefone) {
+        el("telefone").value = mascararTelefone(dados.telefone.replace(/^\+55/, ""));
+      }
+    })
+    .catch(function () {
+      // silencioso — usuário ainda pode digitar telefone à mão
+    });
+
+  // ---- máscaras dinâmicas ----------------------------------------------
+  el("cpf").addEventListener("input", function (e) {
+    e.target.value = mascararCpf(e.target.value);
+    el("cpf-erro").style.display = "none";
+  });
+  el("telefone").addEventListener("input", function (e) {
+    e.target.value = mascararTelefone(e.target.value);
+  });
+  el("demanda").addEventListener("input", function (e) {
+    el("demanda-contador").textContent = e.target.value.length + " / 4000";
+  });
+
+  // ---- submit -----------------------------------------------------------
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+
+    if (!cpfValido(el("cpf").value)) {
+      el("cpf-erro").style.display = "block";
+      el("cpf").focus();
+      return;
+    }
+
+    botao.disabled = true;
+    const textoOriginal = botao.innerHTML;
+    botao.innerHTML = "Enviando…";
+
+    const payload = {
+      nome: el("nome").value.trim(),
+      telefone: telefoneE164(el("telefone").value),
+      email: el("email").value.trim(),
+      nome_aluno: el("nome_aluno").value.trim(),
+      cpf: somenteDigitos(el("cpf").value),
+      demanda: el("demanda").value.trim(),
+    };
+
+    fetch(BACKEND + "/api/v1/formulario/inscricao?token=" + encodeURIComponent(token), {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(payload),
+    })
+      .then(function (r) {
+        return r.json().then(function (body) { return { status: r.status, body: body }; });
+      })
+      .then(function (res) {
+        if (res.status === 202 || res.status === 201) {
+          // 202 = backend aceitou (classifier rodou, processamento em background).
+          // Redireciona pra página obrigado com o protocolo.
+          const protocolo = encodeURIComponent(res.body.protocolo || "");
+          window.location.replace("/ouvidoria/obrigado?protocolo=" + protocolo);
+        } else if (res.status === 410) {
+          setMensagem(
+            "aviso",
+            "<strong>Link já usado.</strong> Mande uma nova mensagem no WhatsApp da escola pra receber um link novo."
+          );
+          botao.disabled = true;
+        } else if (res.status === 422) {
+          const det = res.body.detail || res.body || "Verifique os dados e tente de novo.";
+          setMensagem("erro", "<strong>Dados inválidos.</strong> " + (typeof det === "string" ? det : "Confira os campos."));
+          botao.disabled = false;
+          botao.innerHTML = textoOriginal;
+        } else {
+          setMensagem("erro", "<strong>Não conseguimos registrar sua demanda agora.</strong> Tente em alguns minutos.");
+          botao.disabled = false;
+          botao.innerHTML = textoOriginal;
+        }
+      })
+      .catch(function () {
+        setMensagem("erro", "<strong>Falha de rede.</strong> Verifique sua conexão e tente novamente.");
+        botao.disabled = false;
+        botao.innerHTML = textoOriginal;
+      });
+  });
+})();
+</script>
+
+{% endblock content %}

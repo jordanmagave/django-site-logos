@@ -48,6 +48,11 @@ if GCP_SERVICE_URL:
     ALLOWED_HOSTS.append(GCP_SERVICE_URL)
     CSRF_TRUSTED_ORIGINS.append(f"https://{GCP_SERVICE_URL}")
 
+# URL base do microsserviço atendimento_logos (Ouvidoria). O formulário JS
+# consome ``{OUVIDORIA_BACKEND_URL}/api/v1/formulario/token/{token}`` (GET)
+# e ``{OUVIDORIA_BACKEND_URL}/api/v1/formulario/inscricao?token=...`` (POST).
+OUVIDORIA_BACKEND_URL = env("OUVIDORIA_BACKEND_URL", default="https://atendimento.celogos.com.br")
+
 
 # Application definition
 if DEBUG:

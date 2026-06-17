@@ -144,6 +144,61 @@ def contato(request: HttpRequest) -> HttpResponse:
 
 
 # =========================================================================
+# Ouvidoria — formulário web
+# =========================================================================
+
+
+def ouvidoria_formulario(request: HttpRequest) -> HttpResponse:
+    """Renderiza a página do formulário público da Ouvidoria.
+
+    A submissão NÃO passa pelo Django: o JS embarcado no template faz fetch
+    direto ao microsserviço ``atendimento_logos`` em
+    ``{OUVIDORIA_BACKEND_URL}/api/v1/formulario/*``. O token de uso único
+    chega pela querystring ``?t=<uuid>`` gerada pelo bot (ex.: HSM CTA do
+    WhatsApp); o JS lê e pré-preenche o telefone via ``GET /token/{uuid}``.
+    """
+
+    context = {
+        "footer": "true",
+        "header": "true",
+        "page_title": "Ouvidoria — Centro Educacional Logos",
+        "page_description": (
+            "Formulário oficial da Ouvidoria do Centro Educacional Logos. "
+            "Registre sua demanda em poucos minutos; um consultor retorna pelo telefone "
+            "ou e-mail cadastrado na escola."
+        ),
+        "page_canonical": "https://www.celogos.com.br/ouvidoria/formulario",
+        "breadcrumb_items": [
+            {"name": "Ouvidoria", "url": "https://www.celogos.com.br/ouvidoria/formulario"},
+        ],
+        "ouvidoria_backend_url": settings.OUVIDORIA_BACKEND_URL,
+    }
+    return render(request, "ouvidoria/formulario.html", context)
+
+
+def ouvidoria_obrigado(request: HttpRequest) -> HttpResponse:
+    """Página de confirmação pós-submissão — mostra o protocolo.
+
+    O protocolo vem na querystring ``?protocolo=OUV-...`` (o backend devolve
+    em 202; o JS do formulário redireciona pra cá imediatamente).
+    """
+
+    context = {
+        "footer": "true",
+        "header": "true",
+        "page_title": "Demanda registrada — Ouvidoria",
+        "page_description": "Sua demanda foi registrada na Ouvidoria do Centro Educacional Logos.",
+        "page_canonical": "https://www.celogos.com.br/ouvidoria/obrigado",
+        "breadcrumb_items": [
+            {"name": "Ouvidoria", "url": "https://www.celogos.com.br/ouvidoria/formulario"},
+            {"name": "Demanda registrada", "url": "https://www.celogos.com.br/ouvidoria/obrigado"},
+        ],
+        "protocolo": request.GET.get("protocolo", ""),
+    }
+    return render(request, "ouvidoria/obrigado.html", context)
+
+
+# =========================================================================
 # Helpers
 # =========================================================================
 

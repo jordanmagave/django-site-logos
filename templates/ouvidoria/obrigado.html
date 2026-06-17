@@ -1,0 +1,73 @@
+{% extends 'layout/layout.html' %} {% load static %} {% block content %}
+
+<style>
+  /* Override do tema: banner com height fixo + form-area com margin-top
+     fazem o conteúdo abaixo sobrepor o banner. Em telas estreitas piora. */
+  .contact-banner-area-start.rts-section-gap { height: auto !important; }
+  .rts-contact-form-area.contact-form-page { margin-top: auto !important; }
+  @media screen and (max-width: 576px) {
+    .contact-banner-area-start.rts-section-gap { height: auto !important; }
+    .rts-contact-form-area.contact-form-page { margin-top: auto !important; }
+  }
+</style>
+
+<!-- banner -->
+<div class="contact-banner-area-start rts-section-gap">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="banner-inner-area-contact-inner">
+          <h1 class="title skew-up-2">
+            Demanda registrada <br /><span>com sucesso</span>
+          </h1>
+          <p class="disc">
+            Recebemos sua mensagem. Em breve um consultor do Logos retorna
+            pelo telefone ou e-mail cadastrado na escola.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- conteúdo -->
+<div class="rts-contact-form-area contact-form-page rts-section-gapBottom">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-10 col-12">
+
+        {% if protocolo %}
+        <p style="margin:0 0 8px 0; font-size:14px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:#1d6f42;">
+          Protocolo do atendimento
+        </p>
+        <h2 style="margin:0 0 40px 0; padding:20px 24px; background:#e7f7ee; border:2px solid #1d6f42; border-radius:10px; color:#1d6f42 !important; font-size:18px; line-height:1.5; overflow-wrap:anywhere; font-family:monospace;">
+          {{ protocolo }}
+        </h2>
+
+        <h3 style="margin:0 0 16px 0; color:inherit;">Próximos passos</h3>
+        <ul style="padding-left:24px; line-height:1.8; margin-bottom:24px;">
+          <li>Nossa equipe está analisando sua demanda.</li>
+          <li>Você recebe uma confirmação pelo WhatsApp em alguns instantes.</li>
+          <li>O retorno final chega no telefone ou e-mail que você cadastrou na escola.</li>
+        </ul>
+        <p style="margin:0 0 40px 0; padding:14px 18px; background:#f5f7fa; border-left:4px solid #6c757d; border-radius:4px; color:#495057;">
+          Guarde o número do protocolo acima para acompanhar o atendimento.
+        </p>
+        {% else %}
+        <p style="margin:0 0 40px 0; padding:24px 28px; background:#fff4e6; border:1px solid #f3c780; color:#9a6300; border-radius:10px;">
+          <strong>Nenhum protocolo informado.</strong>
+          Se você acabou de enviar uma demanda, ela ainda está sendo processada.
+          Caso não receba retorno, mande uma nova mensagem no WhatsApp da escola.
+        </p>
+        {% endif %}
+
+        <div style="text-align:center; margin-top:24px;">
+          <a href="/" class="rts-btn btn-primary">Voltar à página inicial</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
