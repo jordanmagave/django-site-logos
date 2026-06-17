@@ -1,5 +1,16 @@
 {% extends 'layout/layout.html' %} {% load static %} {% block content %}
 
+<style>
+  /* Override do tema: banner com height fixo + form-area com margin-top
+     fazem o conteúdo abaixo sobrepor o banner. Em telas estreitas piora. */
+  .contact-banner-area-start.rts-section-gap { height: auto !important; }
+  .rts-contact-form-area.contact-form-page { margin-top: auto !important; }
+  @media screen and (max-width: 576px) {
+    .contact-banner-area-start.rts-section-gap { height: auto !important; }
+    .rts-contact-form-area.contact-form-page { margin-top: auto !important; }
+  }
+</style>
+
 <!-- banner -->
 <div class="contact-banner-area-start rts-section-gap">
   <div class="container">
