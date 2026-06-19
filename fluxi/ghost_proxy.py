@@ -9,7 +9,10 @@ GHOST_URL = "http://35.198.39.119:2368/blog"
 @csrf_exempt
 @require_http_methods(["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"])
 def proxy(request, ghost_path=""):
+    has_trailing_slash = ghost_path == "" and request.path.endswith("/")
     target = f"{GHOST_URL}/{ghost_path}" if ghost_path else GHOST_URL
+    if has_trailing_slash:
+        target = f"{target}/"
 
     headers = {
         "X-Forwarded-For": request.META.get("REMOTE_ADDR", ""),
