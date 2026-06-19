@@ -1,13 +1,14 @@
 # fluxi/urls.py
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 from django.contrib.sitemaps.views import sitemap
 from django.views.generic import TemplateView
 from fluxi import homeViews
 from fluxi import pagesViews
 from fluxi import servicesViews
 from fluxi.sitemaps import StaticViewSitemap
+from fluxi.ghost_proxy import proxy as ghost_proxy
 from src.adapters.django import views as adapter_views
 
 sitemaps = {
@@ -18,6 +19,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
     path("robots.txt", TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
+    re_path(r"^blog/(?P<ghost_path>.*)$", ghost_proxy, name="ghost_proxy"),
     path("", homeViews.index, name="index"),
     path("about/", pagesViews.about, name="about"),
     path("contato/", adapter_views.contato, name="contato"),
