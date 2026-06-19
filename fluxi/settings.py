@@ -40,6 +40,8 @@ DEBUG = env("DEBUG")
 
 ALLOWED_HOSTS = ["celogos.com.br", "www.celogos.com.br"]
 CSRF_TRUSTED_ORIGINS = ["https://celogos.com.br", "https://www.celogos.com.br"]
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
 SITE_ID = 1
 
 # Adiciona o domínio do serviço GCP, se fornecido nas variáveis de ambiente
