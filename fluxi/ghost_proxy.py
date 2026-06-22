@@ -50,7 +50,7 @@ def proxy(request, ghost_path=""):
         status=resp.status_code,
     )
 
-    excluded = {"transfer-encoding", "content-encoding", "content-length"}
+    excluded = {"transfer-encoding", "content-length"}
     for key, value in resp.headers.items():
         if key.lower() not in excluded:
             response[key] = value
