@@ -6,11 +6,6 @@ from django.views.decorators.http import require_http_methods
 GHOST_URL = "http://35.198.39.119:2368/blog"
 
 
-def _stream_from(upstream_resp):
-    for chunk in upstream_resp.raw.stream(8192, decode_content=False):
-        yield chunk
-
-
 @csrf_exempt
 @require_http_methods(["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"])
 def proxy(request, ghost_path=""):
@@ -19,13 +14,12 @@ def proxy(request, ghost_path=""):
     if has_trailing_slash:
         target = f"{target}/"
 
-    headers = {
+    forwarded = {
         "X-Forwarded-For": request.META.get("REMOTE_ADDR", ""),
         "X-Forwarded-Proto": "https",
         "X-Forwarded-Host": request.META.get("HTTP_HOST", "celogos.com.br"),
         "Accept": request.META.get("HTTP_ACCEPT", "*/*"),
         "Accept-Language": request.META.get("HTTP_ACCEPT_LANGUAGE", ""),
-        "Accept-Encoding": None,  # don't forward — let GF compress final response
         "Cookie": request.META.get("HTTP_COOKIE", ""),
         "Content-Type": request.META.get("CONTENT_TYPE", ""),
         "Referer": request.META.get("HTTP_REFERER", ""),
@@ -39,7 +33,7 @@ def proxy(request, ghost_path=""):
         resp = requests.request(
             method=request.method,
             url=target,
-            headers={k: v for k, v in headers.items() if v},
+            headers={k: v for k, v in forwarded.items() if v},
             params=request.GET,
             data=body,
             cookies=request.COOKIES,
@@ -51,7 +45,7 @@ def proxy(request, ghost_path=""):
         return HttpResponse(f"Erro no proxy: {e}", status=502)
 
     response = StreamingHttpResponse(
-        streaming_content=_stream_from(resp),
+        streaming_content=resp.iter_content(8192),
         status=resp.status_code,
     )
 
