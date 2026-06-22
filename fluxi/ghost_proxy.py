@@ -25,7 +25,7 @@ def proxy(request, ghost_path=""):
         "X-Forwarded-Host": request.META.get("HTTP_HOST", "celogos.com.br"),
         "Accept": request.META.get("HTTP_ACCEPT", "*/*"),
         "Accept-Language": request.META.get("HTTP_ACCEPT_LANGUAGE", ""),
-        "Accept-Encoding": request.META.get("HTTP_ACCEPT_ENCODING", ""),
+        "Accept-Encoding": None,  # don't forward — let GF compress final response
         "Cookie": request.META.get("HTTP_COOKIE", ""),
         "Content-Type": request.META.get("CONTENT_TYPE", ""),
         "Referer": request.META.get("HTTP_REFERER", ""),
@@ -55,7 +55,7 @@ def proxy(request, ghost_path=""):
         status=resp.status_code,
     )
 
-    excluded = {"transfer-encoding", "content-length"}
+    excluded = {"transfer-encoding", "content-encoding", "content-length"}
     for key, value in resp.headers.items():
         if key.lower() not in excluded:
             response[key] = value
