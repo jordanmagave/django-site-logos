@@ -6,6 +6,11 @@ from django.views.decorators.http import require_http_methods
 GHOST_URL = "http://35.198.39.119:2368/blog"
 
 
+def _stream_from(upstream_resp):
+    for chunk in upstream_resp.raw.stream(8192, decode_content=False):
+        yield chunk
+
+
 @csrf_exempt
 @require_http_methods(["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"])
 def proxy(request, ghost_path=""):
@@ -46,11 +51,11 @@ def proxy(request, ghost_path=""):
         return HttpResponse(f"Erro no proxy: {e}", status=502)
 
     response = StreamingHttpResponse(
-        streaming_content=resp.iter_content(8192),
+        streaming_content=_stream_from(resp),
         status=resp.status_code,
     )
 
-    excluded = {"transfer-encoding", "content-encoding", "content-length"}
+    excluded = {"transfer-encoding", "content-length"}
     for key, value in resp.headers.items():
         if key.lower() not in excluded:
             response[key] = value
