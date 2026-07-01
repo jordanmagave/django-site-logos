@@ -31,6 +31,9 @@ Convenções obrigatórias ao criar/editar páginas do site. Todas têm teste em
   `metismenu.js/css` ou `magnific-popup.css`, **rode o comando e recommite** o `.min`.
   Lista de fontes em `seo/management/commands/seo_minify.py::ASSETS`. Vendor já-`.min` fica de fora.
 - Teste: `test_static_refs.py` (sem hardcoded), `test_minify.py` (`.min` existe/menor/referenciado).
+- **Sobrescritas de design** vão em `static/css/custom.css` (fora do tema de 473KB), carregado depois do
+  `style.min.css` em `head.html` e minificado pelo mesmo pipeline (`custom.min.css`). Não editar o tema
+  para ajustes nossos — usar `custom.css` (ex.: shapes do /about menores/atrás do conteúdo).
 
 ## Conteúdo
 - Evitar páginas com pouco texto ("low word count"). Páginas de serviço têm uma seção

@@ -18,6 +18,7 @@ from django.core.management.base import BaseCommand, CommandError
 # Fontes hand-written (não-minificados) referenciados nos partials.
 ASSETS = [
     "css/style.css",
+    "css/custom.css",
     "css/plugins/magnific-popup.css",
     "css/plugins/metismenu.css",
     "js/main.js",
