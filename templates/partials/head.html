@@ -42,7 +42,11 @@
   <meta name="twitter:image" content="{{ seo_og_image }}" />
 
   <!-- Favicon e Manifest -->
-  <link rel="shortcut icon" type="image/x-icon" href="/static/images/fav.png" />
+  <link
+    rel="shortcut icon"
+    type="image/x-icon"
+    href="{% static 'images/fav.png' %}"
+  />
   <link rel="manifest" href="/static/manifest.webmanifest" />
 
   <!-- Ketch Smart Tag -->
@@ -61,21 +65,8 @@
     })();
   </script>
 
-  <!-- Estrutura de Dados JSON-LD -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Centro Educacional Logos",
-      "url": "https://celogos.com.br",
-      "logo": "https://celogos.com.br/static/images/logo/logo-1.svg",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+55-91-3013-0198",
-        "contactType": "Customer Service"
-      }
-    }
-  </script>
+  <!-- Estrutura de Dados JSON-LD (EducationalOrganization + BreadcrumbList por página) -->
+  <script type="application/ld+json">{{ seo_jsonld|safe }}</script>
 
   <title>{% block title %}{{ seo_title }}{% endblock %}</title>
 
@@ -210,35 +201,39 @@
   <!-- swiper css -->
   <link
     rel="stylesheet preload"
-    href="/static/css/plugins/swiper.min.css"
+    href="{% static 'css/plugins/swiper.min.css' %}"
     as="style"
   />
   <!-- magnific popup css -->
   <link
     rel="stylesheet preload"
-    href="/static/css/plugins/magnific-popup.css"
+    href="{% static 'css/plugins/magnific-popup.css' %}"
     as="style"
   />
   <!-- metismenu css -->
   <link
     rel="stylesheet preload"
-    href="/static/css/plugins/metismenu.css"
+    href="{% static 'css/plugins/metismenu.css' %}"
     as="style"
   />
   <!-- bootstrap css -->
   <link
     rel="stylesheet preload"
-    href="/static/css/vendor/bootstrap.min.css"
+    href="{% static 'css/vendor/bootstrap.min.css' %}"
     as="style"
   />
   <!-- fontawesome css -->
   <link
     rel="stylesheet preload"
-    href="/static/css/plugins/fontawesome.min.css"
+    href="{% static 'css/plugins/fontawesome.min.css' %}"
     as="style"
   />
   <!-- Custom css -->
-  <link rel="stylesheet preload" href="/static/css/style.css" as="style" />
+  <link
+    rel="stylesheet preload"
+    href="{% static 'css/style.css' %}"
+    as="style"
+  />
 
   <!-- Font Awesome Solid -->
   <link

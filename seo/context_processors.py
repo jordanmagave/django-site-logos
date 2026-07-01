@@ -1,7 +1,10 @@
 # seo/context_processors.py
+import json
+
 from django.conf import settings
 
 from .metadata import get_metadata
+from .structured_data import get_structured_data
 
 
 def seo_context(request):
@@ -14,6 +17,10 @@ def seo_context(request):
     canonical_url = f"https://{host}{request.path}"
     og_image = f"https://{host}/static/images/logo/logo-1.svg"
 
+    jsonld = json.dumps(
+        get_structured_data(url_name, request.path), ensure_ascii=False
+    )
+
     return {
         "seo_title": meta["title"],
         "seo_description": meta["description"],
@@ -21,4 +28,5 @@ def seo_context(request):
         "seo_og_description": meta.get("og_description", meta["description"]),
         "seo_og_image": og_image,
         "canonical_url": canonical_url,
+        "seo_jsonld": jsonld,
     }

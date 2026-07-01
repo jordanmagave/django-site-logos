@@ -21,10 +21,11 @@ versionado é a fonte de verdade.
 ## Gotchas
 - [audit-semrush-baseline](gotchas/audit-semrush-baseline.md) — causas-raiz do audit Semrush 2026-07-01.
 - [rodar-testes-venv-pipenv](gotchas/rodar-testes-venv-pipenv.md) — usar o python do venv pipenv p/ rodar testes.
+- [ketch-e-recursos-externos](gotchas/ketch-e-recursos-externos.md) — Ketch boot.js = 200; 403 era o polyfill legado.
 
 ## Procedures
 - [importar-semrush-e-medir](procedures/importar-semrush-e-medir.md) — importar o CSV do Semrush e medir evolução.
 - _(a preencher)_ submeter sitemap no Search Console, puxar GSC/PageSpeed (Fase 2).
 
 ## Rules
-- _(a preencher)_ padrões de SEO on-page (title/description/canonical/JSON-LD por página).
+- [seo-on-page](rules/seo-on-page.md) — padrões on-page (title/description/canonical/JSON-LD/alt/{% static %}/conteúdo).
