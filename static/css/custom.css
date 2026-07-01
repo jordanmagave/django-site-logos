@@ -43,3 +43,11 @@
 .rts-team-area.about .shape-area img.three {
   transform: rotate(-31deg);
 }
+
+/* Mobile: shapes decorativas somem (declutter, como o tema faz com várias) */
+@media (max-width: 576px) {
+  .our-service-area.about .shape-area img,
+  .rts-team-area.about .shape-area img {
+    display: none;
+  }
+}
