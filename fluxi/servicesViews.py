@@ -10,11 +10,11 @@ SERVICES_SEO = {
             " em Ananindeua. Maternal ao Jardim 2 com desenvolvimento"
             " lúdico, acolhedor e valores cristãos."
         ),
-        "page_canonical": "https://www.celogos.com.br/servicos-educacionais/educacao-infantil/",
+        "page_canonical": "https://celogos.com.br/servicos-educacionais/educacao-infantil/",
         "breadcrumb_items": [
             {
                 "name": "Educação Infantil",
-                "url": "https://www.celogos.com.br/servicos-educacionais/educacao-infantil/",
+                "url": "https://celogos.com.br/servicos-educacionais/educacao-infantil/",
             },
         ],
     },
@@ -27,11 +27,11 @@ SERVICES_SEO = {
             " com material didático Mackenzie, formação acadêmica"
             " e princípios cristãos em Ananindeua."
         ),
-        "page_canonical": "https://www.celogos.com.br/servicos-educacionais/ensino-fundamental-1/",
+        "page_canonical": "https://celogos.com.br/servicos-educacionais/ensino-fundamental-1/",
         "breadcrumb_items": [
             {
                 "name": "Ensino Fundamental 1",
-                "url": "https://www.celogos.com.br/servicos-educacionais/ensino-fundamental-1/",
+                "url": "https://celogos.com.br/servicos-educacionais/ensino-fundamental-1/",
             },
         ],
     },
@@ -44,11 +44,11 @@ SERVICES_SEO = {
             " com robótica, laboratórios, esportes e preparação"
             " para os desafios do Ensino Médio em Ananindeua."
         ),
-        "page_canonical": "https://www.celogos.com.br/servicos-educacionais/ensino-fundamental-2/",
+        "page_canonical": "https://celogos.com.br/servicos-educacionais/ensino-fundamental-2/",
         "breadcrumb_items": [
             {
                 "name": "Ensino Fundamental 2",
-                "url": "https://www.celogos.com.br/servicos-educacionais/ensino-fundamental-2/",
+                "url": "https://celogos.com.br/servicos-educacionais/ensino-fundamental-2/",
             },
         ],
     },
@@ -61,11 +61,11 @@ SERVICES_SEO = {
             " 7 anos consecutivos campeão em Ananindeua. Preparação"
             " intensiva para vestibular com valores cristãos."
         ),
-        "page_canonical": "https://www.celogos.com.br/servicos-educacionais/ensino-medio/",
+        "page_canonical": "https://celogos.com.br/servicos-educacionais/ensino-medio/",
         "breadcrumb_items": [
             {
                 "name": "Ensino Médio",
-                "url": "https://www.celogos.com.br/servicos-educacionais/ensino-medio/",
+                "url": "https://celogos.com.br/servicos-educacionais/ensino-medio/",
             },
         ],
     },
@@ -78,11 +78,11 @@ SERVICES_SEO = {
             " esportivas, artísticas, acompanhamento escolar e formação"
             " cristã em tempo integral em Ananindeua."
         ),
-        "page_canonical": "https://www.celogos.com.br/servicos-educacionais/integral/",
+        "page_canonical": "https://celogos.com.br/servicos-educacionais/integral/",
         "breadcrumb_items": [
             {
                 "name": "Ensino Integral",
-                "url": "https://www.celogos.com.br/servicos-educacionais/integral/",
+                "url": "https://celogos.com.br/servicos-educacionais/integral/",
             },
         ],
     },

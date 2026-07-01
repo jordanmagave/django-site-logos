@@ -33,9 +33,9 @@ def about(request):
             " formando cidadãos éticos e competentes em Ananindeua"
             " com excelência acadêmica e valores cristãos."
         ),
-        "page_canonical": "https://www.celogos.com.br/about/",
+        "page_canonical": "https://celogos.com.br/about/",
         "breadcrumb_items": [
-            {"name": "Sobre Nós", "url": "https://www.celogos.com.br/about/"},
+            {"name": "Sobre Nós", "url": "https://celogos.com.br/about/"},
         ],
     }
     return render(request, "pages/about.html", data)
@@ -85,9 +85,9 @@ def contato(request):
             "Entre em contato com o Centro Educacional Logos em Ananindeua."
             " Agende uma visita e conheça nossa estrutura completa."
         ),
-        "page_canonical": "https://www.celogos.com.br/contato/",
+        "page_canonical": "https://celogos.com.br/contato/",
         "breadcrumb_items": [
-            {"name": "Contato", "url": "https://www.celogos.com.br/contato/"},
+            {"name": "Contato", "url": "https://celogos.com.br/contato/"},
         ],
     }
     return render(request, "pages/contato.html", context)

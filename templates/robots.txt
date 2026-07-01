@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.celogos.com.br/sitemap.xml
-Sitemap: https://www.celogos.com.br/blog/sitemap.xml
+Sitemap: https://celogos.com.br/sitemap.xml
+Sitemap: https://celogos.com.br/blog/sitemap.xml

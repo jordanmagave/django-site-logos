@@ -40,6 +40,8 @@ DEBUG = env("DEBUG")
 
 ALLOWED_HOSTS = ["celogos.com.br", "www.celogos.com.br"]
 CSRF_TRUSTED_ORIGINS = ["https://celogos.com.br", "https://www.celogos.com.br"]
+# Host canônico do site (sem www). O CanonicalHostMiddleware faz 301 de www→raiz.
+CANONICAL_HOST = env("CANONICAL_HOST", default="celogos.com.br")
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
 SITE_ID = 1
@@ -77,6 +79,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
+    "fluxi.middleware.CanonicalHostMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",

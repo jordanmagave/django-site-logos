@@ -19,6 +19,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
     path("robots.txt", TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
+    path("llms.txt", TemplateView.as_view(template_name="llms.txt", content_type="text/plain")),
     re_path(r"^blog/(?P<ghost_path>.*)$", ghost_proxy, name="ghost_proxy"),
     path("", homeViews.index, name="index"),
     path("about/", pagesViews.about, name="about"),

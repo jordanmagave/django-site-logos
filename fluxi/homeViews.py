@@ -11,6 +11,6 @@ def index(request):
             " Ananindeua. Educação Infantil, Ensino Fundamental e Médio."
             " TOP 10 ENEM Pará. Agende sua visita!"
         ),
-        "page_canonical": "https://www.celogos.com.br",
+        "page_canonical": "https://celogos.com.br",
     }
     return render(request, "home/index.html", data)

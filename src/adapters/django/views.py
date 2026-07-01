@@ -135,9 +135,9 @@ def contato(request: HttpRequest) -> HttpResponse:
             "Entre em contato com o Centro Educacional Logos em Ananindeua."
             " Agende uma visita e conheça nossa estrutura completa."
         ),
-        "page_canonical": "https://www.celogos.com.br/contato/",
+        "page_canonical": "https://celogos.com.br/contato/",
         "breadcrumb_items": [
-            {"name": "Contato", "url": "https://www.celogos.com.br/contato/"},
+            {"name": "Contato", "url": "https://celogos.com.br/contato/"},
         ],
     }
     return render(request, "pages/contato.html", context)
@@ -167,9 +167,9 @@ def ouvidoria_formulario(request: HttpRequest) -> HttpResponse:
             "Registre sua demanda em poucos minutos; um consultor retorna pelo telefone "
             "ou e-mail cadastrado na escola."
         ),
-        "page_canonical": "https://www.celogos.com.br/ouvidoria/formulario",
+        "page_canonical": "https://celogos.com.br/ouvidoria/formulario",
         "breadcrumb_items": [
-            {"name": "Ouvidoria", "url": "https://www.celogos.com.br/ouvidoria/formulario"},
+            {"name": "Ouvidoria", "url": "https://celogos.com.br/ouvidoria/formulario"},
         ],
         "ouvidoria_backend_url": settings.OUVIDORIA_BACKEND_URL,
     }
@@ -188,10 +188,10 @@ def ouvidoria_obrigado(request: HttpRequest) -> HttpResponse:
         "header": "true",
         "page_title": "Demanda registrada — Ouvidoria",
         "page_description": "Sua demanda foi registrada na Ouvidoria do Centro Educacional Logos.",
-        "page_canonical": "https://www.celogos.com.br/ouvidoria/obrigado",
+        "page_canonical": "https://celogos.com.br/ouvidoria/obrigado",
         "breadcrumb_items": [
-            {"name": "Ouvidoria", "url": "https://www.celogos.com.br/ouvidoria/formulario"},
-            {"name": "Demanda registrada", "url": "https://www.celogos.com.br/ouvidoria/obrigado"},
+            {"name": "Ouvidoria", "url": "https://celogos.com.br/ouvidoria/formulario"},
+            {"name": "Demanda registrada", "url": "https://celogos.com.br/ouvidoria/obrigado"},
         ],
         "protocolo": request.GET.get("protocolo", ""),
     }
