@@ -70,3 +70,35 @@ python manage.py migrate
 python manage.py runserver
 ```
 Acesse http://127.0.0.1:8000/ no seu navegador.
+
+## Retomar o Projeto em Outra Sessão
+
+Este projeto usa uma estratégia de **memória de longo prazo versionada no próprio repositório**, para que
+qualquer nova sessão (outra máquina ou um novo agente de IA) consiga continuar de onde paramos, sem
+depender de estado local fora do repo.
+
+**Ao retomar, leia nesta ordem:**
+1. **[`CLAUDE.md`](CLAUDE.md)** — guia do repositório (arquitetura, comandos, branches/ambientes) e a
+   seção "▶ Retomar o projeto".
+2. **[`docs/wiki/ESTADO-ATUAL.md`](docs/wiki/ESTADO-ATUAL.md)** — onde estamos agora e os próximos passos.
+3. **[`docs/wiki/INDEX.md`](docs/wiki/INDEX.md)** — a wiki do projeto (fonte de verdade): decisões,
+   *gotchas* e procedimentos. **Consulte antes de qualquer tarefa de SEO.**
+4. **[`docs/PLANO-SEO.md`](docs/PLANO-SEO.md)** — o plano completo das 3 fases (fundação/correções →
+   monitoramento via APIs do Google → loop de memória/auto-aprendizado).
+
+**Passos para restaurar o ambiente:**
+```bash
+git clone git@github.com:jordanmagave/django-site-logos.git
+cd django-site-logos
+git switch feat/seo-foundation        # branch de trabalho atual
+pipenv install                        # ou: pip install -r requirements.txt
+cp .env.example .env                  # crie/preencha o .env (não versionado)
+python manage.py migrate
+python manage.py test                 # método do projeto é TDD; a suíte deve ficar verde
+```
+
+**O que NÃO está versionado** (reprovisionar por fora): `.env` (segredos), a *service account* das APIs
+do Google (Fase 2) e o `db.sqlite3` local. O `client_secret` do OAuth **deve ser rotacionado** no GCP.
+
+> Convenção: ao concluir uma sessão, registre aprendizados duráveis como novas páginas em `docs/wiki/`
+> (categorias `decisions/`, `gotchas/`, `procedures/`, `rules/`) e atualize `docs/wiki/ESTADO-ATUAL.md`.
