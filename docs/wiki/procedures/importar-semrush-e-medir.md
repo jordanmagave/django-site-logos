@@ -32,9 +32,14 @@
   Guardado por `seo/tests/test_static_refs.py`.
 - **External 403 / Ketch** → o `boot.js` do slug `centro_educacional_logos` retorna **200**; o slug é
   válido e não era a fonte do 403 (era o polyfill legado, já removido). Ver [[ketch-e-recursos-externos]].
+- **Unminified JS/CSS** → os 5 fontes hand-written (`style.css`, `main.js`, `metismenu.js/css`,
+  `magnific-popup.css`) agora têm `.min` versionado (comando `seo_minify`, rcssmin/rjsmin conservadores)
+  e os partials apontam para eles. Ver [[seo-on-page]].
+- **`/static/manifest.webmanifest` 404** → criado `static/manifest.webmanifest` (PWA, cor `#156bdb`),
+  servido via `{% static %}`. Antes retornava 404.
+- **Imagens quebradas em serviços** → `medio`/`integral` referenciavam `product/40|41|42.jpg`
+  (inexistentes); apontados para imagens reais com **case exato** (`.JPG`). Ver [[static-case-e-templates]].
 
 ## Follow-ups ainda abertos (menores)
-- **Minificação de fonte**: os arquivos `.js`/`.css` não-`.min` (ex.: `main.js`, `style.css`) ainda não
-  são minificados no build; o `{% static %}` já resolve compressão/hash, mas minificar reduz mais o peso.
-- **`/static/manifest.webmanifest` = 404**: o arquivo não existe em `static/` (ref mantida hardcoded de
-  propósito — migrar p/ `{% static %}` quebraria o ManifestStorage). Criar o webmanifest ou remover a tag.
+- **Migrar refs de imagem para `{% static %}`**: as `<img src="/static/...">` ainda são hardcoded
+  (funcionam, mas não recebem hash/immutable). Guardadas por `test_images.py` (existência + case).

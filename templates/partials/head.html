@@ -47,7 +47,8 @@
     type="image/x-icon"
     href="{% static 'images/fav.png' %}"
   />
-  <link rel="manifest" href="/static/manifest.webmanifest" />
+  <link rel="manifest" href="{% static 'manifest.webmanifest' %}" />
+  <meta name="theme-color" content="#156bdb" />
 
   <!-- Ketch Smart Tag -->
   <script>
@@ -207,13 +208,13 @@
   <!-- magnific popup css -->
   <link
     rel="stylesheet preload"
-    href="{% static 'css/plugins/magnific-popup.css' %}"
+    href="{% static 'css/plugins/magnific-popup.min.css' %}"
     as="style"
   />
   <!-- metismenu css -->
   <link
     rel="stylesheet preload"
-    href="{% static 'css/plugins/metismenu.css' %}"
+    href="{% static 'css/plugins/metismenu.min.css' %}"
     as="style"
   />
   <!-- bootstrap css -->
@@ -231,7 +232,7 @@
   <!-- Custom css -->
   <link
     rel="stylesheet preload"
-    href="{% static 'css/style.css' %}"
+    href="{% static 'css/style.min.css' %}"
     as="style"
   />
 

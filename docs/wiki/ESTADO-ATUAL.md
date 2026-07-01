@@ -15,19 +15,25 @@ inteira verde: **36 testes**).
 - Correções técnicas: 301 www→raiz + HSTS; canonical tag + title/description por página; sitemap/robots/llms
   (antes 404); imagens `.png`→`.webp` em /about/; 301 de `/contato_logos/`→`/contato/`; `GZipMiddleware`;
   removido fallback de CDN 403 (polyfill) no RudderStack.
-- Follow-ups on-page (esta sessão): JSON-LD `EducationalOrganization`+`BreadcrumbList` por página;
-  `alt` nas imagens de conteúdo dos serviços; conteúdo em `/contato/` (visita + NAP real) e `/integral`;
-  refs `/static/` de JS/CSS migradas para `{% static %}`. Padrões em [[seo-on-page]].
+- Follow-ups on-page: JSON-LD `EducationalOrganization`+`BreadcrumbList` por página; `alt` nas imagens
+  de conteúdo dos serviços; conteúdo em `/contato/` (visita + NAP real) e `/integral`; refs `/static/`
+  de JS/CSS migradas para `{% static %}`. Padrões em [[seo-on-page]].
+- Follow-ups menores: **minificação** dos 5 fontes hand-written (`.min` via comando `seo_minify`,
+  `style.css` 473→381KB, `main.js` −48%); **`manifest.webmanifest`** criado (antes 404); **imagens
+  quebradas** em `medio`/`integral` (`product/40|41|42.jpg`) apontadas para arquivos reais com case exato.
 - Ketch: `boot.js` do slug `centro_educacional_logos` retorna 200 (não era a fonte do 403). Ver
   [[ketch-e-recursos-externos]].
+- Verificação (sem browser): 120 assets em 8 páginas retornam 200; `node --check` + paridade de blocos
+  confirmam que a minificação preservou a semântica. Ver [[static-case-e-templates]].
 - Baseline do audit importado: 150 findings (`import_date=2026-07-01`) no model `AuditFinding`.
 - Segurança: `.gitignore` bloqueia segredos e `*.csv`. Ver decisions/gotchas.
 
 ## Próximos passos (retomar por aqui)
-1. **Deploy + re-crawl**: promover para produção e re-rodar o Site Audit do Semrush; comparar com o
+1. **Verificação visual final**: sem playwright/selenium no ambiente. Rodar `runserver` e conferir a olho
+   (home, contato, serviços) OU instalar playwright p/ screenshots. Integridade de assets + semântica da
+   minificação já validadas automaticamente.
+2. **Deploy + re-crawl**: promover para produção e re-rodar o Site Audit do Semrush; comparar com o
    baseline (`AuditFinding`, `import_date=2026-07-01`) via [[importar-semrush-e-medir]].
-2. **Follow-ups menores da Fase 1**: minificar os fontes não-`.min` (`main.js`, `style.css`) no build;
-   resolver `/static/manifest.webmanifest` (404 — criar o arquivo ou remover a `<link rel=manifest>`).
 3. **Fase 2 — monitoramento Google** (ver [[google-api-auth]]): service account read-only p/ GSC+GA4,
    PageSpeed via API key; serviços em `seo/services/google/`, models de snapshot, commands de pull.
 4. **Fase 3 — loop de memória/auto-aprendizado**: comando `seo_report` comparando snapshots e anexando

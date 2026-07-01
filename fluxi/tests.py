@@ -86,7 +86,7 @@ class StaticFilesTest(TestCase):
     def test_arquivos_estaticos_sao_carregados(self):
         """Verifica se os arquivos estáticos são carregados corretamente."""
         response = self.client.get(reverse("contato"))
-        self.assertContains(response, "style.css")
+        self.assertContains(response, "style.min.css")
         self.assertContains(response, "fa-solid-900.woff2")
 
 

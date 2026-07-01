@@ -19,14 +19,18 @@ Convenções obrigatórias ao criar/editar páginas do site. Todas têm teste em
 ## Imagens
 - Imagem de **conteúdo** → `alt` descritivo em português com palavra-chave (ex.: série + "Logos").
 - Imagem **decorativa** (sob `static/images/**/shape/`) → `alt=""` de propósito (leitor de tela ignora).
-- Arquivos referenciados devem existir em `static/` (o `.webp` da pasta, não `.png`).
-- Testes: `test_alt.py`, `test_images.py`.
+- Arquivos referenciados devem existir em `static/` **com case exato** (o `.webp` da pasta, não `.png`;
+  `.JPG` maiúsculo quando é o caso) — o Cloud Run é case-sensitive. Ver [[static-case-e-templates]].
+- Testes: `test_alt.py`, `test_images.py` (existência case-sensitive).
 
 ## Assets estáticos (CSS/JS)
 - **Sempre** `{% static 'caminho' %}` — nunca `href="/static/..."`/`src="/static/..."` fixo (fura o
   hash/compressão do WhiteNoise). Lembre do `{% load static %}` no topo do partial.
-- Exceção conhecida: `/static/manifest.webmanifest` (arquivo ausente; migrar quebraria o ManifestStorage).
-- Teste: `test_static_refs.py`.
+- **Minificação**: CSS/JS hand-written (não-vendor) usam a variante `.min` gerada por
+  `python manage.py seo_minify` (rcssmin/rjsmin conservadores). Ao editar `style.css`, `main.js`,
+  `metismenu.js/css` ou `magnific-popup.css`, **rode o comando e recommite** o `.min`.
+  Lista de fontes em `seo/management/commands/seo_minify.py::ASSETS`. Vendor já-`.min` fica de fora.
+- Teste: `test_static_refs.py` (sem hardcoded), `test_minify.py` (`.min` existe/menor/referenciado).
 
 ## Conteúdo
 - Evitar páginas com pouco texto ("low word count"). Páginas de serviço têm uma seção
