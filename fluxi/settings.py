@@ -53,6 +53,21 @@ if GCP_SERVICE_URL:
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
 
+# Host canônico (SEO): www.<host> redireciona 301 para este host (ver seo.middleware)
+CANONICAL_HOST = env("CANONICAL_HOST", default="celogos.com.br")
+
+# Segurança / HTTPS. Cloud Run fica atrás de um proxy TLS, por isso o
+# SECURE_PROXY_SSL_HEADER é necessário para o Django reconhecer requisições https.
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+USE_X_FORWARDED_HOST = True
+# Ativados via env em produção (cloudbuild.yaml); ficam desligados em local/testes.
+SECURE_SSL_REDIRECT = env.bool("SECURE_SSL_REDIRECT", default=False)
+SECURE_HSTS_SECONDS = env.int("SECURE_HSTS_SECONDS", default=0)
+SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool(
+    "SECURE_HSTS_INCLUDE_SUBDOMAINS", default=True
+)
+SECURE_HSTS_PRELOAD = env.bool("SECURE_HSTS_PRELOAD", default=True)
+
 # Application definition
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -65,11 +80,15 @@ INSTALLED_APPS = [
     "django.contrib.sitemaps",
     "django.contrib.sites",
     "fluxi",
+    "boleto",
+    "seo",
 ]
 
 MIDDLEWARE = [
+    "seo.middleware.CanonicalHostMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
+    "django.middleware.gzip.GZipMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -92,6 +111,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "seo.context_processors.seo_context",
             ],
         },
     },

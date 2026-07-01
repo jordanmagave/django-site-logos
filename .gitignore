@@ -21,6 +21,18 @@ static/
 *.env
 .tool-versions
 
+# Secrets / credentials (NUNCA versionar)
+client_secret_*.json
+*-sa.json
+*_sa.json
+credentials/
+service-account*.json
+
+# Data exports (Semrush, etc.)
+*.csv
+# ...exceto fixtures de teste versionadas
+!seo/tests/fixtures/*.csv
+
 # Virtual environments
 venv/
 .env/
