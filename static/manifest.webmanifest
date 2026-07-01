@@ -1,0 +1,24 @@
+{
+  "name": "Centro Educacional Logos",
+  "short_name": "Logos",
+  "description": "Escola cristã em Ananindeua, da Educação Infantil ao Ensino Médio.",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#156bdb",
+  "icons": [
+    {
+      "src": "/static/images/logo/logo-horizontal-colorida-azul.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/static/images/fav.png",
+      "sizes": "25x25",
+      "type": "image/png"
+    }
+  ]
+}

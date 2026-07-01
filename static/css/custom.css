@@ -1,0 +1,53 @@
+/* custom.css — sobrescritas de design/SEO do Logos (fora do tema do fornecedor).
+   Carregado DEPOIS de style.min.css em head.html, então vence por ordem de origem.
+   Minificado via `python manage.py seo_minify` (gera custom.min.css). Ver docs/wiki/rules/seo-on-page.md. */
+
+/* -------------------------------------------------------------------------
+   Shapes decorativos do /about
+   O tema define position:absolute mas NÃO define z-index nem width, então as
+   shapes ficavam grandes e sobrepondo o layout. Aqui: menores, atrás do
+   conteúdo (entre o bg e os elementos) e com rotações variadas.
+   z-index:1 no pai cria o contexto de empilhamento p/ o z-index:-1 das shapes.
+   ------------------------------------------------------------------------- */
+.our-service-area.about,
+.rts-team-area.about {
+  z-index: 1;
+}
+
+.our-service-area.about .shape-area img,
+.rts-team-area.about .shape-area img {
+  position: absolute;
+  z-index: -1;
+  height: auto;
+  pointer-events: none;
+}
+
+.our-service-area.about .shape-area img {
+  width: 6%;
+}
+
+.rts-team-area.about .shape-area img {
+  width: 5%;
+}
+
+/* rotações variadas (aleatórias) nas shapes visíveis de cada seção */
+.our-service-area.about .shape-area img.one {
+  transform: rotate(-19deg);
+}
+.our-service-area.about .shape-area img.two {
+  transform: rotate(23deg);
+}
+.rts-team-area.about .shape-area img.one {
+  transform: rotate(13deg);
+}
+.rts-team-area.about .shape-area img.three {
+  transform: rotate(-31deg);
+}
+
+/* Mobile: shapes decorativas somem (declutter, como o tema faz com várias) */
+@media (max-width: 576px) {
+  .our-service-area.about .shape-area img,
+  .rts-team-area.about .shape-area img {
+    display: none;
+  }
+}

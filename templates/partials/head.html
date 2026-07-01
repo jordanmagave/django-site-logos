@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="Centro Educacional Logos: Educação Cristã Integral, líder em Ananindeua. Conheça nossos diferenciais e agende uma visita!"
+    content="{{ seo_description }}"
   />
   <meta
     name="keywords"
@@ -13,34 +13,42 @@
   <meta name="author" content="Centro Educacional Logos" />
   <meta name="robots" content="index, follow" />
 
+  <!-- URL canônica (SEO) -->
+  <link rel="canonical" href="{{ canonical_url }}" />
+
   <!-- Open Graph para Redes Sociais -->
   <meta
     property="og:title"
-    content="Centro Educacional Logos - Educação Cristã Integral"
+    content="{{ seo_og_title }}"
   />
   <meta
     property="og:description"
-    content="Educação Cristã Integral, líder em Ananindeua. Conheça nossos diferenciais e agende uma visita!"
+    content="{{ seo_og_description }}"
   />
-  <meta property="og:image" content="/static/images/logo/logo-1.svg" />
-  <meta property="og:url" content="https://www.celogos.com.br" />
+  <meta property="og:image" content="{{ seo_og_image }}" />
+  <meta property="og:url" content="{{ canonical_url }}" />
   <meta property="og:type" content="website" />
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta
     name="twitter:title"
-    content="Centro Educacional Logos - Educação Cristã Integral"
+    content="{{ seo_og_title }}"
   />
   <meta
     name="twitter:description"
-    content="Educação Cristã Integral, líder em Ananindeua. Conheça nossos diferenciais e agende uma visita!"
+    content="{{ seo_og_description }}"
   />
-  <meta name="twitter:image" content="/static/images/logo/logo-1.svg" />
+  <meta name="twitter:image" content="{{ seo_og_image }}" />
 
   <!-- Favicon e Manifest -->
-  <link rel="shortcut icon" type="image/x-icon" href="/static/images/fav.png" />
-  <link rel="manifest" href="/static/manifest.webmanifest" />
+  <link
+    rel="shortcut icon"
+    type="image/x-icon"
+    href="{% static 'images/fav.png' %}"
+  />
+  <link rel="manifest" href="{% static 'manifest.webmanifest' %}" />
+  <meta name="theme-color" content="#156bdb" />
 
   <!-- Ketch Smart Tag -->
   <script>
@@ -58,23 +66,10 @@
     })();
   </script>
 
-  <!-- Estrutura de Dados JSON-LD -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Centro Educacional Logos",
-      "url": "https://www.celogos.com.br",
-      "logo": "/static/images/logo/logo-1.svg",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+55-91-3013-0198",
-        "contactType": "Customer Service"
-      }
-    }
-  </script>
+  <!-- Estrutura de Dados JSON-LD (EducationalOrganization + BreadcrumbList por página) -->
+  <script type="application/ld+json">{{ seo_jsonld|safe }}</script>
 
-  <title>{% block title %}Centro Educacional Logos{% endblock %}</title>
+  <title>{% block title %}{{ seo_title }}{% endblock %}</title>
 
   <!-- RudderStack Analytics -->
   <script
@@ -183,11 +178,9 @@
                   "32TbozUnb3eqYoOCIZy3PRi3F6R"
                 );
             }),
-            "undefined" == typeof Promise || "undefined" == typeof globalThis
-              ? window.rudderAnalyticsAddScript(
-                  "https://polyfill-fastly.io/v3/polyfill.min.js?version=3.111.0&features=Symbol%2CPromise&callback=rudderAnalyticsMount"
-                )
-              : window.rudderAnalyticsMount();
+            // Fallback de CDN para browsers antigos removido (a CDN externa foi
+            // descontinuada e retornava 403). Navegadores atuais têm Promise/globalThis.
+            window.rudderAnalyticsMount();
           var loadOptions = {};
           rudderanalytics.load(
             "32TbozUnb3eqYoOCIZy3PRi3F6R",
@@ -208,36 +201,42 @@
 
   <!-- swiper css -->
   <link
-    rel="stylesheet preload"
-    href="/static/css/plugins/swiper.min.css"
+    rel="stylesheet"
+    href="{% static 'css/plugins/swiper.min.css' %}"
     as="style"
   />
   <!-- magnific popup css -->
   <link
-    rel="stylesheet preload"
-    href="/static/css/plugins/magnific-popup.css"
+    rel="stylesheet"
+    href="{% static 'css/plugins/magnific-popup.min.css' %}"
     as="style"
   />
   <!-- metismenu css -->
   <link
-    rel="stylesheet preload"
-    href="/static/css/plugins/metismenu.css"
+    rel="stylesheet"
+    href="{% static 'css/plugins/metismenu.min.css' %}"
     as="style"
   />
   <!-- bootstrap css -->
   <link
-    rel="stylesheet preload"
-    href="/static/css/vendor/bootstrap.min.css"
+    rel="stylesheet"
+    href="{% static 'css/vendor/bootstrap.min.css' %}"
     as="style"
   />
   <!-- fontawesome css -->
   <link
-    rel="stylesheet preload"
-    href="/static/css/plugins/fontawesome.min.css"
+    rel="stylesheet"
+    href="{% static 'css/plugins/fontawesome.min.css' %}"
     as="style"
   />
   <!-- Custom css -->
-  <link rel="stylesheet preload" href="/static/css/style.css" as="style" />
+  <link
+    rel="stylesheet"
+    href="{% static 'css/style.min.css' %}"
+    as="style"
+  />
+  <!-- Sobrescritas do Logos (depois do tema) -->
+  <link rel="stylesheet" href="{% static 'css/custom.min.css' %}" />
 
   <!-- Font Awesome Solid -->
   <link
