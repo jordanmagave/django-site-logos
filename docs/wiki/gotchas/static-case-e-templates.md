@@ -19,6 +19,20 @@ O `runserver` estava servindo HTML de template **antigo** mesmo após editar os 
 `cached.Loader` no `TEMPLATES['OPTIONS']['loaders']`. Ao validar mudança de template no dev server,
 **reinicie o processo** (mesmo com `--noreload`), senão você vê conteúdo velho.
 
+## 3. Grid de imagens dos serviços exige proporção certa
+`.thumbnail-image-grid a img { width:100% }` — **sem `object-fit`/altura**, então a imagem renderiza na
+proporção natural. O layout padrão do tema (infantil/fd1/fd2) é **2 quadradas empilhadas (col-lg-6) +
+1 retrato ~1:2 (col-lg-6)**; a coluna única precisa ser retrato pra igualar a altura das duas. Pôr
+quadrada/paisagem na posição única desalinha ("fora do grid"). `medio`/`integral` não têm imagens
+retrato topicais → usam um **grid de 3 quadradas em linha (col-lg-4)**, que também fica alinhado.
+
+## 4. `rel="stylesheet preload"` causa FOUC (shapes "grandes e à frente")
+Os `<link>` de CSS usavam `rel="stylesheet preload" as="style"` (token combinado, não-padrão). Alguns
+browsers tratam como **preload não-bloqueante** → a página pinta **antes** do CSS aplicar, mostrando por
+um instante elementos decorativos (shapes) em tamanho natural e à frente do conteúdo. As shapes de
+serviço são `display:none` no CSS, mas o FOUC as expõe. **Corrigido para `rel="stylesheet"`** (aplica
+imediato, render-blocking). Ver [[seo-on-page]].
+
 ## Verificação de assets (sem browser)
 Sem playwright/selenium no ambiente, valide integridade assim: suba o `runserver`, extraia todos os
 `href`/`src` de `/static/` das páginas e faça `GET` em cada um esperando 200 (pega refs quebradas).
