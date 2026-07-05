@@ -63,7 +63,7 @@ class TrackSession(models.Model):
 
 
 class AuditFinding(models.Model):
-    """Baseline do Site Audit (Semrush): uma linha por URL × issue com contagem.
+    """Baseline do Site Audit (Semrush): uma linha por URL x issue com contagem.
 
     Alimentado pelo comando ``seo_import_semrush``. Serve para medir a evolução do
     audit entre exports (comparar totais por issue entre duas ``import_date``).

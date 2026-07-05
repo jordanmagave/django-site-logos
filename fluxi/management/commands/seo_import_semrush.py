@@ -5,7 +5,7 @@ Uso:
     python manage.py seo_import_semrush "celogos.com.br_mega_export_YYYYMMDD.csv"
 
 A data é extraída do nome do arquivo (``YYYYMMDD``) ou passada com ``--date``.
-Cria uma linha por célula com contagem > 0 (URL × issue). Idempotente
+Cria uma linha por célula com contagem > 0 (URL x issue). Idempotente
 (``update_or_create``): reimportar a mesma data não duplica.
 """
 
@@ -60,7 +60,7 @@ class Command(BaseCommand):
                 page_url = row[0].strip()
                 if not page_url:
                     continue
-                for issue, cell in zip(issues, row[1:]):
+                for issue, cell in zip(issues, row[1:], strict=False):
                     try:
                         count = int((cell or "0").strip() or 0)
                     except ValueError:
@@ -78,7 +78,5 @@ class Command(BaseCommand):
                     updated += not was_created
 
         self.stdout.write(
-            self.style.SUCCESS(
-                f"Audit {import_date}: {created} criados, {updated} atualizados."
-            )
+            self.style.SUCCESS(f"Audit {import_date}: {created} criados, {updated} atualizados.")
         )
