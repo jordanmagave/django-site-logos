@@ -26,8 +26,8 @@ steps:
       - '--region=southamerica-east1'
       - '--platform=managed'
       - '--allow-unauthenticated'
-      - '--set-cloudsql-instances=site-logos-471718:southamerica-east1:django-site-instance'
-      - '--set-env-vars=DEBUG=False,GCP_SERVICE_URL=django-site-logos-640725377905.southamerica-east1.run.app,CLOUD_SQL_CONNECTION_NAME=site-logos-471718:southamerica-east1:django-site-instance'
+      - '--set-cloudsql-instances=site-logos-471718:southamerica-east1:django-site-instance-v2'
+      - '--set-env-vars=DEBUG=False,GCP_SERVICE_URL=django-site-logos-640725377905.southamerica-east1.run.app,CLOUD_SQL_CONNECTION_NAME=site-logos-471718:southamerica-east1:django-site-instance-v2'
       - '--set-secrets=SECRET_KEY=SECRET_KEY:latest,DB_NAME=DB_NAME:latest,DB_USER=DB_USER:latest,DB_PASS=DB_PASS:latest'
 
 options:

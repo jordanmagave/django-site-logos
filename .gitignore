@@ -19,6 +19,16 @@ staticfiles
 *.env
 .tool-versions
 
+# Secrets / credenciais (NUNCA versionar)
+client_secret_*.json
+*-sa.json
+*_service_account*.json
+application_default_credentials.json
+
+# Exports do Semrush (dados, nao versionar)
+*_export_*.csv
+*_mega_export_*.csv
+
 # Virtual environments
 venv/
 .env/

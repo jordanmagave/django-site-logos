@@ -1,0 +1,21 @@
+# Centro Educacional Logos
+
+> Escola cristã em Ananindeua/PA, da Educação Infantil ao Ensino Médio. Formação
+> acadêmica de excelência com valores cristãos. Site institucional e captação de
+> matrículas (agendamento de visita). Host canônico: https://celogos.com.br
+
+## Páginas principais
+- [Início](https://celogos.com.br/): apresentação da escola e agendamento de visita.
+- [Sobre](https://celogos.com.br/about/): história, proposta pedagógica e valores.
+- [Agende uma visita](https://celogos.com.br/contato/): formulário de contato e dados (Passagem Miranda, 300 — Coqueiro, Ananindeua/PA; WhatsApp +55 91 3013-0198).
+
+## Serviços educacionais
+- [Educação Infantil](https://celogos.com.br/servicos-educacionais/educacao-infantil)
+- [Ensino Fundamental 1](https://celogos.com.br/servicos-educacionais/ensino-fundamental-1)
+- [Ensino Fundamental 2](https://celogos.com.br/servicos-educacionais/ensino-fundamental-2)
+- [Ensino Médio](https://celogos.com.br/servicos-educacionais/ensino-medio)
+- [Ensino Integral](https://celogos.com.br/servicos-educacionais/integral)
+
+## Recursos
+- [Blog](https://celogos.com.br/blog/)
+- [Sitemap](https://celogos.com.br/sitemap.xml)

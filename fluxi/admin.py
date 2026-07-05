@@ -1,5 +1,15 @@
 from django.contrib import admin
-from .models import Contato
+from .models import Contato, AuditFinding
+
+
+@admin.register(AuditFinding)
+class AuditFindingAdmin(admin.ModelAdmin):
+    """Findings do Site Audit (Semrush) para medir evolução entre exports."""
+
+    list_display = ("import_date", "issue", "count", "page_url", "source")
+    list_filter = ("import_date", "issue", "source")
+    search_fields = ("page_url", "issue")
+    date_hierarchy = "import_date"
 
 
 @admin.register(Contato)

@@ -36,7 +36,7 @@
   <meta name="keywords" content="{{ page_keywords|default:"Centro Educacional Logos, Educação Cristã, Escola em Ananindeua, Ensino Fundamental, Ensino Médio" }}" />
   <meta name="author" content="Centro Educacional Logos" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="{% block head_canonical %}{{ page_canonical|default:"https://www.celogos.com.br" }}{% endblock %}" />
+  <link rel="canonical" href="{% block head_canonical %}{{ page_canonical|default:"https://celogos.com.br" }}{% endblock %}" />
 
   <!-- Open Graph para Redes Sociais -->
   <meta
@@ -48,7 +48,7 @@
     content="Educação Cristã Integral, líder em Ananindeua. Conheça nossos diferenciais e agende uma visita!"
   />
   <meta property="og:image" content="{% static 'images/logo/logo-1.svg' %}" />
-  <meta property="og:url" content="https://www.celogos.com.br" />
+  <meta property="og:url" content="https://celogos.com.br" />
   <meta property="og:type" content="website" />
 
   <!-- Twitter Cards -->
@@ -98,7 +98,7 @@
       "@context": "https://schema.org",
       "@type": "EducationalOrganization",
       "name": "Centro Educacional Logos",
-      "url": "https://www.celogos.com.br",
+      "url": "https://celogos.com.br",
       "logo": "{% static 'images/logo/logo-1.svg' %}",
       "contactPoint": {
         "@type": "ContactPoint",
@@ -119,7 +119,7 @@
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://www.celogos.com.br"
+          "item": "https://celogos.com.br"
         }{% if breadcrumb_items %}{% for item in breadcrumb_items %},
         {
           "@type": "ListItem",

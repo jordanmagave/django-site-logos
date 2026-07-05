@@ -60,3 +60,26 @@ class TrackSession(models.Model):
 
     def __str__(self):
         return self.session_id
+
+
+class AuditFinding(models.Model):
+    """Baseline do Site Audit (Semrush): uma linha por URL × issue com contagem.
+
+    Alimentado pelo comando ``seo_import_semrush``. Serve para medir a evolução do
+    audit entre exports (comparar totais por issue entre duas ``import_date``).
+    """
+
+    source = models.CharField(max_length=50, default="semrush")
+    import_date = models.DateField(db_index=True)
+    page_url = models.CharField(max_length=1000)
+    issue = models.CharField(max_length=255)
+    count = models.IntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ["source", "import_date", "page_url", "issue"]
+        ordering = ["-import_date", "page_url"]
+        indexes = [models.Index(fields=["issue"])]
+
+    def __str__(self):
+        return f"{self.import_date} {self.issue} ({self.count})"
