@@ -7,7 +7,7 @@ from django.http import HttpResponsePermanentRedirect
 class CanonicalHostMiddleware:
     """301 de ``www.<host>`` para o host canônico (sem www), preservando path/query.
 
-    Evita duplicação de conteúdo www×não-www no audit de SEO. O host canônico vem
+    Evita duplicação de conteúdo www x não-www no audit de SEO. O host canônico vem
     de ``settings.CANONICAL_HOST``.
     """
 
