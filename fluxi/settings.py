@@ -77,6 +77,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "django.middleware.gzip.GZipMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "fluxi.middleware.CanonicalHostMiddleware",
@@ -192,6 +193,14 @@ DEFAULT_CHARSET = "utf-8"
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 X_FRAME_OPTIONS = "DENY"
+
+# HTTPS: redirect http→https e HSTS. Default off para não quebrar CI/local (que
+# rodam sob http); produção liga via env no cloudbuild.yaml. O proxy do Cloud Run
+# termina o TLS — SECURE_PROXY_SSL_HEADER já está definido acima.
+SECURE_SSL_REDIRECT = env.bool("SECURE_SSL_REDIRECT", default=False)
+SECURE_HSTS_SECONDS = env.int("SECURE_HSTS_SECONDS", default=0)
+SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool("SECURE_HSTS_INCLUDE_SUBDOMAINS", default=True)
+SECURE_HSTS_PRELOAD = env.bool("SECURE_HSTS_PRELOAD", default=True)
 
 # Logging para Cloud Run
 LOGGING = {

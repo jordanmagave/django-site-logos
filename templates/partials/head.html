@@ -38,29 +38,17 @@
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="{% block head_canonical %}{{ page_canonical|default:"https://celogos.com.br" }}{% endblock %}" />
 
-  <!-- Open Graph para Redes Sociais -->
-  <meta
-    property="og:title"
-    content="Centro Educacional Logos - Educação Cristã Integral"
-  />
-  <meta
-    property="og:description"
-    content="Educação Cristã Integral, líder em Ananindeua. Conheça nossos diferenciais e agende uma visita!"
-  />
+  <!-- Open Graph para Redes Sociais (por página) -->
+  <meta property="og:title" content="{{ page_title|default:"Centro Educacional Logos - Educação Cristã Integral" }}" />
+  <meta property="og:description" content="{{ page_description|default:"Centro Educacional Logos: Educação Cristã Integral, líder em Ananindeua. Conheça nossos diferenciais e agende uma visita!" }}" />
   <meta property="og:image" content="{% static 'images/logo/logo-1.svg' %}" />
-  <meta property="og:url" content="https://celogos.com.br" />
+  <meta property="og:url" content="{{ page_canonical|default:"https://celogos.com.br" }}" />
   <meta property="og:type" content="website" />
 
-  <!-- Twitter Cards -->
+  <!-- Twitter Cards (por página) -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta
-    name="twitter:title"
-    content="Centro Educacional Logos - Educação Cristã Integral"
-  />
-  <meta
-    name="twitter:description"
-    content="Educação Cristã Integral, líder em Ananindeua. Conheça nossos diferenciais e agende uma visita!"
-  />
+  <meta name="twitter:title" content="{{ page_title|default:"Centro Educacional Logos - Educação Cristã Integral" }}" />
+  <meta name="twitter:description" content="{{ page_description|default:"Centro Educacional Logos: Educação Cristã Integral, líder em Ananindeua. Conheça nossos diferenciais e agende uma visita!" }}" />
   <meta name="twitter:image" content="{% static 'images/logo/logo-1.svg' %}" />
 
   <!-- Favicon e Manifest -->
